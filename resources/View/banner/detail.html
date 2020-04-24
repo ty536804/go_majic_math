@@ -1,0 +1,109 @@
+{{define "banner/detail.html"}}
+{{template "header"}}
+    <style>
+        .layui-card:last-child {
+            padding: 20px 20px 10px 10px;
+        }
+        .layui-upload-img {
+            width: 92px;
+            height: 92px;
+            margin: 0 10px 10px 0;
+        }
+        #bposition{
+            display: block;
+        }
+        .layui-form input[type=checkbox], .layui-form input[type=radio], .layui-form select {
+            display: block;
+            float: left;
+        }
+        .spanL{
+            float: left;
+            display: inline-block;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        #demo1{
+            display: none;
+        }
+    </style>
+<body>
+<div class="x-nav">
+    <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">Banner管理</a>
+        <a><cite>Banner详情</cite></a>
+    </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+        <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+    </a>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+                <div class="layui-card">
+                    <form class="layui-form" id="add_form" action="">
+                        <input type="hidden" id="id" name="id" value="{{.id}}">
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">标题</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="bname" placeholder="请输入标题" id="bname" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">链接</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="target_link"  placeholder="#" id="target_link" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">显示位置</label>
+                            <div class="layui-input-block plist">
+                                <select class="col-sm-12 form-control" id="bposition" name="bposition">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">上传图片</label>
+                            <div class="layui-input-block">
+                                <div class="layui-upload">
+                                    <input type="hidden" id="imgurl" name="imgurl" value="">
+                                    <button type="button" class="layui-btn" id="test1">上传图片</button>
+                                    <div class="layui-upload-list">
+                                        <img class="layui-upload-img" id="demo1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">备注</label>
+                            <div class="layui-input-block">
+                                <textarea placeholder="请输入内容" id="info" name="info" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item" pane="">
+                            <label class="layui-form-label">状态：</label>
+                            <div class="layui-input-block">
+                                <span class="spanL">
+                                    <input type="radio" name="is_show" id="is_show" value="1" checked="">正常
+                                </span>
+                                <span class="spanL">
+                                    <input type="radio" name="is_show" id="is_show" value="2" >禁止
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn subCon">立即提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+<script src="/static/js/bannerDetail.js"></script>
+</body>
+</html>
+{{end}}

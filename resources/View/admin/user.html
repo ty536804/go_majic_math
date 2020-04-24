@@ -1,0 +1,276 @@
+{{define "admin/user.html"}}
+    {{template "header"}}
+    <style>
+        .page span,a.prev{
+            cursor: pointer;
+        }
+    </style>
+    <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">基础设置</a>
+        <a>
+          <cite>用户列表</cite></a>
+      </span>
+        <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+    </div>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header">
+                        <button class="layui-btn"  id="btn" data-toggle="modal" data-target="#myModal2">
+                        <i class="layui-icon"></i>添加</button>
+                    </div>
+                    <div class="layui-card-body ">
+                        <table class="layui-table layui-form">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>用户名</th>
+                                <th>昵称</th>
+                                <th>手机</th>
+                                <th>邮箱</th>
+                                <th>状态</th>
+                                <th>操作</th></tr>
+                            </thead>
+                            <tbody class="tbody">
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--分页-->
+                    <input type="hidden" id="PageCount" value="0">
+                    <div id="example" style="text-align: center"> <ul id="pageLimit"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">用户管理</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal m-t" id="addform">
+                        <div class="form-group">
+                            <input id="id" name="id" type="hidden" value="">
+                            <label class="col-sm-3 control-label">用户名称：</label>
+                            <div class="col-sm-8">
+                                <input id="nick_name" name="nick_name"  type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">登陆账号：</label>
+                            <div class="col-sm-8">
+                                <input id="login_name" name="login_name" type="text" class="form-control" value="">
+                            </div>
+                        </div>
+{{/*                        <div class="form-group">*/}}
+{{/*                            <label class="col-sm-3 control-label">部门：</label>*/}}
+{{/*                            <div class="col-sm-8">*/}}
+{{/*                                <select class="form-control" name="department_id" id="department_id">*/}}
+{{/*                                    */}}
+{{/*                                </select>*/}}
+{{/*                            </div>*/}}
+{{/*                        </div>*/}}
+                        <input type="hidden" value="1" name="department_id" id="department_id">
+{{/*                        <div class="form-group">*/}}
+{{/*                            <label class="col-sm-3 control-label">职位：</label>*/}}
+{{/*                            <div class="col-sm-8">*/}}
+{{/*                                <select class="form-control" name="position_id" id="position_id">*/}}
+{{/*                                   */}}
+{{/*                                </select>*/}}
+{{/*                            </div>*/}}
+{{/*                        </div>*/}}
+                        <input type="hidden" value="1" name="position_id" id="position_id">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">邮箱：</label>
+                            <div class="col-sm-8">
+                                <input id="email" name="email" type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">密码：</label>
+                            <div class="col-sm-8">
+                                <input id="pwd" name="pwd" type="text" class="form-control" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">电话：</label>
+                            <div class="col-sm-8">
+                                <input id="tel" name="tel" type="text" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="city_id" name="city_id" value="10000">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">状态：</label>
+                            <div class="radio i-checks">
+                                <label>
+                                    <input type="radio" value="1" checked name="status" id="status"> <i></i> 正常</label>
+                                <label>
+                                    <input type="radio" value="2" name="status" id="status"><i></i> 禁用</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" id="addpower" name="addpower">提交</button>
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript">
+        $("#addpower").on("click", function () {
+            if ($("#addform #nick_name").val() == "") {
+                sweetAlert("登录失败","用户不能为空",'error');
+                return false;
+            }
+            if ($("#addform #login_name").val() == "") {
+                sweetAlert("登录失败","登陆账号不能为空",'error');
+                return false;
+            }
+            if ($("#addform #email").val() == "") {
+                sweetAlert("登录失败","邮箱不能为空",'error');
+                return false;
+            }
+
+            if ($("#addform #id").val()=="" && $("#addform #pwd").val() == "") {
+                sweetAlert("登录失败","密码不能为空",'error');
+                return false;
+            }
+
+            if ($("#addform #tel").val() == "") {
+                sweetAlert("登录失败","电话不能为空",'error');
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/api/v1/AddUser",
+                data: $("#addform").serialize(),
+                success: function (result) {
+                    if (Number(result.code) == 200) {
+                        swal({title:"操作成功",type: 'success'},
+                            function () {
+                                initInput()
+                                pageList(1,result.data.count)
+                                $("#myModal2").modal('hide');
+                                window.location.reload();
+                            });
+                    } else {
+                        sweetAlert("操作失败",result.msg,'error');
+                    }
+                },
+                error: function (result) {
+                    $.each(result.responseJSON.errors, function (k, val) {
+                        sweetAlert("操作失败",val[0],'error');
+                        return false;
+                    });
+                }
+            });
+            return false;
+        })
+        getResult()
+        function getResult() {
+            getAjax(1)
+            initInput()
+        }
+        //请求数据
+        function getAjax(page)
+        {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "/api/v1/userData",
+                data: {"page":page,"token":$.cookie('token')},
+                success: function (result) {
+                    let _html= "";
+                    if (Number(result.code) == 200) {
+                        $.each(result.data.list,function (k,v) {
+                            _html += "<tr><td>"+v.id+"</td><td>"+v.login_name+"</td><td>"+v.nick_name+"</td><td>"+v.tel+"</td><td>"+v.email+"</td>"
+                            _html += "<td>"+(Number(v.statues)==1 ? '启用' : '禁用')+"</td>"
+                            _html += '<td class="td-manage">' +
+                                '<a title="编辑" onclick="member_restore('+v.id+')" href="javascript:;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>\n' +
+                                '</td></tr>';
+                        })
+                        pageList(page,result.data.count)
+                    } else {
+                        _html = "<tr><td colspan='9' class='text-center'>暂无内容</td></tr>"
+                    }
+                    $(".tbody").empty().append(_html)
+                }
+            });
+        }
+
+        //查看当个用户信息
+        function member_restore(id) {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/api/v1/GetUser",
+                data: {"id":id},
+                success: function (result) {
+                    if (Number(result.code) == 200) {
+                        console.log(result.code)
+                        $("#addform #id").val(result.data.id)
+                        $("#addform #nick_name").val(result.data.nick_name)
+                        $("#addform #login_name").val(result.data.login_name)
+                        $("#addform #email").val(result.data.email)
+                        $("#addform #pwd").val("")
+                        $("#addform #tel").val(result.data.tel)
+                        if (Number(result.data.statues) ==1) {
+                            $('input[type="radio"]:eq(0)').prop("checked",true);
+                        } else {
+                            $('input[type="radio"]:eq(1)').prop("checked",true);
+                        }
+                        $("#myModal2").modal("show");
+                    } else {
+                        initInput()
+                    }
+                }
+            });
+        }
+
+        //初始化提交表单
+        function initInput() {
+            $("#addform input[type='text']").val("")
+            $("#addform #city_id").val(10000)
+            $("#addform #position_id").val(1)
+            $("#addform #department_id").val(1)
+            $('input[type="radio"]:eq(0)').prop("checked",true);
+        }
+        //分页
+        function pageList(page,PageCount) {
+            $('#pageLimit').bootstrapPaginator({
+                currentPage: page,//当前页。
+                totalPages: PageCount,//总页数。
+                size:"normal",//应该是页眉的大小。
+                bootstrapMajorVersion: 3,//bootstrap的版本要求。
+                alignment:"right",
+                numberOfPages:5,//显示的页数
+                itemTexts: function (type, page, current) {//如下的代码是将页眉显示的中文显示我们自定义的中文。
+                    switch (type) {
+                        case "first": return "首页";
+                        case "prev": return "上一页";
+                        case "next": return "下一页";
+                        case "last": return "末页";
+                        case "page": return page;
+                    }
+                },
+                onPageClicked: function (event, originalEvent, type, page) {//给每个页眉绑定一个事件，其实就是ajax请求，其中page变量为当前点击的页上的数字。
+                   getAjax(page)
+                }
+            });
+        }
+    </script>
+    </body>
+
+    </html>
+{{end}}
