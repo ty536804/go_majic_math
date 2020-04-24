@@ -189,7 +189,7 @@
                 type: "GET",
                 dataType: "json",
                 url: "/api/v1/userData",
-                data: {"page":page,"token":$.cookie('token')},
+                data: {"page":page},
                 success: function (result) {
                     let _html= "";
                     if (Number(result.code) == 200) {
