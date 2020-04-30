@@ -4,21 +4,27 @@
     <!-- 顶部开始 -->
     <div class="container">
         <div class="logo">
-            <a href="/show">{{.title}}</a></div>
+            <a href="/api/v1/show">{{.title}}</a></div>
         <div class="left_open">
             <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
         </div>
         <ul class="layui-nav right" lay-filter="">
             <li class="layui-nav-item">
-                <a href="javascript:;">admin</a>
+                <a href="javascript:;">{{.admin.NickName}}</a>
                 <dl class="layui-nav-child">
                     <!-- 二级菜单 -->
                     <dd>
-                        <a onclick="xadmin.open('个人信息','')">个人信息</a></dd>
+                        <a  href="#" data-toggle="modal" data-target="#myModal">个人信息</a>
+                    </dd>
                     <dd>
-                        <a href="/api/v1/logout">退出</a></dd>
+                        <a  href="#" data-toggle="modal" data-target="#changePwd">修改密码</a>
+                    </dd>
+                    <dd>
+                        <a href="/api/v1/logout">退出</a>
+                    </dd>
                 </dl>
             </li>
+
             <li class="layui-nav-item to-index">
                 <a href="/">前台首页</a></li>
         </ul>
@@ -45,7 +51,7 @@
             </div>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-                    <iframe src='/api/v1/welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                    <iframe src='{{.target_url}}' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
                 </div>
             </div>
             <div id="tab_show"></div>
@@ -55,6 +61,148 @@
     <style id="theme_style"></style>
     <!-- 右侧主体结束 -->
     <!-- 中部结束 -->
+{{/*    修改信息弹框*/}}
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">修改信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal m-t" id="commentForm">
+                        <input id="act" type="hidden" name="act" value="user">
+                        <input id="id" type="hidden" class="form-control" name="id" value="{{.admin.ID}}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">用户名：</label>
+                            <div class="col-sm-8">
+                                <input id="login_name" disabled name="login_name" minlength="2" type="text" class="form-control"  value="{{.admin.LoginName}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">E-mail：</label>
+                            <div class="col-sm-8">
+                                <input id="email" type="email" class="form-control" name="email" value="{{.admin.Email}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">电话：</label>
+                            <div class="col-sm-8">
+                                <input id="tel" type="text" class="form-control" name="tel" value="{{.admin.Tel}}">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-primary update_info" type="submit">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/*    修改密码*/}}
+    <div class="modal fade" id="changePwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal m-t" id="update_pwd">
+                        <input id="act" type="hidden" name="act" value="update">
+                        <input id="id" type="hidden" class="form-control" name="id" value="{{.admin.ID}}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">用户名：</label>
+                            <div class="col-sm-8">
+                                <input id="login_name" disabled name="login_name" minlength="2" type="text" class="form-control"  value="{{.admin.LoginName}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">原始密码：</label>
+                            <div class="col-sm-8">
+                                <input id="pwd" type="password" class="form-control" name="pwd" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">新密码：</label>
+                            <div class="col-sm-8">
+                                <input id="newpwd" type="password" class="form-control" name="newpwd" value="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button class="btn btn-primary head_sub" type="submit">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.update_info').on("click", function () {
+            if ($("#update_pwd #nick_name").val() == "") {
+                sweetAlert("登录失败","用户不能为空",'error');
+                return false;
+            }
+
+            if ($("#update_pwd #email").val() == "") {
+                sweetAlert("登录失败","邮箱不能为空",'error');
+                return false;
+            }
+
+            if ($("#update_pwd #tel").val() == "") {
+                sweetAlert("登录失败","电话不能为空",'error');
+                return false;
+            }
+            PostData($("#commentForm").serialize())
+            return false;
+        })
+
+        $('.head_sub').on("click", function () {
+            if ($("#update_pwd #pwd").val() == "") {
+                sweetAlert("登录失败","原始密码不能为空",'error');
+                return false;
+            }
+
+            if ($("#update_pwd #newpwd").val() == "") {
+                sweetAlert("登录失败","新密码不能为空",'error');
+                return false;
+            }
+
+            if ($("#update_pwd #newpwd").val().length < 6) {
+                sweetAlert("登录失败","新密码长度不能小于6位",'error');
+                return false;
+            }
+            PostData($("#update_pwd").serialize())
+            return false;
+        })
+
+        function PostData(data) {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/api/v1/editUser",
+                data: data,
+                success: function (result) {
+                    if (Number(result.code) == 200) {
+                        swal({title:"操作成功",type: 'success'},
+                            function () {
+                                window.location.reload();
+                            });
+                    } else {
+                        sweetAlert("操作失败",result.msg,'error');
+                    }
+                },
+                error: function (result) {
+                    $.each(result.responseJSON.errors, function (k, val) {
+                        sweetAlert("操作失败",val[0],'error');
+                        return false;
+                    });
+                }
+            });
+        }
+    </script>
     </body>
     </html>
 {{end}}

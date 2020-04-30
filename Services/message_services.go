@@ -1,15 +1,43 @@
 package Services
 
 import (
-	"elearn100/Database"
 	"elearn100/Model/Message"
-	"elearn100/pkg/setting"
+	"elearn100/pkg/e"
+	"fmt"
+	"github.com/astaxie/beego/validation"
+	"github.com/gin-gonic/gin"
+	"github.com/unknwon/com"
 )
 
-var m Message.Message
-
-func List(page int,maps ...interface{}) (message []Message.Message)  {
-	offset := (page-1)*setting.PageSize
-	Database.Db.Where(maps).Offset(offset).Limit(setting.PageSize).Find(&m)
+// @Summer留言列表
+func GetMessages(page int) (message []Message.Message) {
+	Message.GetMessages(page)
 	return
+}
+
+// @Summer提交留言
+func AddMessage(c *gin.Context) (code int, msg string) {
+	var data = make(map[string]interface{})
+	if err := c.Bind(&c.Request.Body); err != nil {
+		fmt.Println(err)
+		return e.ERROR, "操作失败"
+	}
+
+	mname := com.StrTo(c.PostForm("mname")).String()
+	area := com.StrTo(c.PostForm("area")).String()
+	tel := com.StrTo(c.PostForm("tel")).String()
+	valid := validation.Validation{}
+	valid.Required(mname, "mname").Message("姓名不能为空")
+	valid.Required(area, "area").Message("地区不能为空")
+	valid.Required(tel, "tel").Message("选择是否展示")
+	if !valid.HasErrors() {
+		data["mname"] = mname
+		data["area"] = area
+		data["tel"] = tel
+		if Message.AddMessage(data) {
+			return e.SUCCESS, "提交成功"
+		}
+		return e.ERROR, "提交失败"
+	}
+	return ViewErr(valid)
 }

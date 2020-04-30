@@ -1,8 +1,10 @@
 package jwt
 
 import (
+	"elearn100/Services"
 	"elearn100/pkg/e"
 	"elearn100/pkg/util"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
@@ -13,9 +15,11 @@ func JWT() gin.HandlerFunc {
 		var code int
 
 		code = e.SUCCESS
-		isOk, token:= e.GetVal("token")
+		isOk, token := e.GetVal("token")
+		uuid, uOk := c.Request.Cookie("uuid")
 
-		if !isOk {
+		if uOk != nil || !isOk || len(uuid.Value) == 0 {
+			Services.LogOut(c)
 			code = e.INVALID_PARAMS
 		} else {
 			claims, err := util.ParseToken(token)
@@ -27,7 +31,7 @@ func JWT() gin.HandlerFunc {
 		}
 
 		if code != e.SUCCESS {
-			//e.Error(c,e.GetMsg(code),data)
+			fmt.Println("uuid:,token:", uuid, token)
 			c.Redirect(http.StatusMovedPermanently, "/admin")
 			c.Abort()
 			return

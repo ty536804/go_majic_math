@@ -10,8 +10,8 @@ import (
 
 // @Summer列表
 func List(c *gin.Context) {
-	c.HTML(e.SUCCESS,"banner/list.html",gin.H{
-		"title":"banner列表",
+	c.HTML(e.SUCCESS, "banner/list.html", gin.H{
+		"title": "banner列表",
 	})
 }
 
@@ -22,17 +22,15 @@ func GetBanners(c *gin.Context) {
 	data["count"] = e.GetPageNum(Banner.GetBannerTotal())
 	data["list"] = Banner.GetBanners(page)
 
-	c.JSON(e.SUCCESS,gin.H{
-		"code":e.SUCCESS,
-		"data":data,
-	})
+	e.Success(c, "获取banner列表", data)
 }
+
 // @Summer 详情
-func Detail(c *gin.Context)  {
+func Detail(c *gin.Context) {
 	id := com.StrTo(c.Query("id")).MustInt()
-	c.HTML(e.SUCCESS,"banner/detail.html",gin.H{
-		"title":"banner详情",
-		"id":id,
+	c.HTML(e.SUCCESS, "banner/detail.html", gin.H{
+		"title": "banner详情",
+		"id":    id,
 	})
 }
 
@@ -41,14 +39,11 @@ func GetBanner(c *gin.Context) {
 	var data = make(map[string]interface{})
 	data["list"] = Services.GetNavs(data)
 	data["detail"] = Banner.GetBanner(id)
-	e.Success(c,"获取banner详情",data)
+	e.Success(c, "获取banner详情", data)
 }
 
 // @Summer banner保存
-func AddBanner(c *gin.Context)  {
-	code, err :=Services.AddBanner(c)
-	c.JSON(e.SUCCESS,gin.H{
-		"code":code,
-		"msg":err,
-	})
+func AddBanner(c *gin.Context) {
+	code, msg := Services.AddBanner(c)
+	e.SendRes(c, code, msg, "")
 }

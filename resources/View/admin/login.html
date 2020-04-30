@@ -58,7 +58,7 @@
                 success: function (result) {
                     console.log(result.msg)
                     if (Number(result.code) == 200) {
-                        window.location.href = "/show";
+                        window.location.href = "/api/v1/show";
                     } else {
                         sweetAlert("登录失败",result.msg,'error');
                     }
