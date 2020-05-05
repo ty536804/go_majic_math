@@ -3,15 +3,15 @@ package Commands
 import (
 	"elearn100/Database"
 	"elearn100/Model/Admin"
-	"elearn100/Model/Banner"
 	"elearn100/Model/Article"
+	"elearn100/Model/Banner"
 	"elearn100/Model/Message"
 	"elearn100/Model/Nav"
 	"elearn100/Model/Site"
 	"fmt"
 )
 
-func init()  {
+func init() {
 	fmt.Println("生成数据库文件")
 	InitAdminDatabase()
 }
@@ -29,7 +29,7 @@ func InitAdminDatabase() {
 	Database.Db.AutoMigrate(&Site.Site{})
 }
 
-func DropDatabase()  {
+func DropDatabase() {
 	if !Database.Db.HasTable(&Admin.SysAdminUser{}) {
 		Database.Db.DropTable(&Admin.SysAdminUser{})
 	}

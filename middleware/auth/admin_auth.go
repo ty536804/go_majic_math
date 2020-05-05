@@ -25,7 +25,7 @@ func AdminAuth() gin.HandlerFunc {
 			}
 		}
 		if code != e.SUCCESS {
-			e.Error(c,e.GetMsg(code),data)
+			e.Error(c, e.GetMsg(code), data)
 			c.Abort()
 			return
 		}
