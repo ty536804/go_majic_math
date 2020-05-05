@@ -13,22 +13,22 @@ import (
 type SysAdminUser struct {
 	db.Model
 
-	LoginName string `json:"login_name" gorm:"type:varchar(100);not null;unique;comment:'账号'" binding:"required"`
-	NickName string `json:"nick_name" gorm:"type:varchar(100);not null;default'';comment:'昵称'"`
-	Email string `json:"email" gorm:"type:varchar(100);not null;default '';comment:'邮箱'"`
-	Tel string 	`json:"tel" gorm:"type:char(20);not null;default '';comment:'电话'"`
-	Pwd string `json:"pwd" gorm:"type:char(32);not null;default '';unique;comment:'密码'" binding:"required"`
-	Avatar string `json:"avatar" gorm:"type:varchar(100);comment:'头像'"`
-	DepartmentId int64 `json:"department_id" gorm:"not null;default '';comment:'部门'"`
-	PositionId string `json:"position_id" gorm:"comments:'职位 角色'" binding:"required"`
-	CityId string`json:"city_id" gorm:"type:text;comments:'城市ID'"`
-	Statues int64 `json:"statues" gorm:"not null;default:'0';comment:'状态 1显示'" binding:"required"`
-	projectId int64 `json:"project_id" gorm:"not null;default:'0';comment:'归属项目 0系统'"`
+	LoginName    string `json:"login_name" gorm:"type:varchar(100);not null;unique;comment:'账号'" binding:"required"`
+	NickName     string `json:"nick_name" gorm:"type:varchar(100);not null;default'';comment:'昵称'"`
+	Email        string `json:"email" gorm:"type:varchar(100);not null;default '';comment:'邮箱'"`
+	Tel          string `json:"tel" gorm:"type:char(20);not null;default '';comment:'电话'"`
+	Pwd          string `json:"pwd" gorm:"type:char(32);not null;default '';unique;comment:'密码'" binding:"required"`
+	Avatar       string `json:"avatar" gorm:"type:varchar(100);comment:'头像'"`
+	DepartmentId int64  `json:"department_id" gorm:"not null;default '';comment:'部门'"`
+	PositionId   string `json:"position_id" gorm:"comments:'职位 角色'" binding:"required"`
+	CityId       string `json:"city_id" gorm:"type:text;comments:'城市ID'"`
+	Statues      int64  `json:"statues" gorm:"not null;default:'0';comment:'状态 1显示'" binding:"required"`
+	projectId    int64  `json:"project_id" gorm:"not null;default:'0';comment:'归属项目 0系统'"`
 }
 
 // @Summary 通过用户ID判断用户是否存在
 // @param id int64 管理员ID
-func Find (id int64) (admins SysAdminUser) {
+func Find(id int64) (admins SysAdminUser) {
 	db.Db.Where("id = ?", id).Find(&admins)
 	return
 }
@@ -36,17 +36,17 @@ func Find (id int64) (admins SysAdminUser) {
 // @Summary 获取用户信息
 // @param loginName string 用户名
 // @param pwd string 密码
-func GetUserInfo (loginName,pwd string) (err error,uuid int) {
+func GetUserInfo(loginName, pwd string) (err error, uuid int) {
 	admin := SysAdminUser{}
-	userInfo :=db.Db.Where("login_name = ?",loginName).First(&admin)
-	if err := userInfo.Error;err!=nil {
-		return errors.New("用户不存在"),0
+	userInfo := db.Db.Where("login_name = ?", loginName).First(&admin)
+	if err := userInfo.Error; err != nil {
+		return errors.New("用户不存在"), 0
 	}
 
 	if admin.Pwd != Md5Pwd(pwd) {
-		return errors.New("密码不正确"),0
+		return errors.New("密码不正确"), 0
 	}
-	return nil,admin.ID
+	return nil, admin.ID
 }
 
 // @Summary md5加密 16进制32位
@@ -59,9 +59,9 @@ func Md5Pwd(data string) string {
 
 // @Summer 用户列表
 func Users(page int) (users []SysAdminUser) {
-	offset :=0
-	if page >=1 {
-		offset = (page-1)*setting.PageSize
+	offset := 0
+	if page >= 1 {
+		offset = (page - 1) * setting.PageSize
 	}
 	db.Db.Offset(offset).Limit(setting.PageSize).Find(&users)
 	return
@@ -76,7 +76,7 @@ func GetUserTotal() (count int) {
 // @Summer 判断当前账号是否已经注册
 func ExistsByLoginName(loginName string) bool {
 	var user SysAdminUser
-	db.Db.Select("id").Where("login_name = ?",loginName).First(&user)
+	db.Db.Select("id").Where("login_name = ?", loginName).First(&user)
 	if user.ID > 0 {
 		return true
 	}
@@ -86,41 +86,40 @@ func ExistsByLoginName(loginName string) bool {
 // @Summer 判断当前手机号码是否已注册
 func ExistsByTel(tel string) bool {
 	var user SysAdminUser
-	db.Db.Select("id").Where("tel = ?",tel).First(&user)
+	db.Db.Select("id").Where("tel = ?", tel).First(&user)
 	if user.ID > 0 {
-		return  true
+		return true
 	}
 	return false
 }
 
 // @Summer 添加用户
-func AddUser(data map[string]interface{}) bool  {
+func AddUser(data map[string]interface{}) bool {
 	err := db.Db.Create(&SysAdminUser{
-		LoginName: data["login_name"].(string),
-		NickName:data["nick_name"].(string),
-		Email:data["email"].(string),
-		Tel:data["tel"].(string),
-		Pwd:data["pwd"].(string),
-		DepartmentId:1,
-		PositionId:"1",
-		Avatar:"#",
-		CityId:"10000",
-		Statues:data["statues"].(int64),
+		LoginName:    data["login_name"].(string),
+		NickName:     data["nick_name"].(string),
+		Email:        data["email"].(string),
+		Tel:          data["tel"].(string),
+		Pwd:          data["pwd"].(string),
+		DepartmentId: 1,
+		PositionId:   "1",
+		Avatar:       "#",
+		CityId:       "10000",
+		Statues:      data["statues"].(int64),
 	})
 	if err.Error != nil {
-		log.Printf("添加用户失败,%v",err)
-		return  false
+		log.Printf("添加用户失败,%v", err)
+		return false
 	}
 	return true
 }
 
 // @Summer 编辑用户
-func EditUser(id int64,data interface{}) bool {
-	err := db.Db.Model(&SysAdminUser{}).Where("id = ?",id).Update(data)
+func EditUser(id int64, data interface{}) bool {
+	err := db.Db.Model(&SysAdminUser{}).Where("id = ?", id).Update(data)
 	if err.Error != nil {
-		log.Printf("编辑用户失败,%v",err)
-		return  false
+		log.Printf("编辑用户失败,%v", err)
+		return false
 	}
 	return true
 }
-

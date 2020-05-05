@@ -20,7 +20,7 @@ func main() {
 	}
 
 	go func() {
-		// 服务连接 aaaaa
+		// 服务连接
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("listen: %s\n", err)
 		}

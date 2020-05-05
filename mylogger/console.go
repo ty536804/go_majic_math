@@ -6,6 +6,7 @@ import (
 	"strings"
 	"time"
 )
+
 //日志级别
 type LogLevel uint16
 
@@ -18,59 +19,60 @@ const (
 	ERROR
 	FATAL
 )
+
 //往终端写日志相关内容
 //日志结构体
 type Logger struct {
 	Level LogLevel
 }
 
-func parseLogLevel(s string) (LogLevel, error)  {
+func parseLogLevel(s string) (LogLevel, error) {
 	switch strings.ToUpper(s) {
 	case "DEBUG":
-		return DEBUG,nil
+		return DEBUG, nil
 	case "TRACE":
-		return TRACE,nil
+		return TRACE, nil
 	case "INFO":
-		return INFO,nil
+		return INFO, nil
 	case "WARING":
-		return WARING,nil
+		return WARING, nil
 	case "FATAL":
-		return FATAL,nil
+		return FATAL, nil
 	case "ERROR":
-		return ERROR,nil
+		return ERROR, nil
 	default:
-		return UNKNOWN,errors.New("无效的日志级别")
+		return UNKNOWN, errors.New("无效的日志级别")
 	}
 }
+
 //构造函数
 func NewLog(levelStr string) Logger {
-	level, err :=parseLogLevel(levelStr)
+	level, err := parseLogLevel(levelStr)
 	if err != nil {
 		panic(err)
 	}
-	return Logger{Level:level}
+	return Logger{Level: level}
 }
 
-func (l Logger) enable(logLevel LogLevel) bool  {
-	return  logLevel >= l.Level
+func (l Logger) enable(logLevel LogLevel) bool {
+	return logLevel >= l.Level
 }
 
-func (l Logger) Debug(msg string)  {
+func (l Logger) Debug(msg string) {
 	if l.enable(DEBUG) {
 		now := time.Now().Format("2006-01-02 15:03:04")
-		fmt.Printf("[%s] %s\n",now,msg)
+		fmt.Printf("[%s] %s\n", now, msg)
 	}
 }
 
-func (l Logger) Info(msg string)  {
-	if l.enable(INFO){
+func (l Logger) Info(msg string) {
+	if l.enable(INFO) {
 		now := time.Now().Format("2006-01-02 15:03:04")
-		fmt.Printf("[%s] %s\n",now,msg)
+		fmt.Printf("[%s] %s\n", now, msg)
 	}
 }
 
-
-func (l Logger) Waring(msg string)  {
+func (l Logger) Waring(msg string) {
 	if l.enable(WARING) {
 		now := time.Now().Format("2006-01-02 15:03:04")
 		fmt.Printf("[%s] %s\n", now, msg)
@@ -84,9 +86,9 @@ func (l Logger) Error(msg string) {
 	}
 }
 
-func (l Logger) Fatal(msg string)  {
+func (l Logger) Fatal(msg string) {
 	if l.enable(FATAL) {
 		now := time.Now().Format("2006-01-02 15:03:04")
-		fmt.Printf("[%s] %s\n",now,msg)
+		fmt.Printf("[%s] %s\n", now, msg)
 	}
 }

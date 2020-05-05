@@ -9,7 +9,7 @@ import (
 )
 
 // @Summer 添加/编辑图片
-func AddBanner(c *gin.Context) (code int,err string)  {
+func AddBanner(c *gin.Context) (code int, err string) {
 	c.Request.Body = e.GetBody(c)
 
 	id := com.StrTo(c.PostForm("id")).MustInt()
@@ -21,10 +21,10 @@ func AddBanner(c *gin.Context) (code int,err string)  {
 	info := com.StrTo(c.PostForm("info")).String()
 
 	valid := validation.Validation{}
-	valid.Required(bName,"bname").Message("名称不能为空")
-	valid.Required(bPosition,"bposition").Message("展示位置必须选择")
-	valid.Required(imgUrl,"imgurl").Message("上传图片")
-	valid.Required(isShow,"is_show").Message("状态必须选择")
+	valid.Required(bName, "bname").Message("名称不能为空")
+	valid.Required(bPosition, "bposition").Message("展示位置必须选择")
+	valid.Required(imgUrl, "imgurl").Message("上传图片")
+	valid.Required(isShow, "is_show").Message("状态必须选择")
 
 	var data = make(map[string]interface{})
 	if !valid.HasErrors() {
@@ -35,15 +35,15 @@ func AddBanner(c *gin.Context) (code int,err string)  {
 		data["imgurl"] = imgUrl
 		data["is_show"] = isShow
 		isOK := false
-		if id <1 {
+		if id < 1 {
 			isOK = Banner.AddBanner(data)
 		} else {
-			isOK = Banner.EditBanner(id,data)
+			isOK = Banner.EditBanner(id, data)
 		}
 		if isOK {
-			return e.SUCCESS,"操作成功"
+			return e.SUCCESS, "操作成功"
 		}
-		return e.ERROR,"操作失败"
+		return e.ERROR, "操作失败"
 	}
 	return ViewErr(valid)
 }

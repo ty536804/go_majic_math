@@ -11,8 +11,8 @@ import (
 )
 
 // @Summer 添加/编辑站点信息
-func AddSite(c *gin.Context) (code int,err string)  {
-	buf := make([]byte,3072)
+func AddSite(c *gin.Context) (code int, err string) {
+	buf := make([]byte, 3072)
 	n, _ := c.Request.Body.Read(buf)
 	c.Request.Body = ioutil.NopCloser(bytes.NewReader(buf[:n]))
 
@@ -29,20 +29,20 @@ func AddSite(c *gin.Context) (code int,err string)  {
 	RecordNumber := com.StrTo(c.PostForm("record_number")).String()
 
 	valid := validation.Validation{}
-	valid.Required(siteTitle,"site_title").Message("网站标题不能为空")
-	valid.Required(SiteDesc,"site_desc").Message("网站描述不能为空")
-	valid.Required(SiteKeyboard,"site_keyboard").Message("关键字不能为空")
-	valid.Required(SiteCopyright,"site_copyright").Message("版权不能为空")
+	valid.Required(siteTitle, "site_title").Message("网站标题不能为空")
+	valid.Required(SiteDesc, "site_desc").Message("网站描述不能为空")
+	valid.Required(SiteKeyboard, "site_keyboard").Message("关键字不能为空")
+	valid.Required(SiteCopyright, "site_copyright").Message("版权不能为空")
 	//valid.Required(SiteTel,"site_tel").Message("电话不能为空")
-	valid.Required(SiteEmail,"site_email").Message("邮箱不能为空")
-	valid.Required(SiteAddress,"site_address").Message("地址不能为空")
+	valid.Required(SiteEmail, "site_email").Message("邮箱不能为空")
+	valid.Required(SiteAddress, "site_address").Message("地址不能为空")
 
 	data := make(map[string]interface{})
 	isOk := false
 
 	if !valid.HasErrors() {
-		if err :=validTel(SiteTel,LandLine,ClientTel);err{
-			return e.ERROR,"电话联系方式，必须填写一项"
+		if err := validTel(SiteTel, LandLine, ClientTel); err {
+			return e.ERROR, "电话联系方式，必须填写一项"
 		}
 		data["site_title"] = siteTitle
 		data["site_desc"] = SiteDesc
@@ -63,21 +63,21 @@ func AddSite(c *gin.Context) (code int,err string)  {
 		if id < 1 {
 			isOk = Site.AddSite(data)
 		} else {
-			isOk = Site.EditSite(id,data)
+			isOk = Site.EditSite(id, data)
 		}
 		if isOk {
-			return e.SUCCESS,"操作成功"
+			return e.SUCCESS, "操作成功"
 		}
 	}
 	return ViewErr(valid)
 }
 
 // @Summer 获取站点信息
-func GetSite() (sites Site.Site){
+func GetSite() (sites Site.Site) {
 	return Site.GetSite()
 }
 
-func validTel(tel,land,client string) bool  {
+func validTel(tel, land, client string) bool {
 	if tel == "" && land == "" && client == "" {
 		return true
 	}

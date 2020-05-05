@@ -11,11 +11,11 @@ import (
 )
 
 // @Summer 添加文章
-func AddArticle(c *gin.Context) (code int,msg string) {
+func AddArticle(c *gin.Context) (code int, msg string) {
 	var data = make(map[string]interface{})
-	if err :=c.Bind(&c.Request.Body);err != nil {
+	if err := c.Bind(&c.Request.Body); err != nil {
 		fmt.Println(err)
-		return e.ERROR,"操作失败"
+		return e.ERROR, "操作失败"
 	}
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	title := com.StrTo(c.PostForm("title")).String()
@@ -29,12 +29,12 @@ func AddArticle(c *gin.Context) (code int,msg string) {
 	articleCom := com.StrTo(c.PostForm("com")).String()
 
 	valid := validation.Validation{}
-	valid.Required(title,"title").Message("标题不能为空")
-	valid.Required(summary,"summary").Message("摘要不能为空")
-	valid.Required(isShow,"is_show").Message("选择是否展示")
-	valid.Required(content,"content").Message("内容不能为空")
-	valid.Required(hot,"hot").Message("选择是否热点")
-	valid.Required(admin,"admin").Message("发布者不能为空")
+	valid.Required(title, "title").Message("标题不能为空")
+	valid.Required(summary, "summary").Message("摘要不能为空")
+	valid.Required(isShow, "is_show").Message("选择是否展示")
+	valid.Required(content, "content").Message("内容不能为空")
+	valid.Required(hot, "hot").Message("选择是否热点")
+	valid.Required(admin, "admin").Message("发布者不能为空")
 	//valid.Required(com,"com").Message("来源不能为空")
 
 	if !valid.HasErrors() {
@@ -52,12 +52,12 @@ func AddArticle(c *gin.Context) (code int,msg string) {
 		if id < 1 {
 			isOk = Article.AddArticle(data)
 		} else {
-			isOk = Article.EditArticle(id,data)
+			isOk = Article.EditArticle(id, data)
 		}
 		if isOk {
-			return e.SUCCESS,"操作成功"
+			return e.SUCCESS, "操作成功"
 		}
-		return e.ERROR,"操作失败"
+		return e.ERROR, "操作失败"
 	}
 	return ViewErr(valid)
 }
