@@ -18,7 +18,7 @@ func List(c *gin.Context) {
 func ListData(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	data := make(map[string]interface{})
-	data["list"] = Services.GetMessages(page)
+	data["list"] = Message.GetMessages(page)
 	data["count"] = e.GetPageNum(Message.GetMessageTotal())
 	e.Success(c, "留言列表", data)
 }

@@ -9,12 +9,6 @@ import (
 	"github.com/unknwon/com"
 )
 
-// @Summer留言列表
-func GetMessages(page int) (message []Message.Message) {
-	Message.GetMessages(page)
-	return
-}
-
 // @Summer提交留言
 func AddMessage(c *gin.Context) (code int, msg string) {
 	var data = make(map[string]interface{})
