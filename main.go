@@ -15,7 +15,7 @@ func main() {
 	router := Router.InitRouter()
 
 	srv := http.Server{
-		Addr:    ":8000",
+		Addr:    ":80",
 		Handler: router,
 	}
 

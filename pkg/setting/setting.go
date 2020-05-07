@@ -49,7 +49,7 @@ func LoadServer() {
 		log.Fatalf("Fail to get section 'server':%v", err)
 	}
 
-	HTTPPort = sec.Key("HTTP_PORT").MustInt(8000)
+	HTTPPort = sec.Key("HTTP_PORT").MustInt(80)
 	ReadTimeout = time.Duration(sec.Key("READ_TIMEOUT").MustInt(60)) * time.Second
 	WriteTimeout = time.Duration(sec.Key("WRITE_TIMEOUT").MustInt(60)) * time.Second
 }
