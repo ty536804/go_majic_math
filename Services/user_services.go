@@ -195,21 +195,20 @@ func GetUser(c *gin.Context) (code int, err string, con interface{}) {
 func GetUserById(c *gin.Context) (con string) {
 	getUUID, uOk := c.Request.Cookie("uuid")
 	if uOk != nil {
+		fmt.Println("没有获取到uuid")
 		return
 	}
 
 	getUid := getUUID.Value
 	if len(getUid) == 0 {
+		fmt.Println("uuid不正确")
 		return
 	}
 
 	uuid, _ := strconv.Atoi(getUid)
 	if isOk, val := e.GetVal("user_" + getUid); isOk {
+		fmt.Sprintf("读取缓存:'%v\n", val)
 		return val
-	}
-	isOk, con := e.GetVal("user_" + getUid)
-	if isOk {
-		return
 	}
 	return SaveUserInfo(uuid)
 }
@@ -224,12 +223,11 @@ func ViewErr(valid validation.Validation) (code int, err string) {
 
 //管理员登录存储缓存中
 func SaveUserInfo(uuid int) (con string) {
-	if uuid > 0 {
-		userInfo := Admin.Find(int64(uuid))
-		userResult, _ := json.Marshal(userInfo)
-		con = string(userResult)
-		e.SetVal("user_"+strconv.Itoa(uuid), con)
-	}
+	fmt.Println("设置用户缓存")
+	userInfo := Admin.Find(int64(uuid))
+	userResult, _ := json.Marshal(userInfo)
+	con = string(userResult)
+	e.SetVal("user_"+strconv.Itoa(uuid), con)
 	return
 }
 

@@ -5,6 +5,7 @@ import (
 	"elearn100/Services"
 	"elearn100/pkg/e"
 	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
 	"net/http"
@@ -25,7 +26,7 @@ func Show(c *gin.Context) {
 	json.Unmarshal([]byte(userInfo), &user)
 	c.HTML(e.SUCCESS, "admin/home.html", gin.H{
 		"title":      "易学教育",
-		"admin":      user,
+		"user":       user,
 		"target_url": "/api/v1/index",
 	})
 }
@@ -36,12 +37,18 @@ func BackEndIndex(c *gin.Context) {
 	osVersion := runtime.Version()
 	os := runtime.GOOS
 	currentTime := time.Now().Format("2006:01:02 15:04:05")
+
+	userInfo := Services.GetUserById(c)
+	user := Admin.SysAdminUser{}
+	json.Unmarshal([]byte(userInfo), &user)
+	fmt.Println("首页详情内容", user.NickName)
 	c.HTML(e.SUCCESS, "admin/welcome.html", gin.H{
 		"title":       "我的桌面",
 		"ginVersion":  ginVersion,
 		"osVersion":   osVersion,
 		"os":          os,
 		"currentTime": currentTime,
+		"user":        user,
 	})
 }
 

@@ -18,7 +18,7 @@ func JWT() gin.HandlerFunc {
 		isOk, token := e.GetVal("token")
 		uuid, uOk := c.Request.Cookie("uuid")
 
-		if uOk != nil || !isOk || len(uuid.Value) == 0 {
+		if uOk != nil && !isOk || len(uuid.Value) == 0 {
 			Services.LogOut(c)
 			code = e.INVALID_PARAMS
 		} else {
