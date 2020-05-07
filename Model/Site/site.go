@@ -27,7 +27,7 @@ func GetSite() (site Site) {
 
 // @Summer网站信息添加
 func AddSite(data map[string]interface{}) bool {
-	err := db.Db.Create(Site{
+	err := db.Db.Create(&Site{
 		SiteTitle:     data["site_title"].(string),
 		SiteDesc:      data["site_desc"].(string),
 		SiteKeyboard:  data["site_title"].(string),
