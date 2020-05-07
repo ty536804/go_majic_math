@@ -141,18 +141,18 @@
     </div>
     <script>
         $('.update_info').on("click", function () {
-            if ($("#update_pwd #nick_name").val() == "") {
-                sweetAlert("登录失败","用户不能为空",'error');
+            if ($("#commentForm #nick_name").val() == "") {
+                layer.msg("用户不能为空");
                 return false;
             }
 
-            if ($("#update_pwd #email").val() == "") {
-                sweetAlert("登录失败","邮箱不能为空",'error');
+            if ($("#commentForm #email").val() == "") {
+                layer.msg("邮箱不能为空");
                 return false;
             }
 
-            if ($("#update_pwd #tel").val() == "") {
-                sweetAlert("登录失败","电话不能为空",'error');
+            if ($("#commentForm #tel").val() == "") {
+                layer.msg("电话不能为空");
                 return false;
             }
             PostData($("#commentForm").serialize())
@@ -161,17 +161,17 @@
 
         $('.head_sub').on("click", function () {
             if ($("#update_pwd #pwd").val() == "") {
-                sweetAlert("登录失败","原始密码不能为空",'error');
+                layer.msg("原始密码不能为空");
                 return false;
             }
 
             if ($("#update_pwd #newpwd").val() == "") {
-                sweetAlert("登录失败","新密码不能为空",'error');
+                layer.msg("新密码不能为空");
                 return false;
             }
 
             if ($("#update_pwd #newpwd").val().length < 6) {
-                sweetAlert("登录失败","新密码长度不能小于6位",'error');
+                layer.msg("新密码长度不能小于6位");
                 return false;
             }
             PostData($("#update_pwd").serialize())
