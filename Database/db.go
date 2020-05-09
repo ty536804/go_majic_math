@@ -1,7 +1,7 @@
 package Database
 
 import (
-	"elearn100/pkg/setting"
+	"elearn100/Pkg/setting"
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"

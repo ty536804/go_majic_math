@@ -2,7 +2,7 @@ package Services
 
 import (
 	"elearn100/Model/Banner"
-	"elearn100/pkg/e"
+	"elearn100/Pkg/e"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"

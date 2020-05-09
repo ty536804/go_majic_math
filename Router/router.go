@@ -1,33 +1,41 @@
 package Router
 
 import (
+	backend "elearn100/Backend/Controller"
+	v1 "elearn100/Backend/Controller/Admin"
+	v3 "elearn100/Backend/Controller/Article"
+	v2 "elearn100/Backend/Controller/Banner"
+	m "elearn100/Backend/Controller/Message"
+	nav "elearn100/Backend/Controller/Nav"
+	frontend "elearn100/Frontend/Controller"
+	"elearn100/Middleware/jwt"
+	"elearn100/Pkg/e"
 	"elearn100/Services"
-	backend "elearn100/backend/Controller"
-	v1 "elearn100/backend/Controller/Admin"
-	v3 "elearn100/backend/Controller/Article"
-	v2 "elearn100/backend/Controller/Banner"
-	m "elearn100/backend/Controller/Message"
-	nav "elearn100/backend/Controller/Nav"
-	frontend "elearn100/frontend/Controller"
-	"elearn100/middleware/jwt"
-	"elearn100/pkg/e"
 	"github.com/gin-gonic/gin"
+	"io"
 	"net/http"
+	"os"
 )
 
 func InitRouter() *gin.Engine {
+
+	// 禁用控制台颜色，将日志写入文件时不需要控制台颜色。
+	gin.DisableConsoleColor()
+
+	// 记录到文件。
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdin)
 	r := gin.New()
 	r.Use(gin.Logger(), gin.Recovery())
 
 	dir := e.GetDir()
 	//加载后端js、样式文件
-	r.StaticFS("static", http.Dir(dir+"/resources/Public"))
+	r.StaticFS("static", http.Dir(dir+"/Resources/Public"))
 	//加载后端文件
-	r.LoadHTMLGlob("resources/View/**/*")
+	r.LoadHTMLGlob("Resources/View/**/*")
 	//首页
 	r.GET("/", frontend.Index)
-
-	//backend
+	//Backend
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())
 	{
@@ -84,5 +92,6 @@ func InitRouter() *gin.Engine {
 		apiv1.POST("/getArticle", v3.GetArticle) //文章详情API
 		apiv1.POST("/addArticle", v3.AddArticle) //文章详情API
 	}
+
 	return r
 }

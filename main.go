@@ -3,20 +3,26 @@ package main
 import (
 	"context"
 	_ "elearn100/Commands"
+	"elearn100/Pkg/setting"
 	"elearn100/Router"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
+	"syscall"
 	"time"
 )
 
 func main() {
 	router := Router.InitRouter()
 
-	srv := http.Server{
-		Addr:    ":80",
-		Handler: router,
+	srv := &http.Server{
+		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
+		Handler:        router,
+		ReadTimeout:    setting.ReadTimeout,
+		WriteTimeout:   setting.WriteTimeout,
+		MaxHeaderBytes: 1 << 20,
 	}
 
 	go func() {
@@ -37,6 +43,6 @@ func main() {
 	if err := srv.Shutdown(ctx); err != nil {
 		log.Fatal("Server Shutdown:", err)
 	}
-
+	log.Printf("Actual pid is %d", syscall.Getpid())
 	log.Println("Server exiting")
 }

@@ -3,7 +3,7 @@ package Admin
 import (
 	"crypto/md5"
 	db "elearn100/Database"
-	"elearn100/pkg/setting"
+	"elearn100/Pkg/setting"
 	"encoding/hex"
 	"errors"
 	"log"

@@ -3,7 +3,7 @@ package Banner
 import (
 	db "elearn100/Database"
 	"elearn100/Model/Nav"
-	"elearn100/pkg/setting"
+	"elearn100/Pkg/setting"
 	"fmt"
 	"log"
 	"time"

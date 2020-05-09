@@ -2,7 +2,7 @@ package Message
 
 import (
 	db "elearn100/Database"
-	"elearn100/pkg/setting"
+	"elearn100/Pkg/setting"
 	"fmt"
 )
 
