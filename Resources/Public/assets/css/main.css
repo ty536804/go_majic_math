@@ -350,10 +350,10 @@
 .difference_midd li{
 	color: #16397A !important;
 }
-.difference_con .tradition_ul li{
+.difference_con .magic_ul li{
 	background:url(../img/right.png) no-repeat 0 0;
 }
-.difference_con .magic_ul li{
+.difference_con .tradition_ul li{
 	background:url(../img/left.png) no-repeat 0 0;
 }
 /* 特色课堂，让孩子流连忘返 */
