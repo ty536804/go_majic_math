@@ -478,6 +478,10 @@
 	background-position: 635px 127px!important;
 }
 /* 最新动态 */
+.dynamic {
+	width: 1200px;
+	margin: 0 auto;
+}
 .dynamic .tit{
 	width: 542px;
 }
