@@ -58,6 +58,8 @@
 	overflow: hidden;
 	margin: 0 24px;
 	display:inline-block;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
 }
 
 .dr .circle{
@@ -107,12 +109,14 @@
 	color:#fff;
 	line-height:31px;
 	display: inline-block;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 .magic_list dl dd p{
 	padding: 15px 24px;
 	font-size:16px;
 	color:#fff;
 	line-height:24px;
+	font-family:MicrosoftYaHei;
 }
 .magic_list dl{
 	float: left;
@@ -168,6 +172,7 @@
 }
 .outborder dl dt{
 	padding: 28px 51px 0 65px;
+	font-family:MicrosoftYaHei;
 }
 .outborder dl dd{
 	float: right;
@@ -263,6 +268,7 @@
 	font-weight:bold;
 	line-height:31px;
 	padding: 20px 80px 19px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 /* 魔法数学与传统数学的区别 */
 .difference .tit{
@@ -308,6 +314,7 @@
 	font-size: 24px;
 	display: block;
 	margin-bottom: 20px;
+	font-family:MicrosoftYaHei;
 }
 .difference_con ul li.difference_con_tit{
 	height:127px;
@@ -336,6 +343,7 @@
 	text-align: center;
 	margin-bottom: 20px;
 	padding: 18px 0 !important;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 .difference_midd .difference_con_tit{
 	height: 127px;
@@ -364,10 +372,12 @@
 	width: 1170px;
 	margin: 0 auto;
 }
+.different_ul{
+	margin-top: 74px;
+}
 .different_ul dl{
 	width: 215px;
 	text-align: center;
-	margin: 0 auto;
 	float: left;
 	margin-right: 187px;
 }
@@ -383,6 +393,12 @@
 }
 .different_ul_bottom{
 	float: left;
+}
+.different_ul_bottom dl {
+	margin-right: 135px;
+}
+.different_ul_bottom dl:last-child {
+	margin-left: 80px;
 }
 .creativity{
 	background-position: 431px 195px!important;
@@ -406,6 +422,7 @@
 	color:#333;
 	line-height:21px;
 	text-align: center;
+	font-family:MicrosoftYaHei;
 }
 /* Hi-Thinking教学法 */
 .education{
@@ -423,6 +440,7 @@
 	color:rgba(51,51,51,1);
 	line-height:21px;
 	margin: 30px auto 9px;
+	font-family:MicrosoftYaHei;
 }
 .thinking_ul{
 	width: 1173px;
@@ -451,6 +469,7 @@
 	font-weight:bold;
 	color:rgba(51,51,51,1);
 	line-height:31px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 .thinking_ul dl dd p{
 	width:100%;
@@ -511,7 +530,8 @@
 	height: 31px;
 	white-space: nowrap; 
 	text-overflow:ellipsis; 
-	overflow:hidden; 
+	overflow:hidden;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 .dynamic .six_reason dl dd p{
 	width:244px;
@@ -523,6 +543,9 @@
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
+	font-family:MicrosoftYaHei;
+	color: #5B5B5C;
+	font-weight: normal;
 }
 .more{
 	margin: 40px auto 0 auto;

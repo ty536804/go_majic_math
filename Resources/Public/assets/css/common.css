@@ -1,10 +1,12 @@
 body {
-    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 	background:#fff ;
 }
 .w1200{
     width: 1200px !important;
 	max-width: 1200px;
+}
+dt{
+	font-weight: unset !important;
 }
 span,div,section,p,h3,h1,h2,h4,h5,h6,section,ul li,ul{
 	margin: 0;
@@ -46,10 +48,11 @@ footer{
 	line-height: 24px;
 	font-size: 16px;
 	margin-top: 30px;
+	font-family:MicrosoftYaHei;
 }
 .footer_con h3 span{
 	border-bottom: 2px solid red;
-	padding-bottom: 8px;
+	padding-bottom: 3px !important;
 }
 .phone{
 	color: #fff;
@@ -66,6 +69,8 @@ footer{
 	font-weight:bold;
 	line-height:45px;
 	float: left;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
 }
 .phone span img{
 	width: 40px;
@@ -89,6 +94,7 @@ footer{
 	font-size: 14px;
 	line-height: 25px;
 	margin-top: 10px;
+	font-family:MicrosoftYaHei;
 }
 .footer_ul dl:last-child{
 	margin-left: 41px;
@@ -98,7 +104,6 @@ footer{
 }
 .footer_con_right{
 	float: right;
-	border-radius: 5px;
 	margin-top: -62px;
 	width:376px;
 	height:390px;
@@ -164,6 +169,7 @@ footer{
 	margin-top: 152px;
 	float: left;
 	margin-left: 72px;
+	font-family:MicrosoftYaHei;
 }
 .week{
 	margin-top: 19px;
@@ -198,4 +204,5 @@ footer{
 	color:#333;
 	margin-top: 29px;
 	line-height:21px;
+	font-family:MicrosoftYaHei;
 }
