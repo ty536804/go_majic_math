@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	_ "elearn100/Commands"
+	//_ "elearn100/Commands"
 	"elearn100/Pkg/setting"
 	"elearn100/Router"
 	"fmt"
@@ -15,8 +15,9 @@ import (
 )
 
 func main() {
-	router := Router.InitRouter()
 
+	router := Router.InitRouter()
+	//ginpprof.Wrap(router)
 	srv := &http.Server{
 		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
 		Handler:        router,
