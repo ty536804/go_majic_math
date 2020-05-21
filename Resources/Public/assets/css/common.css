@@ -1,12 +1,13 @@
 body {
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 	background:#fff ;
 }
-.w1200{
-    width: 1200px !important;
-	max-width: 1200px;
-}
 dt{
-	font-weight: unset !important;
+	font-weight: normal;
+}
+.w1200{
+	width: 1200px !important;
+	max-width: 1200px;
 }
 span,div,section,p,h3,h1,h2,h4,h5,h6,section,ul li,ul{
 	margin: 0;
@@ -48,11 +49,10 @@ footer{
 	line-height: 24px;
 	font-size: 16px;
 	margin-top: 30px;
-	font-family:MicrosoftYaHei;
 }
 .footer_con h3 span{
 	border-bottom: 2px solid red;
-	padding-bottom: 3px !important;
+	padding-bottom: 8px;
 }
 .phone{
 	color: #fff;
@@ -69,8 +69,6 @@ footer{
 	font-weight:bold;
 	line-height:45px;
 	float: left;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
-	font-weight:bold;
 }
 .phone span img{
 	width: 40px;
@@ -94,7 +92,6 @@ footer{
 	font-size: 14px;
 	line-height: 25px;
 	margin-top: 10px;
-	font-family:MicrosoftYaHei;
 }
 .footer_ul dl:last-child{
 	margin-left: 41px;
@@ -110,6 +107,7 @@ footer{
 	background:#fff;
 	box-shadow:0px 2px 16px 0px rgba(0,0,0,0.08);
 	border-radius:20px;
+	position: relative;
 }
 .footer_con_right h3{
 	width:100%;
@@ -169,7 +167,6 @@ footer{
 	margin-top: 152px;
 	float: left;
 	margin-left: 72px;
-	font-family:MicrosoftYaHei;
 }
 .week{
 	margin-top: 19px;
@@ -204,5 +201,65 @@ footer{
 	color:#333;
 	margin-top: 29px;
 	line-height:21px;
-	font-family:MicrosoftYaHei;
+}
+/* 方向键 */
+.tit{
+	height: 47px;
+	overflow: hidden;
+	width: 758px;
+	margin: 50px auto 0;
+}
+.tit span{
+	background: #03A3F7;
+}
+.tit span:last-child{
+	float: right;
+}
+.magic_line{
+	float: left;
+	background:linear-gradient(270deg,rgba(0,162,247,1) 0%,rgba(255,255,255,1) 100%) !important;
+}
+.tit h3{
+	height:47px;
+	font-size:36px;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	line-height:47px;
+	overflow: hidden;
+	margin: 0 24px;
+	display:inline-block;
+}
+
+.dr .circle{
+	float: left !important;
+}
+.dr .magic_line{
+	float: left;
+	background:linear-gradient(170deg,rgba(0,162,247,1) 0%,rgba(255,255,255,1) 100%) !important;
+}
+.circle{
+	border-radius: 50px;
+	width: 13px;
+	height: 13px;
+	display: inline-block;
+	margin-top: -10.5px;
+	float: left;
+}
+.line{
+	width:169px;
+	height:6px;
+	border-radius:3px;
+	display: inline-block;
+}
+.direction{
+	width: 175px;
+	margin-top: 22px;
+	height: 13px;
+	display: inline-block;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
 }

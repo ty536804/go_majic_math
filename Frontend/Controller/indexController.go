@@ -10,3 +10,9 @@ func Index(c *gin.Context) {
 		"title": "首页",
 	})
 }
+
+func About(c *gin.Context) {
+	c.HTML(e.SUCCESS, "index/about.html", gin.H{
+		"title": "关于我们",
+	})
+}

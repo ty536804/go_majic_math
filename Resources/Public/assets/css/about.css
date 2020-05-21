@@ -1,0 +1,392 @@
+.about_banner{
+    height: 600px;
+    width: 100%;
+    background: url(../img/about.jpg) no-repeat top center;
+}
+/* 魔数简介 */
+.about_magic{
+    width:1176px;
+    height:358px;
+    background:rgba(249,250,252,1);
+    border-radius:20px;
+    margin: 0 auto;
+    margin-top: -47px;
+    text-align: center;
+    position: relative;
+}
+.about_magic .tit{
+    margin: 50px auto 0;
+    width: 542px;
+}
+/* 教学理念 */
+.idea{
+    width:1176px;
+    height:470px;
+    background:rgba(249,250,252,1);
+    border-radius:20px;
+    margin: 50px auto 0;
+}
+.idea .tit{
+    width: 542px;
+    margin: 50px auto 0;
+}
+.idea_tit{
+    width:1096px;
+    height:47px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+    text-align: center;
+    margin: 30px auto 0;
+}
+.about_con{
+    width:1096px;
+    height:204px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+    margin: 30px auto 0;
+}
+.idea_ul{
+    width: 100%;
+    margin: 3px 0 0 76px;
+}
+.idea_ul dl{
+    float: left;
+    width: 242.67px;
+    height: 242.67px;
+    margin-right: 25px;
+    position: relative;
+}
+.idea_ul dl dt{
+    width:243px;
+    height:243px;
+    background:rgba(0,160,233,1);
+    border-radius:20px;
+    opacity:0.05;
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    transform: rotate(5deg);
+}
+.idea_ul dl dd{
+    width:224px;
+    height:224px;
+    border-radius:20px;
+    background:#fff;
+    position: absolute;
+    top: 7px;
+}
+.idea_ul .idea_ul_bg{
+    background:url(../img/idea.png) no-repeat;
+    width: 172px;
+    height: 172px;
+    margin: 26px auto 0;
+}
+.idea_ul_one .idea_ul_bg{
+    background-position: -176px 0px!important;
+}
+.idea_ul_two .idea_ul_bg{
+    background-position: -341px 0px!important;
+}
+.idea_ul_three .idea_ul_bg{
+    background-position: -514px 0px!important;
+}
+/* 教育愿景 */
+.vision{
+    width: 1176px;
+    height: 358px;
+    background: url(../img/bg_vision.png) no-repeat top center;
+    margin: 50px auto 0;
+}
+.vision .tit{
+    width: 542px;
+}
+/* 魔数起源 */
+.com_desc{
+    position: relative;
+    height: 334px;
+    width: 1170px;
+    margin-top: 30px;
+}
+.com{
+    height: 511px;
+    background: #F9FAFC;
+    margin-top: 50px;
+    width: 100%;
+}
+.com_con{
+    width: 1170px;
+    margin: 0 auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.com_con .tit{
+    margin-top: 50px;
+    width: 542px;
+}
+.active{
+    background:url(../img/card_blue.png)  no-repeat 0 0;
+    width: 602px;
+    height: 334px;
+    z-index: 1;
+    position: absolute;
+    z-index: 2;
+}
+.com_desc dl dt{
+    float: left;
+    margin-left: 43px;
+}
+.com_desc dl dd{
+    float: left;
+    margin-top: 13px;
+}
+.Jean dl dd img{
+    float: left;
+    width: 318px;
+    height: 321px;
+}
+.Jean dd{
+    width: 318px;
+    height: 321px;
+    margin-left: -16px !important;
+}
+.humanity{
+    width:148px;
+    height:62px;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    line-height:31px;
+    margin-top: 60px;
+}
+.com_line{
+    width:58px;
+    height:2px;
+    background:rgba(255,255,255,1);
+    margin-bottom: 31px;
+    margin-top: 6px;
+    display: inline-block;
+}
+.all{
+    width:238px;
+    height:128px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+    line-height:24px;
+}
+.pyj{
+    float: right;
+    margin-top: 20px;
+}
+.Harvard{
+    width: 602px;
+    height: 297px;
+    float: right;
+    position: absolute;
+    top: 19px;
+    right: 0;
+    background: #fff;
+}
+.Harvard dt{
+    width:269px;
+    float: left;
+}
+.Harvard_tit{
+    width:269px;
+    height:52px;
+    font-size:16px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height:26px;
+    margin-top: 37px;
+}
+.Harvard dd{
+    margin: 33px 32px 0 0 !important;
+}
+.Harvard dd,.Harvard dd img{
+    float: right;
+    width: 238px;
+    height: 232px;
+}
+.Harvard_line{
+    float: left;
+    width:58px;
+    height:2px;
+    background:rgba(51,51,51,1);
+    display: inline-block;
+    margin-top: 7px;
+}
+.Harvard_desc{
+    width:238px;
+    height:107px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+    margin-top: 32px;
+    float: left;
+}
+.Harvard_cen{
+    width:240px;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height:31px;
+    margin-top: 2px;
+    display: inline-block;
+}
+/* 发展历程 */
+.developing .tit{
+    margin-top: 50px;
+    width: 542px;
+}
+.developing{
+    width: 1170px;
+    margin: 0 auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.developing_con{
+    margin-top: 50px;
+}
+.developing_ul_left{
+    width:500px;
+    float: left;
+}
+.developing_ul_left li{
+    width:500px;
+    height:186px;
+    background:rgba(216,216,216,1);
+    border-radius:20px;
+    float: left;
+    margin-bottom: 21px;
+}
+.developing_ul_right{
+    float: right;
+    width: 637px;
+    display: block;
+    margin-left: 33px;
+}
+.developing_ul_right li{
+    width: 100%;
+    height:86px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+    float: left;
+    margin-bottom: 17px;
+}
+.developing_ul_right li:last-child{
+    margin-bottom: 0;
+}
+.date{
+    float: left;
+    width:137px;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height:31px;
+    margin-right: 24px;
+}
+.bar{
+    width:2px;
+    height:18px;
+    background:rgba(0,161,240,1);
+    border-radius:1px;
+    float: right;
+    margin-top: 7px;
+}
+.developing_c{
+    width:476px;
+    height:86px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+    float: right;
+}
+/* 品牌荣誉 */
+.brand{
+    background: #F9FAFC;
+    width: 100%;
+    height: 370px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.brand_con{
+    width: 1430px;
+    margin: 28px auto 0;
+}
+.brand_con .tit{
+    width: 542px;
+}
+.brand_ul{
+    width: 1300px;
+    margin: 30px auto 0;
+    height: 193px;
+    overflow: hidden;
+}
+.slider {
+    width: 1170px;
+    overflow: hidden;
+    position: relative;
+    height: 193px;
+    float: left;
+}
+.slider ul {
+    position: absolute;
+    left: 0px;
+    width: 1800px;
+    height: 193px;
+    list-style: none;
+}
+.slider li{
+    width: 300px;
+    height: 193px;
+    float: left;
+    text-align: center;
+}
+.slider img{width:276px;display:inline-block!important;}
+#btn-left {
+    float: left;
+    background-position: 0 0;
+}
+.arrow-btn {
+    margin-top: 64px;
+    display: inline;
+    background: url(../img/iconnor.png) no-repeat;
+    width: 65px;
+    height: 65px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#btn-right {
+    float: right;
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+footer{
+    margin-top: 0 !important;
+}
