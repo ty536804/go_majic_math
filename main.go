@@ -15,7 +15,6 @@ import (
 )
 
 func main() {
-
 	router := Router.InitRouter()
 	//ginpprof.Wrap(router)
 	srv := &http.Server{
