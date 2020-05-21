@@ -336,21 +336,6 @@
                 $('#btn-left').css({cursor: 'auto'});
             }
         }
-
-        getAjax()
-        //请求数据
-        function getAjax()
-        {
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "http://www.fangpaiwang.com/api/second/houseDetail",
-                data:{"id":929},
-                success: function (result) {
-                    console.log(result);
-                }
-            });
-        }
     </script>
     </body>
     </html>
