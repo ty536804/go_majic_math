@@ -1,0 +1,255 @@
+.subject_banner{
+	height: 600px;
+	width: 100%;
+	background: url(../img/subject.jpg) no-repeat top center;
+}
+/* 儿童数理思维发展关键期 */
+.key .tit{
+	width: 794px;
+}
+.key_tit{
+	width:100%;
+	height:42px;
+	font-size:16px;
+	font-family:MicrosoftYaHei;
+	color:rgba(51,51,51,1);
+	line-height:21px;
+	margin-top: 30px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+.level{
+	width: 1200px;
+	height: 318px;
+	margin: 0 auto;
+}
+.level dl{
+	width: 276px;
+	float: left;
+	margin-left: 24px;
+	height: 318px;
+}
+.level dl dt{
+	border-radius:20px 20px 20px 10px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	font-size:24px;
+	line-height:31px;
+	color:#fff;
+}
+.level dl dd{
+	width:276px;
+	height:151px;
+	border-radius:10px 10px 20px 20px;
+	font-size:16px;
+	font-family:MicrosoftYaHei;
+	color:rgba(255,255,255,1);
+	line-height:24px;
+	padding: 50px 50px 43px 51px;
+	margin-top: 16px;
+	text-align: center;
+}
+.two_year{
+	margin-top: 60px;
+}
+.two_year dt{
+	width:276px;
+	height:91px;
+	background:#F8B42D url(../img/system_icon_L1.png) no-repeat left top;
+	padding: 29px 81px 31px 84px;
+}
+.two_year dd{
+	background:rgba(248,180,45,1);
+}
+.three_year{
+	margin-top: 40px;
+}
+.three_year dt{
+	width:276px;
+	height:111px;
+	background:#4FB459 url(../img/system_icon_L2.png) no-repeat left top;
+	padding: 40px 81px 40px 84px;
+}
+.three_year dd{
+	background:#4FB459;
+}
+.four_year{
+	margin-top: 20px;
+}
+.four_year dt{
+	
+	width:276px;
+	height:131px;
+	background:#00A0E9 url(../img/system_icon_L3.png) no-repeat left top;
+	padding: 50px 81px 50px 84px;
+}
+.four_year dd{
+	background:#00A0E9;
+}
+.five_year dt{
+	width:276px;
+	height:151px;
+	background:#7D4698 url(../img/system_icon_L3.png) no-repeat left top;
+	padding: 60px 81px 60px 84px;
+}
+.five_year dd{
+	background:#7D4698;
+	padding: 40px 41px 34px 44px !important;
+}
+/* 五大体系，为孩子潜心设计未来 */
+.setup_container{
+	background: #F9FAFC;
+	height:540px;
+	margin-top: 50px;
+}
+.setup{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.setup .tit{
+	width: 902px;
+	margin: 50px auto 0;
+}
+.setup_con dl{
+	width:181px;
+	float: left;
+	margin-right: 43px;
+}
+.setup_con{
+	width: 1077px;
+	margin: 65px auto 0;
+	height: 343px;
+}
+.setup_con dl:last-child{
+	margin-right: 0;
+}
+.setup_con dl dt{
+	width: 119px;
+	height: 119px;
+	background: url(../img/system_icon_5dtx.png);
+	margin: 0 auto;
+}
+.setup_con dl dd h3{
+	width:100%;
+	height: 52px;
+	font-size:20px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:#333;
+	line-height: 62px;
+	overflow: hidden;
+}
+.setup_con dl dd p{
+	margin-top: 14px;
+	text-align: center;
+}
+.setup_con dl dd h3 span{
+	width:25px;
+	height:52px;
+	font-size:40px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:rgba(79,180,89,1);
+	line-height:52px;
+	display: inline-block;
+	float: left;
+}
+.setup_con dl dd{
+	width:181px;
+	height:109px;
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	color:rgba(51,51,51,1);
+	line-height:19px;
+}
+.elearn dt{
+	background-position: 479px 119px!important;
+}
+.sense dt{
+	background-position: 119px 119px!important;
+}
+.sense dd h3 span{
+	color: #00A0E9 !important;
+}
+.test dt{
+	background-position: 239px 119px!important;
+}
+.test dd h3 span{
+	color: #7D4698 !important;
+}
+.practice dt{
+	background-position: 359px 119px!important;
+}
+.practice dd h3 span{
+	color: #F8B42D !important;
+}
+.elearn dd h3 span{
+	color: #DC4236 !important;
+}
+/* 六个维度，激发孩子全脑思维 */
+.dimension{
+	height: 500px;
+	width: 1183px;
+	margin: 0 auto;
+}
+.dimension_con dl{
+	width: 153px;
+	float:left;
+	margin-right: 53px;
+	text-align: center;
+}
+.dimension_con dl:last-child{
+	margin-right: 0 !important;
+}
+.dimension_con dl dt{
+	width: 153px;
+	height: 153px;
+	background: url(../img/system_icon_6gwd.png);
+}
+.dimension_con dl dd h3{
+	width:100%;
+	height:31px;
+	font-size:24px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:#333;
+	line-height:31px;
+}
+.dimension_con dl dd p{
+	width:100%;
+	font-size:16px;
+	font-family:MicrosoftYaHei;
+	color:rgba(51,51,51,1);
+	line-height:21px;
+	margin-top: 12px;
+}
+.num dt{
+	background-position: 459px 153px!important;
+}
+.logic dt{
+	background-position: 306px 153px!important;
+}
+.lg dt{
+	background-position: 153px 153px!important;
+}
+.various dt{
+	background-position: 612px 153px!important;
+}
+.space,.num,.lg{
+	margin-top: 76px;
+}
+.space dt{
+	background-position: 770px 153px!important;
+}
+.five_steps img{
+	margin-top: -620px;
+}
+.five_steps{
+	text-align: center;
+}
+.curriculum{
+	background: #F9FAFC;
+	height: 620px;
+}
