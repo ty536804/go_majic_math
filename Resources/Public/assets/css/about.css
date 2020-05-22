@@ -291,7 +291,6 @@
     float: left;
     margin-bottom: 17px;
     text-align: right;
-    margin-left: 6px;
 }
 .developing_ul_right li:last-child{
     margin-bottom: 0;
@@ -314,6 +313,7 @@
     border-radius:1px;
     float: right;
     margin-top: 7px;
+    margin-left: 6px;
 }
 .developing_c{
     width:476px;
