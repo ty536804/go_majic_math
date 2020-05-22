@@ -430,17 +430,25 @@
 .dynamic .tit{
 	width: 542px;
 }
+.dynamic .six_reason{
+	height:338px;
+}
 .dynamic .six_reason dl{
 	width:276px;
-	height:auto;
+	height:338px;
 	float: left;
 	margin:0 24px 0 0;
 }
 .dynamic .six_reason dl dt{
 	width:276px;
 	height:221px;
-	background:rgba(237,237,237,1);
+	background:rgba(237,237,237,1) !important;
 	border-radius:20px 20px 0px 0px;
+}
+.dynamic .six_reason dl dt img{
+	width:276px;
+	height:221px;
+	overflow: hidden;
 }
 .dynamic .six_reason dl dd{
 	width: 100%;

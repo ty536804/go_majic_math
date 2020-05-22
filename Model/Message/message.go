@@ -17,7 +17,7 @@ type Message struct {
 	Com     string `json:"com" gorm:"type:varchar(190);not null; default ''; comment:'留言来源页' "`
 	Client  string `json:"client" gorm:"type:varchar(190);not null; default ''; comment:'客户端' "`
 	Ip      string `json:"ip" gorm:"type:varchar(50);not null; default ''; comment:'ip地址' "`
-	Channel string `json:"channel" gorm:"type:varchar(50);not null; default ''; comment:'留言板块' "`
+	Channel int    `json:"channel" gorm:"type:varchar(50);not null; default ''; comment:'留言板块' "`
 }
 
 // @Summer 留言总数
@@ -47,7 +47,7 @@ func AddMessage(data map[string]interface{}) bool {
 		Com:     data["com"].(string),
 		Client:  data["client"].(string),
 		Ip:      data["ip"].(string),
-		Channel: data["channel"].(string),
+		Channel: data["channel"].(int),
 	})
 	if result.Error != nil {
 		fmt.Print("添加留言失败", result)

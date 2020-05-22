@@ -6,6 +6,7 @@ import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
+	"strings"
 )
 
 // @Summer 添加/编辑图片
@@ -19,7 +20,9 @@ func AddBanner(c *gin.Context) (code int, err string) {
 	targetLink := com.StrTo(c.PostForm("target_link")).String()
 	isShow := com.StrTo(c.PostForm("is_show")).MustInt()
 	info := com.StrTo(c.PostForm("info")).String()
-
+	if strings.HasPrefix(imgUrl, "/static/upload/") {
+		imgUrl = strings.Replace(imgUrl, "/static/upload/", "", -1)
+	}
 	valid := validation.Validation{}
 	valid.Required(bName, "bname").Message("名称不能为空")
 	valid.Required(bPosition, "bposition").Message("展示位置必须选择")

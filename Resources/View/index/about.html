@@ -4,25 +4,12 @@
     <head>
         <meta charset="utf-8">
         <title>关于我们</title>
-        <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet">
+        {{template "head"}}
         <link href="/static/assets/css/about.css" rel="stylesheet"/>
-        <link href="/static/assets/css/common.css" rel="stylesheet"/>
+
     </head>
     <body>
-    <nav class="nav">
-        <p><img src="/static/assets/img/head.png"></p>
-        <div class="links">
-            <a href="/">首页</a>
-            <a href="about">关于魔数</a>
-            <a href="/">课程体系</a>
-            <a href="/">教研教学</a>
-            <a href="/">AI学习平台</a>
-            <a href="/">OMO模式</a>
-            <a href="/">全国校区</a>
-            <a href="/">加盟授权</a>
-            <a href="/">APP下载</a>
-        </div>
-    </nav>
+    {{template "nav"}}
     <section class="about_banner">
     </section>
     <section class="container">
@@ -243,100 +230,8 @@
         </section>
     </section>
     <!-- 版权 -->
-    <footer>
-        <section class="footer_con">
-            <section class="footer_con_left">
-                <section class="footer_left_con">
-                    <p class="footer_logo"></p>
-                    <h3><span>授权</span>电话</h3>
-                    <p class="phone">
-                        <span><img class="lazy" src="/static/assets/img/phone.png"></span>
-                        <span>400 175 9669</span>
-                    </p>
-                    <p class="week">周一至周日 9:00-18:00</p>
-                </section>
-                <section class="footer_right_con">
-                    <h3 class="about"><span>关注</span>我们</h3>
-                    <section class="footer_ul">
-                        <dl>
-                            <dt></dt>
-                            <dd>魔法数学公众号</dd>
-                        </dl>
-                        <dl>
-                            <dt></dt>
-                            <dd>魔数APP下载</dd>
-                        </dl>
-                    </section>
-                </section>
-            </section>
-            <section class="footer_con_right">
-                <h3>填写表单</h3>
-                <form method="post" action="" name="myform">
-                    <label for="">姓名：
-                        <input type="text" name="name" class="c-area">
-                    </label>
-                    <label for="">电话：
-                        <input type="text" name="tel" class="c-tel">
-                    </label>
-                    <label for="">地区：
-                        <input type="text" name="content" class="c-city">
-                    </label>
-                    <p class="col-md-12 footer_btn"><button class="btn">提交</button></p>
-                </form>
-            </section>
-        </section>
-    </footer>
-    <section class="bootom">
-        <p>易乐教育 © 2017 All Rights Reserved. 京ICP备20014303号</p>
-    </section>
-    <script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-
-        var $slider = $('.slider ul');
-        var $slider_child_l = $('.slider ul li').length;
-        var $slider_width = $('.slider ul li').width();
-        var speed =4;
-        $slider.width($slider_child_l * $slider_width);
-
-        var slider_count = 0;
-
-        if ($slider_child_l < 4) {
-            $('#btn-right').css({cursor: 'auto'});
-        }
-
-        $('#btn-right').click(function() {
-            if ($slider_child_l < 4 || slider_count >= $slider_child_l - 4) {
-                return false;
-            }
-            console.log(slider_count);
-            slider_count++;
-            $slider.animate({left: '-=' + $slider_width + 'px'}, 'slow');
-            slider_pic();
-        });
-
-        $('#btn-left').click(function() {
-            if (slider_count <= 0) {
-                return false;
-            }
-            slider_count--;
-            $slider.animate({left: '+=' + $slider_width + 'px'}, 'slow');
-            slider_pic();
-        });
-
-        function slider_pic() {
-            if (slider_count >= $slider_child_l - 4) {
-                $('#btn-right').css({cursor: 'auto'});
-            }
-            else if (slider_count > 0 && slider_count <= $slider_child_l - 4) {
-                $('#btn-left').css({cursor: 'pointer'});
-                $('#btn-right').css({cursor: 'pointer'});
-            }
-            else if (slider_count <= 0) {
-                $('#btn-left').css({cursor: 'auto'});
-            }
-        }
-    </script>
+    {{template "index_footer"}}
+    <script type="text/javascript" src="/static/index/about.js"></script>
     </body>
     </html>
 {{end}}

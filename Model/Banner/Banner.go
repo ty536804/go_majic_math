@@ -78,7 +78,14 @@ func GetBannerTotal() (count int) {
 	return
 }
 
+// @Summer 获取图片列表
 func GetBanner(id int) (banner Banner) {
 	db.Db.Preload("Navs").Where("id = ?", id).First(&banner)
+	return
+}
+
+// @Summer获取所有banner
+func GetBannerData(bposition int) (banner []Banner) {
+	db.Db.Where("bposition = ?", bposition).Find(&banner)
 	return
 }

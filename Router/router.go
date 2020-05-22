@@ -36,6 +36,7 @@ func InitRouter() *gin.Engine {
 	//首页
 	r.GET("/", frontend.Index)
 	r.GET("/about", frontend.About)
+	r.GET("/index", frontend.FrontEnd)
 	//Backend
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())

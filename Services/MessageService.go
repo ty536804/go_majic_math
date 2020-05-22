@@ -20,6 +20,8 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	mname := com.StrTo(c.PostForm("mname")).String()
 	area := com.StrTo(c.PostForm("area")).String()
 	tel := com.StrTo(c.PostForm("tel")).String()
+	com := com.StrTo(c.PostForm("com")).String()
+
 	valid := validation.Validation{}
 	valid.Required(mname, "mname").Message("姓名不能为空")
 	valid.Required(area, "area").Message("地区不能为空")
@@ -28,6 +30,11 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["mname"] = mname
 		data["area"] = area
 		data["tel"] = tel
+		data["content"] = ""
+		data["com"] = com
+		data["client"] = "pc"
+		data["ip"] = c.ClientIP()
+		data["channel"] = 1
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}

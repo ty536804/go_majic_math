@@ -24,7 +24,7 @@ $('.subCon').on("click",function () {
             if (Number(result.code) == 200) {
                 swal({title:result.msg,type: 'success'},
                     function () {
-                        window.location.href="/api/v1//bannerList";
+                        window.location.href="/api/v1/bannerList";
                     });
             } else {
                 sweetAlert("操作失败","操作失败",'error');
