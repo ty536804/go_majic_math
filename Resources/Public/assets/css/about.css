@@ -11,8 +11,7 @@
     height:358px;
     background:rgba(249,250,252,1);
     border-radius:20px;
-    margin: 0 auto;
-    margin-top: -47px;
+    margin: -47px auto 0;
     text-align: center;
     position: relative;
 }
@@ -291,6 +290,8 @@
     line-height:21px;
     float: left;
     margin-bottom: 17px;
+    text-align: right;
+    margin-left: 6px;
 }
 .developing_ul_right li:last-child{
     margin-bottom: 0;
