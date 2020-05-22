@@ -1,7 +1,9 @@
 .about_banner{
     height: 600px;
+}
+.about_banne img{
     width: 100%;
-    background: url(../img/about.jpg) no-repeat top center;
+    height: 100%;
 }
 /* 魔数简介 */
 .about_magic{
