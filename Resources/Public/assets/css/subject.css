@@ -1,7 +1,9 @@
 .subject_banner{
 	height: 600px;
+}
+.subject_banner img{
 	width: 100%;
-	background: url(../img/subject.jpg) no-repeat top center;
+	height: 100%;
 }
 /* 儿童数理思维发展关键期 */
 .key .tit{
