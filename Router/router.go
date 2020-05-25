@@ -18,7 +18,6 @@ import (
 )
 
 func InitRouter() *gin.Engine {
-
 	// 禁用控制台颜色，将日志写入文件时不需要控制台颜色。
 	gin.DisableConsoleColor()
 
@@ -39,6 +38,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/index", frontend.FrontEnd)
 	r.GET("/subject", frontend.Subject)
 	r.GET("/research", frontend.Research)
+	r.GET("/learn", frontend.Learn)
 
 	//Backend
 	apiv1 := r.Group("/api/v1")

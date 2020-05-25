@@ -46,3 +46,24 @@ func Research(c *gin.Context) {
 		"title": "教研教学",
 	})
 }
+
+// @Summer AI学习平台
+func Learn(c *gin.Context) {
+	c.HTML(e.SUCCESS, "index/learn.html", gin.H{
+		"title": "ai学习平台",
+	})
+}
+
+// @Summer OMO模式
+func Omo(c *gin.Context) {
+	c.HTML(e.SUCCESS, "index/omo.html", gin.H{
+		"title": "OMO模式",
+	})
+}
+
+// @Summer全国校区
+func Campus(c *gin.Context) {
+	c.HTML(e.SUCCESS, "index/campus.html", gin.H{
+		"title": "全国校区",
+	})
+}
