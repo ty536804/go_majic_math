@@ -14,25 +14,24 @@ $(function () {
         }
     });
 
-    $('.btn').on('click',function () {
-
-        if ($('.c-area').val()=="") {
-            layer.tips('姓名不能为空', '.c-area', {
+    $('.f_btn').on('click',function () {
+        if ($('.footer_con_right .c-area').val()=="") {
+            layer.tips('姓名不能为空', '.footer_con_right .c-area', {
                 tips: [1, '#3595CC'],
                 time: 4000
             });
             // layer.alert("姓名不能为空");
             return false;
         }
-        if ($('.c-tel').val()=="") {
-            layer.tips('电话不能为空', '.c-tel', {
+        if ($('.footer_con_right .c-tel').val()=="") {
+            layer.tips('电话不能为空', '.footer_con_right .c-tel', {
                 tips: [1, '#3595CC'],
                 time: 4000
             });
             return false;
         }
-        if ($('.c-city').val()=="") {
-            layer.tips('地区不能为空', '.c-city', {
+        if ($('.footer_con_right .c-city').val()=="") {
+            layer.tips('地区不能为空', '.footer_con_right .c-city', {
                 tips: [1, '#3595CC'],
                 time: 4000
             });

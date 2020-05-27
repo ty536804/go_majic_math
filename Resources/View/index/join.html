@@ -35,7 +35,7 @@
 
     <section class="banner_form" id="banner_form">
         <p class="banner_form_logo"></p>
-        <form method="post" action="/Index/message.html" name="myform">
+        <form method="post" name="banner_myform">
             <label for="">姓名：
                 <input type="text" name="name" class="c-area">
             </label>
@@ -45,7 +45,7 @@
             <label for="">地区：
                 <input type="text" name="content" class="c-city">
             </label>
-            <p class="col-md-12 banner_form_btn"><button class="btn">立即领取</button></p>
+            <p class="col-md-12 banner_form_btn"><button class="lj_btn btn">立即领取</button></p>
             <p class="col-md-12 assured">我们承诺您的信息将严格保密请放心填写</p>
         </form>
     </section>
@@ -458,40 +458,48 @@
     </section>
     {{template "index_footer"}}
     <script type="text/javascript" src="/static/index/about.js"></script>
-{{/*    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278531036'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1278531036%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>*/}}
-{{/*    <script>(function() {var _53code = document.createElement("script");_53code.src = "https://tb.53kf.com/code/code/f254c44bb9e44bf955808e53f506bf9f3/1";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(_53code, s);})();</script>*/}}
-{{/*    <script>*/}}
-{{/*        (function(){*/}}
-{{/*            $("img.lazy").lazyload({effect: "fadeIn"});*/}}
-{{/*        })*/}}
-{{/*        var _index5=0;*/}}
-{{/*        $('.certificate_l').on('click',function(){*/}}
-{{/*            let HidepicLen = $('.certificate_ul li.hide').length*/}}
-{{/*            let picLen = $('.certificate_ul li').length*/}}
-{{/*            if(_index5+4<picLen){*/}}
-{{/*                $(".certificate_ul li").eq(_index5).animate({marginLeft:"-334px"},"slow","linear")*/}}
-{{/*                _index5++;*/}}
-{{/*            }*/}}
-{{/*        })*/}}
-{{/*        $('.certificate_r').on('click',function(){*/}}
-{{/*            if (_index5==0) {*/}}
-{{/*                return false;*/}}
-{{/*            }*/}}
-{{/*            _index5--;*/}}
-{{/*            let HidepicLen = $('.certificate_ul li.hide').length*/}}
-{{/*            let picLen = $('.certificate_ul li').length*/}}
-{{/*            if(_index5<picLen){*/}}
-{{/*                $(".certificate_ul li").eq(_index5).animate({marginLeft:"0"},"slow","linear")*/}}
-{{/*            }*/}}
-{{/*        })*/}}
-{{/*        var _hmt = _hmt || [];*/}}
-{{/*        (function() {*/}}
-{{/*            var hm = document.createElement("script");*/}}
-{{/*            hm.src = "https://hm.baidu.com/hm.js?c9657a1adaad4dd22037d0197b4385d2";*/}}
-{{/*            var s = document.getElementsByTagName("script")[0];*/}}
-{{/*            s.parentNode.insertBefore(hm, s);*/}}
-{{/*        })();*/}}
-{{/*    </script>*/}}
+    <script>
+        $('.lj_btn').on('click',function () {
+
+            if ($('.banner_form .c-area').val()=="") {
+                layer.tips('姓名不能为空!', '.banner_form .c-area', {
+                    tips: [1, '#3595CC'],
+                    time: 4000
+                });
+                // layer.alert("濮撳悕涓嶈兘涓虹┖");
+                return false;
+            }
+            if ($('banner_form. .c-tel').val()=="") {
+                layer.tips('电话不能为空┖', '.banner_form .c-tel', {
+                    tips: [1, '#3595CC'],
+                    time: 4000
+                });
+                return false;
+            }
+            if ($('.banner_form .c-city').val()=="") {
+                layer.tips('地区不能为空┖', '.banner_form .c-city', {
+                    tips: [1, '#3595CC'],
+                    time: 4000
+                });
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/AddMessage",
+                data:$('#banner_myform').serialize(),
+                success: function (result) {
+                    if (result.code == 200) {
+                        layer.alert("留言成功");
+                        return false
+                    }
+                    layer.alert("留言失败");
+                    return false
+                }
+            })
+            return false;
+        })
+    </script>
     </body>
     </html>
 {{end}}
