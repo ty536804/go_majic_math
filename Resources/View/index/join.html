@@ -1,0 +1,497 @@
+{{define "index/join.html"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>魔法数学加盟</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-touch-fullscreen" content="yes">
+        {{template "head"}}
+        <link href="/static/assets/css/join.css" rel="stylesheet"/>
+    </head>
+    <body>
+    {{template "nav"}}
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/static/assets/img/bannar1.png">
+            </div>
+            <div class="carousel-item">
+                <img src="/static/assets/img/bannar2.jpg">
+            </div>
+            <div class="carousel-item">
+                <img src="/static/assets/img/bannar3.jpg">
+            </div>
+        </div>
+    </div>
+
+    <section class="banner_form" id="banner_form">
+        <p class="banner_form_logo"></p>
+        <form method="post" action="/Index/message.html" name="myform">
+            <label for="">姓名：
+                <input type="text" name="name" class="c-area">
+            </label>
+            <label for="">电话：
+                <input type="text" name="tel" class="c-tel">
+            </label>
+            <label for="">地区：
+                <input type="text" name="content" class="c-city">
+            </label>
+            <p class="col-md-12 banner_form_btn"><button class="btn">立即领取</button></p>
+            <p class="col-md-12 assured">我们承诺您的信息将严格保密请放心填写</p>
+        </form>
+    </section>
+    </div>
+
+    <!-- banner结束 -->
+    <!-- 品牌介绍 -->
+    <section class="brand_introduction">
+        <section class="brand_content col-xs-12">
+            <h3 class="brand_title"></h3>
+            <section class="brand_left_content">
+                <p>“魔法数学思维馆”连锁品牌是易乐教育科技集团旗下核心品牌，是中国儿童数理思维教育的探索者与开创者，秉承“数学探索世界，思维改变未来”的教育理念，致力于为孩子提供国际先进的数理思维教育。
+                </p>
+                <p>“魔法数学”是在中科院专家、哈佛精英指导下，依据全球儿童心理学家皮亚杰认知发展理论和哈佛大学脑发展研究成果，开创性打造出国内首款3-12岁儿童数理思维全体系课程，其通过“智能投屏+交互课件+创意道具+APP学习平台”的形式实现良好的教学效果，并采用“线上线下同步招生教学模式+OMO线上学习成果分享营销系统”，加速校区学员裂变，助力校区招生。
+                    “魔法数学思维”项目已获得国家教育部“十二五”全脑教育课题成果奖，并受到行业的广泛认可。
+                </p>
+                <p>“魔法数学思维”项目已获得国家教育部“十二五”全脑教育课题成果奖，并受到行业的广泛认可。</p>
+                <p>目前，全球已有约10万名儿童接受数理思维训练，已然成为精英家庭培养孩子的必选学习品类。</p>
+            </section>
+        </section>
+    </section>
+    <!-- 品牌介绍结束 -->
+    <!-- 八年沉淀 -->
+    <section class="area">
+        <section class="area_tit">
+            <img class="lazy" src="/static/assets/img/3_slogan.png" alt="历经八年沉淀,全国200余家校区">
+        </section>
+        <h6>截止目前，魔法数学思维馆已经在全国100多个城市开设了200多家品牌加盟及合作校区，2020年将进入加速发展期</h6>
+        <section class="area_con">
+            <img class="lazy" src="/static/assets/img/3_area.png" width="695" height="623px">
+        </section>
+    </section>
+    <!-- 八年沉淀 -->
+    <!-- 品牌学术背景 -->
+    <section class="brand">
+        <section class="brand_bg"><img class="lazy" src="/static/assets/img/4_pp.png"></section>
+        <section class="brand_ul_bg">
+            <dl class="col-xs-6 col-md-6">
+                <dt class="thumbnail"><img class="lazy" src="/static/assets/img/pyj.png" class=""></dt>
+                <dd>
+                    <p>儿童心理发育是有迹可循的。</p>
+                    <p class="prople_desc">
+                        <span class="line"></span>皮亚杰
+                        <label>
+                            <span class="article"></span>教育心理大师
+                        </label>
+                    </p>
+                </dd>
+            </dl>
+            <dl class="col-xs-6 col-md-6">
+                <dt class="thumbnail"><img class="lazy" src="/static/assets/img/hf.png" class=""></dt>
+                <dd><p class="brand_bg_desc">MI（多元智力理论）包括语言智能、逻辑---数学智能、空间智能、肢体--运作智能，是全新人力思维智力结构理论。</p>
+                </dd>
+            </dl>
+
+            <dl class="col-xs-6 col-md-6">
+                <dt class="thumbnail"><img class="lazy" src="/static/assets/img/zml.png" class=""></dt>
+                <dd><p class="brand_bg_desc">中科院专家 / 著名心理学家 / 儿童数理教育专家</p>
+                </dd>
+            </dl>
+            <dl class="col-xs-6 col-md-6">
+                <dt class="thumbnail"><img class="lazy" src="/static/assets/img/zxl.png" class=""></dt>
+                <dd><p class="brand_bg_desc">北师大教授 / 脑与数学认知专家</p>
+                </dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 自主研发 -->
+    <section class="rd">
+        <h3 class="rd_tit">自主研发多元思维课，教研部科研成果基地</h3>
+        <p class="rd_honor"><img class="lazy" src="/static/assets/img/tg.png"></p>
+        <section class="rd_content">
+            <section class="rd_left"></section>
+            <section class="rd_list">
+                <dl class="col-md-2">
+                    <dt>
+                        <img class="lazy" src="/static/assets/img/5-1icon.png" />
+                    </dt>
+                    <dd>
+                        <h4>数学思维课</h4>
+                        <ul>
+                            <li class="col-md-6">序与比较</li>
+                            <li class="col-md-6 right">形色分类</li>
+                            <li class="col-md-6">空间方位</li>
+                            <li class="col-md-6 right">数量关系</li>
+                            <li class="col-md-6">对应关系</li>
+                            <li class="col-md-6 right">逻辑分析</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt>
+                        <img class="lazy" src="/static/assets/img/5-2icon.png" />
+                    </dt>
+                    <dd>
+                        <h4>逻辑思维课</h4>
+                        <p>
+                            逻辑思维推理能力
+                        </p>
+                        <p>
+                            观察力
+                        </p>
+                        <p>
+                            判断思维
+                        </p>
+                    </dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt>
+                        <img class="lazy" src="/static/assets/img/5-3icon.png" />
+                    </dt>
+                    <dd>
+                        <h4>语言思维课</h4>
+                        <p>
+                            语言表达能力
+                        </p>
+                        <p>
+                            总结能力
+                        </p>
+                        <p>
+                            演讲能力
+                        </p>
+                    </dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt>
+                        <img class="lazy" src="/static/assets/img/5-4icon.png" />
+                    </dt>
+                    <dd>
+                        <h4>科学思维课</h4>
+                        <p>
+                            摩擦起电
+                        </p>
+                        <p>
+                            三原色等
+                        </p>
+                        <p>
+                            多种科学小实验等
+                        </p>
+                    </dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt>
+                        <img class="lazy" src="/static/assets/img/5-5icon.png" />
+                    </dt>
+                    <dd>
+                        <h4>生活数学课</h4>
+                        <p>
+                            魔方
+                        </p>
+                        <p>
+                            纸牌速算
+                        </p>
+                        <p>
+                            七巧板
+                        </p>
+                        <p>
+                            几何积木搭建
+                        </p>
+                    </dd>
+                </dl>
+            </section>
+            <section class="rd_left rd_right"></section>
+        </section>
+        <h3 class="majic_tit">魔数小奇兵APP</h3>
+        <section class="col-md-12">
+            <p class="majic_slogan">随时随地想学就学，线上线下紧密结合</p>
+        </section>
+        <section class="app_img"><img class="lazy" src="/static/assets/img/ss.png"></section>
+    </section>
+    <!-- 全新OMO教育模式 -->
+    <section class="new_omo row">
+        <h2 class="col-md-12">全新OMO教育模式</h2>
+        <p class="new_omo_slogan">
+            <img class="lazy" src="/static/assets/img/online.png" alt="线上线下同步招生教学+分享营销裂变引流获客">
+        </p>
+    </section>
+    <section class="children"><img src="/static/assets/img/6_children.png"></section>
+    <section class="learn_process row">
+        <ul class="learn_ul">
+            <li class="online"><img class="lazy" src="/static/assets/img/6-1icon.png" ></li>
+            <li class="lj"><img class="lazy" src="/static/assets/img/6-2icon.png" ></li>
+            <li class="yy"><img class="lazy" src="/static/assets/img/6-3icon.png" ></li>
+            <li class="kx"><img class="lazy" src="/static/assets/img/6-4icon.png" ></li>
+            <li class="kx"><img class="lazy" src="/static/assets/img/6-5icon.png" ></li>
+            <li class="sh"><img class="lazy" src="/static/assets/img/6-6icon.png" ></li>
+        </ul>
+        <p class="learn_line"></p>
+        <ul class="learn_ul learn_ul_language">
+            <li class="online">在线优质教学</li>
+            <li class="lj">学习习惯跟进</li>
+            <li class="yy">本地化教研</li>
+            <li class="kx">增强用户粘性</li>
+            <li class="kx wk">低成本获客</li>
+            <li class="sh">打造区域口碑</li>
+        </ul>
+    </section>
+    <!-- 社群分析 -->
+    <section class="community row">
+        <h3 class="col-md-12">ＯMO社群分销系统及短视频、新媒体营销让校区迅速获客招生</h3>
+        <p class="community_con">家长通过“魔数APP”社群分享系统解锁游戏关卡，精准投放当地有需求的用户群体，为校区带来流量的快速裂变。同时，通过家长的分享、传播，为校区打造良好的
+            品牌形象和用户口碑，以此形成“口碑-引流-转化-口碑”的招生闭环。
+        </p>
+        <p class="community_btn col-md-12"><a href="#banner_form">立 即 加 盟</a></p>
+    </section>
+    <section class="offline">
+        <p class="offline_tit"><img class="lazy" src="/static/assets/img/js.png" alt="线下——未来智能教室"></p>
+    </section>
+    <!-- 智能 -->
+    <section class="offline_list">
+        <dl class="offline_list_f">
+            <dt><img class="lazy" src="/static/assets/img/zn.png" alt="智能头屏"></dt>
+            <dd>智能头屏系统</dd>
+        </dl>
+        <dl class="dl_line dl_line_f">
+        </dl>
+        <dl>
+            <dt><img class="lazy" src="/static/assets/img/8-2ipad.png" alt="智能交互课件"></dt>
+            <dd>智能交互课件</dd>
+        </dl>
+        <dl class="dl_line dl_line_t">
+        </dl>
+        <dl style="width: 21%">
+            <dt><img class="lazy" src="/static/assets/img/jqr.png" alt="机器人"></dt>
+            <dd>AI机器人助教</dd>
+        </dl>
+        <dl class="dl_line" style="margin-right:3%">
+        </dl>
+        <dl>
+            <dt><img class="lazy" src="/static/assets/img/jj.png"></dt>
+            <dd>结合多元情景式及配套教具，让孩子沉浸式体验学习</dd>
+        </dl>
+    </section>
+    <!-- 线上 -->
+    <section class="online_os">
+        <p class="online_tit"><img class="lazy" src="/static/assets/img/9_online.png" alt="智能学练系统"></p>
+        <ul class="online_ul">
+            <li class="online_ai">
+                <img class="lazy" src="/static/assets/img/91.png">
+                <span>AI自适应系统</span>
+            </li>
+            <li><img class="lazy" src="/static/assets/img/9mid.png"></li>
+            <li class="online_ai"><img src="/static/assets/img/92.png">
+                <span>魔数APP扩展学习阅读</span>
+            </li>
+            <li class="online_l"><img class="lazy" src="/static/assets/img/93.png">
+            </li>
+        </ul>
+        <p class="ai col-md-12">AI在线直播教学一体机</p>
+        <p class="col-md-12 ai_slogan">
+            <span>联合研发“AI线上教学一体机”，搭配趣味交互课件，将虚拟课堂“真实化”，提高线上教学质量</span>
+        </p>
+        <section class="ai_ul">
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/9-1icon.png"></dt>
+                <dd class="dz">社区个性化定制
+                    线上教学安排</dd>
+            </dl>
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/9-2icon.png"></dt>
+                <dd class="dz zb">直播DEMO课
+                    在线引流招生</dd>
+            </dl>
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/9-3icon.png"></dt>
+                <dd class="dz js">教师端、学生端满足
+                    “教”、“学”需求</dd>
+            </dl>
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/9-4icon.png"></dt>
+                <dd class="dz tk">AI题库匹配高质量
+                    学练习题</dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 六大加盟优势 -->
+    <section class="new_omo">
+        <h2 class="col-md-12"><img class="lazy" src="/static/assets/img/jmys.png" alt="六大加盟优势"></h2>
+    </section>
+    <section class="join_ul_jm">
+        <dl>
+            <dt class="st">
+                <strong>实力强</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg">历经8年沉淀，经过500+家小学、幼儿园及合作机构教学验证，全球100,000+儿童受益</dd>
+        </dl>
+        <dl>
+            <dt class="qq">
+                <strong>研发强</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg qq_bg">拥有完全知识产权的在线测评、教学及课程体系，独家专利教材学具</dd>
+        </dl>
+        <dl>
+            <dt class="st">
+                <strong>渠道强</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg">获得国家教育部“十二五”科研成果奖为与公立校合作打开通道</dd>
+        </dl>
+        <dl>
+            <dt class="qq">
+                <strong>宣传多</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg qq_bg">ＯMO社群分销系统及短视频、新媒体营销让校区迅速获客招生</dd>
+        </dl>
+        <dl>
+            <dt class="st">
+                <strong>优势足</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg qq_bg">中国教育电视台“魔法杯”全国思维大赛唯一指定合作单位</dd>
+        </dl>
+        <dl>
+            <dt class="qq">
+                <strong>潜力大</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg">全国首家儿童数理思维教育品牌助您快速成为当地教育独角兽</dd>
+        </dl>
+    </section>
+    <!-- 六大加盟优势 -->
+    <!-- 运营亮点 -->
+    <section class="highlights">
+        <h3 class="highlights_tit col-md-12"><img class="lazy" src="/static/assets/img/yyld.png" alt="四大运营亮点"></h3>
+        <section class="highlights_ul">
+            <dl>
+                <dt>
+                    <h3>"魔数APP" 招生利器</h3>
+                    <span></span>
+                </dt>
+                <dd>魔数小奇兵APP”社群分享营销系统，爆炸型招生裂变利器！学习效果外化分享成果，每日裂变数百目标客户！</dd>
+            </dl>
+            <dl>
+                <dt>
+                    <h3>外派金牌校长服务</h3>
+                    <span></span>
+                </dt>
+                <dd>外派金牌校长15～30天代运营服务，手把手培养合格的校区运营团队！每月限2家盟校获此精细化重点扶持！</dd>
+            </dl>
+            <dl>
+                <dt>
+                    <h3>总部直营化垂直管理</h3>
+                    <span></span>
+                </dt>
+                <dd>城市首家校区，总部直营化垂直运营支持，快来抢占名额！您开店，我运营，投资收益有保障！</dd>
+            </dl>
+            <dl>
+                <dt>
+                    <h3>构建属地化运营支持</h3>
+                    <span></span>
+                </dt>
+                <dd>总部与区域标杆校投资人共建分公司，属地化运营支持各地加盟校！集合总部+全国校区、资源为加盟校提供个性化服务。</dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 优秀校区 -->
+    <section class="nine_school">
+        <h3 class="col-md-12 nine_tit"><img class="lazy" src="/static/assets/img/yxxq.png" alt="优秀校区"></h3>
+        <section class="nine_ul">
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/111.png"></dt>
+                <dd>
+                    <h6><span>河北唐山校区</span></h6>
+                    <p>
+                        该校区成功发展四家思维馆，累计学员数量达3600人，年盈利600万元，已经形成自身口碑及影响力。由于市场需求增持，发展前景可期，为了让当地更多的孩子受益，该校区已经升级为当地区域授权。
+                    </p>
+                </dd>
+            </dl>
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/112.png"></dt>
+                <dd>
+                    <h6><span>贵州贵阳校区</span></h6>
+                    <p>该校区投资人是教育行业销售出身，因幼年受家长熏陶，对教育行业拥有独特的情怀，大学毕业后，一直置身于教育事业。初遇魔数思维，被魔数背景和独家课程体系所吸引，当即签订合作合同。通过用心经营，目前已升级为代理合伙人，拥有学员1500人，真正做到贵阳市垄断数学市场的王者品牌。
+                    </p>
+                </dd>
+            </dl>
+            <dl>
+                <dt><img class="lazy" src="/static/assets/img/11.png"></dt>
+                <dd>
+                    <h6><span>江苏淮安校区</span></h6>
+                    <p>该投资人是魔数学员的家长，通过观察自己孩子短时间内的快速成长，立即决定投资一家魔数思维馆。仅用两年时间，连续扩张到四家魔数空间，目前该校区学员处于饱和状态，致使校长不敢轻易招生。经过与总部沟通后，总部立即委派金牌运营总监与投资人共同筹备第5家校区。
+                    </p>
+                </dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 品牌荣誉 -->
+    <section class="pp_honor">
+        <h5 class="col-md-12"><img class="lazy" src="/static/assets/img/ppry.png" alt="品牌荣誉"></h5>
+    </section>
+    <!-- 证书 -->
+    <section class="brand_ul">
+        <div id="btn-left" class="arrow-btn dasabled"></div>
+        <div class="slider">
+            <ul>
+                <li><img src="/static/assets/img/zs1.jpg"></li>
+                <li><img src="/static/assets/img/zs1.png"></li>
+                <li><img src="/static/assets/img/zs10.jpg"></li>
+                <li><img src="/static/assets/img/zs2.png"></li>
+                <li><img src="/static/assets/img/zs3.jpg"></li>
+                <li><img src="/static/assets/img/zs4.jpg"></li>
+                <li><img src="/static/assets/img/zs5.png"></li>
+                <li><img src="/static/assets/img/zs6.png"></li>
+            </ul>
+        </div>
+        <div id="btn-right" class="arrow-btn"></div>
+    </section>
+    {{template "index_footer"}}
+    <script type="text/javascript" src="/static/index/about.js"></script>
+{{/*    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1278531036'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1278531036%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>*/}}
+{{/*    <script>(function() {var _53code = document.createElement("script");_53code.src = "https://tb.53kf.com/code/code/f254c44bb9e44bf955808e53f506bf9f3/1";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(_53code, s);})();</script>*/}}
+{{/*    <script>*/}}
+{{/*        (function(){*/}}
+{{/*            $("img.lazy").lazyload({effect: "fadeIn"});*/}}
+{{/*        })*/}}
+{{/*        var _index5=0;*/}}
+{{/*        $('.certificate_l').on('click',function(){*/}}
+{{/*            let HidepicLen = $('.certificate_ul li.hide').length*/}}
+{{/*            let picLen = $('.certificate_ul li').length*/}}
+{{/*            if(_index5+4<picLen){*/}}
+{{/*                $(".certificate_ul li").eq(_index5).animate({marginLeft:"-334px"},"slow","linear")*/}}
+{{/*                _index5++;*/}}
+{{/*            }*/}}
+{{/*        })*/}}
+{{/*        $('.certificate_r').on('click',function(){*/}}
+{{/*            if (_index5==0) {*/}}
+{{/*                return false;*/}}
+{{/*            }*/}}
+{{/*            _index5--;*/}}
+{{/*            let HidepicLen = $('.certificate_ul li.hide').length*/}}
+{{/*            let picLen = $('.certificate_ul li').length*/}}
+{{/*            if(_index5<picLen){*/}}
+{{/*                $(".certificate_ul li").eq(_index5).animate({marginLeft:"0"},"slow","linear")*/}}
+{{/*            }*/}}
+{{/*        })*/}}
+{{/*        var _hmt = _hmt || [];*/}}
+{{/*        (function() {*/}}
+{{/*            var hm = document.createElement("script");*/}}
+{{/*            hm.src = "https://hm.baidu.com/hm.js?c9657a1adaad4dd22037d0197b4385d2";*/}}
+{{/*            var s = document.getElementsByTagName("script")[0];*/}}
+{{/*            s.parentNode.insertBefore(hm, s);*/}}
+{{/*        })();*/}}
+{{/*    </script>*/}}
+    </body>
+    </html>
+{{end}}

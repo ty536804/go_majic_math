@@ -185,7 +185,7 @@ footer{
 }
 .nav p{
 	margin-top: 31px;
-	margin-right: 62px;
+	margin-right: 41px;
 }
 .nav p img{
 	float: left;
@@ -202,6 +202,11 @@ footer{
 	color:#333;
 	margin-top: 29px;
 	line-height:21px;
+	width: 79px;
+	text-align: center;
+}
+.nav .links a:hover{
+	text-decoration: none;
 }
 /* 方向键 */
 .tit{
@@ -290,4 +295,12 @@ footer{
 	box-shadow: 1px 1px 3px rgba(0,0,0,.2);
 	background-color: #000;
 	color: #fff;
+}
+.nav_line{
+	width:22px;
+	height:3px;
+	background:rgba(51,51,51,1);
+	border-radius:2px;
+	display: inline-block;
+	margin: 0 auto;
 }

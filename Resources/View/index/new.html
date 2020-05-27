@@ -1,0 +1,29 @@
+{{define "index/new.html"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>最近动态</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-touch-fullscreen" content="yes">
+        {{template "head"}}
+        <link href="/static/assets/css/new.css" rel="stylesheet"/>
+    </head>
+    <body>
+    {{template "nav"}}
+    <section class="new_banner">
+        <img src="/static/assets/img/zxdt_banner.jpg" />
+    </section>
+    <section class="new_ul">
+
+    </section>
+    <!--分页-->
+    <input type="hidden" id="PageCount" value="0">
+    <div id="example" style="text-align: center"> <ul id="pageLimit"></ul>
+    </div>
+    <!-- 版权 -->
+    {{template "index_footer"}}
+    </body>
+    </html>
+{{end}}
