@@ -1,6 +1,3 @@
-.about_banner{
-    height: 600px;
-}
 .about_banner img{
     width: 100%;
     height: 100%;
@@ -266,6 +263,8 @@
 .developing_ul_left{
     width:500px;
     float: left;
+    /*新增*/
+    display: none;
 }
 .developing_ul_left li{
     width:500px;
@@ -275,15 +274,32 @@
     float: left;
     margin-bottom: 21px;
 }
+/*.developing_ul_right{*/
+/*    float: right;*/
+/*    width: 637px;*/
+/*    display: block;*/
+/*    margin-left: 33px;*/
+/*}*/
 .developing_ul_right{
-    float: right;
-    width: 637px;
+    float: left;
+    width: 100%;
     display: block;
     margin-left: 33px;
 }
+/*.developing_ul_right li{*/
+/*    width: 100%;*/
+/*    height:86px;*/
+/*    font-size:16px;*/
+/*    font-family:MicrosoftYaHei;*/
+/*    color:rgba(51,51,51,1);*/
+/*    line-height:21px;*/
+/*    float: left;*/
+/*    margin-bottom: 17px;*/
+/*    text-align: right;*/
+/*}*/
 .developing_ul_right li{
     width: 100%;
-    height:86px;
+    height:70px;
     font-size:16px;
     font-family:MicrosoftYaHei;
     color:rgba(51,51,51,1);
@@ -291,6 +307,7 @@
     float: left;
     margin-bottom: 17px;
     text-align: right;
+    overflow: hidden;
 }
 .developing_ul_right li:last-child{
     margin-bottom: 0;
@@ -315,14 +332,24 @@
     margin-top: 7px;
     margin-left: 6px;
 }
+/*.developing_c{*/
+/*    width:476px;*/
+/*    height:86px;*/
+/*    font-size:16px;*/
+/*    font-family:MicrosoftYaHei;*/
+/*    color:rgba(51,51,51,1);*/
+/*    line-height:21px;*/
+/*    float: right;*/
+/*}*/
 .developing_c{
-    width:476px;
+    width:1009px;
     height:86px;
     font-size:16px;
     font-family:MicrosoftYaHei;
     color:rgba(51,51,51,1);
     line-height:21px;
-    float: right;
+    float: left;
+    text-align: left;
 }
 /* 品牌荣誉 */
 .brand{

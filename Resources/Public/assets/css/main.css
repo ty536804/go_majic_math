@@ -426,6 +426,7 @@
 .dynamic {
 	width: 1200px;
 	margin: 0 auto;
+	display: none;
 }
 .dynamic .tit{
 	width: 542px;
