@@ -9,7 +9,7 @@
             height: 92px;
             margin: 0 10px 10px 0;
         }
-        #bposition{
+        #nav_id{
             display: block;
         }
         .layui-form input[type=checkbox], .layui-form input[type=radio], .layui-form select {
@@ -29,47 +29,12 @@
 <link href="/static/dist/summernote.css" rel="stylesheet"/>
 <script src="/static/dist/summernote.js"></script>
 <script src="/static/dist/lang/summernote-zh-CN.js"></script>    <!-- 中文-->
-<script>
-    $(function(){
-        $('#content').summernote({
-            height: 200,
-            tabsize: 2,
-            lang: 'zh-CN',
-            callbacks:{
-                onImageUpload: function(files, editor, $editable) {
-                    uploadSummerPic(files[0], editor, $editable);
-                },
-                insertImage:function ($editable,file) {
-                    console.log(file)
-                }
-            }
-        });
-
-        function uploadSummerPic(file, editor, $editable) {
-            let fd = new FormData();
-            let fileName = file['name'];
-            fd.append("file", file);
-            $.ajax({
-                type:"POST",
-                url:"/api/v1/upload",
-                data: fd,
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    let _url = "/static/upload/"+data.data;
-                    $('#content').summernote('insertImage', _url, fileName);
-                }
-            });
-        }
-    });
-</script>
+<script src="/static/js/summernote.js"></script>
 <body>
 <div class="x-nav">
     <span class="layui-breadcrumb">
-        <a href="">首页</a>
-        <a href="">Banner管理</a>
-        <a><cite>Banner详情</cite></a>
+        <a href="/api/v1/article">文章管理</a>
+        <a><cite>文章详情</cite></a>
     </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
         <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
@@ -86,6 +51,13 @@
                             <label class="layui-form-label">标题</label>
                             <div class="layui-input-block">
                                 <input type="text" name="title" placeholder="请输入标题" id="title" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">显示位置</label>
+                            <div class="layui-input-block plist">
+                                <select class="col-sm-12 form-control" id="nav_id" name="nav_id">
+                                </select>
                             </div>
                         </div>
                         <div class="layui-form-item">

@@ -1,0 +1,155 @@
+.ai_banner img{
+	height: 100%;
+	width: 100%;
+}
+.pub_style{
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+/* 在线测评系统 */
+.test{
+	width: 959px;
+	margin: 28px auto 0 auto;
+	height: 310px;
+}
+.ai_img{
+	width: 310px;
+	height: 310px;
+	background: url(../img/AI_icon.png);
+}
+.test .circle{
+	width:252px !important;
+	height:252px !important;
+	background:rgba(32,127,240,1);
+	opacity:0.03;
+	display: inline-block;
+	border-radius: 252px;
+	position: absolute;
+	left: 91px;
+	top: 44px;
+}
+.circle_rule{
+	position: absolute;
+	left: 243px;
+	top: 72px;
+}
+.circle_img{
+	background: url(../img/AI_icon2.png);
+	width: 55px;
+	display: block;
+	height: 55px;
+}
+.online_test{
+	width:216px;
+	height:47px;
+	font-size:36px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	line-height:47px;
+	position: absolute;
+	top: 96px;
+}
+.online_desc{
+	width:500px;
+	height:101px;
+	font-size:16px;
+	font-family:MicrosoftYaHei;
+	color:rgba(51,51,51,1);
+	line-height:21px;
+	top: 166px;
+	position: absolute;
+}
+.test dt{
+	width: 310px;
+	height: 310px;
+	margin: 0 149px 0 0;
+	float: left;
+}
+.test dd{
+	float: right;
+	width: 500px;
+	height: 310px;
+	position: relative;
+}
+/* 录播课系统 */
+.record{
+	width:100%;
+	height:395px;
+	background:rgba(249,250,252,1);
+	overflow: hidden;
+	margin: 58px 0 0 0;
+}
+.record_warp{
+	width: 959px;
+	margin: 28px auto 0;
+}
+.record_warp .ai_img{
+	background-position: 1240px 310px!important;
+	float: right;
+}
+.record_warp dl{
+	height: 310px;
+}
+.record_warp dt{
+	float: left;
+	width: 500px;
+	margin-top: 127px;
+}
+.record_warp .record_test{
+	width:285px;
+	height:47px;
+	font-size:36px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	line-height:47px;
+	display: block;
+}
+.record_test span.circle_img{
+	background-position: 220px 55px!important;
+	float: right;
+	margin-top: -18px;
+}
+.record_warp .record_desc{
+	margin-top: 23px;
+	width:500px;
+	height:101px;
+	font-size:16px;
+	font-family:MicrosoftYaHei;
+	color:rgba(51,51,51,1);
+	line-height:21px;
+}
+/* 预复习辅学系统 */
+.prep .online_test{
+	width: 252px;
+}
+.prep .ai_img{
+	background-position:930px 310px!important;
+}
+.prep .circle_rule {
+    left: 290px;
+    top: 57px;
+}
+.prep .circle_img {
+   background-position:165px 55px!important;
+}
+/* 在线思维训练游戏 */
+.sw .record_test{
+	width: 365px;
+}
+.sw span.circle_img {
+    background-position: 110px 55px!important;
+}
+.sw .ai_img {
+    background-position: 620px 310px!important;
+}
+/* AI学练题库 */
+.lx .ai_img {
+    background-position: 310px 310px!important;
+}
+.lx span.circle_img {
+    background-position: 55px 55px!important;
+}

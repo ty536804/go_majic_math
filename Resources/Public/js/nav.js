@@ -25,11 +25,11 @@ function getAjax()
 }
 $("#addpower").on("click", function () {
     if ($("#addform #name").val() == "") {
-        sweetAlert("登录失败","名称不能为空",'error');
+        sweetAlert("操作失败","名称不能为空",'error');
         return false;
     }
     if ($("#addform #base_url").val() == "") {
-        sweetAlert("登录失败","跳转地址不能为空",'error');
+        sweetAlert("操作失败","跳转地址不能为空",'error');
         return false;
     }
     $.ajax({

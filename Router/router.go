@@ -7,6 +7,7 @@ import (
 	v2 "elearn100/Backend/Controller/Banner"
 	m "elearn100/Backend/Controller/Message"
 	nav "elearn100/Backend/Controller/Nav"
+	v4 "elearn100/Backend/Controller/Single"
 	frontend "elearn100/Frontend/Controller"
 	"elearn100/Middleware/jwt"
 	"elearn100/Pkg/e"
@@ -96,6 +97,14 @@ func InitRouter() *gin.Engine {
 		apiv1.GET("/articleDetail", v3.Detail)   //文章列表
 		apiv1.POST("/getArticle", v3.GetArticle) //文章详情API
 		apiv1.POST("/addArticle", v3.AddArticle) //文章详情API
+
+		//单页
+		apiv1.GET("/single", v4.List)               //文章列表
+		apiv1.POST("/singleList", v4.ListData)      //文章列表API
+		apiv1.GET("/list", v4.List)                 //文章列表
+		apiv1.POST("/getSingle", v4.GetSingle)      //文章详情API
+		apiv1.POST("/addSingle", v4.AddSingle)      //添加单页详情API
+		apiv1.GET("/singleDetail", v4.DetailSingle) //文章详情A
 	}
 
 	return r

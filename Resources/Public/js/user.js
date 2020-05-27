@@ -1,24 +1,24 @@
 $("#addpower").on("click", function () {
     if ($("#addform #nick_name").val() == "") {
-        sweetAlert("登录失败","用户不能为空",'error');
+        sweetAlert("操作失败","用户不能为空",'error');
         return false;
     }
     if ($("#addform #login_name").val() == "") {
-        sweetAlert("登录失败","登陆账号不能为空",'error');
+        sweetAlert("操作失败","登陆账号不能为空",'error');
         return false;
     }
     if ($("#addform #email").val() == "") {
-        sweetAlert("登录失败","邮箱不能为空",'error');
+        sweetAlert("操作失败","邮箱不能为空",'error');
         return false;
     }
 
     if ($("#addform #id").val()=="" && $("#addform #pwd").val() == "") {
-        sweetAlert("登录失败","密码不能为空",'error');
+        sweetAlert("操作失败","密码不能为空",'error');
         return false;
     }
 
     if ($("#addform #tel").val() == "") {
-        sweetAlert("登录失败","电话不能为空",'error');
+        sweetAlert("操作失败","电话不能为空",'error');
         return false;
     }
     $.ajax({

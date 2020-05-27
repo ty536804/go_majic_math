@@ -2,12 +2,14 @@ package Article
 
 import (
 	db "elearn100/Database"
+	"elearn100/Model/Nav"
 	"elearn100/Pkg/setting"
 	"fmt"
 )
 
 type Article struct {
 	db.Model
+	Navs Nav.Nav `json:"nav" gorm:"FOREIGNKEY:NavId;ASSOCIATION_FOREIGNKEY:ID"`
 
 	Title    string `json:"title" gorm:"type:varchar(190);not null;default '';comment:'标题'"`
 	Summary  string `json:"summary" gorm:"type:varchar(255);not null;default '';comment:'摘要'"`
@@ -18,6 +20,7 @@ type Article struct {
 	Content  string `json:"content" gorm:"type:text;not null;default '';comment:'内容'"`
 	Hot      int    `json:"hot" gorm:"not null;default '2';comment:'是否热点 1是 2否'"`
 	Sort     int    `json:"sort" gorm:"not null;default '0';comment:'优先级 数字越大，排名越前'"`
+	NavId    int    `json:"nav_id" gorm:"default '0';comment:'栏目ID'"`
 }
 
 // @Summer 添加文章
@@ -32,6 +35,7 @@ func AddArticle(data map[string]interface{}) bool {
 		Content:  data["content"].(string),
 		Hot:      data["hot"].(int),
 		Sort:     data["sort"].(int),
+		NavId:    data["nav_id"].(int),
 	})
 
 	if article.Error != nil {
@@ -61,9 +65,9 @@ func GetArticles(page int, data interface{}) (articleS []Article) {
 	return
 }
 
-// @Summer 获取单票文章
+// @Summer 获取单篇文章
 func GetArticle(id int) (article Article) {
-	db.Db.Where("id = ?", id).First(&article)
+	db.Db.Preload("Navs").Where("id = ?", id).First(&article)
 	return
 }
 

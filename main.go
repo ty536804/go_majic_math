@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	//_ "elearn100/Commands"
+	_ "elearn100/Commands"
 	"elearn100/Pkg/setting"
 	"elearn100/Router"
 	"fmt"

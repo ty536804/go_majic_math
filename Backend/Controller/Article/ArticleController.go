@@ -4,7 +4,6 @@ import (
 	"elearn100/Model/Article"
 	"elearn100/Pkg/e"
 	"elearn100/Services"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
 )
@@ -38,8 +37,9 @@ func Detail(c *gin.Context) {
 func GetArticle(c *gin.Context) {
 	c.Request.Body = e.GetBody(c)
 	id := com.StrTo(c.PostForm("id")).MustInt()
-	fmt.Print(id)
-	data := Article.GetArticle(id)
+	var data = make(map[string]interface{})
+	data["list"] = Services.GetNavs(data)
+	data["detail"] = Article.GetArticle(id)
 	e.Success(c, "文章详情", data)
 }
 

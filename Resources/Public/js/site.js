@@ -1,22 +1,22 @@
 $(".subCon").on("click", function () {
     if ($("#addform #site_title").val() == "") {
-        sweetAlert("登录失败","网站标题不能为空",'error');
+        sweetAlert("操作失败","网站标题不能为空",'error');
         return false;
     }
     if ($("#addform #site_desc").val() == "") {
-        sweetAlert("登录失败","网站描述不能为空",'error');
+        sweetAlert("操作失败","网站描述不能为空",'error');
         return false;
     }
     if ($("#addform #site_keyboard").val() == "") {
-        sweetAlert("登录失败","网站关键字不能为空",'error');
+        sweetAlert("操作失败","网站关键字不能为空",'error');
         return false;
     }
     if ($("#addform #site_keyboard").val() == "") {
-        sweetAlert("登录失败","网站关键字不能为空",'error');
+        sweetAlert("操作失败","网站关键字不能为空",'error');
         return false;
     }
     if ($("#addform #land_line").val() == "" && $("#addform #client_tel").val() == "" && $("#addform #client_tel").val() == "") {
-        sweetAlert("登录失败","电话联系方式，必须填写一项",'error');
+        sweetAlert("操作失败","电话联系方式，必须填写一项",'error');
         return false;
     }
     $.ajax({
@@ -30,7 +30,7 @@ $(".subCon").on("click", function () {
                     getSiteInfo()
                 })
             } else {
-                sweetAlert("登录失败",result.msg,'error');
+                sweetAlert("操作失败",result.msg,'error');
                 return false;
             }
         }

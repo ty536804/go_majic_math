@@ -27,6 +27,7 @@ func AddArticle(c *gin.Context) (code int, msg string) {
 	hot := com.StrTo(c.PostForm("hot")).MustInt()
 	thumbImg := com.StrTo(c.PostForm("thumb_img")).String()
 	articleCom := com.StrTo(c.PostForm("com")).String()
+	navId := com.StrTo(c.PostForm("nav_id")).MustInt()
 
 	valid := validation.Validation{}
 	valid.Required(title, "title").Message("标题不能为空")
@@ -35,6 +36,7 @@ func AddArticle(c *gin.Context) (code int, msg string) {
 	valid.Required(content, "content").Message("内容不能为空")
 	valid.Required(hot, "hot").Message("选择是否热点")
 	valid.Required(admin, "admin").Message("发布者不能为空")
+	valid.Required(navId, "nav_id").Message("栏目不能为空")
 	//valid.Required(com,"com").Message("来源不能为空")
 
 	if !valid.HasErrors() {
@@ -47,6 +49,7 @@ func AddArticle(c *gin.Context) (code int, msg string) {
 		data["thumb_img"] = thumbImg
 		data["admin"] = admin
 		data["com"] = articleCom
+		data["nav_id"] = navId
 
 		isOk := false
 		if id < 1 {

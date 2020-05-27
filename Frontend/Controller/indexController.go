@@ -15,6 +15,8 @@ func Index(c *gin.Context) {
 }
 
 func About(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(1)
 	c.HTML(e.SUCCESS, "index/about.html", gin.H{
 		"title": "关于我们",
 	})
@@ -27,9 +29,11 @@ func FrontEnd(c *gin.Context) {
 	if len(list) > 3 {
 		list = list[0:3]
 	}
+
 	data["list"] = list
 	data["nav"] = Services.GetMenu()
 	data["banner"] = Banner.GetBannerData(1)
+	data["magic"] = Services.GetSingle(1)
 	e.Success(c, "首页", data)
 }
 

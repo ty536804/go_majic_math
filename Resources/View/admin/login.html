@@ -42,12 +42,12 @@
     $(function () {
         $('#loginButton').on('click', function () {
             if ($.trim($(".uname").val()) == "") {
-                sweetAlert("登录失败","用户名不能为空",'error');
+                sweetAlert("操作失败","用户名不能为空",'error');
                 return false;
             }
 
             if ($.trim($(".pword").val()) == "") {
-                sweetAlert("登录失败","密码不能为空",'error');
+                sweetAlert("操作失败","密码不能为空",'error');
                 return false;
             }
             $.ajax({
@@ -60,12 +60,12 @@
                     if (Number(result.code) == 200) {
                         window.location.href = "/api/v1/show";
                     } else {
-                        sweetAlert("登录失败",result.msg,'error');
+                        sweetAlert("操作失败",result.msg,'error');
                     }
                 },
                 error: function (result) {
                     $.each(result.responseJSON, function (k, val) {
-                        sweetAlert("登录失败2",val[0],'error');
+                        sweetAlert("操作失败",val[0],'error');
                         return false;
                     });
                 }
