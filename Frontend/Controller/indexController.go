@@ -53,7 +53,7 @@ func Research(c *gin.Context) {
 
 // @Summer AI学习平台
 func Learn(c *gin.Context) {
-	c.HTML(e.SUCCESS, "index/learn.html", gin.H{
+	c.HTML(e.SUCCESS, "index/ai.html", gin.H{
 		"title": "ai学习平台",
 	})
 }
