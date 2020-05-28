@@ -2,6 +2,10 @@ body {
 	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 	background:#fff ;
 }
+.nav_menu {
+	background: #fff !important;
+	height: 80px;
+}
 .nav_menu{
 	background: #fff;
 	height: 88px;
