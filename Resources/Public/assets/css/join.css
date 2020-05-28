@@ -825,3 +825,7 @@ label{
     margin: 20px auto;
     height: 290px;
 }
+.brand_bg_desc {
+    margin-top: 5px;
+    text-align: center;
+}
