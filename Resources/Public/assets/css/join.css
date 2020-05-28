@@ -195,18 +195,18 @@
     margin: 0 auto;
     font-size: 14px;
 }
-.brand_ul dl dd p {
+.brand_ul_bg dl dd p {
     margin: 0;
     color: #fff;
 }
-.brand_ul dl dd p:first-child{
+.brand_ul_bg dl dd p:first-child{
     padding-left: 25px !important;
     margin-top: 5px;
 }
-.brand_ul dl dd p:last-child{
+.brand_ul_bg dl dd p:last-child{
     text-align: right;
 }
-.brand_ul dl dd p.brand_bg_desc{
+.brand_ul_bg dl dd p.brand_bg_desc{
     color: #fff;
     text-align: center;
     padding: 0;
