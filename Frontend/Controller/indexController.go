@@ -122,6 +122,7 @@ func JoinData(c *gin.Context) {
 	data["banner"] = banner[0:3]
 	data["app"] = banner[3:4]
 	data["learn"] = banner[4:5]
+	data["mid"] = banner[5:6]
 	e.Success(c, "加盟授权数据接口", data)
 }
 

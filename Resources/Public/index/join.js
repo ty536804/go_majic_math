@@ -57,10 +57,11 @@ $(function () {
                         _oli += '<li data-target="#myCarousel" data-slide-to="'+k+'" class="active"></li>';
                     })
                 }
-
-                $('.carousel-indicators').empty().append(_oli)
+                $('.carousel-inner').empty().append(_banner);
+                $('.carousel-indicators').empty().append(_oli);
                 $('.area_con').append('<img src="/static/upload/'+result.data.app[0].imgurl+'" />')
-                $('.mid').empty().append('<img src="/static/upload/'+result.data.learn[0].imgurl+'" />')
+                $('.app_img').empty().append('<img src="/static/upload/'+result.data.learn[0].imgurl+'" />')
+                $('.mid').empty().append('<img src="/static/upload/'+result.data.mid[0].imgurl+'" />')
             }
         });
     }
