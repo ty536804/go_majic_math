@@ -505,3 +505,7 @@
 .more:hover{
 	text-decoration: none;
 }
+.brand_bg_desc {
+	margin-top: 5px;
+	text-align: center;
+}
