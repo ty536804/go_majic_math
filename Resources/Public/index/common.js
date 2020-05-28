@@ -10,7 +10,6 @@ $(function () {
                 let _currentUrl = 'http://'+window.location.host
                 let currentUrl = window.location.href.substr(_currentUrl.length,window.location.href.length)
                 $.each(result.data,function (k,v) {
-                    console.log(currentUrl,v.base_url)
                     if (currentUrl == v.base_url) {
                         _html += '<a href="'+v.base_url+'">'+v.name+'<span class="nav_line"></span></a>';
                     } else {

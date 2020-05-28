@@ -45,7 +45,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/detail", frontend.NewDetail)
 	r.GET("/newDetail", frontend.NewDetailData)
 	r.GET("/join", frontend.Authorize)
-	r.GET("/JoinData", frontend.JoinData)
+	r.GET("/joinData", frontend.JoinData)
 	r.GET("/omo", frontend.Omo)
 	r.GET("/campus", frontend.Campus) //全国校区
 	r.GET("/down", frontend.Down)

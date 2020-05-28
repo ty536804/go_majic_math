@@ -47,7 +47,7 @@ $(function () {
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "/JoinData",
+            url: "/joinData",
             success: function (result) {
                 let _banner = "";
                 let _oli = "";
@@ -59,8 +59,8 @@ $(function () {
                 }
 
                 $('.carousel-indicators').empty().append(_oli)
-                $('.area_con').append('"/static/upload/'+result.data.app+'"')
-                $('.9mid').append('"/static/upload/'+result.data.learn+'"')
+                $('.area_con').append('<img src="/static/upload/'+result.data.app[0].imgurl+'" />')
+                $('.mid').empty().append('<img src="/static/upload/'+result.data.learn[0].imgurl+'" />')
             }
         });
     }
