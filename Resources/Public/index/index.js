@@ -1,5 +1,4 @@
 $(function () {
-    $('.c-com').val(window.location.host);
     getAjax()
 //请求数据
     function getAjax()

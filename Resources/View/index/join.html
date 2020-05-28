@@ -36,6 +36,7 @@
     <section class="banner_form" id="banner_form">
         <p class="banner_form_logo"></p>
         <form method="post" name="banner_myform">
+            <input type="hidden" name="com" class="com">
             <label for="">姓名：
                 <input type="text" name="name" class="c-area">
             </label>
@@ -459,6 +460,7 @@
     {{template "index_footer"}}
     <script type="text/javascript" src="/static/index/about.js"></script>
     <script>
+        $('.com').val(window.location.host);
         $('.lj_btn').on('click',function () {
 
             if ($('.banner_form .c-area').val()=="") {
@@ -466,7 +468,6 @@
                     tips: [1, '#3595CC'],
                     time: 4000
                 });
-                // layer.alert("濮撳悕涓嶈兘涓虹┖");
                 return false;
             }
             if ($('banner_form. .c-tel').val()=="") {

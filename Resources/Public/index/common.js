@@ -1,4 +1,5 @@
 $(function () {
+    $('.c-com').val(window.location.host);
     $.ajax({
         type: "GET",
         dataType: "json",
