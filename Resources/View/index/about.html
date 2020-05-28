@@ -236,6 +236,21 @@
     <!-- 版权 -->
     {{template "index_footer"}}
     <script type="text/javascript" src="/static/index/about.js"></script>
+    <script>
+        getAjax1()
+        //请求数据
+        function getAjax1()
+        {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "http://fang.al/api/second/getRoom",
+                success: function (result) {
+                   console.log(result)
+                }
+            });
+        }
+    </script>
     </body>
     </html>
 {{end}}
