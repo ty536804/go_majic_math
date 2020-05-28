@@ -15,21 +15,9 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
         <!-- 轮播（Carousel）指标 -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
         <!-- 轮播（Carousel）项目 -->
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/static/assets/img/bannar1.png">
-            </div>
-            <div class="carousel-item">
-                <img src="/static/assets/img/bannar2.jpg">
-            </div>
-            <div class="carousel-item">
-                <img src="/static/assets/img/bannar3.jpg">
-            </div>
         </div>
     </div>
 
@@ -76,7 +64,6 @@
         </section>
         <h6>截止目前，魔法数学思维馆已经在全国100多个城市开设了200多家品牌加盟及合作校区，2020年将进入加速发展期</h6>
         <section class="area_con">
-            <img class="lazy" src="/static/assets/img/3_area.png" width="695" height="623px">
         </section>
     </section>
     <!-- 八年沉淀 -->
@@ -288,7 +275,7 @@
                 <img class="lazy" src="/static/assets/img/91.png">
                 <span>AI自适应系统</span>
             </li>
-            <li><img class="lazy" src="/static/assets/img/9mid.png"></li>
+            <li class="9mid"></li>
             <li class="online_ai"><img src="/static/assets/img/92.png">
                 <span>魔数APP扩展学习阅读</span>
             </li>
@@ -459,48 +446,7 @@
     </section>
     {{template "index_footer"}}
     <script type="text/javascript" src="/static/index/about.js"></script>
-    <script>
-        $('.com').val(window.location.href);
-        $('.lj_btn').on('click',function () {
-
-            if ($('.banner_form .c-area').val()=="") {
-                layer.tips('姓名不能为空!', '.banner_form .c-area', {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-                return false;
-            }
-            if ($('banner_form. .c-tel').val()=="") {
-                layer.tips('电话不能为空┖', '.banner_form .c-tel', {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-                return false;
-            }
-            if ($('.banner_form .c-city').val()=="") {
-                layer.tips('地区不能为空┖', '.banner_form .c-city', {
-                    tips: [1, '#3595CC'],
-                    time: 4000
-                });
-                return false;
-            }
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "/AddMessage",
-                data:$('#banner_myform').serialize(),
-                success: function (result) {
-                    if (result.code == 200) {
-                        layer.alert("留言成功");
-                        return false
-                    }
-                    layer.alert("留言失败");
-                    return false
-                }
-            })
-            return false;
-        })
-    </script>
+    <script type="text/javascript" src="/static/index/join.js"></script>
     </body>
     </html>
 {{end}}

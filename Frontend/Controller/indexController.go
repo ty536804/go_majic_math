@@ -114,6 +114,17 @@ func Authorize(c *gin.Context) {
 	})
 }
 
+// @Summer 加盟授权数据接口
+func JoinData(c *gin.Context) {
+	c.Request.Body = e.GetBody(c)
+	var data = make(map[string]interface{})
+	banner := Banner.GetBannerData(8)
+	data["banner"] = banner[0:3]
+	data["app"] = banner[3:4]
+	data["learn"] = banner[4:5]
+	e.Success(c, "加盟授权数据接口", data)
+}
+
 // @Summer 加盟授权
 func Down(c *gin.Context) {
 	c.HTML(e.SUCCESS, "index/down.html", gin.H{
