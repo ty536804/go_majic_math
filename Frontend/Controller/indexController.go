@@ -113,3 +113,10 @@ func Authorize(c *gin.Context) {
 		"title": "加盟授权",
 	})
 }
+
+// @Summer 加盟授权
+func Down(c *gin.Context) {
+	c.HTML(e.SUCCESS, "index/down.html", gin.H{
+		"title": "APP下载",
+	})
+}
