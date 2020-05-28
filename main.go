@@ -35,7 +35,6 @@ func main() {
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-	log.Println("Shutdown Server ...")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 
@@ -44,5 +43,4 @@ func main() {
 		log.Fatal("Server Shutdown:", err)
 	}
 	log.Printf("Actual pid is %d", syscall.Getpid())
-	log.Println("Server exiting")
 }

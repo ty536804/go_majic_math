@@ -45,6 +45,8 @@ func InitRouter() *gin.Engine {
 	r.GET("/detail", frontend.NewDetail)
 	r.GET("/newDetail", frontend.NewDetailData)
 	r.GET("/join", frontend.Authorize)
+	r.GET("/omo", frontend.Omo)
+	r.GET("/campus", frontend.Campus)
 
 	//Backend
 	apiv1 := r.Group("/api/v1")

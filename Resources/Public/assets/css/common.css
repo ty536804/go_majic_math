@@ -2,7 +2,10 @@ body {
 	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 	background:#fff ;
 }
-
+.nav_menu{
+	background: #fff;
+	height: 88px;
+}
 dt{
 	font-weight: normal;
 }
@@ -303,4 +306,13 @@ footer{
 	border-radius:2px;
 	display: inline-block;
 	margin: 0 auto;
+}
+#cnzz_stat_icon_1278531036{
+	display:none;
+}
+.pub_style{
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
