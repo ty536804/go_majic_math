@@ -1,3 +1,6 @@
+var mt = '-'+$('.school_map_bg img').height();
+$("#chart-panel").css("height",$('.school_map_bg img').height()+200+"px");
+$("#chart-panel").css("margin",mt+'px auto 0')
 var myChart = echarts.init(document.getElementById('chart-panel'));
 var uploadedDataURL = "/static/index/data-1528971808162-BkOXf61WX.json";
 myChart.showLoading();
