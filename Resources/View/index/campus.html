@@ -1,4 +1,4 @@
-{{define "index/learn.html"}}
+{{define "index/campus.html"}}
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -8,11 +8,33 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-touch-fullscreen" content="yes">
         {{template "head"}}
+        <link href="/static/assets/css/school.css" rel="stylesheet"/>
     </head>
     <body>
     {{template "nav"}}
+    <section class="school_map_bg">
+        <img src="/static/assets/img/school_bg.png" />
+    </section>
+    <div id="chart-panel" class="pub_style"></div>
+    <section class="school_ul pub_style">
+        <dl>
+            <dt>
+                <h3>
+                    上海易乐学学校
+                </h3>
+                <span class="shcool_line"></span>
+                <p class="tel">电话：400-175-9669</p>
+                <p class="work">工作日： 9:00-18:00</p>
+                <p class="address">地址：上海市静安区临汾路57号 易乐学学校</p>
+                </p>
+            </dt>
+            <dd></dd>
+        </dl>
+    </section>
     <!-- 版权 -->
     {{template "index_footer"}}
+    <script type="text/javascript" src="/static/assets/js/echarts.min.js"></script>
+    <script type="text/javascript" src="/static/index/school.js"></script>
     </body>
     </html>
 {{end}}
