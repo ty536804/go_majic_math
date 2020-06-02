@@ -370,4 +370,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
 		]
 	};
 	myChart.setOption(option);
+	myChart.on('click',function (params) {
+		console.log(params)
+	})
 });
