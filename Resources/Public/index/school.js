@@ -371,6 +371,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
 	};
 	myChart.setOption(option);
 	myChart.on('click',function (params) {
-		console.log(params)
+		$('.school_ul dl dt h3').empty(params.data.name+"易乐乐学学校");
 	})
 });
