@@ -356,7 +356,9 @@ $.getJSON(uploadedDataURL, function(geoJson) {
 						color: '#D8BC37', //标志颜色
 					}
 				},
-				data: convertData(data),
+                data: convertData(data.sort(function(a, b) {
+                    return b.value - a.value;
+                }).slice(0, 5)),
 				showEffectOn: 'render',
 				rippleEffect: {
 					brushType: 'stroke'
