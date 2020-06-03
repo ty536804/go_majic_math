@@ -23,6 +23,11 @@ func DetailCampus(c *gin.Context) {
 	e.Success(c, "校区详情", Services.DetailCampus(c))
 }
 
+// @Summer 省统计
+func GroupCampuses(c *gin.Context) {
+	e.Success(c, "全国校区", Services.GroupCampus())
+}
+
 // @Summer 获取全国校区API 带缓冲区的
 func GetCampuses(c *gin.Context) {
 	e.Success(c, "全国校区", Services.GetCampus(c))

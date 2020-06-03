@@ -11,7 +11,11 @@ $(function () {
                 let currentUrl = window.location.href.substr(_currentUrl.length,window.location.href.length)
                 $.each(result.data,function (k,v) {
                     if (currentUrl == v.base_url) {
-                        _html += '<a href="'+v.base_url+'">'+v.name+'<span class="nav_line"></span></a>';
+                        if (v.base_url == '/') {
+                            _html += '<a href="'+v.base_url+'">'+v.name+'</a>';
+                        } else {
+                            _html += '<a href="'+v.base_url+'">'+v.name+'<span class="nav_line"></span></a>';
+                        }
                     } else {
                         _html += '<a href="'+v.base_url+'">'+v.name+'</a>';
                     }

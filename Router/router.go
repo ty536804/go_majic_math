@@ -118,7 +118,8 @@ func InitRouter() *gin.Engine {
 		apiv1.GET("/campus", campus.Index)               //校区首页
 		apiv1.POST("/campusList", campus.GetCampus)      //校区列表API
 		apiv1.POST("/campusDetail", campus.DetailCampus) //校区详情
-		apiv1.POST("/campusData", campus.GetCampuses)    //校区列表API 带缓冲区的
+		r.GET("/groupCampuses", campus.GroupCampuses)    //校区列表API 带缓冲区的
+		r.POST("/campusData", campus.GetCampuses)        //校区列表API 带缓冲区的
 		apiv1.POST("/addCampuses", campus.AddCampuses)   //添加校区
 	}
 

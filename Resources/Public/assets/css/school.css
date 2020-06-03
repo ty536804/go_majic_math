@@ -64,10 +64,10 @@
 .school_ul dl dd{
 	width:350px;
 	height:210px;
-	padding: 30px;
 	float: right;
 	display: inline-block;
 	margin: 30px 30px 0 0;
+	padding: 0;
 }
 .school_ul dl dd img{
 	width:350px;

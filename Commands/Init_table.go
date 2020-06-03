@@ -5,6 +5,7 @@ import (
 	"elearn100/Model/Admin"
 	"elearn100/Model/Article"
 	"elearn100/Model/Banner"
+	"elearn100/Model/Campus"
 	"elearn100/Model/Message"
 	"elearn100/Model/Nav"
 	"elearn100/Model/Single"
@@ -29,6 +30,7 @@ func InitAdminDatabase() {
 	Database.Db.AutoMigrate(&Nav.Nav{})
 	Database.Db.AutoMigrate(&Site.Site{})
 	Database.Db.AutoMigrate(&Single.Single{})
+	Database.Db.AutoMigrate(&Campus.Campus{})
 }
 
 func DropDatabase() {
@@ -70,5 +72,9 @@ func DropDatabase() {
 	//单页
 	if !Database.Db.HasTable(&Single.Single{}) {
 		Database.Db.DropTable(&Single.Single{})
+	}
+	//校园管理
+	if !Database.Db.HasTable(&Campus.Campus{}) {
+		Database.Db.DropTable(&Campus.Campus{})
 	}
 }

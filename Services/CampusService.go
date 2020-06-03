@@ -19,8 +19,6 @@ func AddCampus(c *gin.Context) (code int, err string) {
 	address := com.StrTo(c.PostForm("address")).String()
 	schoolImg := com.StrTo(c.PostForm("school_img")).String()
 	province := com.StrTo(c.PostForm("province")).MustInt()
-	city := com.StrTo(c.PostForm("city")).MustInt()
-	area := com.StrTo(c.PostForm("area")).MustInt()
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	provinceName := com.StrTo(c.PostForm("province_name")).String()
 
@@ -32,8 +30,6 @@ func AddCampus(c *gin.Context) (code int, err string) {
 	valid.Required(schoolImg, "school_img").Message("学校图片不能为空")
 	valid.Required(province, "province").Message("省不能为空")
 	valid.Required(provinceName, "province_name").Message("省不能为空")
-	valid.Required(city, "city").Message("市不能为空")
-	valid.Required(area, "area").Message("区不能为空")
 
 	data := make(map[string]interface{})
 
@@ -43,12 +39,10 @@ func AddCampus(c *gin.Context) (code int, err string) {
 		data["school_tel"] = schoolTel
 		data["worker_time"] = workerTime
 		data["address"] = address
-		data["school_name"] = schoolImg
+		data["school_img"] = schoolImg
 		data["province"] = province
 		data["province_name"] = provinceName
-		data["city"] = city
-		data["area"] = area
-		if id > 1 {
+		if id < 1 {
 			isOk = Campus.AddCampus(data)
 		} else {
 			isOk = Campus.EditCampus(id, data)
@@ -65,7 +59,8 @@ func AddCampus(c *gin.Context) (code int, err string) {
 // @Summer 缓冲区存储校区
 func SaveCampus(id int) bool {
 	data := make(map[string]interface{})
-	res := Campus.GetCampus(id, data)
+	data["province"] = id
+	res := Campus.GetCampus(1, data)
 	b, _ := json.Marshal(res)
 	con := string(b)
 	key := "campus" + string(id)
@@ -75,16 +70,16 @@ func SaveCampus(id int) bool {
 
 // @Summer 获取缓冲区的校区
 func GetCampus(c *gin.Context) (campuses []Campus.Campus) {
-	province := com.StrTo(c.PostForm("province")).MustInt()
-	isOk, singleList := e.GetVal("campus" + string(province))
+	name := com.StrTo(c.PostForm("province")).String()
+	res := Admin.GetArea(name)
+	isOk, singleList := e.GetVal("campus" + string(res.GaodeId))
 	if !isOk {
-		isOk = SaveCampus(province)
+		isOk = SaveCampus(res.GaodeId)
 		if isOk {
 			json.Unmarshal([]byte(singleList), &campuses)
 		}
-	} else {
-		json.Unmarshal([]byte(singleList), &campuses)
 	}
+	json.Unmarshal([]byte(singleList), &campuses)
 	return
 }
 
@@ -92,17 +87,25 @@ func GetCampus(c *gin.Context) (campuses []Campus.Campus) {
 func GetCampuses(c *gin.Context) (data map[string]interface{}) {
 	page := com.StrTo(c.PostForm("page")).MustInt()
 	param := make(map[string]interface{})
-	param["count"] = Campus.CountCampus(param)
-	param["list"] = Campus.GetCampus(page, param)
-	return
+	count := make(map[string]interface{})
+	param["count"] = Campus.CountCampus(count)
+	param["list"] = Campus.GetCampus(page, count)
+	count["a_level"] = 1
+	param["areacode"] = Admin.GetAreas(count)
+	return param
 }
 
 // @Summer 获取校区
 func DetailCampus(c *gin.Context) (data map[string]interface{}) {
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	param := make(map[string]interface{})
-	param["a_level"] = 1
-	param["areacode"] = Admin.GetAreas(param)
 	param["detail"] = Campus.DetailCampus(id)
-	return
+	return param
+}
+
+// @Summer 省统计校区
+func GroupCampus() (data map[string]interface{}) {
+	param := make(map[string]interface{})
+	param["detail"] = Campus.GroupCampus()
+	return param
 }

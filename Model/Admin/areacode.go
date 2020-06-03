@@ -18,6 +18,12 @@ type SysAreaCode struct {
 
 // @Summer获取校区列表
 func GetAreas(where map[string]interface{}) (areacode []SysAreaCode) {
-	db.Db.Where(where).First(&areacode)
+	db.Db.Where(where).Find(&areacode)
+	return
+}
+
+// @Summer获取校区列表
+func GetArea(aname string) (area SysAreaCode) {
+	db.Db.Where("aname = ?", aname).First(&area)
 	return
 }
