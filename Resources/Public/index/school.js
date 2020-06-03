@@ -40,7 +40,8 @@ $.getJSON(uploadedDataURL, function(geoJson) {
 		"广西": [108.479, 23.1152],
 		"海南": [110.3893, 19.8516],
 		'上海': [121.4648, 31.2891],
-
+		'香港': [114.2578, 22.3242],
+		'澳门': [113.5547, 22.1484],
 	};
 	var data = [
 		{
@@ -167,6 +168,18 @@ $.getJSON(uploadedDataURL, function(geoJson) {
 			name: "海南",
 			value: 14
 		},
+		{
+			name: "台湾",
+			value: 0
+		},
+		{
+			name: "香港",
+			value: 0
+		},
+		{
+			name: "澳门",
+			value: 0
+		},
 	];
 	var max = 480,
 		min = 9; // todo 
@@ -190,15 +203,15 @@ $.getJSON(uploadedDataURL, function(geoJson) {
 
 
 	option = {
-		// itemStyle:{
-		//      normal:{
-		//      label:{show:true}
-		//      ,
-		// 	  areaStyle:{color:'green'}//设置地图背景色的颜色设置
-		//      ,color:'rgba(255,0,255,0.8)' //刚才说的图例颜色设置
-		//      },
-		//      emphasis:{label:{show:true}}
-		//     },
+		itemStyle:{
+		     normal:{
+		     label:{show:true}
+		     ,
+			  areaStyle:{color:'green'}//设置地图背景色的颜色设置
+		     ,color:'rgba(255,0,255,0.8)' //刚才说的图例颜色设置
+		     },
+		     emphasis:{label:{show:true}}
+		    },
 		backgroundColor: {
 			type: 'linear',
 			x: 0,

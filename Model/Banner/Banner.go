@@ -53,7 +53,7 @@ func AddBanner(data map[string]interface{}) bool {
 }
 
 // @Summer 编辑banner
-func EditBanner(id interface{}, data interface{}) bool {
+func EditBanner(id int, data interface{}) bool {
 	edit := db.Db.Model(&Banner{}).Where("id = ?", id).Update(data)
 	if edit.Error != nil {
 		fmt.Print("编辑banner错误:", edit)
