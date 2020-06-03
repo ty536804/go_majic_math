@@ -14,7 +14,7 @@ $(function () {
                         if (v.base_url == '/') {
                             _html += '<a href="'+v.base_url+'">'+v.name+'</a>';
                         } else {
-                            _html += '<a href="'+v.base_url+'">'+v.name+'<span class="nav_line"></span></a>';
+                            _html += '<a href="'+v.base_url+'">'+v.name+'<p class="nav_line"><span class="nav_line"></span></p></a>';
                         }
                     } else {
                         _html += '<a href="'+v.base_url+'">'+v.name+'</a>';
