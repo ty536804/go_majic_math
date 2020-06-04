@@ -17,14 +17,6 @@ func Index(c *gin.Context) {
 	})
 }
 
-func About(c *gin.Context) {
-	var data = make(map[string]interface{})
-	data["banner"] = Banner.GetBannerData(1)
-	c.HTML(e.SUCCESS, "index/about.html", gin.H{
-		"title": "关于我们",
-	})
-}
-
 // @Summer 首页
 func FrontEnd(c *gin.Context) {
 	var data = make(map[string]interface{})
@@ -38,6 +30,26 @@ func FrontEnd(c *gin.Context) {
 	data["banner"] = banner
 	data["magic"] = Services.GetCon(1)
 	e.Success(c, "首页", data)
+}
+
+func About(c *gin.Context) {
+	var data = make(map[string]interface{})
+	data["banner"] = Banner.GetBannerData(1)
+	c.HTML(e.SUCCESS, "index/about.html", gin.H{
+		"title": "关于我们",
+	})
+}
+
+func AboutData(c *gin.Context) {
+	var data = make(map[string]interface{})
+	list := Article.GetArticles(1, data)
+	if len(list) > 3 {
+		list = list[0:3]
+	}
+	banner := Banner.GetBannerData(2)
+	data["banner"] = banner
+	data["magic"] = Services.GetCon(2)
+	e.Success(c, "关于我们", data)
 }
 
 // @Summer课程体系

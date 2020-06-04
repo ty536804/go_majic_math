@@ -32,10 +32,6 @@
                     </p>
                 </section>
                 <section class="about_con">
-                    “魔法数学思维馆”连锁品牌是易乐教育科技集团旗下核心品牌，是中国儿童数理思维教育的探索者与开创者，秉承“激发脑思维，提升学习力”的教学理念，致力于为孩子提供国际先进的数理思维教育。<br/><br/>
-                    “魔法数学”是在中科院专家、哈佛精英指导下，依据全球儿童心理学家皮亚杰认知发展理论和哈佛大学脑发展研究成果，历经八年斥资千万，开创性打造的国内首款3-12岁儿童数理思维全体系课程。其通过“智能投屏+交互课件+创意道具+APP学习平台”的形式实现良好的教学效果，并采用“线上线下同步教学+OMO线上学习成果分享”，实现学员高效学习。<br/>
-                    <br/>
-                    “魔法数学思维”项目获得国家教育部“十二五”全脑教育课题成果奖，受到行业的广泛认可。目前，全球已有约10万名儿童接受数理思维训练，已然成为精英家庭培养孩子的必选学习品类。
                 </section>
             </section>
             <!-- 教学理念 -->
@@ -97,7 +93,7 @@
                     <span class="line magic_line"></span>
                     <span class="circle magic_circle"></span>
                 </p>
-                <h3 class="left">魔数简介</h3>
+                <h3 class="left">魔数起源</h3>
                 <p class="direction left dr">
                     <span class="line magic_line"></span>
                     <span class="circle magic_circle"></span>
@@ -106,29 +102,22 @@
             <section class="com_desc">
                 <dl class="active Jean">
                     <dt>
-                        <h3 class="humanity">Jean Piaget让·皮亚杰</h3>
+                        <h3 class="humanity"></h3>
                         <span class="com_line"></span>
                         <p class="all">
-                            全球儿童心理学家皮亚杰著有认知发展理论儿童心理发育是有律可循的。
-                            <span class="pyj"> ——皮亚杰·教育心理学大师</span>
                         </p>
                     </dt>
                     <dd>
-                        <img src="/static/assets/img/pic_jean.png" />
+{{/*                        <img src="/static/assets/img/pic_jean.png" />*/}}
                     </dd>
                 </dl>
                 <dl class="Harvard">
                     <dt>
-                        <h3 class="Harvard_tit">Center on the Developing Child HARVARD UNIVERSITY
+                        <h3 class="Harvard_tit">
                         </h3>
-                        <span class="Harvard_cen">哈佛大学儿童发展中心</span>
-                        <span class="Harvard_line"></span>
-                        <p class="Harvard_desc">
-                            MI（多元智力理论）包括语言智能、逻辑——数学智能、空间智能、肢体——运作智能，是全新人力思维智力结构理论。
-                        </p>
                     </dt>
                     <dd>
-                        <img src="/static/assets/img/pic_harvard.png" />
+{{/*                        <img src="/static/assets/img/pic_harvard.png" />*/}}
                     </dd>
                 </dl>
             </section>
@@ -153,51 +142,6 @@
                 <li></li>
             </section>
             <section class="developing_ul_right">
-                <li>
-                    <p class="date">
-                        2012-2014
-                        <span class="bar"></span>
-                    </p>
-                    <span class="developing_c">
-							2011年由国内外专家团队联合打造的数理思维课程“魔法教学”引进到中国，先后走进300多所国内公立和私立幼儿园、小学。历经两年时间打磨，打造出适合国内少儿学习的数理思维课程体系。
-						</span>
-                </li>
-                <li>
-                    <p class="date">
-                        2015-2016
-                        <span class="bar"></span>
-                    </p>
-                    <span class="developing_c">
-							“魔法数学”课程获得国家教育部“十二五”全脑教育课题成果奖，获得国家级“高新技术企业”，认可其在儿童素质教育科技化领域做出的突出贡献，享受高新技术企业各项特殊优待。
-						</span>
-                </li>
-                <li>
-                    <p class="date">
-                        2017
-                        <span class="bar"></span>
-                    </p>
-                    <span class="developing_c">
-							与中国管理科学院多元智能测评研究中心联合主办第一届“魔法杯”全国思维大赛，为“最强大脑”培养潜在少儿思维王选手。
-						</span>
-                </li>
-                <li>
-                    <p class="date">
-                        2018
-                        <span class="bar"></span>
-                    </p>
-                    <span class="developing_c">
-							与韩国游戏开发巨头联合打造OMO同步教学及分享营销APP震撼上线。同年获得腾讯网“2018年度知名素质教育品牌”奖。
-						</span>
-                </li>
-                <li>
-                    <p class="date">
-                        2019
-                        <span class="bar"></span>
-                    </p>
-                    <span class="developing_c">
-							“魔法数学”采用区域和单店品牌授权的形式进行全国品牌战略布局，全国已经发展93家校区，获得新浪网“2019年度综合实力教育集团”和中国网“2019年度家长信赖儿童教育品牌”两项大奖。
-						</span>
-                </li>
             </section>
         </section>
     </section>
@@ -236,21 +180,6 @@
     <!-- 版权 -->
     {{template "index_footer"}}
     <script type="text/javascript" src="/static/index/about.js"></script>
-    <script>
-        getAjax1()
-        //请求数据
-        function getAjax1()
-        {
-            $.ajax({
-                type: "GET",
-                dataType: "json",
-                url: "http://www.fangpaiwang.com/api/second/getRoom",
-                success: function (result) {
-                   console.log(result)
-                }
-            });
-        }
-    </script>
     </body>
     </html>
 {{end}}

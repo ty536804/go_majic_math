@@ -37,6 +37,7 @@ func InitRouter() *gin.Engine {
 	//首页
 	r.GET("/", frontend.Index)
 	r.GET("/about", frontend.About)
+	r.GET("/aboutData", frontend.AboutData)
 	r.GET("/index", frontend.FrontEnd)
 	r.GET("/subject", frontend.Subject)
 	r.GET("/research", frontend.Research)

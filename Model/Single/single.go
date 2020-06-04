@@ -52,7 +52,7 @@ func GetSingles(page int, data interface{}) (singles []Single) {
 		offset = (page - 1) * setting.PageSize
 	}
 	fmt.Println("当前页数", page)
-	db.Db.Preload("Navs").Where(data).Offset(offset).Limit(setting.PageSize).Find(&singles)
+	db.Db.Preload("Navs").Where(data).Offset(offset).Limit(setting.PageSize).Order("id desc").Find(&singles)
 	return
 }
 
