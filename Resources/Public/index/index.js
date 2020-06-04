@@ -19,8 +19,8 @@ $(function () {
                                 _oli += '<li data-target="#myCarousel" data-slide-to="' + k + '" class="active"></li>';
                             }
                         })
-                        $(".carousel-inner").empty().append(_banner)
-                        $('.carousel-indicators').empty().append(_oli)
+                        $(".carousel-inner").append(_banner)
+                        $('.carousel-indicators').append(_oli)
                     }
                     $.each(result.data.list, function (k, v) {
                         _dl += "<dl><dt><img src='/static/upload/" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></dl>"
