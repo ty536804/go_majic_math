@@ -12,7 +12,7 @@ $(function () {
                 let _oli = "";
                 let _dl = "";
                 if (Number(result.code) == 200) {
-                    if (result.data.banner.length > 1) {
+                    if (result.data.banner.length > 0) {
                         $.each(result.data.banner, function (k, v) {
                             if (k >1) {
                                 _banner += '<div class="carousel-item" ><img src="/static/upload/' + v.imgurl + '"></div>'
