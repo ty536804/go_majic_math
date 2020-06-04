@@ -247,13 +247,41 @@
 .space dt{
 	background-position: 770px 153px!important;
 }
-.five_steps img{
-	margin-top: -620px;
+
+/*课程体系*/
+.curriculum{
+	background: #F9FAFC;
+	width: 100%;
+	margin: 0 auto;
+}
+.curriculum .tit{
+	width: 542px;
+}
+.curriculum_con{
+	width: 1137px;
+	height: 542px;
+	margin: 33px auto 49px auto;
+}
+/*魔数思维五步法*/
+.five_steps .tit{
+	width: 650px;
 }
 .five_steps{
 	text-align: center;
 }
-.curriculum{
-	background: #F9FAFC;
-	height: 620px;
+.five_steps .pic_lthjxtx{
+	width: 932px;
+	height: 503px;
+	margin: 0 auto;
+}
+.curriculum_tit{
+	width:100%;
+	text-align: center;
+	height:21px;
+	font-size:16px;
+	font-family:MicrosoftYaHei;
+	color:rgba(51,51,51,1);
+	line-height:21px;
+	display: inline-block;
+	margin: 30px auto 40px auto;
 }

@@ -418,7 +418,7 @@ $(function () {
 	});
 })
 
-getCityRes("北京")
+getCityRes("上海")
 function getCityRes(tit) {
 	$.ajax({
 		type: "POST",
