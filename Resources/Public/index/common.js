@@ -1,8 +1,8 @@
-
-$("img.lazy").lazyload({
-    effect : "fadeIn"
+$(function() {
+    $("img.lazy").lazyload({
+        effect : "fadeIn"
+    });
 });
-
 $('.c-com').val(window.location.href);
 $.ajax({
     type: "GET",
