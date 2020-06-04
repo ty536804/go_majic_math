@@ -63,11 +63,11 @@ function getAjax()
                            if (k1 < 1) {
                                $('.Jean .humanity').empty().html(v1.summary)
                                $('.Jean p.all').empty().html(v1.content)
-                               $('.Jean dd').empty().html('<img src="" data-original="/static/upload/'+v1.thumb_img+'" class="lazy">')
+                               // $('.Jean dd').empty().html('<img src="" data-original="/static/upload/'+v1.thumb_img+'" class="lazy">')
                            } else {
                                $('.Harvard h3.Harvard_tit').empty().html(v1.summary)
                                $('.Harvard dt').append(v1.content)
-                               $('.Harvard dd').empty().html('<img src="" data-original="/static/upload/'+v1.thumb_img+'" class="lazy">')
+                               // $('.Harvard dd').empty().html('<img src="" data-original="/static/upload/'+v1.thumb_img+'" class="lazy">')
                            }
                        }
                        if (k=="发展历程") {
