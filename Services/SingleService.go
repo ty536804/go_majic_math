@@ -69,3 +69,13 @@ func GetSingle(id int) (single []Single.Single) {
 	json.Unmarshal([]byte(singleList), &single)
 	return
 }
+
+// 首页接口数据
+func GetCon(id int) (con map[string]interface{}) {
+	tagList := Single.GetTag(id)
+	data := make(map[string]interface{})
+	for _, k := range tagList {
+		data[k.Name] = Single.GetCon(k.Name)
+	}
+	return data
+}

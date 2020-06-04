@@ -62,6 +62,11 @@ func EditBanner(id int, data interface{}) bool {
 	return true
 }
 
+func GetOneBanner(id int) (banner Banner) {
+	db.Db.Where("bposition = ?", id).First(&banner)
+	return
+}
+
 // @Summer获取所有banner
 func GetBanners(page int) (banner []Banner) {
 	offset := 0

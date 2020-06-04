@@ -240,6 +240,7 @@ footer{
 	overflow: hidden;
 	margin: 0 24px;
 	display:inline-block;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 
 .dr .circle{
@@ -328,4 +329,7 @@ span.nav_line{
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+}
+.actTit{
+	font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
 }

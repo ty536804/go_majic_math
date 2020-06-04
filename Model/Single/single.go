@@ -17,6 +17,7 @@ type Single struct {
 	NavId    int    `json:"nav_id" gorm:"default '';comment:'栏目ID'"`
 	ThumbImg string `json:"thumb_img" gorm:"not null;default '';comment:'缩率图'"`
 	Summary  string `json:"summary" gorm:"type:varchar(255);not null;default '';comment:'摘要'"`
+	Tag      string `json:"tag" gorm:"type:varchar(100);not null;default '';comment:'标签'"`
 }
 
 // @Summer 新增内容
@@ -70,5 +71,17 @@ func GetSingleTotal() (count int) {
 // @Summer 获取所有文章
 func GetAllSingle(id int) (singles []Single) {
 	db.Db.Where("nav_id =?", id).Find(&singles)
+	return
+}
+
+// @Summer 获取tag
+func GetTag(id int) (singles []Single) {
+	db.Db.Select("name").Where("nav_id = ? ", id).Group("name").Find(&singles)
+	return
+}
+
+// @Summer 通过tag获取内容
+func GetCon(tit string) (singles []Single) {
+	db.Db.Where("name = ? ", tit).Find(&singles)
 	return
 }

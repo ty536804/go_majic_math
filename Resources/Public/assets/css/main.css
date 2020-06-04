@@ -196,15 +196,15 @@
 }
 
 .six_reason dl dd{
-	width:376px;
-	height:70px;
-	background:rgba(249,250,252,1);
-	color:rgba(51,51,51,1);
-	font-size:24px;
-	font-weight:bold;
-	line-height:31px;
-	padding: 20px 80px 19px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	width: 376px;
+	height: 55px;
+	background: rgba(249,250,252,1);
+	color: rgba(51,51,51,1);
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 31px;
+	padding: 11px 80px 19px;
+	font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
 }
 /* 魔法数学与传统数学的区别 */
 .difference .tit{
