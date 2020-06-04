@@ -13,9 +13,8 @@
 	font-family:MicrosoftYaHei;
 	color:rgba(51,51,51,1);
 	line-height:21px;
-	margin-top: 30px;
 	display: block;
-	margin: 0 auto;
+	margin: 30px auto 0 auto;
 	text-align: center;
 }
 .level{
@@ -55,8 +54,9 @@
 .two_year dt{
 	width:276px;
 	height:91px;
-	background:#F8B42D url(../img/system_icon_L1.png) no-repeat left top;
+	/*background:#F8B42D url(../img/system_icon_L1.png) no-repeat left top;*/
 	padding: 29px 81px 31px 84px;
+	background:#F8B42D;
 }
 .two_year dd{
 	background:rgba(248,180,45,1);
@@ -67,7 +67,8 @@
 .three_year dt{
 	width:276px;
 	height:111px;
-	background:#4FB459 url(../img/system_icon_L2.png) no-repeat left top;
+	/*background:#4FB459 url(../img/system_icon_L2.png) no-repeat left top;*/
+	background:#4FB459;
 	padding: 40px 81px 40px 84px;
 }
 .three_year dd{
@@ -77,10 +78,10 @@
 	margin-top: 20px;
 }
 .four_year dt{
-	
 	width:276px;
 	height:131px;
-	background:#00A0E9 url(../img/system_icon_L3.png) no-repeat left top;
+	/*background:#00A0E9 url(../img/system_icon_L3.png) no-repeat left top;*/
+	background:#00A0E9;
 	padding: 50px 81px 50px 84px;
 }
 .four_year dd{
@@ -89,7 +90,8 @@
 .five_year dt{
 	width:276px;
 	height:151px;
-	background:#7D4698 url(../img/system_icon_L3.png) no-repeat left top;
+	/*background:#7D4698 url(../img/system_icon_L3.png) no-repeat left top;*/
+	background:#7D4698;
 	padding: 60px 81px 60px 84px;
 }
 .five_year dd{
@@ -101,13 +103,11 @@
 	background: #F9FAFC;
 	height:540px;
 	margin-top: 50px;
+	width: 100%;
 }
 .setup{
 	width: 1200px;
 	margin: 0 auto;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
 }
 .setup .tit{
 	width: 902px;
@@ -116,7 +116,7 @@
 .setup_con dl{
 	width:181px;
 	float: left;
-	margin-right: 43px;
+	margin:0 21.5px;
 }
 .setup_con{
 	width: 1077px;
@@ -124,7 +124,7 @@
 	height: 343px;
 }
 .setup_con dl:last-child{
-	margin-right: 0;
+	margin: 0;
 }
 .setup_con dl dt{
 	width: 119px;
