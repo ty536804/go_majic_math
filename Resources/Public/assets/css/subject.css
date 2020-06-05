@@ -198,6 +198,9 @@
 .dimension .tit{
 	width: 902px;
 }
+.dimension_con{
+	margin-top: 30px;
+}
 .dimension_con dl{
 	width: 153px;
 	float:left;

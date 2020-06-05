@@ -92,6 +92,7 @@ func InitRouter() *gin.Engine {
 		apiv1.GET("/bannerDetail", v2.Detail)
 		apiv1.POST("/AddBanner", v2.AddBanner)
 		apiv1.GET("/getBanner", v2.GetBanner)
+		apiv1.POST("/delBanner", v2.DelBanner)
 		//message
 		apiv1.GET("/messageList", m.List)
 		apiv1.GET("/messageData", m.ListData)

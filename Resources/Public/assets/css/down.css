@@ -146,3 +146,47 @@ body{
     height: 250px;
     margin: -40px 66px 0 0;
 }
+/*下载魔数小奇兵APP，进入魔法世界*/
+.down_app{
+    width:100%;
+    height:447px;
+    margin-top: 50px;
+    background:rgba(249,250,252,1);
+}
+.down_app .tit{
+    width: 974px;
+}
+.down_app_con{
+    width: 100%;
+    margin: 0 auto;
+    height: 350px;
+}
+.down_app .app_img{
+    width:180px;
+    margin: 50px auto 0;
+}
+.app_img img{
+    width:180px;
+    height:180px;
+    display: inherit;
+}
+.down_app a{
+    width: 176px;
+    height: 50px;
+    background: rgba(220,66,54,1);
+    box-shadow: 0px 5px 13px 0px rgba(251,175,161,1);
+    border-radius: 25px;
+    display: inline-block;
+    margin: 20px auto 0;
+    text-align: center;
+    padding:9px 0 ;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    line-height:31px;
+    text-decoration: none;
+}
+.down_app a:hover{
+    text-decoration: none;
+}

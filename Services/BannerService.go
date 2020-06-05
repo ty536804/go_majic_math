@@ -3,6 +3,7 @@ package Services
 import (
 	"elearn100/Model/Banner"
 	"elearn100/Pkg/e"
+	"fmt"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -49,4 +50,16 @@ func AddBanner(c *gin.Context) (code int, err string) {
 		return e.ERROR, "操作失败"
 	}
 	return ViewErr(valid)
+}
+
+// @Summer 删除banner
+func DelBanner(c *gin.Context) (code int, err string) {
+	c.Request.Body = e.GetBody(c)
+	id := com.StrTo(c.PostForm("id")).MustInt()
+	fmt.Println(id)
+	isOK := Banner.DelBanner(id)
+	if isOK {
+		return e.SUCCESS, "操作成功"
+	}
+	return e.ERROR, "操作失败"
 }

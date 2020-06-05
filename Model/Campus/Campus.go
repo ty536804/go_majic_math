@@ -19,6 +19,8 @@ type Campus struct {
 	ProvinceName string `json:"province_name" gorm:"type:varchar(190);not null;default '';comment:'省名称'"`
 	City         string `json:"city" gorm:"type:varchar(190);not null;default '0';comment:'市'"`
 	Area         string `json:"area" gorm:"type:varchar(190);not null;default '0';comment:'区'"`
+	IsShow       int    `json:"is_show" gorm:"default '0';comment:'是否显示 0否 1是'"`
+	IsDel        int    `json:"is_del" gorm:"default '0';comment:'是否删除 0否 1是'"`
 }
 
 // @Summer 新增校区
@@ -31,6 +33,8 @@ func AddCampus(data map[string]interface{}) bool {
 		SchoolImg:    data["school_img"].(string),
 		ProvinceName: data["province_name"].(string),
 		Province:     data["province"].(int),
+		IsShow:       data["is_show"].(int),
+		IsDel:        '0',
 	})
 	if err.Error != nil {
 		log.Printf("添加校区失败,%v", err)
@@ -78,7 +82,18 @@ type SubUser struct {
 	Name      string `json:"name"`
 }
 
+// @Summer 分组
 func GroupCampus() (subUser []SubUser) {
 	db.Db.Raw("SELECT COUNT(province_name) AS c_province, province_name AS name FROM campus").Group("name").Scan(&subUser)
 	return subUser
+}
+
+// @Summer 删除校区
+func DelCampus(id int) bool {
+	err := db.Db.Delete(&Campus{}, "id = ?", id)
+	if err.Error != nil {
+		fmt.Print("删除校区错误:", err)
+		return false
+	}
+	return true
 }

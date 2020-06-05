@@ -60,6 +60,7 @@ func AddCampus(c *gin.Context) (code int, err string) {
 func SaveCampus(id int) bool {
 	data := make(map[string]interface{})
 	data["province"] = id
+	data["is_show"] = 1
 	res := Campus.GetCampus(1, data)
 	b, _ := json.Marshal(res)
 	con := string(b)
@@ -108,4 +109,15 @@ func GroupCampus() (data map[string]interface{}) {
 	param := make(map[string]interface{})
 	param["detail"] = Campus.GroupCampus()
 	return param
+}
+
+func DelCampus(c *gin.Context) (code int, err string) {
+	c.Request.Body = e.GetBody(c)
+	id := com.StrTo(c.PostForm("id")).MustInt()
+
+	isOk := Campus.DelCampus(id)
+	if isOk {
+		return e.SUCCESS, "操作成功"
+	}
+	return e.ERROR, "操作失败"
 }

@@ -94,3 +94,16 @@ func GetBannerData(bposition int) (banner []Banner) {
 	db.Db.Where("bposition = ?", bposition).Find(&banner)
 	return
 }
+
+// @Summer 删除banner
+func DelBanner(id int) bool {
+	if id < 1 {
+		return false
+	}
+	err := db.Db.Delete(&Banner{}, "id =? ", id)
+	if err.Error != nil {
+		log.Printf("删除banner失败,%v", err)
+		return false
+	}
+	return true
+}

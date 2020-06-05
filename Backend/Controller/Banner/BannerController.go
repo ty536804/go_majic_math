@@ -47,3 +47,9 @@ func AddBanner(c *gin.Context) {
 	code, msg := Services.AddBanner(c)
 	e.SendRes(c, code, msg, "")
 }
+
+// @Summer 删除banner
+func DelBanner(c *gin.Context) {
+	code, msg := Services.DelBanner(c)
+	e.SendRes(c, code, msg, "")
+}
