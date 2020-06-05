@@ -52,10 +52,8 @@ function getAjax()
             let _oli = "";
             if (Number(result.code) == 200) {
                 $.each(result.data.banner,function (k,v) {
-                    if (k==1) {
                         _banner +='<div class="carousel-item '+(k==0 ? 'active': '')+'" ><img src="/static/upload/'+v.imgurl+'"></div>'
                         _oli += '<li data-target="#myCarousel" data-slide-to="'+k+'" class="active"></li>';
-                    }
                 })
             }
             $('.carousel-inner').empty().append(_banner);
