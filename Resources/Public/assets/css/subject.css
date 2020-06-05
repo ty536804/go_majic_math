@@ -261,9 +261,187 @@
 	width: 542px;
 }
 .curriculum_con{
-	width: 1137px;
-	height: 542px;
-	margin: 33px auto 49px auto;
+	width: 1178px;
+	height: 707px;
+	margin: 30px auto 49px auto;
+}
+.bet{
+	width:164px;
+	height:585px;
+	background:rgba(247,193,110,1);
+	border-radius:20px;
+	float: left;
+	margin-top: 121px;
+}
+.bet li{
+	width:100%;
+	height:24px;
+	font-size:16px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+	line-height:24px;
+	text-align: center;
+	margin-bottom: 71px;
+}
+.bet li:first-child{
+	margin-top: 31px;
+}
+.bet li:last-child{
+	margin-bottom: 33px !important;
+}
+.qm{
+	width:164px;
+	float: left;
+	margin: 51px 5px 0 5px;
+}
+
+.qm li{
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 15px  10px 15px 12px;
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	color:rgba(255,255,255,1);
+	line-height:20px;
+	border-radius:20px;
+	background:rgba(101,197,154,1);
+}
+.qm li:first-child{
+	font-size:16px;
+	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+	line-height:24px;
+	display: inline-block;
+	padding: 11px 45px 6px 42px !important;
+}
+.short{
+	padding: 7px 13px 7px 12px !important;
+}
+.qm_five{
+	width:164px;
+	float: left;
+	margin-top: 46px;
+}
+
+.qm_five li{
+	width: 100%;
+	background:rgba(104,206,208,1);
+	border-radius:20px;
+	padding: 15px 10px 15px 12px;
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	color:rgba(255,255,255,1);
+	line-height:20px;
+	margin-bottom: 5px;
+}
+.qm_five li:first-child{
+	padding: 15px 45px  12px 44px;
+}
+.qm_five li:last-child{
+	padding: 5px 10px  5px 12px;
+}
+.qm_sw {
+	width:164px;
+	float: left;
+	margin: 35px 5px 0 5px;
+}
+
+.qm_sw li{
+	width: 100%;
+	background:#3FB6EC;
+	border-radius:20px;
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	color:rgba(255,255,255,1);
+	line-height:20px;
+	margin-bottom: 5px;
+}
+.qm_sw li:first-child{
+	padding: 19px 41px  18px 48px;
+}
+.qm_sw li:last-child{
+	padding: 25px 7px 25px 15px;
+}
+.bet_num{
+	background: #F7936E;
+}
+.bet_num li{
+	margin-bottom: 94px;
+}
+.bet_num li:first-child{
+	margin-top: 45px !important;
+}
+.bet_num li:last-child{
+	margin-bottom: 44px !important;
+}
+.qm_zy{
+	width:164px;
+	float: left;
+	margin: 9px 5px 0 5px;
+}
+.qm_zy li{
+	width:100%;
+	background:rgba(96,148,240,1);
+	border-radius:20px;
+	margin-bottom: 5px;
+	padding: 17px 7px 16px 12px;
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	color:rgba(255,255,255,1);
+	line-height:20px;
+}
+.qm_zy li:first-child{
+	padding: 23px 43px 24px 46px !important;
+}
+.qm_fy{
+	width:164px;
+	float: left;
+}
+.qm_fy li{
+	width:100%;
+	background:#7B6FC4;
+	border-radius:20px;
+	margin-bottom: 5px;
+	padding: 7px 7px 6px 12px;
+	font-size: 14px;
+	font-family:MicrosoftYaHei;
+	color:rgba(255,255,255,1);
+	line-height:20px;
+}
+.synchronous{
+	padding: 27px 7px 26px 12px !important;
+}
+.ques{
+	padding: 15px 7px 18px 12px !important;
+}
+.qm_fy li:first-child{
+	padding: 29px 38px 28px 41px;
+}
+.qm_fy li:last-child{
+	padding: 33px 7px 40px 12px;
+}
+.large{
+	padding: 24px 10px 26px 12px !important;
+}
+.hundred{
+	padding: 25px 7px 25px 15px !important;
+}
+.graph{
+	padding: 15px 15px 12px 15px !important;
+}
+.turn{
+	padding: 21px 2px 29px 15px !important;
+}
+.ten{
+	padding: 9px 5px 9px 14px !important;
+}
+.abs{
+	padding: 34px 7px 36px 15px !important;
+}
+.qm_sw li:last-child{
+	padding: 25px 7px 25px 15px !important;
 }
 /*魔数思维五步法*/
 .five_steps .tit{
@@ -275,7 +453,7 @@
 .five_steps .pic_lthjxtx{
 	width: 932px;
 	height: 503px;
-	margin: 0 auto;
+	margin: 0 auto 40px auto;
 }
 .curriculum_tit{
 	width:100%;
