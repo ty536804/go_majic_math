@@ -25,6 +25,7 @@ $(function () {
                     $.each(result.data.list, function (k, v) {
                         _dl += "<dl><dt><img src='/static/upload/" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></dl>"
                     })
+
                     $.each(result.data.magic, function (k, magicVal) {
 
                         $.each(magicVal, function (k2, v2) {
@@ -38,8 +39,7 @@ $(function () {
                                 $('.outborder dl dd').empty().html(v2.content)
                             }
                             if (k== "选择魔法数学的六个理由") {
-                                $('.six_reason dl dt p:eq('+k2+')').empty().html(v2.content)
-                                $('.six_reason dl dd:eq('+k2+')').empty().html(v2.summary)
+                                $('.six_reason dl:eq('+k2+')').html("<dt><p class='celebrity_desc'>"+v2.content+"</p></dt><dd>"+v2.summary+"</dd>");
                             }
                             if (k== "魔法数学与传统数学的区别") {
                                 let tradition_ul = v2.content.split(',')
