@@ -88,7 +88,7 @@ func GetCampuses(c *gin.Context) (data map[string]interface{}) {
 	page := com.StrTo(c.PostForm("page")).MustInt()
 	param := make(map[string]interface{})
 	count := make(map[string]interface{})
-	param["count"] = Campus.CountCampus(count)
+	param["count"] = e.GetPageNum(Campus.CountCampus(count))
 	param["list"] = Campus.GetCampus(page, count)
 	count["a_level"] = 1
 	param["areacode"] = Admin.GetAreas(count)
