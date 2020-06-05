@@ -29,7 +29,7 @@
 }
 .banner_form_btn{
     text-align: center;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 .assured{
     color: #fff;
@@ -42,6 +42,10 @@
 .banner_form_btn .lj_btn{
     background: #FCF151 !important;
     color: #000;
+    cursor: pointer;
+    padding: 5px 40px;
+    border-radius: 20px;
+    font-size: 20px;
 }
 .banner_form_logo{
     background: url("../img/jm2.png") no-repeat top center;
