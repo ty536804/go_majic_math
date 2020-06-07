@@ -13,7 +13,7 @@ $.ajax({
         let _currentUrl = 'http://'+window.location.host
         let currentUrl = window.location.href.substr(_currentUrl.length,window.location.href.length)
         if (Number(result.code) == 200) {
-            $.each(result.data,function (k,v) {
+            $.each(result.data.menu,function (k,v) {
                 if (currentUrl == v.base_url) {
                     _nav += '<a href="'+v.base_url+'" class="actTit">'+v.name+'<p class="nav_line"><span class="nav_line"></span></p></a>';
                 } else {

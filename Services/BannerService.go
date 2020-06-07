@@ -63,3 +63,7 @@ func DelBanner(c *gin.Context) (code int, err string) {
 	}
 	return e.ERROR, "操作失败"
 }
+
+func GetBanner(tit string) (banner []Banner.Banner) {
+	return Banner.GetBannerList(tit)
+}

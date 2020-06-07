@@ -34,6 +34,9 @@ func GetNavs(c *gin.Context) {
 
 // @Summer 有效的导航列表
 func GetNavList(c *gin.Context) {
-	data := Services.GetMenu()
+	var data = make(map[string]interface{})
+	data["menu"] = Services.GetMenu()
+	data["site"] = Services.GetSite()
+	data["ercode"] = Services.GetBanner("ercode")
 	e.Success(c, "导航", data)
 }

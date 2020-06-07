@@ -107,3 +107,9 @@ func DelBanner(id int) bool {
 	}
 	return true
 }
+
+// @Summer通过描述获取图片
+func GetBannerList(info string) (banner []Banner) {
+	db.Db.Where("info = ?", info).Find(&banner)
+	return
+}
