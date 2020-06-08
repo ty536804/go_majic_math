@@ -105,3 +105,12 @@ func UpdateUser(c *gin.Context) {
 	code, msg := Services.EditUser(c)
 	e.SendRes(c, code, msg, "")
 }
+
+func DetailsUser(c *gin.Context) {
+	isOk, data := Services.DetailsUser(c)
+	if isOk != nil {
+		e.Error(c, "非法访问", data)
+		return
+	}
+	e.Success(c, "ok", data)
+}

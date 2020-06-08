@@ -77,11 +77,12 @@ func InitRouter() *gin.Engine {
 		//用户列表
 		apiv1.GET("/index", v1.BackEndIndex)
 		apiv1.GET("/userList", v1.UserList)
-		apiv1.GET("/userData", v1.UserData)    //用户列表API
-		apiv1.POST("/AddUser", v1.AddUser)     //用户列表API
-		apiv1.POST("/GetUser", v1.GetUser)     //查看当用户API
-		apiv1.GET("/logout", v1.LogOut)        //查看当用户API
-		apiv1.POST("/editUser", v1.UpdateUser) //获取站点信息API
+		apiv1.GET("/userData", v1.UserData)       //用户列表API
+		apiv1.POST("/AddUser", v1.AddUser)        //用户列表API
+		apiv1.POST("/GetUser", v1.GetUser)        //查看当用户API
+		apiv1.GET("/logout", v1.LogOut)           //查看当用户API
+		apiv1.POST("/editUser", v1.UpdateUser)    //获取站点信息API
+		apiv1.GET("/detailsUser", v1.DetailsUser) //查看当用户API
 		//站点信息
 		apiv1.GET("/siteInfo", v1.SiteInfo) //查看站点信息API
 		apiv1.POST("/addSite", v1.AddSite)  //添加站点信息API

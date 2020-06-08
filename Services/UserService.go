@@ -250,3 +250,17 @@ func LogOut(c *gin.Context) bool {
 	fmt.Println("token:", token)
 	return false
 }
+
+func DetailsUser(c *gin.Context) (err error, admins Admin.SysAdminUser) {
+	uuid, uOk := c.Request.Cookie("uuid")
+	if uOk != nil {
+		return err, Admin.SysAdminUser{}
+	} else {
+		uid, err := strconv.Atoi(uuid.Value)
+		if err != nil {
+			return err, Admin.SysAdminUser{}
+		}
+		admins = Admin.Find(int64(uid))
+	}
+	return nil, admins
+}

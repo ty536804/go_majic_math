@@ -36,6 +36,26 @@ $('.head_sub').on("click", function () {
     return false;
 })
 
+
+GetUser()
+function GetUser() {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/api/v1/detailsUser",
+        success: function (result) {
+            if (Number(result.code) == 200) {
+                $('.nickName').empty().html(result.data.nick_name);
+                $('#commentForm #id').val(result.data.id);
+                $('#update_pwd #id').val(result.data.id);
+                $("#commentForm #login_name").val(result.data.login_name)
+                $("#email").val(result.data.email)
+                $("#tel").val(result.data.tel)
+                $("#update_pwd #login_name").val(result.data.login_name)
+            }
+        },
+    });
+}
 function PostData(data) {
     $.ajax({
         type: "POST",
