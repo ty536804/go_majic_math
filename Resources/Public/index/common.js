@@ -5,7 +5,7 @@ $(function() {
 });
 $('.c-com').val(window.location.href);
 $.ajax({
-    type: "GET",
+    type: "POST",
     dataType: "json",
     url: "/getNavList",
     success: function (result) {

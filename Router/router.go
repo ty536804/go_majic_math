@@ -99,11 +99,11 @@ func InitRouter() *gin.Engine {
 		apiv1.GET("/messageData", m.ListData)
 		r.POST("/AddMessage", m.AddMessage)
 		//导航
-		apiv1.GET("/getNavs", nav.GetNavs)   //获取多条导航API
-		apiv1.POST("/getNav", nav.GetNav)    //获取一条导航API
-		apiv1.GET("/navList", nav.Show)      //导航列表展示
-		apiv1.POST("/addNav", nav.AddNav)    //添加导航API
-		r.GET("/getNavList", nav.GetNavList) //添加导航API
+		apiv1.GET("/getNavs", nav.GetNavs)    //获取多条导航API
+		apiv1.POST("/getNav", nav.GetNav)     //获取一条导航API
+		apiv1.GET("/navList", nav.Show)       //导航列表展示
+		apiv1.POST("/addNav", nav.AddNav)     //添加导航API
+		r.POST("/getNavList", nav.GetNavList) //添加导航API
 		//文章
 		apiv1.GET("/article", v3.Show)           //文章列表
 		apiv1.POST("/articleList", v3.ShowList)  //文章列表API
@@ -121,7 +121,7 @@ func InitRouter() *gin.Engine {
 		apiv1.GET("/campus", campus.Index)               //校区首页
 		apiv1.POST("/campusList", campus.GetCampus)      //校区列表API
 		apiv1.POST("/campusDetail", campus.DetailCampus) //校区详情
-		r.GET("/groupCampuses", campus.GroupCampuses)    //校区列表API 带缓冲区的
+		r.POST("/groupCampuses", campus.GroupCampuses)   //校区列表API 带缓冲区的
 		r.POST("/campusData", campus.GetCampuses)        //校区列表API 带缓冲区的
 		apiv1.POST("/addCampuses", campus.AddCampuses)   //添加校区
 	}

@@ -146,7 +146,7 @@ var data = [
 getCampus()
 function getCampus() {
 	$.ajax({
-		type: "GET",
+		type: "POST",
 		dataType: "json",
 		url: "/groupCampuses",
 		success: function (result) {
