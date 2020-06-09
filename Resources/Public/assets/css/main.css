@@ -389,7 +389,8 @@
 }
 .thinking_ul dl dd h4{
 	margin: 24px auto 0;
-	width:48px;
+	width:100%;
+	text-align: center;
 	height:31px;
 	font-size:24px;
 	font-weight:bold;

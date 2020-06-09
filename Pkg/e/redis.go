@@ -49,3 +49,13 @@ func DelVal(key string) bool {
 	}
 	return true
 }
+
+// @Summer 微信token缓存
+func SetAccessToken(val string) bool {
+	redisCon := Conn()
+	if err := redisCon.Set("access_token", val, time.Duration(2*time.Hour)); err.Err() != nil {
+		fmt.Println("reids:", err)
+		return false
+	}
+	return true
+}
