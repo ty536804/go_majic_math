@@ -319,19 +319,19 @@
 }
 .feedback_ul dl.yc dd{
 	border:3px solid rgba(79,180,89,1);
-	background: #F0F9F1;
+	background:#F0F9F1 url(../img/teaching_icon_symbol_green.png) no-repeat 199px 42px;
 }
 .feedback_ul dl.jj dd{
 	border:3px solid #00A1F0;
-	background: #F2FAFE;
+	background: #F2FAFE url(../img/teaching_icon_symbol_blue.png) no-repeat 199px 42px;
 }
 .feedback_ul dl.yy dd{
 	border:3px solid #F8B42D;
-	background: #FFF5E1;
+	background:#FFF5E1 url(../img/teaching_icon_symbol_yellow.png) no-repeat 199px 42px;
 }
 .feedback_ul dl.tt dd{
 	border:3px solid #7D4698;
-	background: #FBF2FF;
+	background: #FBF2FF url(../img/teaching_icon_symbol_purple.png) no-repeat 199px 42px;
 }
 .feedback_con{
 	width: 100%;
