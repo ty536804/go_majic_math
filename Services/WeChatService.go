@@ -1,9 +1,12 @@
 package Services
 
 import (
+	"bytes"
 	"elearn100/Pkg/e"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
@@ -54,5 +57,38 @@ func GetToken() (string, error) {
 		errmsg := jMap["errmsg"].(string)
 		err = errors.New(errcode + ":" + errmsg)
 		return "", err
+	}
+}
+
+func GetArticle() {
+	isOk, accessToken := e.GetVal("access_token")
+	if !isOk {
+		token, err := GetToken()
+		if err != nil {
+			panic(err)
+		}
+		accessToken = token
+	}
+
+	url := "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + accessToken
+	data := make(map[string]interface{})
+	data["begin_date"] = "2020-04-01"
+	data["end_date"] = "2020-04-01"
+
+	bytesData, err := json.Marshal(data)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	reader := bytes.NewReader(bytesData)
+
+	rep, err := http.NewRequest("POST", url, reader)
+	resp, err := http.DefaultClient.Do(rep)
+
+	defer resp.Body.Close()
+	b, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf("read resp.body failed,err:%v\n", err)
+	} else {
+		fmt.Println(string(b))
 	}
 }
