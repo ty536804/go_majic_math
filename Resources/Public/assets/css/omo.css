@@ -9,7 +9,7 @@
     text-align: center;
 }
 .new_omo .tit{
-    width: 705px;
+    width: 710px;
 }
 .pic_omo{
     width: 1042px;
@@ -113,15 +113,17 @@
     height:31px;
     font-size:24px;
     font-family:MicrosoftYaHei;
-    font-weight:bold;
+    font-weight:400;
     color:rgba(0,53,132,1);
     line-height:31px;
     display: inline-block;
     margin: 107px 136px 20px 136px;
 }
+.omo_style_ul li:last-child h3{
+    font-weight: 400;
+}
 .omo_style_ul li:last-child h3,.omo_style_ul li:last-child p{
     color: #9135A2 !important;
-    font-weight: 400;
 }
 .omo_style_ul li p{
     width:292px;
@@ -164,11 +166,14 @@
     height:31px;
     font-size:24px;
     font-family:MicrosoftYaHei;
-    font-weight:bold;
+    font-weight:400;
     color:#003584;
     line-height:31px;
     margin: 115px 234px 19px 234px;
     display: inline-block;
+}
+.school dl:last-child h3{
+    font-weight: 400;
 }
 .school dl:last-child h3,.school dl:last-child p{
     color: #9135A2;
