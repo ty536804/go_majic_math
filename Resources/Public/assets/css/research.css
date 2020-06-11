@@ -4,10 +4,14 @@
 	height: 100%;
 }
 /* 专家团队 */
+.team_bg{
+	width: 100%;
+	background: #F0F2F5;
+	height: 521px;
+}
 .team{
 	width: 1200px;
 	margin: 0 auto;
-	height: 307px;
 }
 .team .tit{
 	width: 542px;
@@ -28,13 +32,12 @@
 	font-size: 16px;
 }
 /* 立体化教学体系 */
+.lthjxtx_bg{
+	background: #fff;
+}
 .lthjxtx{
 	width: 1200px;
 	margin: 0 auto;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
 }
 .lthjxtx .tit{
 	width: 650px;
@@ -87,7 +90,7 @@
 }
 /* 多种趣味课外活动 */
 .sport{
-	background: #F9FAFC;
+	background: #F0F2F5;
 	width: 100%;
 	display: -ms-flexbox;
 	display: flex;
@@ -436,6 +439,7 @@ p.direction.left.dr{
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	background: #F0F2F5;
 }
 .number_four{
 	width: 1200px;
