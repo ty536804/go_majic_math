@@ -442,7 +442,7 @@ p.direction.left.dr{
 	margin: 0 auto;
 }
 .number_four .tit{
-	width: 754px;
+	width: 758px;
 }
 .number_four .idea_tit{
 	width:100%;
@@ -511,4 +511,9 @@ p.direction.left.dr{
 }
 footer{
 	margin-top: 0 !important;
+}
+.sport_con{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
 }
