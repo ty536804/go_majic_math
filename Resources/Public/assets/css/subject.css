@@ -30,7 +30,7 @@
 }
 .level dl dt{
 	border-radius:20px 20px 20px 10px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	font-size:24px;
 	line-height:31px;
@@ -136,7 +136,7 @@
 	width:100%;
 	height: 52px;
 	font-size:20px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:#333;
 	line-height: 62px;
@@ -151,7 +151,7 @@
 	width:25px;
 	height:52px;
 	font-size:40px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(79,180,89,1);
 	line-height:52px;
@@ -219,7 +219,7 @@
 	width:100%;
 	height:31px;
 	font-size:24px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:#333;
 	line-height:31px;
@@ -277,7 +277,7 @@
 	width:100%;
 	height:24px;
 	font-size:16px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(255,255,255,1);
 	line-height:24px;
@@ -309,7 +309,7 @@
 }
 .qm li:first-child{
 	font-size:16px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(255,255,255,1);
 	line-height:24px;

@@ -118,7 +118,7 @@
 	text-align: center;
 	line-height: 70px;
 	font-size:16px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	color: #fff;
 	background:linear-gradient(180deg,rgba(0,162,255,0) 0%,rgba(0,162,255,1) 100%);
 }
@@ -287,7 +287,7 @@
 	width:100%;
 	height:21px;
 	font-size:16px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(55,149,64,1);
 	line-height:21px;
@@ -368,7 +368,7 @@
 	width:100%;
 	height:31px;
 	font-size:24px;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(51,51,51,1);
 	line-height:31px;

@@ -1,5 +1,6 @@
 body {
 	background:#fff ;
+	font-family:MicrosoftYaHei;
 }
 .nav_menu {
 	background: #fff !important;
@@ -244,7 +245,7 @@ footer{
 	overflow: hidden;
 	margin: 0 24px;
 	display:inline-block;
-	font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family:MicrosoftYaHei;
 }
 
 .dr .circle{
@@ -335,7 +336,7 @@ span.nav_line{
 	flex-wrap: wrap;
 }
 .actTit{
-	font-family: MicrosoftYaHei-Bold,MicrosoftYaHei;
+	font-family: MicrosoftYaHei;
 }
 
 .subject{

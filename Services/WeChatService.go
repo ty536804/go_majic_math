@@ -10,6 +10,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 var (
@@ -60,6 +61,19 @@ func GetToken() (string, error) {
 	}
 }
 
+type BatChGetMaterial struct {
+	title      string    `json:"title"`
+	author     string    `json:"author"`
+	content    string    `json:"content"`
+	createTime time.Time `json:"create_time"`
+	updateTime time.Time `json:"update_time"`
+	thumbUrl   string    `json:"thumb_url"`
+	url        string    `json:"url"`
+}
+
+type jMap struct {
+}
+
 func GetArticle() {
 	isOk, accessToken := e.GetVal("access_token")
 	if !isOk {
@@ -72,8 +86,9 @@ func GetArticle() {
 
 	url := "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + accessToken
 	data := make(map[string]interface{})
-	data["begin_date"] = "2020-04-01"
-	data["end_date"] = "2020-04-01"
+	data["type"] = "news"
+	data["offset"] = "0"
+	data["count"] = "20"
 
 	bytesData, err := json.Marshal(data)
 	if err != nil {
@@ -85,10 +100,10 @@ func GetArticle() {
 	resp, err := http.DefaultClient.Do(rep)
 
 	defer resp.Body.Close()
-	b, err := ioutil.ReadAll(resp.Body)
+	result, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Printf("read resp.body failed,err:%v\n", err)
 	} else {
-		fmt.Println(string(b))
+		fmt.Println(string(result))
 	}
 }
