@@ -62,7 +62,7 @@
 	margin-top: 45px;
 	width: 100%;
 	background: url(../img/bg_zml_2x.png) no-repeat top center;
-	height: 611px;
+	height: 598px;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -110,23 +110,26 @@
 	padding: 28px 51px 0 65px;
 	font-family:MicrosoftYaHei;
     font-weight: 300;
+	line-height: 37px;
 }
 .outborder dl dd{
 	float: right;
-	padding: 28px 81px 0 0;
+	padding: 5px 81px 0 0;
 }
 .celebrity {
 	float: right;
-	margin-left: 51px;
-	margin-top: 9px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 }
 .celebrity img{
 	width:324px;
-	height:500px;
 }
 .slogan{
 	width: 951px;
 	margin: 0 auto;
+	height: 496px;
+	position: relative;
 }
 /* 选择魔法数学的六个理由 */
 .reason{

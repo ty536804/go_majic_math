@@ -24,6 +24,8 @@
 .idea_tit{
 	margin-top: 30px;
 	text-align: center;
+	font-weight:300;
+	font-size: 16px;
 }
 /* 立体化教学体系 */
 .lthjxtx{
@@ -91,6 +93,9 @@
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+}
+.sport .tit{
+	width: 686px;
 }
 .sport_ul{
 	width: 1200px;
@@ -217,7 +222,7 @@
 }
 /* 魔法杯·思维盛典 */
 .grand .tit{
-	width: 700px;
+	width: 668px;
 }
 .grand .idea_tit{
 	margin: 30px auto 10px auto;
@@ -243,6 +248,12 @@
 .feedback{
 	width: 1172px;
 	margin: 0 auto 132px auto;
+}
+p.direction.left.dr{
+	float: right;
+}
+.feedback .tit{
+	width: 614px;
 }
 .feedback_ul{
 	width: 1200px;
@@ -295,6 +306,17 @@
 	margin: 82px 0 14px 0;
 	display: inline-block;
 }
+.feedback_ul dl.jj dd span{
+	color: #00A1F0;
+}
+
+.feedback_ul dl.yy dd span{
+	color: #F8B42D;
+}
+
+.feedback_ul dl.tt dd span{
+	color: #7D4698;
+}
 .feedback_ul dl dt{
 	background-position-y: 37px !important;
 	background-position-x: 199px !important;
@@ -323,14 +345,17 @@
 }
 .feedback_ul dl.jj dd{
 	border:3px solid #00A1F0;
+	color: #00A1F0;
 	background: #F2FAFE url(../img/teaching_icon_symbol_blue.png) no-repeat 199px 42px;
 }
 .feedback_ul dl.yy dd{
 	border:3px solid #F8B42D;
+	color: #F8B42D;
 	background:#FFF5E1 url(../img/teaching_icon_symbol_yellow.png) no-repeat 199px 42px;
 }
 .feedback_ul dl.tt dd{
 	border:3px solid #7D4698;
+	color: #7D4698;
 	background: #FBF2FF url(../img/teaching_icon_symbol_purple.png) no-repeat 199px 42px;
 }
 .feedback_con{
@@ -369,7 +394,7 @@
 	height:31px;
 	font-size:24px;
 	font-family:MicrosoftYaHei;
-	font-weight:bold;
+	font-weight:400;
 	color:rgba(51,51,51,1);
 	line-height:31px;
 	display: inline-block;
@@ -399,10 +424,10 @@
 .method dl dd p{
 	width:100%;
 	height:126px;
-	font-size:16px;
+	font-size:15px;
 	font-family:MicrosoftYaHei;
 	color:rgba(51,51,51,1);
-	line-height:21px;
+	line-height:25px;
 }
 /* 2020魔法数学教材4.0 */
 .number_four_warp{
@@ -411,7 +436,6 @@
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	background: #F9FAFC;
 }
 .number_four{
 	width: 1200px;
@@ -462,7 +486,7 @@
 	font-size:16px;
 	font-family:MicrosoftYaHei;
 	color:#333;
-	line-height:21px;
+	line-height:23px;
 	padding: 9px 26px 0 21px !important;
 	display: block;
 	float: left;

@@ -5,7 +5,7 @@
 /* 魔数简介 */
 .about_magic{
     width:1176px;
-    height:358px;
+    height:412px;
     background:#F9FAFC;
     border-radius:20px;
     margin: -47px auto 0;
@@ -44,7 +44,7 @@
     font-size:16px;
     font-family:MicrosoftYaHei;
     color:rgba(51,51,51,1);
-    line-height:21px;
+    line-height:26px;
     margin: 30px auto 0;
 }
 .idea_ul{
@@ -243,6 +243,7 @@
     line-height:31px;
     margin-top: 2px;
     display: inline-block;
+    font-weight: 400;
 }
 /* 发展历程 */
 .developing .tit{

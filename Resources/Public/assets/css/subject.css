@@ -29,22 +29,22 @@
 	height: 318px;
 }
 .level dl dt{
-	border-radius:20px 20px 20px 10px;
+	border-radius:20px 20px 10px 10px;
 	font-family:MicrosoftYaHei;
-	font-weight:bold;
+	font-weight:400;
 	font-size:24px;
 	line-height:31px;
 	color:#fff;
 }
 .level dl dd{
 	width:276px;
-	height:151px;
+	height:131px;
 	border-radius:10px 10px 20px 20px;
 	font-size:16px;
 	font-family:MicrosoftYaHei;
 	color:rgba(255,255,255,1);
 	line-height:24px;
-	padding: 50px 50px 43px 51px;
+	padding: 45px 50px 43px 51px;
 	margin-top: 16px;
 	text-align: center;
 }
@@ -53,9 +53,11 @@
 }
 .two_year dt{
 	width:276px;
-	height:91px;
+	height:71px;
+	line-height: 71px !important;
+	text-align: center;
 	/*background:#F8B42D url(../img/system_icon_L1.png) no-repeat left top;*/
-	padding: 29px 81px 31px 84px;
+	/*padding: 29px 81px 31px 84px;*/
 	background:#F8B42D;
 }
 .two_year dd{
@@ -66,10 +68,12 @@
 }
 .three_year dt{
 	width:276px;
-	height:111px;
+	height:91px;
+	line-height: 91px !important;
+	text-align: center;
 	/*background:#4FB459 url(../img/system_icon_L2.png) no-repeat left top;*/
 	background:#4FB459;
-	padding: 40px 81px 40px 84px;
+	/*padding: 40px 81px 40px 84px;*/
 }
 .three_year dd{
 	background:#4FB459;
@@ -79,24 +83,29 @@
 }
 .four_year dt{
 	width:276px;
-	height:131px;
+	height:111px;
+	line-height: 111px !important;
+	text-align: center;
 	/*background:#00A0E9 url(../img/system_icon_L3.png) no-repeat left top;*/
 	background:#00A0E9;
-	padding: 50px 81px 50px 84px;
+	/*padding: 50px 81px 50px 84px;*/
 }
 .four_year dd{
 	background:#00A0E9;
+	padding-top: 30px !important;
 }
 .five_year dt{
 	width:276px;
-	height:151px;
+	height:131px;
+	line-height: 131px !important;
+	text-align: center;
 	/*background:#7D4698 url(../img/system_icon_L3.png) no-repeat left top;*/
 	background:#7D4698;
-	padding: 60px 81px 60px 84px;
+	/*padding: 60px 81px 60px 84px;*/
 }
 .five_year dd{
 	background:#7D4698;
-	padding: 40px 41px 34px 44px !important;
+	padding: 30px 41px 34px 44px !important;
 }
 /* 五大体系，为孩子潜心设计未来 */
 .setup_container{
@@ -137,7 +146,7 @@
 	height: 52px;
 	font-size:20px;
 	font-family:MicrosoftYaHei;
-	font-weight:bold;
+	font-weight:400;
 	color:#333;
 	line-height: 62px;
 	overflow: hidden;
@@ -146,6 +155,8 @@
 .setup_con dl dd p{
 	margin-top: 14px;
 	text-align: center;
+	font-size: 15px;
+	line-height: 25px;
 }
 .setup_con dl dd h3 span{
 	width:25px;
@@ -158,7 +169,7 @@
 	display: inline-block;
 }
 .setup_con dl dd{
-	width:181px;
+	width:185px;
 	height:109px;
 	font-size:14px;
 	font-family:MicrosoftYaHei;
@@ -220,7 +231,7 @@
 	height:31px;
 	font-size:24px;
 	font-family:MicrosoftYaHei;
-	font-weight:bold;
+	font-weight:400;
 	color:#333;
 	line-height:31px;
 }
@@ -308,13 +319,14 @@
 	background:rgba(101,197,154,1);
 }
 .qm li:first-child{
+	text-align: center;
 	font-size:16px;
 	font-family:MicrosoftYaHei;
 	font-weight:bold;
 	color:rgba(255,255,255,1);
 	line-height:24px;
 	display: inline-block;
-	padding: 11px 45px 6px 42px !important;
+	padding: 11px 43px 6px!important;
 }
 .short{
 	padding: 7px 13px 7px 12px !important;
@@ -337,7 +349,10 @@
 	margin-bottom: 5px;
 }
 .qm_five li:first-child{
-	padding: 15px 45px  12px 44px;
+	font-weight:bold;
+	text-align: center;
+	padding: 15px 43px  12px;
+	font-size: 16px;
 }
 .qm_five li:last-child{
 	padding: 5px 10px  5px 12px;
@@ -359,7 +374,10 @@
 	margin-bottom: 5px;
 }
 .qm_sw li:first-child{
-	padding: 19px 41px  18px 48px;
+	font-weight:bold;
+	text-align: center;
+	padding: 19px 43px  18px;
+	font-size: 16px;
 }
 .qm_sw li:last-child{
 	padding: 25px 7px 25px 15px;
@@ -393,7 +411,10 @@
 	line-height:20px;
 }
 .qm_zy li:first-child{
-	padding: 23px 43px 24px 46px !important;
+	font-weight:bold;
+	text-align: center;
+	padding: 23px 43px 24px !important;
+	font-size: 16px;
 }
 .qm_fy{
 	width:164px;
@@ -417,7 +438,10 @@
 	padding: 15px 7px 18px 12px !important;
 }
 .qm_fy li:first-child{
-	padding: 29px 38px 28px 41px;
+	font-weight: bold;
+	text-align: center;
+	padding: 29px 40px 28px;
+	font-size: 16px;
 }
 .qm_fy li:last-child{
 	padding: 33px 7px 40px 12px;

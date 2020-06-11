@@ -71,13 +71,17 @@ body{
     background: rgba(249,250,252,1);
     color: #333;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 400;
     line-height: 31px;
     padding: 20px 0 19px 0;
     text-align: center;
     font-family: MicrosoftYaHei;
 }
 /* OMO教育模式的优势 */
+.omo_new{
+    background:#F0F2F5;
+    height: 100%;
+}
 .omo_warp{
     background: #F9FAFC;
     width: 100%;
@@ -120,6 +124,7 @@ body{
 }
 .omo_style_ul li:last-child h3,.omo_style_ul li:last-child p{
     color: #9135A2 !important;
+    font-weight: 400;
 }
 .omo_style_ul li p{
     width:292px;
@@ -177,7 +182,7 @@ body{
     font-size:16px;
     font-family:MicrosoftYaHei;
     color:rgba(0,53,132,1);
-    line-height:24px;
+    line-height:27px;
     display: inline-block;
     margin: 0 60px;
 }
