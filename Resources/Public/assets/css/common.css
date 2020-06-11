@@ -336,6 +336,7 @@ span.nav_line{
 	flex-wrap: wrap;
 }
 .actTit{
+	font-weight: bold;
 	font-family: MicrosoftYaHei;
 }
 
