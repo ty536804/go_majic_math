@@ -1,6 +1,3 @@
-body{
-    background: #F9FAFC !important;
-}
 .omo_banner img{
     height: 100%;
     width: 100%;
@@ -79,7 +76,7 @@ body{
 }
 /* OMO教育模式的优势 */
 .omo_new{
-    background:#F0F2F5;
+    background:#fff !important;
     height: 100%;
 }
 .omo_warp{
@@ -199,5 +196,5 @@ body{
     display: inline-block;
 }
 .school_all{
-    background: #F0F2F5;
+    background: #fff;
 }

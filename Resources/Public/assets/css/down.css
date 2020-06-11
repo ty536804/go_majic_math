@@ -2,14 +2,11 @@
     height: 100%;
     width: 100%;
 }
-body{
-    background:#F9FAFC !important;
-}
 /* 魔数小奇兵APP */
 .app{
     width:1176px;
     height:550px;
-    background:#F0F2F5 url(../img/pic_app_r.png) no-repeat right bottom;
+    background:#F9FAFC url(../img/pic_app_r.png) no-repeat right bottom;
     border-radius:20px;
     margin: -47px auto 0 auto;
     position: relative;
@@ -84,10 +81,17 @@ body{
     left: 265px;
 }
 /* 学玩同步 效果看得见 */
+.watch_con_subject{
+    width: 1170px;
+    margin: 0 auto;
+}
+.watch_con_subject dl.watch_con{
+    float: left;
+}
 .watch_con{
     width:1040px;
     height:250px;
-    background:#F0F2F5;
+    background:#F9FAFC;
     border-radius:20px;
     margin: 70px auto 0;
 }
@@ -110,7 +114,7 @@ body{
     font-weight:400;
     color:rgba(51,51,51,1);
     line-height:31px;
-    margin: 16px 157px 15px;
+    margin: 40px 157px 15px;
     display: inline-block;
 }
 .watch_con dd{
@@ -128,10 +132,14 @@ body{
     margin: 0 50px 0 51px;
     display: inline-block;
 }
+
 /* 荣誉激励系统 */
 .jl_style{
     width: 1176px;
     margin: 70px auto 0;
+}
+.jl_style h3 {
+    margin-top: 72px;
 }
 .jl_style .watch_con{
     margin:0 0 0 186px;
@@ -145,6 +153,10 @@ body{
     width: 444px;
     height: 250px;
     margin: -40px 66px 0 0;
+}
+
+watch h3 {
+    margin-top: 61px !important;
 }
 /*下载魔数小奇兵APP，进入魔法世界*/
 .down_app{
