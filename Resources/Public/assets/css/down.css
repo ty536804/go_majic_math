@@ -139,7 +139,7 @@
     margin: 70px auto 0;
 }
 .jl_style h3 {
-    margin-top: 72px;
+    margin-top: 66px;
 }
 .jl_style .watch_con{
     margin:0 0 0 186px;
@@ -154,7 +154,9 @@
     height: 250px;
     margin: -40px 66px 0 0;
 }
-
+.hd h3 {
+    margin-top: 60px;
+}
 watch h3 {
     margin-top: 61px !important;
 }
