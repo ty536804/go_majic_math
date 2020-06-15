@@ -3,32 +3,12 @@
     <html>
     <head>
         <meta charset="utf-8">
-        <title>首页</title>
+        <title>北京易学教育科技有限公司</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no">
-        <link href="/static//wap/css/index.css" rel="stylesheet"/>
-        <link href="/static//wap/css/wap_common.css" rel="stylesheet"/>
-        <script type="text/javascript" src="/static//wap/js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="/static//wap/js/jquery.divas-1.0.min.js"></script>
-        <script src="/static//wap/js/YuxiSlider.jQuery.min.js"></script>
-        <script>
-            $(document).ready(function()
-            {
-                $("#slider").divas({
-                    wingsOverlayColor: "rgba(0,0,0,0.6)"
-                });
-
-                $(".slider").YuxiSlider({
-                    width:800, //容器宽度
-                    height:450, //容器高度
-                    control:$('.control'), //绑定控制按钮
-                    during:4000, //间隔4秒自动滑动
-                    speed:800, //移动速度0.8秒
-                    mousewheel:true, //是否开启鼠标滚轮控制
-                    direkey:true //是否开启左右箭头方向控制
-                });
-            });
-        </script>
+        <link href="/static/wap/css/index.css" rel="stylesheet"/>
+        <link href="/static/wap/css/wap_common.css" rel="stylesheet"/>
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
     </head>
     <body>
     {{template "wap_nav"}}
@@ -88,7 +68,7 @@
             </dl>
         </section>
         <section class="celebrity">
-            <img src="/static//wap/img/pic_zml.png" />
+            <img data-original="/static/wap/img/pic_zml.png" src="/static/wap/img/pic_zml.png" class="lazy"/>
         </section>
     </section>
     <!-- 选择魔法数学的六个理由 -->
@@ -110,7 +90,7 @@
     <section class="slider_contents pub_style">
         <div class="slider">
             <ul>
-                <li><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升" /></li>
+                <li><img data-original="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升" src="/static/wap/img/pic_reason1@2x.png" class="lazy"/></li>
             </ul>
         </div>
     </section>
@@ -154,7 +134,7 @@
     <section class="slider_contents pub_style">
         <div class="slider">
             <ul>
-                <li><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升" /></li>
+                <li><img data-original="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升" src="/static/wap/img/pic_reason1@2x.png" class="lazy"/></li>
             </ul>
         </div>
     </section>
@@ -198,15 +178,36 @@
             <section id="slider_wrapper">
                 <div id="slider" class="divas-slider">
                     <ul class="divas-slide-container">
-                        <li class="divas-slide"><img src="/static/assets/img/zs1.jpg" alt="" data-src="/static/assets/img/zs1.jpg" /></li>
-                        <li class="divas-slide"><img src="/static/assets/img/zs10.jpg" alt="" data-src="/static/assets/img/zs10.jpg" /></li>
-                        <li class="divas-slide"><img src="/static/assets/img/zs1.png" alt="" data-src="/static/assets/img/zs1.png" /></li>
+                        <li class="divas-slide"><img class="lazy" src="" data-original="/static/assets/img/zs1.jpg" alt="" data-src="/static/assets/img/zs1.jpg" /></li>
+                        <li class="divas-slide"><img class="lazy" src="" data-original="/static/assets/img/zs10.jpg" alt="" data-src="/static/assets/img/zs10.jpg" /></li>
+                        <li class="divas-slide"><img class="lazy" src="" data-original="/static/assets/img/zs1.png" alt="" data-src="/static/assets/img/zs1.png" /></li>
                     </ul>
                 </div>
             </section>
         </section>
     </section>
     {{template "wap_footer"}}
+    <script type="text/javascript" src="/static/wap/js/jquery.divas-1.0.min.js"></script>
+    <script type="text/javascript" src="/static/wap/js/YuxiSlider.jQuery.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#slider").divas({
+                wingsOverlayColor: "rgba(0,0,0,0.6)"
+            });
+
+            $(".slider").YuxiSlider({
+                width:800, //容器宽度
+                height:450, //容器高度
+                control:$('.control'), //绑定控制按钮
+                during:4000, //间隔4秒自动滑动
+                speed:800, //移动速度0.8秒
+                mousewheel:true, //是否开启鼠标滚轮控制
+                direkey:true //是否开启左右箭头方向控制
+            });
+        });
+    </script>
+
     </body>
     </html>
 
