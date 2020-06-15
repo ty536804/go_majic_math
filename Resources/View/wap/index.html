@@ -1,0 +1,213 @@
+{{define "wap/index.html"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>首页</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no">
+        <link href="/static//wap/css/index.css" rel="stylesheet"/>
+        <link href="/static//wap/css/wap_common.css" rel="stylesheet"/>
+        <script type="text/javascript" src="/static//wap/js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/static//wap/js/jquery.divas-1.0.min.js"></script>
+        <script src="/static//wap/js/YuxiSlider.jQuery.min.js"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $("#slider").divas({
+                    wingsOverlayColor: "rgba(0,0,0,0.6)"
+                });
+
+                $(".slider").YuxiSlider({
+                    width:800, //容器宽度
+                    height:450, //容器高度
+                    control:$('.control'), //绑定控制按钮
+                    during:4000, //间隔4秒自动滑动
+                    speed:800, //移动速度0.8秒
+                    mousewheel:true, //是否开启鼠标滚轮控制
+                    direkey:true //是否开启左右箭头方向控制
+                });
+            });
+        </script>
+    </head>
+    <body>
+    {{template "wap_nav"}}
+    <section class="index_banner pub_style">
+        <img src="/static//wap/img/banner.png" />
+    </section>
+    <section class="tit pub_style">
+        <section class="public_tit">
+            <p class="direction left">
+                <span class="line magic_line"></span>
+                <span class="circle magic_circle"></span>
+            </p>
+            <h3 class="left">数学思维有什么魔力?</h3>
+            <p class="direction left dr">
+                <span class="line magic_line"></span>
+                <span class="circle magic_circle"></span>
+            </p>
+        </section>
+    </section>
+    <!-- 数学思维有什么魔力 -->
+    <section class="magic_manth pub_style">
+        <dl class="brain">
+            <dt></dt>
+            <dd>
+                <h4>全面激发大脑潜能</h4>
+                <p>对思维的广度、深度和创造性方面进行综合训练，促进孩子多元智能发展。</p>
+            </dd>
+        </dl>
+        <dl class="turn">
+            <dt></dt>
+            <dd><h4>培养孩子精英素质</h4><p>开拓思路，提高记忆力、洞察力、分析与解决问题的能力、逻辑思维能力等。</p></dd>
+        </dl>
+        <dl class="broca">
+            <dt></dt>
+            <dd><h4>为未来学习奠定基础</h4><p>养成观察、思考、分析、实践等严谨系统的思维习惯，为其他学科学习打下坚实基础。</p></dd>
+        </dl>
+    </section>
+    <!-- 张梅玲教授倾力推荐 -->
+    <section class="recommend pub_style">
+        <section class="tit">
+            <section class="public_tit">
+                <p class="direction left">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+                <h3 class="left">张梅玲教授倾力推荐</h3>
+                <p class="direction left dr">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+            </section>
+        </section>
+        <section class="outborder">
+            <dl>
+                <dt>我们根据3~8岁少儿心理发展特点编制的魔法数学系列课程，让孩子全方位立体化地调动“数学细胞” 。以独创的故事互动形式，使得原本枯燥的数理学习变得既生动又有趣。魔法数学是能够让孩子爱上数学的魔法城堡！</dt>
+                <dd>——张梅玲</dd>
+            </dl>
+        </section>
+        <section class="celebrity">
+            <img src="/static//wap/img/pic_zml.png" />
+        </section>
+    </section>
+    <!-- 选择魔法数学的六个理由 -->
+    <section class="six_reason pub_style">
+        <section class="tit">
+            <section class="public_tit">
+                <p class="direction left">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+                <h3 class="left">选择魔法数学的六个理由</h3>
+                <p class="direction left dr">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+            </section>
+        </section>
+    </section>
+    <section class="slider_contents pub_style">
+        <div class="slider">
+            <ul>
+                <li><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升" /></li>
+            </ul>
+        </div>
+    </section>
+    </section>
+    <!-- 魔法数学与传统数学的区别 -->
+    <section class="six_reason pub_style">
+        <section class="tit">
+            <section class="public_tit">
+                <p class="direction left">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+                <h3 class="left">魔法数学与传统数学的区别</h3>
+                <p class="direction left dr">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+            </section>
+        </section>
+    </section>
+    <section class="difference pub_style">
+        <ul class="left tradition_ul clearfix"><li class="difference_con_tit mb0">传统数学</li><li>学习学科知识</li><li>填鸭式 单项式</li><li>讲解聆听 单向式</li><li>视频</li><li class="mb0">被动依赖 应试学习</li></ul>
+        <ul class="right magic_ul clearfix"><li class="difference_con_tit mb0">魔法数学</li><li>提升逻辑思维能力 培养高效思维模式</li><li>启发引导式 双向式</li><li>主动探索 双向式</li><li>线下互动课件+在线APP+AI智能系统</li><li class="mb0">主动思考 高效学习</li></ul>
+    </section>
+    <!-- 特色课堂，让孩子流连忘返 -->
+    <section class="six_reason pub_style">
+        <section class="tit">
+            <section class="public_tit">
+                <p class="direction left">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+                <h3 class="left">特色课堂，让孩子流连忘返</h3>
+                <p class="direction left dr">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+            </section>
+        </section>
+    </section>
+    <section class="slider_contents pub_style">
+        <div class="slider">
+            <ul>
+                <li><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升" /></li>
+            </ul>
+        </div>
+    </section>
+    <!-- 魔数简介 -->
+    <section class="six_reason pub_style">
+        <section class="tit">
+            <section class="public_tit">
+                <p class="direction left">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+                <h3 class="left">魔数简介</h3>
+                <p class="direction left dr">
+                    <span class="line magic_line"></span>
+                    <span class="circle magic_circle"></span>
+                </p>
+            </section>
+        </section>
+    </section>
+    <section class="about_magic pub_style">
+        “魔法数学”是在中科院专家、哈佛精英指导下，依据全球儿童心理学家皮亚杰认知发展理论和哈佛大学脑发展研究成果，历经八年斥资千万，开创性打造的国内首款3-12岁儿童数理思维全体系课程。其通过“智能投屏+交互课件+创意道具+APP学习平台”的形式实现良好的教学效果，并采用“线上线下同步教学+OMO线上学习成果分享”，实现学员高效学习。
+    </section>
+    <!-- 品牌荣誉 -->
+    <section class="ppbj pub_style">
+        <section class="six_reason">
+            <section class="tit">
+                <section class="public_tit">
+                    <p class="direction left">
+                        <span class="line magic_line"></span>
+                        <span class="circle magic_circle"></span>
+                    </p>
+                    <h3 class="left">品牌荣誉</h3>
+                    <p class="direction left dr">
+                        <span class="line magic_line"></span>
+                        <span class="circle magic_circle"></span>
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section class="brand_ul">
+            <section id="slider_wrapper">
+                <div id="slider" class="divas-slider">
+                    <ul class="divas-slide-container">
+                        <li class="divas-slide"><img src="/static/assets/img/zs1.jpg" alt="" data-src="/static/assets/img/zs1.jpg" /></li>
+                        <li class="divas-slide"><img src="/static/assets/img/zs10.jpg" alt="" data-src="/static/assets/img/zs10.jpg" /></li>
+                        <li class="divas-slide"><img src="/static/assets/img/zs1.png" alt="" data-src="/static/assets/img/zs1.png" /></li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </section>
+    {{template "wap_footer"}}
+    </body>
+    </html>
+
+{{end}}

@@ -17,6 +17,12 @@ func Index(c *gin.Context) {
 	})
 }
 
+func WapIndex(c *gin.Context) {
+	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
+		"title": "首页",
+	})
+}
+
 // @Summer 首页
 func FrontEnd(c *gin.Context) {
 	var data = make(map[string]interface{})
