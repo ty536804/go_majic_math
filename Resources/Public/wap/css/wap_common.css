@@ -216,15 +216,18 @@ footer{
 	padding:15px 0 20px 0!important;
 }
 .f_btn{
-	width:50%;
-	height:60px;
-	background:rgba(220,66,54,1);
-	box-shadow:0px 2px 7px 0px rgba(220,66,54,0.29);
-	border-radius:23px;
-	font-weight:500;
+	width: 50%;
+	height: 60px;
+	background: rgba(220,66,54,1);
+	box-shadow: 0px 2px 7px 0px rgba(220,66,54,0.29);
+	border-radius: 23px;
+	font-weight: 500;
 	font-size: 1.6rem;
-	border:1px solid #DC4236;
+	border: 1px solid #DC4236;
 	color: #fff;
+	display: inline-block;
+	line-height: 60px;
+	cursor: pointer;
 }
 .copyright{
 	width: 100%;
