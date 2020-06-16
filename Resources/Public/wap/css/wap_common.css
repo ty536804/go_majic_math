@@ -30,6 +30,13 @@ nav{
 	width: 100%;
 	padding: 22px 0 !important;
 }
+.slogan {
+	margin-left: 12px;
+}
+
+.home_icon{
+	float: right;
+}
 .nav_head {
 	width: 91%;
 	height: 45px;
@@ -118,7 +125,6 @@ footer{
 	width:100%;
 	height:620px;
 	background:#444;
-	position: relative;
 }
 .footer_logo{
 	text-align: center;

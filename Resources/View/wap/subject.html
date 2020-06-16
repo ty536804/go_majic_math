@@ -1,0 +1,34 @@
+{{define "wap/subject.html"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>课程体系</title>
+        {{template "wap_header"}}
+        <link href="/static/wap/css/subject.css?v={{.time}}" rel="stylesheet"/>
+    </head>
+    <body>
+    {{template "wap_nav"}}
+    <section class="index_banner pub_style">
+        <img src="/static/wap/img/subject.png" />
+    </section>
+    <section class="tit pub_style">
+        <section class="public_tit">
+            <p class="direction left">
+                <span class="line magic_line"></span>
+                <span class="circle magic_circle"></span>
+            </p>
+            <h3 class="left">专家团队</h3>
+            <p class="direction left dr">
+                <span class="line magic_line"></span>
+                <span class="circle magic_circle"></span>
+            </p>
+        </section>
+    </section>
+    <section class="item_desc">
+        对思维的广度、深度和创造性方面进行综合训练，促进孩子多元智能发展。
+    </section>
+    
+    </body>
+    </html>
+{{end}}

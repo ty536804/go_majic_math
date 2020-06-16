@@ -7,6 +7,7 @@ import (
 	"elearn100/Services"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
+	"time"
 )
 
 func Index(c *gin.Context) {
@@ -62,6 +63,15 @@ func AboutData(c *gin.Context) {
 func Subject(c *gin.Context) {
 	c.HTML(e.SUCCESS, "index/subject.html", gin.H{
 		"title": "课程体系",
+	})
+}
+
+// @Summer课程体系
+func WapSubject(c *gin.Context) {
+	ver := time.Now().Unix()
+	c.HTML(e.SUCCESS, "wap/subject.html", gin.H{
+		"title": "课程体系",
+		"time":  ver,
 	})
 }
 
