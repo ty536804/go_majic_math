@@ -248,3 +248,6 @@ footer{
 	line-height: 60px;
 	font-size: 1rem;
 }
+.swiper-container{
+	margin: 0 !important;
+}
