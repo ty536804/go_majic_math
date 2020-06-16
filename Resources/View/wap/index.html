@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <title>北京易学教育科技有限公司</title>
         {{template "wap_header"}}
-        <link href="/static/wap/css/index.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/static/wap/css/index.css" />
+        <link rel="stylesheet" href="/static/wap/css/swiper.min.css">
     </head>
     <body>
     {{template "wap_nav"}}
@@ -172,25 +173,42 @@
             </section>
         </section>
         <section class="brand_ul">
-            <section id="slider_wrapper">
-                <div id="slider" class="divas-slider">
-                    <ul class="divas-slide-container">
-                        <li class="divas-slide"><img class="lazy" src="" data-original="/static/assets/img/zs1.jpg" alt="" data-src="/static/assets/img/zs1.jpg" /></li>
-                        <li class="divas-slide"><img class="lazy" src="" data-original="/static/assets/img/zs10.jpg" alt="" data-src="/static/assets/img/zs10.jpg" /></li>
-                        <li class="divas-slide"><img class="lazy" src="" data-original="/static/assets/img/zs1.png" alt="" data-src="/static/assets/img/zs1.png" /></li>
-                    </ul>
+            <section class="pc-banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img  src="/static/assets/img/zs1.jpg" /></div>
+                        <div class="swiper-slide"><img  src="/static/assets/img/zs10.jpg" /></div>
+                        <div class="swiper-slide"><img  src="/static/assets/img/zs1.png"  /></div>
+                        <div class="swiper-slide"><img  src="/static/assets/img/zs1.png"  /></div>
+                    </div>
                 </div>
             </section>
         </section>
     </section>
     {{template "wap_footer"}}
-    <script type="text/javascript" src="/static/wap/js/jquery.divas-1.0.min.js"></script>
+    <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
     <script type="text/javascript" src="/static/wap/js/YuxiSlider.jQuery.min.js"></script>
     <script>
-        $(document).ready(function()
-        {
-            $("#slider").divas({
-                wingsOverlayColor: "rgba(0,0,0,0.6)"
+        window.onload = function() {
+            var swiper = new Swiper('.swiper-container',{
+                autoplay:3000,
+                speed:1000,
+                autoplayDisableOnInteraction : false,
+                loop:true,
+                centeredSlides : true,
+                slidesPerView:2,
+                pagination : '.swiper-pagination',
+                paginationClickable:true,
+                prevButton:'.swiper-button-prev',
+                nextButton:'.swiper-button-next',
+                onInit:function(swiper){
+                    swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
+                },
+                breakpoints: {
+                    668: {
+                        slidesPerView: 1,
+                    }
+                }
             });
 
             $(".slider").YuxiSlider({
@@ -202,7 +220,8 @@
                 mousewheel:true, //是否开启鼠标滚轮控制
                 direkey:true //是否开启左右箭头方向控制
             });
-        });
+        }
+
     </script>
 
     </body>
