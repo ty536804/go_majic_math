@@ -125,6 +125,7 @@ footer{
 	width:100%;
 	height:620px;
 	background:#444;
+	position: relative;
 }
 .footer_logo{
 	text-align: center;
