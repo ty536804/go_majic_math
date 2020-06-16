@@ -8,3 +8,488 @@
     color: #666;
     display: flex;
 }
+.pc-banner {
+
+    width: 100%;
+    float: left;
+}
+
+@media screen and (max-width: 668px) {
+    .pc-banner {
+        background-size: auto 100%;
+    }
+}
+
+.swiper-container {
+    width: 100%;
+    margin: 35px 0;
+}
+
+@media screen and (max-width: 668px) {
+    .swiper-container {
+        margin: 20px 0 15px;
+    }
+}
+
+.swiper-slide {
+    -webkit-transition: transform 1.0s;
+    -moz-transition: transform 1.0s;
+    -ms-transition: transform 1.0s;
+    -o-transition: transform 1.0s;
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+}
+
+@media screen and (max-width: 668px) {
+    .swiper-slide {
+        -webkit-transform: scale(0.97);
+        transform: scale(0.97);
+    }
+}
+
+.swiper-slide-active,.swiper-slide-duplicate-active {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+@media screen and (max-width: 668px) {
+    .swiper-slide-active,.swiper-slide-duplicate-active {
+        -webkit-transform: scale(0.97);
+        transform: scale(0.97);
+    }
+}
+
+.none-effect {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+
+
+.swiper-slide img {
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+}
+
+@media screen and (max-width: 668px) {
+    .swiper-slide img {
+        border-radius: 7px;
+    }
+}
+
+.swiper-pagination {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.swiper-pagination-bullet {
+    background: #00a0e9;
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 17px;
+    height: 17px;
+    opacity: 1;
+    margin-bottom: 4px;
+}
+
+.swiper-pagination-bullet-active {
+    width: 13px;
+    height: 13px;
+    background: #FFF;
+    border: 6px solid #00a0e9;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 668px) {
+
+    .swiper-pagination {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .swiper-pagination-bullet {
+        background: #00a0e9;
+        margin-left: 2px;
+        margin-right: 2px;
+        width: 8px;
+        height: 8px;
+        margin-bottom: 2px;
+    }
+
+    .swiper-pagination-bullet-active {
+        width: 6px;
+        height: 6px;
+        background: #FFF;
+        border: 3px solid #00a0e9;
+        margin-bottom: 0;
+    }
+}
+
+.button {
+    width: 1000px;
+    margin: 0 auto;
+    bottom: 43px;
+    position: relative;
+}
+
+@media screen and (max-width: 668px) {
+    .button {
+        width: 70%;
+        bottom: 22px;
+    }
+}
+
+.button div:hover {
+    background-color: #2f4798;
+}
+
+@media screen and (max-width: 668px) {
+    .button div {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/*六个维度，激发孩子全脑思维**/
+.excite{
+    width: 91%;
+    margin: 15px auto 0 auto !important;
+}
+.excite dl{
+    margin-bottom: 10px !important;
+    width:100%;
+    height:195px;
+    background:#F9FAFC;
+    border-radius:10px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.excite dl:last-child{
+    margin-bottom: 0 !important;
+}
+.excite dl dt{
+    float: left;
+    width: 148px;
+    height: 148px;
+    margin: 23px 10px 23px 10px !important;
+    background:url(../img/setup.png);
+}
+.turn dt{
+    background-position: 739px 148px!important;
+}
+.broca dt{
+    background-position: 595px 148px!important;
+}
+.calculation dt{
+    background-position: 447px 148px!important;
+}
+.analysis dt{
+    background-position: 300px 148px!important;
+}
+.between dt{
+    background-position: 152px 148px!important;
+}
+.excite dl dd{
+    float: left;
+    width: 70%;
+    margin: 38px 10px 0 0 !important;
+}
+.excite dl dd h4{
+    width:100%;
+    text-align: left;
+    height:22px;
+    font-size:1.8rem;
+    font-weight:500;
+    color:#333;
+    line-height:22px;
+}
+
+.excite_con_top, .excite_con_bottom {
+    display: flex;
+    flex-flow: row wrap;
+    align-items:center;
+    margin-top: 0.6rem !important;
+    font-size:1.4rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:28px;
+}
+.excite_con_top{
+    margin-top: 1.3rem !important;
+}
+.excite_con_top span,.excite_con_bottom span{
+    display: flex;
+    width: 33%;
+    text-align: left;
+    font-weight:bold;
+    color: #666;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*课程体系*/
+.setup {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-between;
+    margin: 0 auto;
+}
+.setup_left{
+    background: rgba(247,193,110,1);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    padding: 25px;
+    margin-top: 7rem;
+}
+.setup_right{
+    width: 76%;
+    box-sizing: content-box;
+}
+.setup_right_bottom {
+    width: 100%;
+    background: url("../img/pic_course1.png") no-repeat;
+    height: 100%;
+}
+.setup_left ul{
+    flex-flow: column wrap;
+    background:#F7C16E;
+    border-radius:10px;
+    display: flex;
+}
+.setup_left ul li{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 66px;
+    text-align: center;
+}
+.setup_right_top {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+.setup_right_top li{
+    width: 30%;
+    font-size: 1.5rem;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    line-height: 30px;
+    text-align: center;
+}
+.setup_right_top li:first-child{
+    background: #65C59A;
+    border-radius:10px;
+    padding: 6px 17px;
+}
+.setup_right_top li:last-child{
+    background: #3FB6EC;
+    border-radius:10px;
+    padding: 20px 17px;
+}
+.setup_right_top li.level{
+    background: #68CED0;
+    border-radius:10px;
+    padding: 13px 17px !important;
+}
+.setup_bottom{
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 5px auto 0;
+}
+
+.setup_bottom_left {
+    display: flex;
+    flex-flow: column;
+}
+.setup_bottom_left ul li {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 66px;
+    text-align: center;
+    background: #F9FAFC;
+    border-radius:10px 0px 0px 10px;
+    padding: 10px 25px;
+    margin-bottom: 5px;
+    color: #999;
+}
+.setup_bottom_left ul li:first-child{
+    background: #65C59A;
+    color: #fff;
+}
+.setup_bottom_right {
+    width: 76%;
+    box-sizing: content-box;
+    font-size: 1.6rem;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #949796;
+    line-height: 45px;
+    background: #F1F9F4;
+    box-sizing: border-box;
+}
+.setup_last {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-between;
+    margin: 60px auto 0;
+}
+.setup_last .setup_left{
+    padding: 10px;
+}
+
+.setup_last .setup_right_top li:first-child {
+    background: #6094F0;
+    border-radius: 10px;
+    padding: 6px 52px;
+}
+.setup_last .setup_right_top li:last-child {
+    background: #7B6FC4;
+    padding: 23px 52px;
+}
+.setup_last .setup_right_top li {
+    width: 47%;
+}
+.setup_last .setup_right_bottom{
+    width: 100%;
+    background: url(../img/pic_course2.png) no-repeat;
+    height: 100%;
+}
+.setup_last_r{
+    background: #F0F4FC;
+    color: #888;
+    padding: 14px;
+    box-sizing: border-box;
+}
+.setup_bottom{
+    margin-top: 10px;
+}
+.setup_last .setup_left ul li{
+    line-height: 86px;
+}
+/*魔数思维五步法*/
+.five_steps{
+    width: 100%;
+    background: #F9FAFC;
+    margin-top: 60px;
+}
+.five_tit {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    font-size:1.8rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:40px;
+    margin: 0 auto;
+}
+.five_desc img{
+    width: 100%;
+}
+/*2020魔法数学教材4.0*/
+.v_level{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: 20px auto 0;
+}
+.v_level li{
+    width: 30%;
+}
+.v_level li span{
+    width: 80px;
+    height:40px;
+    border-radius:10px 0px 10px 10px;
+    color: #fff;
+    font-size:1.2rem;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    line-height: 40px;
+    text-align: center;
+    display: block;
+}
+.v_level li:first-child span{
+    background: #00B84C;
+}
+.v_level li.mid span{
+    background: #00A2FF;
+}
+.v_level li:last-child span{
+    background: #FFAE00;
+}
+.v_level_img{
+    margin-top: 10px;
+}
+.v_level_img li{
+    width: 30%;
+}
+.v_level_img li img{
+    width: 100%;
+}
+
+.down_con {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 52%;
+    margin: 0 auto;
+}
+
+.magic_bg_last{
+    background:#F9FAFC;
+}
+.down_app_img{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.down_app_img img{
+    width: 100%;
+    height: 100%;
+}
+.down_url{
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    justify-content: space-around;
+    text-indent: 40px;
+    line-height: 39px;
+}
+.down_url a {
+    height: 55px;
+    font-size: 1.2rem;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #DC4236;
+    text-decoration: navajowhite;
+    border-radius: 15px;
+    border: 1px solid #DC4236;
+    width: 100% !important;
+    line-height: 55px;
+    text-indent: 67px;
+}
+.down_url a:first-child{
+    width: 36px;
+    background: url("../img/ico_iphone.png") no-repeat 15px 8px;
+}
+.down_url a:last-child{
+    width: 36px;
+    background: url("../img/ico_android.png") no-repeat 15px 8px;
+}
+.magic_bg{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
