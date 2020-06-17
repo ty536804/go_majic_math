@@ -75,6 +75,22 @@ func WapSubject(c *gin.Context) {
 	})
 }
 
+func WapLearn(c *gin.Context) {
+	ver := time.Now().Unix()
+	c.HTML(e.SUCCESS, "wap/learn.html", gin.H{
+		"title": "AI学联系统",
+		"time":  ver,
+	})
+}
+
+func WapOmo(c *gin.Context) {
+	ver := time.Now().Unix()
+	c.HTML(e.SUCCESS, "wap/omo.html", gin.H{
+		"title": "omo新模式",
+		"time":  ver,
+	})
+}
+
 // @Summer教研教学
 func Research(c *gin.Context) {
 	c.HTML(e.SUCCESS, "index/research.html", gin.H{

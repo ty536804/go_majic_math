@@ -54,6 +54,8 @@ func InitRouter() *gin.Engine {
 	//移动端
 	r.GET("/wap", frontend.WapIndex)
 	r.GET("/sub", frontend.WapSubject)
+	r.GET("/le", frontend.WapLearn)
+	r.GET("/om", frontend.WapOmo)
 	//Backend
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())

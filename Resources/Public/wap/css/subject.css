@@ -322,9 +322,13 @@
     margin-bottom: 5px;
     color: #999;
 }
-.setup_bottom_left ul li:first-child{
-    background: #65C59A;
-    color: #fff;
+.active_setup{
+    background: #65C59A !important;
+    color: #fff !important;
+}
+.qm_active{
+    background: #68CED0 !important;
+    color: #fff !important;
 }
 .setup_bottom_right {
     width: 76%;
