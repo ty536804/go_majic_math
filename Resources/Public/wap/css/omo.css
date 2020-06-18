@@ -1,0 +1,119 @@
+.newOMO{
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 90%;
+    margin: 97px auto 0;
+}
+.omo_item{
+    width: 48%;
+    align-items: center;
+    text-align: center;
+    background: #F2FAFF;
+    border-radius:10px;
+    height: 245px;
+}
+.omo_tit{
+    width: 86%;
+    text-align: center;
+    font-size:1.8rem;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:#333;
+    line-height:22px;
+    margin: 24px auto 0;
+}
+.omo_desc{
+    width: 86%;
+    text-align: center;
+    font-size:1.6rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#666;
+    line-height: 40px;
+    margin: 15px auto 0;
+}
+.online{
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 90%;
+    margin: 42px auto 0;
+    background: #F9FAFC;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.online_desc p:first-child{
+    width:100%;
+    font-size:1.8rem;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:#333;
+    line-height:22px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.online_desc p:last-child{
+    width:98%;
+    font-size:1.6rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#666;
+    line-height:35px;
+    text-align: center;
+    margin:20px auto 31px auto;
+}
+
+.last_online{
+    margin-bottom: 110px !important;
+}
+
+.ot{
+    background: #F9FAFC;
+}
+
+.ott{
+    background: #FFFBF2;
+}
+.of{
+    background: #F9F5FA;
+}
+.off{
+    background: #FDF5F5;
+    height: 320px;
+}
+.off .omo_tit,.os .omo_tit{
+    line-height: 44px;
+}
+.os{
+    background: #F2FCF3;
+    height: 320px;
+}
+
+.omo_item p:first-child{
+    height: 110px;
+    width: 110px;
+    display: inline-block;
+    border-radius: 50px;
+    margin-top: -50px;
+    background-size: 76px 76px;
+}
+.oo p:first-child{
+    background: #F2FAFF url("../img/ico_ppls@2x.png") no-repeat top 17px center;
+}
+
+.ot p:first-child{
+    background: #F9FAFC url("../img/ico_jspt@2x.png") no-repeat top 17px center;
+}
+.ott p:first-child{
+    background: #FFFBF2 url("../img/ico_jcxj@2x.png") no-repeat top 17px center;
+}
+.of p:first-child{
+    background: #F9F5FA url("../img/ico_lx@2x.png") no-repeat top 17px center;
+}
+.off p:first-child{
+    background: #FDF5F5 url("../img/ico_app@2x.png") no-repeat top 17px center;
+}
+
+.os p:first-child{
+    background: #F2FCF3 url("../img/ico_hhjx@2x.png") no-repeat top 17px center;
+}
