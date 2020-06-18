@@ -1,0 +1,21 @@
+li{
+    list-style: none;
+}
+li img{
+    display: block;
+    margin: 0 auto;
+}
+#wrap{
+    width: 100%;
+    background: #fefefe;
+}
+.hiSlider{
+    overflow: hidden;
+    height: 280px;
+    width: 500px;
+    background: #eee;
+    margin-bottom: 40px;
+}
+.hiSlider-item{
+    float: left;
+}

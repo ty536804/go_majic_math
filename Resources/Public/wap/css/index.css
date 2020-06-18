@@ -154,9 +154,6 @@
 .ppbj .six_reason {
     margin: 20px auto;
 }
-.slider{display:none}/*用于获取更加体验*/
-.focus span{width:10px;height:10px;margin-right:10px;border-radius:50%;background:#666;font-size:0}
-.focus span.current{background:#fff}
 
 .tradition_ul{
 	width:50%;
@@ -361,11 +358,4 @@
 		width: 28px;
 		height: 28px;
 	}
-}
-/* .slider2{display:none}/*用于获取更加体验*/
-
-
-.slider a{
-	color: #333;
-	text-decoration: none;
 }
