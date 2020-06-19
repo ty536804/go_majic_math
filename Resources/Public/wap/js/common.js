@@ -3,6 +3,15 @@ $(function() {
         effect : "fadeIn"
     });
 });
+$('.home_icon').on('click',function () {
+    let flag = $(".home_nav").is(":hidden");
+    if(flag){
+        $(".home_nav").show();
+    }else{
+        $(".home_nav").hide();
+    }
+})
+
 $('.c-com').val(window.location.href);
 
 $('.f_btn').on('click',function () {

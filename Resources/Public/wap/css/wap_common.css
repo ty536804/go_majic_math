@@ -251,3 +251,25 @@ footer{
 .swiper-container{
 	margin: 0 !important;
 }
+.home_icon{
+	position: relative;
+	cursor: pointer;
+}
+.home_nav {
+	position: absolute;
+	width: 100px;
+	background: #2ebde3;
+	margin-left: -21px;
+	top: 67px;
+	display: none;
+}
+.home_nav a{
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	font-size: 14px;
+}
