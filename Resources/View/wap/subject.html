@@ -6,6 +6,9 @@
         <title>课程体系</title>
         {{template "wap_header"}}
         <link href="/static/wap/css/subject.css?v={{.time}}" rel="stylesheet"/>
+        <link rel="stylesheet" href="/static/wap/css/loop.css">
+        <link rel="stylesheet" type="text/css" href="/static/wap/css/default.css">
+        <link rel="stylesheet" href="/static/wap/css/jquery.hiSlider.min.css">
         <link rel="stylesheet" href="/static/wap/css/swiper.min.css">
     </head>
     <body>
@@ -258,6 +261,13 @@
         <li><img src="/static/wap/img/2.0.png"></li>
         <li><img src="/static/wap/img/3.0.png"></li>
     </section>
+    <section class="slider_contents pub_style jxjc">
+        <div id="wrap">
+            <ul class="hiSlider hiSlider3">
+                <li class="hiSlider-item"><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升"></li>
+            </ul>
+        </div>
+    </section>
     <section class="tit pub_style">
         <section class="public_tit">
             <p class="direction left">
@@ -270,6 +280,13 @@
                 <span class="circle magic_circle"></span>
             </p>
         </section>
+    </section>
+    <section class="slider_contents pub_style">
+        <div id="wrap">
+            <ul class="hiSlider hiSlider3">
+                <li class="hiSlider-item"><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升"></li>
+            </ul>
+        </div>
     </section>
     <!--魔数小奇兵APP-->
     <section class="tit pub_style">
@@ -306,6 +323,8 @@
     </section>
     {{template "wap_footer"}}
     <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
+
     <script>
         window.onload = function() {
             var swiper = new Swiper('.swiper-container',{
@@ -359,6 +378,22 @@
                 $(this).addClass('qm_active').siblings().removeClass('qm_active')
             })
         })
+
+        $('.hiSlider3').hiSlider({
+            isFlexible: true,
+            isSupportTouch: true,
+            titleAttr: function(curIdx){
+                return $('img', this).attr('alt');
+            }
+        });
+
+        $('.hiSlider4').hiSlider({
+            isFlexible: true,
+            isSupportTouch: true,
+            titleAttr: function(curIdx){
+                return $('img', this).attr('alt');
+            }
+        });
     </script>
     </body>
     </html>

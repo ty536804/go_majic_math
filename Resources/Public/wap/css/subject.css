@@ -498,3 +498,13 @@
     flex-flow: column;
     justify-content: center;
 }
+.slider_contents{
+    width: 91%;
+    margin: 0 auto;
+}
+.pc-banner {
+    margin: 25px 0;
+}
+.jxjc{
+    margin-top: 22px;
+}
