@@ -21,19 +21,23 @@
     bottom: 0;
     width: 100%;
     padding: 6px 0;
-    color: #fff;
+    color: #333;
     text-indent: 10px;
     background: #F9FAFC;
     z-index: 2;
-    font: 14px/2 "Microsoft YaHei", "Arial", "Tahoma"
+    font: 20px/2 "Microsoft YaHei", "Arial", "Tahoma";
+    height: 50px;
+    line-height: 43px;
 }
+
 .hiSlider-pages{
-    bottom: 10px;
+    bottom: 20px;
     right: 10px;
     text-align: right;
 }
+
 .hiSlider-pages a{
-    height: 12px;
+    height: 3px;
     width: 12px;
     margin: 0 6px;
     display: inline-block;
