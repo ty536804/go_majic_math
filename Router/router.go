@@ -10,6 +10,7 @@ import (
 	nav "elearn100/Backend/Controller/Nav"
 	v4 "elearn100/Backend/Controller/Single"
 	frontend "elearn100/Frontend/Controller"
+	"elearn100/Frontend/Controller/Wap"
 	"elearn100/Middleware/jwt"
 	"elearn100/Pkg/e"
 	"elearn100/Services"
@@ -52,10 +53,11 @@ func InitRouter() *gin.Engine {
 	r.GET("/campus", frontend.Campus) //全国校区
 	r.GET("/down", frontend.Down)
 	//移动端
-	r.GET("/wap", frontend.WapIndex)
-	r.GET("/sub", frontend.WapSubject)
-	r.GET("/le", frontend.WapLearn)
-	r.GET("/om", frontend.WapOmo)
+	r.GET("/wap", Wap.Index)
+	r.GET("/sub", Wap.Subject)
+	r.GET("/le", Wap.Learn)
+	r.GET("/om", Wap.Omo)
+	r.GET("/authorize", Wap.Authorize)
 	//Backend
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())

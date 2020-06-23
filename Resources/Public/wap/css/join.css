@@ -1,0 +1,408 @@
+.online{
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 91%;
+    margin: 0 auto;
+    background: #F9FAFC;
+    border-radius: 0px 0px 10px 10px;
+}
+.online_desc{
+    width: 91%;
+    font-size:1.4rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#666;
+    line-height:35px;
+    padding: 14px 0;
+}
+
+.online_img img{
+    width: 100%;
+    height: 100%;
+}
+.online_img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+/*历经八年沉淀，全国200余家校区*/
+.pic_map .left{
+    margin-left: -14px;
+}
+.pic_map h3.left{
+    margin-left: 4px;
+}
+
+.map_pic {
+    width: 100%;
+    justify-content: center;
+}
+
+/* 品牌荣誉 */
+.ppxsbj {
+    background: #F9FAFC;
+}
+.brand_ul{
+    width: 100%;
+    margin: 0 auto;
+    height: 268px;
+    overflow: hidden;
+    background: #F9FAFC;
+}
+
+.pc-banner {
+    width: 100%;
+    float: left;
+}
+
+.banner_tit{
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 20px 0 !important;
+    color: #E63546;
+    font-family:PingFangSC-Semibold,PingFang SC;
+    font-weight:600;
+}
+.cn{
+    width: 100%;
+    text-align: center;
+    font-size:1rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#666;
+    line-height:14px;
+    margin: 7px 0 14px;
+}
+.banner_form_form {
+    width: 70%;
+    height: 70px;
+    line-height: 70px;
+    background: #F4F5F6;
+    border-radius: 30px;
+    margin: 0 auto 10px auto !important;
+    font-size: 1.4rem;
+    display: inline-block;
+    text-align: left;
+}
+.banner_form_form label {
+    float: left;
+    width: 20%;
+    color: #666;
+    text-align: right;
+}
+.banner_form_form input{
+    float: right;
+    width: 80%;
+    box-sizing: border-box;
+    height: 60px;
+    line-height: 60px;
+    border: none;
+    background: #F4F5F6;
+    font-size: 1.4rem;
+    color: #666;
+    border-radius: 30px;
+}
+.banner_form_form input:focus{
+    outline: none;
+}
+.banner_form {
+    width: 91%;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    top: -75px;
+    text-align: center;
+    background:rgba(255,255,255,1);
+    border-radius:10px;
+    border:1px solid rgba(230,53,70,1);
+}
+.banner_form_btn{
+    text-align: center;
+    width: 100%;
+    padding: 15px 0 10px 0!important;
+}
+.s_btn{
+    width: 70%;
+    height: 60px;
+    background: rgba(220,66,54,1);
+    box-shadow: 0px 2px 7px 0px rgba(220,66,54,0.29);
+    border-radius: 23px;
+    font-weight: 500;
+    font-size: 1.6rem;
+    border: 1px solid #DC4236;
+    color: #fff;
+    display: inline-block;
+    line-height: 60px;
+    cursor: pointer;
+}
+.pp{
+    margin-top: -40px !important;
+}
+/*自主研发多元思维课*/
+.zzyf_bg{
+    background: #F9FAFC;
+    margin-top: 20px;
+}
+.zzyf {
+    width: 91%;
+    margin: 0 auto;
+}
+.zzyf  dl{
+    float: left;
+    width: 100%;
+    padding: 23px 0;
+}
+.zzyf  dl dt{
+    float: left;
+    width: 33%;
+}
+.zzyf  dl dt img{
+    width: 204px;
+    height: 164px;
+}
+.zzyf  dl dd{
+    float: left;
+    width: 65%;
+}
+.zzyf  dl dd h3{
+    width: 100%;
+    font-size: 1.6rem;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    color: #333;
+    line-height: 40px;
+    margin-bottom: 15px;
+}
+.zzyf  dl dd ul{
+    width: 80%;
+    float: left;
+}
+.zzyf  dl dd ul li{
+    float: left;
+    width: 33%;
+    font-size:1.4rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#666;
+    line-height:35px;
+    text-align: left;
+}
+/*全新OMO教育模式*/
+.omo_edu{
+    background:#04A3F7 url("../img/pic_logo@2x.png") no-repeat bottom center;
+    height:170px;
+}
+.omo_edu h3{
+    width:100%;
+    font-size:3.5rem;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:#fff;
+    line-height: 170px;
+    text-align: center;
+}
+
+
+.online_and h3.left{
+    width: 300px;
+    line-height: 32px;
+    height: 107px;
+}
+
+.online_learn{
+    flex-flow: row wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+.online_and{
+    height: 107px;
+}
+.online_and .public_tit{
+    height: 107px;
+}
+
+.online_learn_item{
+    width: 91%;
+    margin:0 auto;
+}
+.online_learn dl{
+    width: 33%;
+    float: left;
+    margin-bottom: 40px;
+}
+.online_learn dl dt{
+    background: url("../img/ico_onlineoffline.png");
+    width: 86px;
+    height: 86px;
+    margin: 0 auto;
+}
+.online_learn dl.hd dt{
+    background-position:174px 86px;
+}
+.online_learn dl.nx dt{
+    background-position:258px 86px;
+}
+.online_learn dl.jy dt{
+    background-position:344px 86px;
+}
+.online_learn dl.gj dt{
+    background-position:430px 86px;
+}
+.online_learn dl:last-child dt{
+    background-position:608px 86px;
+}
+.online_learn dl dd{
+    width:100%;
+    font-size:1.6rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:20px;
+    margin-top: 20px;
+}
+/*OMO 社群分享营销，裂变流量快速变现*/
+.omo_new_edu{
+    background: #F9FAFC;
+}
+.omo_new_edu h3{
+    width:100%;
+    font-size:1.8rem;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:#333;
+    line-height:22px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 22px;
+}
+
+.omo_new_edu p{
+    font-size:1.4rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:40px;
+    width: 91%;
+    margin:22px auto 30px auto;
+}
+.slider_contents{
+    width: 91%;
+    margin: 0 auto;
+}
+.xlxt_bg{
+    margin-top: 20px;
+    background: #F9FAFC;
+}
+.xlxt_ul{
+    width: 91%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+}
+.xlxt_ul dl dt{
+    height: 126px;
+}
+.xlxt_ul dl dt img{
+    margin-top: -13px;
+}
+.xlxt_ul dl dd{
+    font-size:1.2rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:17px;
+    margin-top: 23px;
+}
+.xlxt_ul dl:last-child dd{
+    margin-top: 51px;
+    margin-bottom: 30px;
+}
+.xlxt_ul dl:last-child dt img{
+   margin-top: 0;
+}
+/*六大加盟优势*/
+.slq_ul{
+    width: 91%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.slq_ul dl{
+    width: 48%;
+    margin-bottom: 21px;
+}
+.slq_ul dl dt{
+    width: 136px;
+    height: 60px;
+    background: #F7C16E;
+    border-radius: 0px 20px 0px 20px;
+    font-size: 1.6rem;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    line-height: 60px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.slq_ul dl dd{
+    width: 100%;
+    background: #FFF9F1;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-family: PingFangSC-Regular,PingFang SC;
+    font-weight: 400;
+    color: #6E6D6D;
+    line-height: 35px;
+    padding: 40px 6px 23px 34px;
+    position: relative;
+    margin-top: -20px;
+    height: 200px;
+}
+/*四大运营亮点*/
+.fourLight{
+    width: 91%;
+    margin: 0 auto;
+}
+.fourLight dl{
+    margin-bottom: 19px;
+}
+.fourLight dl dt{
+    width: 291px;
+    background: #00A1F0;
+    border-radius: 0px 20px 0px 20px;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    position: relative;
+    z-index: 1;
+}
+.fourLight dl dd{
+    width:100%;
+    background:#E6F6FE;
+    border-radius:10px;
+    font-size:1.3rem;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:#757778;
+    line-height:40px;
+    padding: 55px 34px 30px;
+    position: relative;
+    margin-top: -32px;
+    height: 177px;
+}
+/* 品牌荣誉 */
+.pbrybj {
+    background: #F9FAFC;
+    margin-top: 20px;
+    padding-bottom: 80px;
+}
