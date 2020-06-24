@@ -12,9 +12,8 @@ li img{
 .hiSlider{
     overflow: hidden;
     height: 280px;
-    width: 500px;
     background: #eee;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 .hiSlider-item{
     float: left;

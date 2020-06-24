@@ -25,13 +25,13 @@
     text-indent: 10px;
     background: #F9FAFC;
     z-index: 2;
-    font: 20px/2 "Microsoft YaHei", "Arial", "Tahoma";
-    height: 50px;
-    line-height: 43px;
+    font: 1.6rem "Microsoft YaHei", "Arial", "Tahoma";
+    height: 70px;
+    line-height: 55px;
 }
 
 .hiSlider-pages{
-    bottom: 20px;
+    bottom: 30px;
     right: 10px;
     text-align: right;
 }

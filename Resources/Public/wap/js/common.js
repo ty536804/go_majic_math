@@ -24,6 +24,8 @@ $('.home_nav a').each(function () {
     let _actClass = '/'+$(this).attr('class');
     if (_actClass == currentUrl) {
         $(this).addClass('nav_active').siblings().removeClass('nav_active')
+    } else if (currentUrl == '/') {
+        $('.home_nav a:eq(0)').addClass('nav_active').siblings().removeClass('nav_active')
     }
 })
 
@@ -58,6 +60,7 @@ $('.f_btn').on('click',function () {
         data:$('#myform').serialize(),
         success: function (result) {
             if (result.code == 200) {
+                $('input').val('');
                 layer.alert("留言成功");
                 return false
             }

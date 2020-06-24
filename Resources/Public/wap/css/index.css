@@ -44,24 +44,24 @@
 	width:100%;
 	text-align: left;
 	height:22px;
-	font-size:1.6rem;
+	font-size:1.8rem;
 	font-weight:500;
 	color:#333;
 	line-height:22px;
 }
 .magic_manth dl dd p{
-	margin-top: 0.6rem !important;
-	width:100%;
-	font-size:1.4rem;
-	font-family:PingFangSC-Regular,PingFang SC;
-	font-weight:400;
-	color:rgba(102,102,102,1);
-	line-height:28px;
+	margin-top: 1rem !important;
+	width: 100%;
+	font-size: 1.5rem;
+	font-family: PingFangSC-Regular,PingFang SC;
+	font-weight: 400;
+	color: rgba(102,102,102,1);
+	line-height: 28px;
 }
 /* 张梅玲教授倾力推荐 */
 .recommend{
 	width:100%;
-	height:460px;
+	height:480px;
 	background:#FBF8F5;
 	margin-top: 30px !important;
 	overflow: hidden;
@@ -71,12 +71,12 @@
 	flex: auto;
 }
 .recommend h3{
-	height:25px;
-	font-size:1.8rem;
+	height:36px;
+	font-size:2.2rem;
 	font-family:PingFangSC-Semibold,PingFang SC;
 	font-weight:600;
 	color:#333;
-	line-height:25px;
+	line-height:36px;
 }
 .recommend .magic_line {
     background: linear-gradient(270deg,rgba(141,110,74,1) 0%,rgba(255,255,255,1) 100%) !important;
@@ -98,7 +98,7 @@
 .outborder{
 	float: left;
 	width: 59%;
-	height:67%;
+	height:74%;
 	border-radius:20px;
 	border:2px solid #C2B4A1;
 	position: relative;
@@ -120,10 +120,10 @@
 }
 .outborder dl dt{
 	padding: 22px 11px 0 25px !important;
-	font-size:1.4rem;
+	font-size:1.6rem;
 	font-family:MicrosoftYaHei;
 	color:rgba(152,123,91,1);
-	line-height:36px;
+	line-height:40px;
 }
 .outborder dl dd{
 	float: right;
@@ -178,15 +178,15 @@
 }
 .difference li.difference_con_tit{
 	width: 100%;
-	    text-align: center;
-	    height: 48px;
-	    font-size: 2rem;
-	    font-family: PingFangSC-Medium,PingFang SC;
-	    font-weight: 500;
-	    color: rgba(51,51,51,1) !important;
-	    line-height: 40px;
-	    background: none;
-	    margin: 15px 0 !important;
+	text-align: center;
+	height: 48px;
+	font-size: 1.8rem;
+	font-family: PingFangSC-Medium,PingFang SC;
+	font-weight: 500;
+	color: rgba(51,51,51,1) !important;
+	line-height: 40px;
+	background: none;
+	margin: 15px 0 !important;
 }
 .magic_ul li{
 	color: #E99526 !important;
@@ -200,12 +200,12 @@
 .about_magic{
 	width: 90%;
 	height: auto;
-	font-size: 1.1rem;
+	font-size: 1.4rem;
 	font-family: PingFangSC-Regular,PingFang SC;
 	font-weight: 400;
 	color: rgba(102,102,102,1);
-	line-height: 52px;
-	margin: 0 auto;
+	line-height: 60px;
+	margin: 0 auto 30px auto;
 }
 /* 品牌荣誉 */
 .brand_ul{

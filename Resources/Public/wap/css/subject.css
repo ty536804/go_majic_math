@@ -1,7 +1,7 @@
 .item_desc{
     width: 90%;
     text-align: center;
-    font-size:1.4rem;
+    font-size:1.8rem;
     font-weight:400;
     line-height:47px;
     margin: 0 auto;
@@ -210,15 +210,14 @@
     display: flex;
     flex-flow: row wrap;
     align-items:center;
-    margin-top: 0.6rem !important;
-    font-size:1.4rem;
+    font-size:1.6rem;
     font-family:PingFangSC-Regular,PingFang SC;
     font-weight:400;
     color:rgba(102,102,102,1);
     line-height:28px;
 }
 .excite_con_top{
-    margin-top: 1.3rem !important;
+    margin-top: 1.9rem !important;
 }
 .excite_con_top span,.excite_con_bottom span{
     display: flex;
@@ -276,8 +275,8 @@
     margin-bottom: 1rem;
 }
 .setup_right_top li{
-    width: 30%;
-    font-size: 1.5rem;
+    width: 31%;
+    font-size: 1.6rem;
     font-family: PingFangSC-Medium,PingFang SC;
     font-weight: 500;
     color: rgba(255,255,255,1);
@@ -332,7 +331,6 @@
 }
 .setup_bottom_right {
     width: 76%;
-    box-sizing: content-box;
     font-size: 1.6rem;
     font-family: PingFangSC-Regular,PingFang SC;
     font-weight: 400;
@@ -340,6 +338,7 @@
     line-height: 45px;
     background: #F1F9F4;
     box-sizing: border-box;
+    padding-left: 12px;
 }
 .setup_last {
     width: 90%;
@@ -429,6 +428,20 @@
 }
 .v_level li.mid span{
     background: #00A2FF;
+}
+.v3{
+    background: #9E24A7;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px 0px 10px 10px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: PingFangSC-Medium,PingFang SC;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 15px;
 }
 .v_level li:last-child span{
     background: #FFAE00;

@@ -6,10 +6,6 @@
         <title>北京易学教育科技有限公司</title>
         {{template "wap_header"}}
         <link rel="stylesheet" href="/static/wap/css/join.css?v={{.time}}">
-        <link rel="stylesheet" href="/static/wap/css/loop.css">
-        <link rel="stylesheet" type="text/css" href="/static/wap/css/default.css">
-        <link rel="stylesheet" href="/static/wap/css/jquery.hiSlider.min.css">
-        <link rel="stylesheet" href="/static/wap/css/swiper.min.css">
     </head>
     <body>
     {{template "wap_nav"}}
@@ -19,7 +15,8 @@
     <!--免费领取 加盟资料-->
     <section class="pub_style banner_form">
         <p class="banner_tit">免费领取 加盟资料</p>
-        <form>
+        <form class="banner_con_right" id="bannerForm">
+            <input type="hidden" name="com" class="c_com">
             <p class="banner_form_form">
                 <label>姓名：</label>
                 <input type="text" name="mname" class="c-area">
@@ -206,14 +203,14 @@
         </section>
         <section class="slider_contents pub_style">
             <div id="wrap">
-                <ul class="hiSlider hiSlider3">
-                    <li class="hiSlider-item"><img src="/static/wap/img/pic_led@2x.png" alt="智能投屏系统"></li>
-                    <li class="hiSlider-item"><img src="/static/wap/img/pic_ipad@2x.png" alt="智能交互课件"></li>
+                <ul class="hiSlider hiSlider4">
+                    <li class="hiSlider-item"><img src="/static/wap/img/offline1_2x.png" ></li>
+                    <li class="hiSlider-item"><img src="/static/wap/img/offline2_2x.png"></li>
                 </ul>
             </div>
         </section>
     </section>
-   <!--线上——AI学练系统-->
+    <!--线上——AI学练系统-->
     <section class="pub_style xlxt_bg">
         <section class="tit pub_style">
             <section class="public_tit">
@@ -337,7 +334,7 @@
     </section>
     <section class="slider_contents pub_style">
         <div id="wrap">
-            <ul class="hiSlider hiSlider2">
+            <ul class="hiSlider hiSlider3">
                 <li class="hiSlider-item"><img src="/static/wap/img/pic_school1.png" alt="河北唐山校区"></li>
                 <li class="hiSlider-item"><img src="/static/wap/img/pic_school2.png" alt="智能交互课件"></li>
                 <li class="hiSlider-item"><img src="/static/wap/img/pic_school3.png" alt="智能交互课件"></li>
@@ -373,48 +370,7 @@
         </section>
     </section>
     {{template "wap_footer"}}
-    <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
-    <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
-    <script>
-        window.onload = function() {
-            var swiper = new Swiper('.swiper-container',{
-                autoplay:3000,
-                speed:1000,
-                autoplayDisableOnInteraction : false,
-                loop:true,
-                centeredSlides : true,
-                slidesPerView:2,
-                pagination : '.swiper-pagination',
-                paginationClickable:true,
-                prevButton:'.swiper-button-prev',
-                nextButton:'.swiper-button-next',
-                onInit:function(swiper){
-                    swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
-                },
-                breakpoints: {
-                    668: {
-                        slidesPerView: 1,
-                    }
-                }
-            });
-
-            $('.hiSlider2').hiSlider({
-                isFlexible: true,
-                isSupportTouch: true,
-                titleAttr: function(curIdx){
-                    return $('img', this).attr('alt');
-                }
-            });
-
-            $('.hiSlider3').hiSlider({
-                isFlexible: true,
-                isSupportTouch: true,
-                titleAttr: function(curIdx){
-                    return $('img', this).attr('alt');
-                }
-            });
-        }
-    </script>
+    <script type="text/javascript" src="/static/wap/js/join.js"></script>
     </body>
     </html>
 {{end}}

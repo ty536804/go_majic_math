@@ -208,8 +208,15 @@
     width: 300px;
     line-height: 32px;
     height: 107px;
+    display: inline-block;
 }
 
+.online_and .line{
+    margin-top: -34%;
+}
+.online_and .circle {
+    margin-top: -35%;
+}
 .online_learn{
     flex-flow: row wrap;
     justify-content: space-between;
@@ -293,6 +300,10 @@
 .xlxt_bg{
     margin-top: 20px;
     background: #F9FAFC;
+    width: 100%;
+}
+.six_reason{
+    width: 100%;
 }
 .xlxt_ul{
     width: 91%;
