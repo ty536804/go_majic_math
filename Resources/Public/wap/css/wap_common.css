@@ -305,3 +305,20 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 .le{
 	border-left: 5px solid #4FB459;
 }
+
+.foot-box {
+	position: fixed;
+	bottom: 0;
+	z-index: 999;
+	height: 90px;
+	line-height: 90px;
+	text-align: center;
+	width: 100%;
+}
+.foot-box a {
+	display: inline-block;
+	width: 50%;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgb(247, 171, 0);
+}
