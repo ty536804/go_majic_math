@@ -24,7 +24,7 @@ func AddMessage(c *gin.Context, data map[string]interface{}) {
 	result := elearnDb.Create(&JfsdMessage{
 		Name:       data["mname"].(string),
 		Tel:        data["tel"].(string),
-		Content:    data["content"].(string),
+		Content:    data["area"].(string),
 		Ip:         data["ip"].(string),
 		CreateTime: time.Now().Unix(),
 		VisitUuid:  uid,
