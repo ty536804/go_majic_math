@@ -28,7 +28,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	valid.Required(area, "area").Message("地区不能为空")
 	valid.Required(tel, "tel").Message("选择是否展示")
 	if !valid.HasErrors() {
-		data["mname"] = mname
+		data["mname"] = area + "的" + mname
 		data["area"] = area
 		data["tel"] = tel
 		data["content"] = ""
