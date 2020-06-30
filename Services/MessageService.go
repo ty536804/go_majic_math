@@ -37,7 +37,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["ip"] = c.ClientIP()
 		data["channel"] = 1
 
-		Elearn.AddMessage(c, data)
+		Elearn.AddMessage(c, mname, area, tel)
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}

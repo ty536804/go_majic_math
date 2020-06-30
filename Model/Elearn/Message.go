@@ -19,13 +19,13 @@ type JfsdMessage struct {
 }
 
 // @Summer elearn100 添加留言
-func AddMessage(c *gin.Context, data map[string]interface{}) {
+func AddMessage(c *gin.Context, mname, area, tel string) {
 	uid, _ := c.Cookie("53gid2")
 	result := elearnDb.Create(&JfsdMessage{
-		Name:       data["mname"].(string),
-		Tel:        data["tel"].(string),
-		Content:    data["area"].(string),
-		Ip:         data["ip"].(string),
+		Name:       mname,
+		Tel:        tel,
+		Content:    area,
+		Ip:         c.ClientIP(),
 		CreateTime: time.Now().Unix(),
 		VisitUuid:  uid,
 	})
