@@ -34,10 +34,11 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["content"] = ""
 		data["com"] = com
 		data["client"] = "pc"
-		data["ip"] = c.ClientIP()
+		data["ip"] = c.Request.RemoteAddr
 		data["channel"] = 1
 
-		Elearn.AddMessage(c, mname, area, tel)
+		name := area + "的" + mname
+		Elearn.AddMessage(c, name, area, tel)
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}

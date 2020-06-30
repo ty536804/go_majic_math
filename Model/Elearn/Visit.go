@@ -44,7 +44,7 @@ func AddVisit(c *gin.Context) {
 	result := elearnDb.Create(&JfsdVisit{
 		Uuid:       uid,
 		FirstUrl:   FirstUrl,
-		Ip:         c.ClientIP(),
+		Ip:         c.Request.RemoteAddr,
 		FromUrl:    FromUrl,
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 	})

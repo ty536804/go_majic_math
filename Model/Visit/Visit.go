@@ -32,7 +32,7 @@ func AddVisit(c *gin.Context) {
 	result := db.Db.Create(&Visit{
 		Uuid:       uid,
 		FirstUrl:   FirstUrl,
-		Ip:         c.ClientIP(),
+		Ip:         c.Request.RemoteAddr,
 		FromUrl:    FromUrl,
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 	})

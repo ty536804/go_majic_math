@@ -25,7 +25,7 @@ func AddMessage(c *gin.Context, mname, area, tel string) {
 		Name:       mname,
 		Tel:        tel,
 		Content:    area,
-		Ip:         c.ClientIP(),
+		Ip:         c.Request.RemoteAddr,
 		CreateTime: time.Now().Unix(),
 		VisitUuid:  uid,
 	})
