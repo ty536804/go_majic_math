@@ -11,7 +11,7 @@ type JfsdMessage struct {
 	ID         int    `gorm:"primary_key" json:"id"`
 	Name       string `json:"name" gorm:"type:varchar(100); not null; default ''; comment:'姓名' "`
 	Tel        string `json:"tel" gorm:"type:varchar(20); not null; default ''; comment:'电话' "`
-	Content    string `json:"content" gorm:"type:varchar(200); not null; default ''; comment:'地区' "`
+	Content    string `json:"content" gorm:"type:varchar(9999); not null; default ''; comment:'地区' "`
 	CreateTime int64  `json:"create_time" gorm:"comment:'创建时间'; default '0'" `
 	Status     int    `json:"status" gorm:"not null; default '0' "`
 	Ip         string `json:"ip" gorm:"type:varchar(100);not null; default ''; comment:'ip' "`
