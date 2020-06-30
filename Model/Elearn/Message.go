@@ -22,7 +22,7 @@ type JfsdMessage struct {
 func AddMessage(c *gin.Context, mname, area, tel string) {
 	uid, _ := c.Cookie("53gid2")
 	result := elearnDb.Create(&JfsdMessage{
-		Name:       mname,
+		Name:       area + "的" + mname,
 		Tel:        tel,
 		Content:    area,
 		Ip:         c.Request.RemoteAddr,
