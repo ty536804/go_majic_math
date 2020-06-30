@@ -1,0 +1,92 @@
+{{define "wapFooter"}}
+    <!-- 底部 -->
+    <section class="footer" id="banner_form">
+        <p class="footer_empty"></p>
+        <h3 class="footer_tel">授权电话</h3>
+        <p class="footer_line"></p>
+        <p class="footer_phone">
+            <span><img src="/static/elearn/img/dianhua-3@2x.png"></span>400 175 9669
+        </p>
+        <section class="join footer_con_right" id="fedbook">
+            <p class="join_tit">填写表单</p>
+            <form method="post" action="http://www.elearn100.com/Index/message.html" name="myform">
+                <label for="">姓名：
+                    <input type="text" name="name" class="c-name">
+                </label>
+                <label for="">电话：
+                    <input type="text" name="tel" class="c-tel">
+                </label>
+                <label for="">地区：
+                    <input type="text" name="content" class="c-area">
+                </label>
+                <p class="banner_form_btn"><button class="btn">提交</button></p>
+            </form>
+        </section>
+    </section>
+    <div class="foot-box"><a href="tel:4001759669">免费电话</a><a href="#fedbook" style="background-color: rgb(157, 200, 22)">留言咨询</a></div>
+    <script type="text/javascript" src="/static/wap/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/layer.js"></script>
+    <script type="text/javascript" src="/static/assets/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/static/wap/js/common.js"></script>
+    <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
+    <script>
+        window.onload = function() {
+            var swiper = new Swiper('.swiper-container',{
+                autoplay:3000,
+                speed:1000,
+                autoplayDisableOnInteraction : false,
+                loop:true,
+                centeredSlides : true,
+                slidesPerView:2,
+                pagination : '.swiper-pagination',
+                paginationClickable:true,
+                prevButton:'.swiper-button-prev',
+                nextButton:'.swiper-button-next',
+                onInit:function(swiper){
+                    swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
+                },
+                breakpoints: {
+                    668: {
+                        slidesPerView: 1,
+                    }
+                }
+            });
+            $('.hiSlider3').hiSlider({
+                isFlexible: true,
+                isSupportTouch: true,
+                titleAttr: function(curIdx){
+                    return $('img', this).attr('alt');
+                }
+            });
+
+            $('.hiSlider4').hiSlider({
+                isFlexible: true,
+                isSupportTouch: true,
+                titleAttr: function(curIdx){
+                    return $('img', this).attr('alt');
+                }
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1278531036'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1278531036%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script>
+        (function() {
+            var _53code = document.createElement("script");
+            _53code.src = "https://tb.53kf.com/code/code/f254c44bb9e44bf955808e53f506bf9f3/1";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(_53code, s);})();
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?c9657a1adaad4dd22037d0197b4385d2";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+{{end}}

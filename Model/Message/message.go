@@ -49,6 +49,7 @@ func AddMessage(data map[string]interface{}) bool {
 		Ip:      data["ip"].(string),
 		Channel: data["channel"].(int),
 	})
+
 	if result.Error != nil {
 		fmt.Print("添加留言失败", result)
 		return false

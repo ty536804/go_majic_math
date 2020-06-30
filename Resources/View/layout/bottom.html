@@ -30,6 +30,7 @@
                 <h3>填写表单</h3>
                 <form method="post" action="" name="myform" id="myform">
                     <input type="hidden" name="com" class="c-com">
+                    <input type="hidden" name="guest_id" class="guest_id">
                     <label for="">姓名：
                         <input type="text" name="mname" class="c-area">
                     </label>
@@ -52,6 +53,7 @@
     <script type="text/javascript" src="/static/js/layer.js"></script>
     <script type="text/javascript" src="/static/index/common.js"></script>
     <script type="text/javascript" src="/static/assets/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/static/assets/js/jquery.cookie.js"></script>
     <script type="text/javascript">
         var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
         document.write(unescape("%3Cspan id='cnzz_stat_icon_1278531036'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1278531036%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
@@ -71,5 +73,6 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
+        console.log("guest_id",$.cookie("guest_id"))
     </script>
 {{end}}

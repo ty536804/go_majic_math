@@ -10,6 +10,7 @@ import (
 	"elearn100/Model/Nav"
 	"elearn100/Model/Single"
 	"elearn100/Model/Site"
+	"elearn100/Model/Visit"
 	"fmt"
 )
 
@@ -31,6 +32,7 @@ func InitAdminDatabase() {
 	Database.Db.AutoMigrate(&Site.Site{})
 	Database.Db.AutoMigrate(&Single.Single{})
 	Database.Db.AutoMigrate(&Campus.Campus{})
+	Database.Db.AutoMigrate(&Visit.Visit{})
 }
 
 func DropDatabase() {
@@ -76,5 +78,9 @@ func DropDatabase() {
 	//校园管理
 	if !Database.Db.HasTable(&Campus.Campus{}) {
 		Database.Db.DropTable(&Campus.Campus{})
+	}
+	//浏览记录
+	if !Database.Db.HasTable(&Visit.Visit{}) {
+		Database.Db.DropTable(&Visit.Visit{})
 	}
 }

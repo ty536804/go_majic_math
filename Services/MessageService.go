@@ -1,6 +1,7 @@
 package Services
 
 import (
+	"elearn100/Model/Elearn"
 	"elearn100/Model/Message"
 	"elearn100/Pkg/e"
 	"fmt"
@@ -35,6 +36,8 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["client"] = "pc"
 		data["ip"] = c.ClientIP()
 		data["channel"] = 1
+
+		Elearn.AddMessage(c, data)
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}

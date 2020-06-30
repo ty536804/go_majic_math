@@ -1,362 +1,305 @@
 {{define "wap/join.html"}}
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
-        <meta charset="UTF-8">
-        <title>北京易学教育科技有限公司</title>
-        {{template "wap_header"}}
-        <link rel="stylesheet" href="/static/wap/css/join.css?v={{.time}}">
+        <meta charset="utf-8">
+        <title>魔法数学加盟</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta name="keywords" content="魔法数学加盟">
+        <meta name="description" content="魔法数学加盟">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=750px">
+        <link href="/static/elearn/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/elearn/css/wap.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/static/wap/css/jquery.hiSlider.min.css">
+        <link rel="stylesheet" href="/static/wap/css/swiper.min.css">
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
     </head>
     <body>
     {{template "wap_nav"}}
-    <section class="index_banner pub_style">
-        <img src="/static/wap/img/banner1.png" />
-    </section>
-    <!--免费领取 加盟资料-->
-    <section class="pub_style banner_form">
-        <p class="banner_tit">免费领取 加盟资料</p>
-        <form class="banner_con_right" id="bannerForm">
-            <input type="hidden" name="com" class="c_com">
-            <p class="banner_form_form">
-                <label>姓名：</label>
-                <input type="text" name="mname" class="c-area">
-            </p>
-            <p class="banner_form_form">
-                <label>电话：</label>
-                <input type="text" name="tel" class="c-tel">
-            </p>
-            <p class="banner_form_form">
-                <label>地区：</label>
-                <input type="text" name="area" class="c-city">
-            </p>
-            <p class="banner_form_btn">
-                <a class="s_btn">提交</a>
-            </p>
-        </form>
-        <p class="cn">免费领取 我们承诺您的信息将严格保密请放心填写</p>
-    </section>
-    <!--品牌介绍-->
-    <section class="tit pub_style pp">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">品牌介绍</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-    </section>
-    <!---历经八年沉淀，全国200余家校区-->
-    <section class="pub_style online">
-        <section class="online_img">
-            <img src="/static/wap/img/pic_about.png">
-        </section>
-        <section class="online_desc">
-            “魔法数学思维馆”连锁品牌是易乐教育科技集团旗下核心品牌，是中国儿童数理思维教育的探索者与开创者，秉承“数学探索世界，思维改变未来”的教育理念，致力于为孩子提供国际先进的数理思维教育。
-        </section>
-    </section>
-    <section class="tit pub_style pic_map">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">历经八年沉淀，全国200余家校区</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-    </section>
-    <section class="map_pic pub_style">
-        <img src="/static/wap/img/pic_map.png">
-    </section>
-    <!--品牌学术背景-->
-    <section class="ppxsbj pub_style">
-        <section class="tit pub_style">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">品牌学术背景</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-        </section>
-        <section class="brand_ul">
-            <section class="pc-banner">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img  src="/static/wap/img/pic_brand3.png" /></div>
-                        <div class="swiper-slide"><img  src="/static/wap/img/pic_brand1.png" /></div>
-                        <div class="swiper-slide"><img  src="/static/wap/img/pic_brand2.png"  /></div>
-                    </div>
-                </div>
-            </section>
-        </section>
-    </section>
-    <!--自主研发多元思维课-->
-    <section class="zzyf_bg pub_style">
-        <section class="zzyf">
-            <dl>
-                <dt>
-                    <img src="/static/wap/img/pic_medal@2x.png">
-                </dt>
-                <dd>
-                    <h3>自主研发多元思维课，教育部科研成果基地</h3>
-                    <ul>
-                        <li>数学思维课</li>
-                        <li>语言思维课</li>
-                        <li>生活数学课</li>
-                        <li>逻辑思维课</li>
-                        <li>科学思维课</li>
-                    </ul>
-                </dd>
-            </dl>
-        </section>
-    </section>
-    <section class="zzyf_bg pub_style">
-        <section class="zzyf">
-            <dl>
-                <dt>
-                    <img src="/static/wap/img/pic_phone@2x.png">
-                </dt>
-                <dd>
-                    <h3>自主研发多元思维课，教育部科研成果基地</h3>
-                    <p>随时随地想学就学，线上线下紧密结合</p>
-                </dd>
-            </dl>
-        </section>
-    </section>
-    <!--全新OMO教育模式-->
-    <section class="omo_edu pub_style">
-        <h3>全新OMO教育模式</h3>
-    </section>
-    <!--线上线下同步招生 + 分享营销裂变引流获-->
-    <section class="tit pub_style online_and">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">线上线下同步招生 <br/>+<br/>分享营销裂变引流获</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-    </section>
-    <section class="pub_style online_learn">
-        <section class="online_learn_item">
-            <dl>
-                <dt></dt>
-                <dd>在线优质教学</dd>
-            </dl>
-            <dl class="gj">
-                <dt></dt>
-                <dd>学习习惯跟进</dd>
-            </dl>
-            <dl class="jy">
-                <dt></dt>
-                <dd>本地化教研</dd>
-            </dl>
-            <dl class="nx">
-                <dt></dt>
-                <dd>增强用户粘性</dd>
-            </dl>
-            <dl class="hd">
-                <dt></dt>
-                <dd>低成本获课</dd>
-            </dl>
-            <dl>
-                <dt></dt>
-                <dd>打造区域口碑</dd>
-            </dl>
-        </section>
-    </section>
-    <section class="omo_new_edu pub_style">
-        <h3>OMO 社群分享营销，裂变流量快速变现</h3>
-        <p>家长通过“魔数APP”社群分享系统解锁游戏关卡，精准投放当地有需求的用户群体，为校区带来流量的快速裂变。同时，通过家长的分享、传播，为校区打造良好的品牌形象和用户口碑，以此形成“口碑-引流-转化-口碑”的招生闭环。</p>
-    </section>
-    <!-- 线下——多维智能教室 -->
-    <section class="pub_style xlxt_bg">
-        <section class="six_reason pub_style">
-            <section class="tit">
-                <section class="public_tit">
-                    <p class="direction left">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                    <h3 class="left">线下——多维智能教室</h3>
-                    <p class="direction left dr">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                </section>
-            </section>
-        </section>
-        <section class="slider_contents pub_style online_and_img">
-            <div id="wrap">
-                <ul class="hiSlider hiSlider4">
-                    <li class="hiSlider-item"><img src="/static/wap/img/offline1_2x.png" ></li>
-                    <li class="hiSlider-item"><img src="/static/wap/img/offline2_2x.png"></li>
-                </ul>
+    <!-- banner -->
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="http://img.cdn.mofashuxue.com/bannar1.png">
             </div>
-        </section>
-    </section>
-    <!--线上——AI学练系统-->
-    <section class="pub_style xlxt_bg">
-        <section class="tit pub_style">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">线上——AI学练系统</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-        </section>
-        <section class="xlxt_ul">
-            <dl>
-                <dt><img src="/static/wap/img/pic_AI@2x.png"></dt>
-                <dd>AI自适应学练系统</dd>
-            </dl>
-            <dl>
-                <dt><img src="/static/wap/img/pic_APP@2x.png"></dt>
-                <dd>魔数APP扩展学习阅读</dd>
-            </dl>
-            <dl>
-                <dt><img src="/static/wap/img/pic_live@2x.png"></dt>
-                <dd>AI在线直播教学 一体机</dd>
-            </dl>
-        </section>
-    </section>
-    <!--六大加盟优势-->
-    <section class="tit pub_style">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">六大加盟优势</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-    </section>
-    <section class="slq_ul">
-        <dl>
-            <dt>实力强</dt>
-            <dd>历经8年沉淀，经过500+家小学、幼儿园及合作机构教学验证，全球100,000+儿童受益</dd>
-        </dl>
-        <dl>
-            <dt>研发强</dt>
-            <dd>拥有完全知识产权的在线测评、教学及课程体系，独家专利教材学具</dd>
-        </dl>
-        <dl>
-            <dt>渠道强</dt>
-            <dd>获得国家教育部“十二五”科研成果奖为与公立校合作打开通道</dd>
-        </dl>
-        <dl>
-            <dt>宣传多</dt>
-            <dd>ＯMO社群分销系统及短视频、新媒体营销让校区迅速获客招生</dd>
-        </dl>
-        <dl>
-            <dt>优势足</dt>
-            <dd>中国教育电视台“魔法杯”全国思维大赛唯一指定合作单位</dd>
-        </dl>
-        <dl>
-            <dt>潜力大</dt>
-            <dd>全国首家儿童数理思维教育品牌助您快速成为当地教育独角兽</dd>
-        </dl>
-    </section>
-    <!--四大运营亮点-->
-    <section class="tit pub_style">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">四大运营亮点</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-    </section>
-    <section class="pub_style fourLight">
-        <dl>
-            <dt>“魔数APP”招生利器</dt>
-            <dd>魔数小奇兵APP”社群分享营销系统，爆炸型招生裂变利器！学习效果外化分享成果，每日裂变数百目标客户！</dd>
-        </dl>
-    </section>
-    <section class="pub_style fourLight">
-        <dl>
-            <dt>总部直营化垂直管理</dt>
-            <dd>城市首家校区，总部直营化垂直运营支持，快来抢占名额！您开店，我运营，投资收益有保障！</dd>
-        </dl>
-    </section>
-    <section class="pub_style fourLight">
-        <dl>
-            <dt>外派金牌校长服务</dt>
-            <dd>外派金牌校长15～30天代运营服务，手把手培养合格的校区运营团队！每月限2家盟校获此精细化重点扶持！</dd>
-        </dl>
-    </section>
-    <section class="pub_style fourLight">
-        <dl>
-            <dt>构建属地化运营支持</dt>
-            <dd>总部与区域标杆校投资人共建分公司，属地化运营支持各地加盟校！集合总部+全国校区、资源为加盟校提供个性化服务。</dd>
-        </dl>
-    </section>
-    <!--优秀校区-->
-    <section class="tit pub_style">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">优秀校区</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-    </section>
-    <section class="slider_contents pub_style">
-        <div id="wrap">
-            <ul class="hiSlider hiSlider3">
-                <li class="hiSlider-item"><img src="/static/wap/img/pic_school1.png" alt="河北唐山校区"></li>
-                <li class="hiSlider-item"><img src="/static/wap/img/pic_school2.png" alt="贵州贵阳校区"></li>
-                <li class="hiSlider-item"><img src="/static/wap/img/pic_school3.png" alt="江苏淮安校区"></li>
-            </ul>
         </div>
+    </div>
+    <section class="join">
+        <p class="join_tit">免费领取 加盟资料</p>
+        <form method="post" action="http://www.elearn100.com/Index/message.html" name="myform">
+            <label for="">姓名：
+                <input type="text" name="name" class="c-name">
+            </label>
+            <label for="">电话：
+                <input type="text" name="tel" class="c-tel">
+            </label>
+            <label for="">地区：
+                <input type="text" name="content" class="c-area">
+            </label>
+            <p class="col-md-12 banner_form_btn"><button class="btn">立即领取</button></p>
+            <p class="line"></p>
+            <p class="col-md-12 assured">我们承诺您的信息将严格保密请放心填写</p>
+        </form>
     </section>
-    <!--品牌荣誉-->
-    <section class="pbrybj pub_style">
-        <section class="tit pub_style">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">品牌荣誉</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
+    <!-- 品牌介绍 -->
+    <section class="ppjs">
+        <section class="ppjs_head">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">品牌介绍</h3>
+            <span class="left right"></span>
         </section>
-        <section class="brand_ul">
+        <dl class="ppjs_banner">
+            <dt>
+                <img src="http://img.cdn.mofashuxue.com/3-%E5%93%81%E7%89%8C%E4%BB%8B%E7%BB%8D-%E5%9B%BE.png" />
+            </dt>
+            <dd>“魔法数学思维馆”连锁品牌是易乐教育科技集团旗下核心品牌，是中国儿童数理思维教育的探索者与开创者，秉承“数学探索世界，思维改变未来”的教育理念，致力于为孩子提供国际先进的数理思维教育。</dd>
+        </dl>
+    </section>
+    <!-- 历经八年沉淀 全国200余家校区 -->
+    <section class="all">
+        <section class="all_head">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">历经八年沉淀<br/>全国200余家校区</h3>
+            <span class="left right"></span>
+        </section>
+        <section class="dt">
+            <img src="http://img.cdn.mofashuxue.com/4-%E5%9C%B0%E5%9B%BE.png"/>
+        </section>
+    </section>
+    <!-- 品牌学术背景 -->
+    <section class="xsbj">
+        <section class="xsbj_head">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">品牌学术背景</h3>
+            <span class="left right"></span>
+        </section>
+        <section class="xsbj_ul">
+            <dl class="first">
+                <dt>
+                    <img src="/static/elearn/img/皮亚杰.png" />
+                </dt>
+            </dl>
+            <dl class="xsbj_ul_mid">
+                <dt>
+                    <img src="/static/elearn/img/哈佛大学.png" />
+                </dt>
+                <dd>
+                    MI（多元智力理论）包括语言智能、逻辑——数学智能、空间智能、肢体——运作智能，是全新人力思维智力结构理论。
+                </dd>
+            </dl>
+            <dl class="three">
+                <dt>
+                    <img src="/static/elearn/img/zml.png" />
+                </dt>
+            </dl>
+        </section>
+    </section>
+    <!-- 自主研发多元思维课，教育部科研成果基地 -->
+    <section class="zs_list">
+        <img src="http://img.cdn.mofashuxue.com/1.png" />
+    </section>
+    <!-- 全新OMO教育模式 -->
+    <section class="newOMO">
+        <img src="http://img.cdn.mofashuxue.com/3.png" />
+    </section>
+    <!-- 社群分销系统及短视频 -->
+    <section class="community">
+        <h3>OMO 社群分享营销，裂变流量快速变现</h3>
+        <p class="community_con">家长通过“魔数APP”社群分享系统解锁游戏关卡，精准投放当地有需求的用户群体，为校区带来流量的快速裂变。同时，通过家长的分享、
+        </p>
+        <p class="community_btn"><a href="#fedbook">立 即 加 盟</a></p>
+    </section>
+    <!-- 线下——未来智能教室 -->
+    <section class="offline">
+        <section class="xsbj_head">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">线下——未来智能教室</h3>
+            <span class="left right"></span>
+        </section>
+        <section class="certificate">
+            <span class="certificate_l"></span>
+            <section class="offline_ul">
+                <dl>
+                    <dt>
+                        <img src="/static/elearn/img/投屏系统图片.png" />
+                    </dt>
+                    <dd>智能投屏系统</dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/elearn/img/机器人图片.png" />
+                    </dt>
+                    <dd>
+                        AI机器人助教
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/elearn/img/教具图片.png" />
+                    </dt>
+                    <dd>
+                        结合多元情景式及配套教具，让孩子沉浸式体验学习
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <img src="/static/elearn/img/交互课件图片.png" />
+                    </dt>
+                    <dd>
+                        智能交互课件
+                    </dd>
+                </dl>
+            </section>
+            <span class="certificate_r"></span>
+        </section>
+    </section>
+    <!-- 线上——智能学练系统 -->
+    <section class="online_os">
+        <img src="http://img.cdn.mofashuxue.com/2.png" />
+    </section>
+    <!-- 六大加盟优势 -->
+    <section class="new_omo jmys">
+        <section class="xsbj_head">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">六大加盟优势</h3>
+            <span class="left right"></span>
+        </section>
+    </section>
+    <section class="join_ul">
+        <dl>
+            <dt class="st">
+                <strong>实力强</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg">历经8年沉淀，经过500+家小学、幼儿园及合作机构教学验证，全球100,000+儿童受益</dd>
+        </dl>
+        <dl>
+            <dt class="qq">
+                <strong>研发强</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg qq_bg">拥有完全知识产权的在线测评、教学及课程体系，独家专利教材学具</dd>
+        </dl>
+        <dl>
+            <dt class="st">
+                <strong>渠道强</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg">获得国家教育部“十二五”科研成果奖为与公立校合作打开通道</dd>
+        </dl>
+        <dl>
+            <dt class="qq">
+                <strong>宣传多</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg qq_bg">ＯMO社群分销系统及短视频、新媒体营销让校区迅速获客招生</dd>
+        </dl>
+        <dl>
+            <dt class="st">
+                <strong>优势足</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg">中国教育电视台“魔法杯”全国思维大赛唯一指定合作单位</dd>
+        </dl>
+        <dl>
+            <dt class="qq">
+                <strong>潜力大</strong>
+                <span class="deep"></span>
+            </dt>
+            <dd class="st_bg qq_bg">全国首家儿童数理思维教育品牌助您快速成为当地教育独角兽</dd>
+        </dl>
+    </section>
+    <!-- 四大运营亮点 -->
+    <section class="highlights">
+        <section class="xsbj_head">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">四大运营亮点</h3>
+            <span class="left right"></span>
+        </section>
+        <section class="highlights_ul">
+            <dl>
+                <dt>
+                    <h3>“魔数APP”招生利器</h3>
+                    <span></span>
+                </dt>
+                <dd>魔数小奇兵APP”社群分享营销系统，爆炸型招生裂变利器！学习效果外化分享成果，每日裂变数百目标客户！</dd>
+            </dl>
+            <dl class="rCon">
+                <dt>
+                    <h3>外派金牌校长服务</h3>
+                    <span></span>
+                </dt>
+                <dd>外派金牌校长15～30天代运营服务，手把手培养合格的校区运营团队！每月限2家盟校获此精细化重点扶持！</dd>
+            </dl>
+            <dl>
+                <dt>
+                    <h3>总部直营化垂直管理</h3>
+                    <span></span>
+                </dt>
+                <dd>城市首家校区，总部直营化垂直运营支持，快来抢占名额！您开店，我运营，投资收益有保障！</dd>
+            </dl>
+            <dl class="rCon">
+                <dt>
+                    <h3>构建属地化运营支持</h3>
+                    <span></span>
+                </dt>
+                <dd>总部与区域标杆校投资人共建分公司，属地化运营支持各地加盟校！集合总部+全国校区、资源为加盟校提供个性化服务。</dd>
+            </dl>
+        </section>
+    </section>
+    <!-- 优秀校区 -->
+    <section class="xsbj_head yxxq">
+        <span class="left"></span>
+        <h3 class="ppjs_tit">优秀校区</h3>
+        <span class="left right"></span>
+    </section>
+    <section class="school_ul">
+        <dl>
+            <dt><img src="/static/elearn/img/唐山图片.png"></dt>
+            <dd>
+                <h3>河北唐山校区</h3>
+                <p>
+                    该校区成功发展四家思维馆，累计学员数量达3600人，年盈利600万元，已经形成自身口碑及影响力。由于市场需求增持，发展前景可期，为了让当地更多的孩子受益，该校区已经升级为当地区域授权。
+                </p>
+            </dd>
+        </dl>
+        <dl class="school_ul_mid">
+            <dt>
+                <h3>贵州贵阳校区</h3>
+                <p>
+                    该校区投资人是教育行业销售出身，因幼年受家长熏陶，对教育行业拥有独特的情怀，大学毕业后，一直置身于教育事业。初遇魔数思维，被魔数背景和独家课程体系所吸引，当即签订合作合同。通过用心经营，目前已升级为代理合伙人，拥有学员1500人，真正做到贵阳市垄断数学市场的王者品牌。
+                </p>
+            </dt>
+            <dd>
+                <img src="/static/elearn/img/贵州图片.png">
+            </dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/elearn/img/江苏图片.png"></dt>
+            <dd class="school_ul_bt">
+                <h3>江苏淮安校区</h3>
+                <p>
+                    该投资人是魔数学员的家长，通过观察自己孩子短时间内的快速成长，立即决定投资一家魔数思维馆。仅用两年时间，连续扩张到四家魔数空间，目前该校区学员处于饱和状态，致使校长不敢轻易招生。经过与总部沟通后，总部立即委派金牌运营总监与投资人共同筹备第5家校区。
+                </p>
+            </dd>
+        </dl>
+    </section>
+    <!-- 品牌荣誉 -->
+    <section class="ppry">
+        <section class="xsbj_head yxxq">
+            <span class="left"></span>
+            <h3 class="ppjs_tit">品牌荣誉</h3>
+            <span class="left right"></span>
+        </section>
+        <section class="xsbj_ul">
             <section class="pc-banner">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -369,8 +312,7 @@
             </section>
         </section>
     </section>
-    {{template "wap_footer"}}
-    <script type="text/javascript" src="/static/wap/js/join.js"></script>
+    {{template "wapFooter"}}
     </body>
     </html>
 {{end}}
