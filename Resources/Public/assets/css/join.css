@@ -159,7 +159,7 @@
 }
 /* 品牌学术背景 */
 .brand{
-    background: url("../img/4-背景.png") no-repeat;
+    background: url(http://img.cdn.mofashuxue.com/4_bg.png) no-repeat;
     height: 1001px;
     display: -ms-flexbox;
     display: flex;
@@ -246,7 +246,7 @@ label{
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%;
-    background: url("../img/5-背景2.png") no-repeat;
+    background: url(http://img.cdn.mofashuxue.com/5-%E8%83%8C%E6%99%AF2.png) no-repeat;
     height: 100%;
 }
 .rd_content{
@@ -430,7 +430,7 @@ label{
     margin-left: 300px;
 }
 .offline{
-    background: url("../img/8_bg.png") no-repeat;
+    background: url(http://img.cdn.mofashuxue.com/8_bg.png) no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
