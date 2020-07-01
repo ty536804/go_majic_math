@@ -19,8 +19,8 @@ func GetMd5String(s string) string {
 }
 
 var (
-	_account  = "C49793087"                        //用户名是登录用户中心->国际短信->产品总览->APIID
-	_password = "bf195a6ea1db1390bee3ad4832b849ea" //查看密码请登录用户中心->国际短信->产品总览->APIKEY
+	_account  = "短信" //用户名是登录用户中心->国际短信->产品总览->APIID
+	_password = "短信" //查看密码请登录用户中心->国际短信->产品总览->APIKEY
 	_now      = strconv.FormatInt(time.Now().Unix(), 10)
 	_url      = "https://106.ihuyi.com/webservice/sms.php?method=Submit&format=json"
 )
