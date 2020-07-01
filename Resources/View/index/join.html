@@ -447,6 +447,18 @@
     {{template "index_footer"}}
     <script type="text/javascript" src="/static/index/about.js"></script>
     <script type="text/javascript" src="/static/index/join.js"></script>
+    <script>
+        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
+        var browser = navigator.userAgent.toLowerCase();
+        var isMobile = false;
+        for (var i=0; i<mobileAgent.length; i++) {
+            if (browser.indexOf(mobileAgent[i])!=-1){
+                isMobile = true;
+                location.href = '/authorize';
+                break;
+            }
+        }
+    </script>
     </body>
     </html>
 {{end}}
