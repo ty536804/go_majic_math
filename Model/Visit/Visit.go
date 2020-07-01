@@ -2,6 +2,7 @@ package Visit
 
 import (
 	db "elearn100/Database"
+	"elearn100/Pkg/setting"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"strings"
@@ -25,7 +26,7 @@ func AddVisit(c *gin.Context) {
 	uid, _ := c.Cookie("53gid2")
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
-		FirstUrl = c.Request.Host + reqURI //来源页
+		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
 	} else {
 		FirstUrl = c.Request.Referer()
 	}

@@ -3,6 +3,7 @@ package setting
 import (
 	"gopkg.in/ini.v1"
 	"log"
+	"strings"
 	"time"
 )
 
@@ -71,4 +72,12 @@ func LoadRedis() {
 	}
 	RedisHost = sec.Key("Host").MustString("127.0.0.1:6379")
 	RedisPwd = sec.Key("Password").MustString("")
+}
+
+func ReplaceSiteUrl(url string) string {
+	if !strings.Contains("127.0.0.1", url) {
+		return "http://www.mofashuxue.com/"
+	} else {
+		return url
+	}
 }

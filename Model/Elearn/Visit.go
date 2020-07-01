@@ -1,6 +1,7 @@
 package Elearn
 
 import (
+	"elearn100/Pkg/setting"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
@@ -33,7 +34,7 @@ func GetVisit(uid string) (visitE JfsdVisit) {
 // elearn100 新增浏览记录
 func AddVisit(c *gin.Context) {
 	reqURI := c.Request.URL.RequestURI()
-	FromUrl := c.Request.Host + reqURI //来源页
+	FromUrl := setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
 	uid, _ := c.Cookie("53gid2")
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
