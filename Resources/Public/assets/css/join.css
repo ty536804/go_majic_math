@@ -479,7 +479,7 @@ label{
 
 /* 社群分析 */
 .community{
-    background:url("../img/7_bg.png") no-repeat;
+    background:url(http://img.cdn.mofashuxue.com/7bg.png) no-repeat;
     height: auto;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -667,7 +667,7 @@ label{
 /* 运营亮点 */
 .highlights{
     width: 100%;
-    background:url("../img/10_bg.png")  no-repeat top center;
+    background:url(http://img.cdn.mofashuxue.com/10bg.png)  no-repeat top center;
     height: auto;
     -webkit-background-size: cover;
     -moz-background-size: cover;
