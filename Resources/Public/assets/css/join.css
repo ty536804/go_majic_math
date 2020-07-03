@@ -8,6 +8,9 @@
     margin-right: 67px;
     border-radius: 20px;
 }
+body{
+    overflow-x: hidden;
+}
 .banner_form label input{
     border: none;
     background: #F5F5F5;
@@ -113,7 +116,7 @@
 .brand_content{
     width: 1080px;
     height: auto;
-    background:url("../img/11.png")  no-repeat right bottom;
+    background:url(http://img.cdn.mofashuxue.com/11.png)  no-repeat right bottom;
     margin: 30px auto 0 auto;
 }
 .brand_left_content {
