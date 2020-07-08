@@ -102,6 +102,7 @@ footer{
 	margin-top: 10px;
 }
 .footer_ul dl:last-child{
+	display: none;
 	margin-left: 41px;
 }
 .footer_ul{
