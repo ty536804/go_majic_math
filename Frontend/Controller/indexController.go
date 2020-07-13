@@ -106,6 +106,7 @@ func News(c *gin.Context) {
 func NewList(c *gin.Context) {
 	page := com.StrTo(c.Query("page")).MustInt()
 	var data = make(map[string]interface{})
+	data["is_show"] = 1
 	data["list"] = Article.GetArticles(page, data)
 	data["count"] = e.GetPageNum(Article.GetArticleTotal())
 	e.Success(c, "首页", data)
