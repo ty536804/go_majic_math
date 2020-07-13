@@ -22,7 +22,7 @@ func Index(c *gin.Context) {
 func FrontEnd(c *gin.Context) {
 	var data = make(map[string]interface{})
 	list := Article.GetArticles(1, data)
-	if len(list) > 3 {
+	if len(list) > 4 {
 		list = list[0:3]
 	}
 
