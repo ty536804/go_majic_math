@@ -21,6 +21,11 @@ body{
 	width: 100%;
 	background: #fff;
 }
+.new_ul a img{
+	width:200px;
+	height:160px;
+	border-radius: 20px;
+}
 .new_ul a:hover{
 	background: #DFE9F2;
 }
