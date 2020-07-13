@@ -17,7 +17,7 @@ type Claims struct {
 // @Summer 生成token
 func GenerateToken(loginName, pwd string) (string, error) {
 	nowTime := time.Now()
-	expireTime := nowTime.Add(3 * time.Hour)
+	expireTime := nowTime.Add(8 * time.Hour)
 	claims := Claims{
 		loginName,
 		pwd,
