@@ -7,6 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-touch-fullscreen" content="yes">
+        <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
+        <!--bootstrap start--->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         {{template "head"}}
         <link href="/static/assets/css/new.css" rel="stylesheet"/>
     </head>
@@ -20,9 +24,11 @@
     <section class="new_ul">
     </section>
     <!--分页-->
-    <input type="hidden" id="PageCount" value="0">
-    <div id="example" style="text-align: center"> <ul id="pageLimit"></ul>
-    </div>
+    <section style="width: 1200px;margin: 0 auto">
+        <input type="hidden" id="PageCount" value="0">
+        <div id="example" style="text-align: center"> <ul id="pageLimit"></ul>
+        </div>
+    </section>
     <!-- 版权 -->
     {{template "index_footer"}}
     <script src="/static/js/bootstrap-paginator.js"></script>

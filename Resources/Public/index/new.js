@@ -11,8 +11,9 @@ function getAjax(page)
             let _html= "";
             if (Number(result.code) == 200) {
                 $.each(result.data.list,function (k,v) {
-                    _html += "<a href='/detail?id="+v.id+"'><dl><dt><img src='/static/upload/"+v.thumb_img+"'></dt><dd><section class='new_left'><p class='date'>05-27"
-                    _html += '<span class="new_left_line"></span></p><p class="year">2020</p></section>'
+                    let timeStr = v.created_at;
+                    _html += "<a href='/detail?id="+v.id+"'><dl><dt><img src='/static/upload/"+v.thumb_img+"'></dt><dd><section class='new_left'>"
+                    _html += '<p class="date">'+timeStr.substring(5,4)+'<span class="new_left_line"></span></p><p class="year">'+timeStr.substring(0,4)+'</p></section>'
                     _html += '<section class="new_right"><h3>'+v.title+'</h3><p>'+v.summary+'</p><span class="read">阅读原文</span>'
                     _html += '</section></dd></dl></a>'
                 })
