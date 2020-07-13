@@ -453,11 +453,10 @@
 	height:221px;
 	background:rgba(237,237,237,1) !important;
 	border-radius:20px 20px 0px 0px;
+	overflow: hidden;
 }
 .dynamic .six_reason dl dt img{
-	width:276px;
-	height:221px;
-	overflow: hidden;
+	width:100%;
 }
 .dynamic .six_reason dl dd{
 	width: 100%;
