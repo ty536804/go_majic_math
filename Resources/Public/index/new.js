@@ -5,7 +5,7 @@ function getAjax(page)
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "/api/v1/newList",
+        url: "/newList",
         data: {"page":page},
         success: function (result) {
             let _html= "";

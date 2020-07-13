@@ -445,6 +445,9 @@
 	float: left;
 	margin:0 24px 0 0;
 }
+.dynamic .six_reason dl a{
+	text-decoration: none;
+}
 .dynamic .six_reason dl dt{
 	width:276px;
 	height:221px;

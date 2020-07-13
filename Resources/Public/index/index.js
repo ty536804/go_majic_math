@@ -23,7 +23,7 @@ $(function () {
                         $('.carousel-indicators').append(_oli)
                     }
                     $.each(result.data.list, function (k, v) {
-                        _dl += "<dl><dt><img src='/static/upload/" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></dl>"
+                        _dl += "<dl><a href='/detail?id="+v.id+"'><dt><img src='/static/upload/" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
                     })
 
                     $.each(result.data.magic, function (k, magicVal) {
