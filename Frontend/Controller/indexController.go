@@ -114,18 +114,19 @@ func NewList(c *gin.Context) {
 
 // @Summer 新闻详情
 func NewDetail(c *gin.Context) {
+	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
 	Services.AddVisit(c)
 	c.HTML(e.SUCCESS, "index/detail.html", gin.H{
-		"title": "新闻详情",
+		"title":  "新闻详情",
+		"detail": id,
 	})
 }
 
 // @Summer 新闻详情
 func NewDetailData(c *gin.Context) {
 	c.Request.Body = e.GetBody(c)
-	id := com.StrTo(c.PostForm("id")).MustInt()
+	id := com.StrTo(c.DefaultQuery("id", "0")).MustInt()
 	var data = make(map[string]interface{})
-	data["list"] = Services.GetNavs(data)
 	data["detail"] = Article.GetArticle(id)
 	e.Success(c, "文章详情", data)
 }

@@ -3,7 +3,8 @@ layui.use('upload', function(){
         ,upload = layui.upload;
     //普通图片上传
     var uploadInst = upload.render({
-        elem: '#test1'
+        elem: '#test1',
+        size:0
         ,url: '/api/v1/upload'
         ,before: function(obj){
             //预读本地文件示例，不支持ie8

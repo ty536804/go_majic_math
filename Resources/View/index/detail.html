@@ -1,0 +1,28 @@
+{{define "index/detail.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>北京易学教育科技有限公司</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-touch-fullscreen" content="yes">
+    {{template "head"}}
+    <link href="/static/assets/css/detail.css" rel="stylesheet"/>
+</head>
+<body>
+<section class="detail_head">
+    {{template "nav"}}
+</section>
+    <section class="detail">
+        <h1 class="detail_tit"></h1>
+        <p class="detail_date"></p>
+        <p class="detail_line"></p>
+        <section class="detail_con"></section>
+    </section>
+    <input type="hidden" value="{{.detail}}" class="detail_id">
+{{template "index_footer"}}
+<script type="text/javascript" src="/static/index/detail.js"></script>
+</body>
+</html>
+{{end}}
