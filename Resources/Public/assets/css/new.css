@@ -2,7 +2,7 @@
 	background: #fff;
 }
 body{
-	background: #F1F2F5 !important;
+	background: #F9FAFC !important;
 }
 .new_banner img{
 	width: 100%;
@@ -19,7 +19,10 @@ body{
 	float: left;
 	margin-top: 30px;
 	width: 100%;
-	background: #fff;
+	background: #F9FAFC;
+}
+.new_ul a:hover{
+	background: #e5fafc;
 }
 .new_ul a img{
 	width:200px;
