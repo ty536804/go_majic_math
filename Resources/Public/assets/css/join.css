@@ -160,6 +160,9 @@ body{
     height: 623px;
     margin: 0 auto;
 }
+.area_con img{
+    width: 695px;
+}
 /* 品牌学术背景 */
 .brand{
     background: url(http://img.cdn.mofashuxue.com/4_bg.png) no-repeat;
