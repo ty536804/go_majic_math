@@ -431,7 +431,11 @@ label {
     margin-top:37px
 }
 .dt {
-    height:128px
+    width: 538px;
+    margin: 40px auto 0;
+}
+.dt img{
+    width: 538px;
 }
 .xsbj {
     margin:0 auto;
