@@ -7,7 +7,7 @@ $('.lj_btn').on('click',function () {
         });
         return false;
     }
-    if ($('banner_form .c-tel').val()=="") {
+    if ($('.banner_form .c-tel').val()=="") {
         layer.tips('电话不能为空', '.banner_form .c-tel', {
             tips: [1, '#3595CC'],
             time: 4000
