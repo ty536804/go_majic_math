@@ -55,7 +55,7 @@ func GetVisit(uid string) (visit Visit) {
 
 // @Summer 更新数据
 func UpdateVisit(c *gin.Context) {
-	uid, _ := c.Cookie(cookieKey)
+	uid, errUid := c.Cookie(cookieKey)
 	m1 := map[string]interface{}{}
 
 	visit := GetVisit(uid)
@@ -69,12 +69,15 @@ func UpdateVisit(c *gin.Context) {
 	} else {
 		m1["visit_history"] = c.Request.Referer()
 	}
-	result := db.Db.Model(&Visit{}).Where("uuid = ? ", uid).Update(m1)
-	//result := db.Db.Save(&visit)
 
-	if result.Error != nil {
-		fmt.Printf("浏览记录更新 faild：%s", result.Error)
-	} else {
-		fmt.Print("浏览记录更新success")
+	if c.Request.Referer() != "" && errUid == nil {
+		result := db.Db.Model(&Visit{}).Where("uuid = ? ", uid).Update(m1)
+		//result := db.Db.Save(&visit)
+
+		if result.Error != nil {
+			fmt.Printf("浏览记录更新 faild：%s", result.Error)
+		} else {
+			fmt.Print("浏览记录更新success")
+		}
 	}
 }

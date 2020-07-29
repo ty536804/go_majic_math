@@ -80,7 +80,7 @@ func UpdateVisit(c *gin.Context) {
 		m1["visit_history"] = c.Request.Referer()
 	}
 
-	if errUid == nil {
+	if c.Request.Referer() != "" && errUid == nil {
 		result := elearnDb.Model(&JfsdVisit{}).Where("uuid = ? ", uid).Update(m1)
 		//result := elearnDb.Save(&visit)
 		if result.Error != nil {
