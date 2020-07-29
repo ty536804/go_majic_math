@@ -19,11 +19,13 @@ type Visit struct {
 	VisitHistory string `json:"visit_history" gorm:"type:text;not null; default ''" `
 }
 
+var cookieKey = "53revisit"
+
 // @Summer 新增浏览记录
 func AddVisit(c *gin.Context) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := c.Request.Host + reqURI //来源页
-	uid, _ := c.Cookie("53gid2")
+	uid, _ := c.Cookie(cookieKey)
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
 		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
@@ -53,7 +55,7 @@ func GetVisit(uid string) (visit Visit) {
 
 // @Summer 更新数据
 func UpdateVisit(c *gin.Context) {
-	uid, _ := c.Cookie("53gid2")
+	uid, _ := c.Cookie(cookieKey)
 	m1 := map[string]interface{}{}
 
 	visit := GetVisit(uid)

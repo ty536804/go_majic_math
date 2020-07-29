@@ -8,7 +8,7 @@ import (
 
 // @Summer elearn100 浏览历史
 func AddElearnVisit(c *gin.Context) {
-	uid, uOk := c.Cookie("53gid2")
+	uid, uOk := c.Cookie("53revisit")
 	if uOk != nil {
 		fmt.Print("没有缓存")
 	} else {

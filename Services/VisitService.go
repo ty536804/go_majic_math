@@ -6,7 +6,7 @@ import (
 )
 
 func AddMofaShuXueVisit(c *gin.Context) {
-	uid, _ := c.Cookie("53gid2")
+	uid, _ := c.Cookie("53revisit")
 
 	visit := Visit.GetVisit(uid)
 

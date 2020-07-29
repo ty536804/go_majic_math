@@ -20,6 +20,8 @@ type JfsdVisit struct {
 	VisitHistory string `json:"visit_history" gorm:"type:text;not null; default ''" `
 }
 
+var cookieKey = "53revisit"
+
 func (p *JfsdVisit) BeforeCreate(scope *gorm.Scope) error {
 	scope.SetColumn("create_time", time.Now().Format("2006-01-02 15:04:05"))
 	return nil
@@ -35,7 +37,7 @@ func GetVisit(uid string) (visitE JfsdVisit) {
 func AddVisit(c *gin.Context) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
-	uid, _ := c.Cookie("53gid2")
+	uid, _ := c.Cookie(cookieKey)
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
 		FirstUrl = c.Request.Host + reqURI //来源页
@@ -65,7 +67,7 @@ func AddVisit(c *gin.Context) {
 // elearn100 更新浏览记录
 func UpdateVisit(c *gin.Context) {
 	m1 := map[string]interface{}{}
-	uid, errUid := c.Cookie("53gid2")
+	uid, errUid := c.Cookie(cookieKey)
 
 	visit := GetVisit(uid)
 	if !strings.Contains(visit.VisitHistory, c.Request.Referer()) {
