@@ -19,13 +19,13 @@ type Visit struct {
 	VisitHistory string `json:"visit_history" gorm:"type:text;not null; default ''" `
 }
 
-var cookieKey = "53revisit"
-
 // @Summer 新增浏览记录
 func AddVisit(c *gin.Context) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := c.Request.Host + reqURI //来源页
-	uid, _ := c.Cookie(cookieKey)
+
+	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
+
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
 		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
@@ -55,7 +55,8 @@ func GetVisit(uid string) (visit Visit) {
 
 // @Summer 更新数据
 func UpdateVisit(c *gin.Context) {
-	uid, errUid := c.Cookie(cookieKey)
+	splitUid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")
+	uid := splitUid[0]
 	m1 := map[string]interface{}{}
 
 	visit := GetVisit(uid)
@@ -70,7 +71,7 @@ func UpdateVisit(c *gin.Context) {
 		m1["visit_history"] = c.Request.Referer()
 	}
 
-	if c.Request.Referer() != "" && errUid == nil {
+	if c.Request.Referer() != "" {
 		result := db.Db.Model(&Visit{}).Where("uuid = ? ", uid).Update(m1)
 		//result := db.Db.Save(&visit)
 

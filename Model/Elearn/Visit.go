@@ -20,8 +20,6 @@ type JfsdVisit struct {
 	VisitHistory string `json:"visit_history" gorm:"type:text;not null; default ''" `
 }
 
-var cookieKey = "53revisit"
-
 func (p *JfsdVisit) BeforeCreate(scope *gorm.Scope) error {
 	scope.SetColumn("create_time", time.Now().Format("2006-01-02 15:04:05"))
 	return nil
@@ -37,7 +35,7 @@ func GetVisit(uid string) (visitE JfsdVisit) {
 func AddVisit(c *gin.Context) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
-	uid, _ := c.Cookie(cookieKey)
+	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
 		FirstUrl = c.Request.Host + reqURI //来源页
@@ -67,7 +65,7 @@ func AddVisit(c *gin.Context) {
 // elearn100 更新浏览记录
 func UpdateVisit(c *gin.Context) {
 	m1 := map[string]interface{}{}
-	uid, errUid := c.Cookie(cookieKey)
+	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 
 	visit := GetVisit(uid)
 	if !strings.Contains(visit.VisitHistory, c.Request.Referer()) {
@@ -80,7 +78,7 @@ func UpdateVisit(c *gin.Context) {
 		m1["visit_history"] = c.Request.Referer()
 	}
 
-	if c.Request.Referer() != "" && errUid == nil {
+	if c.Request.Referer() != "" {
 		result := elearnDb.Model(&JfsdVisit{}).Where("uuid = ? ", uid).Update(m1)
 		//result := elearnDb.Save(&visit)
 		if result.Error != nil {
