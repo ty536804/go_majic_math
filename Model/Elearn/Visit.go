@@ -42,6 +42,11 @@ func AddVisit(c *gin.Context) {
 	} else {
 		FirstUrl = c.Request.Referer()
 	}
+
+	if FirstUrl == "" {
+		FirstUrl = FromUrl
+	}
+
 	result := elearnDb.Create(&JfsdVisit{
 		Uuid:       uid,
 		FirstUrl:   FirstUrl,
