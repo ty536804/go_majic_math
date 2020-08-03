@@ -95,6 +95,12 @@ func GetBannerData(bposition int) (banner []Banner) {
 	return
 }
 
+// @Summer获取所有banner
+func GetData(bposition, posi int) (banner []Banner) {
+	db.Db.Where("bposition = ? and posi= ?", bposition, posi).Order("sort").Find(&banner)
+	return
+}
+
 // @Summer 删除banner
 func DelBanner(id int) bool {
 	if id < 1 {

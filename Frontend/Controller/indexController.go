@@ -143,12 +143,11 @@ func Authorize(c *gin.Context) {
 func JoinData(c *gin.Context) {
 	c.Request.Body = e.GetBody(c)
 	var data = make(map[string]interface{})
-	banner := Banner.GetBannerData(8)
-	data["banner"] = banner[0:3]
-	data["app"] = banner[3:4]
-	data["learn"] = banner[4:5]
-	data["mid"] = banner[5:6]
-	e.Success(c, "加盟授权数据接口", data)
+	data["banner"] = Banner.GetData(8, 0)
+	data["app"] = Banner.GetData(8, 1)
+	data["learn"] = Banner.GetData(8, 2)
+	data["mid"] = Banner.GetData(8, 3)
+	e.Success(c, "success", data)
 }
 
 // @Summer 加盟授权
