@@ -97,7 +97,7 @@ func GetBannerData(bposition int) (banner []Banner) {
 
 // @Summer获取所有banner
 func GetData(bposition, posi int) (banner []Banner) {
-	db.Db.Where("bposition = ? and posi= ?", bposition, posi).Order("sort").Find(&banner)
+	db.Db.Where("bposition = ? and posi= ?", bposition, posi).Order("sort desc").Find(&banner)
 	return
 }
 
