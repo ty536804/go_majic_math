@@ -23,8 +23,7 @@ $(function () {
                         $('.carousel-indicators').append(_oli)
                     }
                     $.each(result.data.list, function (k, v) {
-                        console.log(k,1111);
-                        if (k<5) {
+                        if (k<4) {
                             _dl += "<dl><a href='/detail?id="+v.id+"'><dt><img src='/static/upload/" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
                         }
                     })
