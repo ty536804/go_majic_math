@@ -1,6 +1,5 @@
 package Services
 
-import "C"
 import (
 	"elearn100/Model/Article"
 	"elearn100/Pkg/e"
