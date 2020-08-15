@@ -71,6 +71,17 @@
                     return $('img', this).attr('alt');
                 }
             });
+
+            isAndroid();
+            // 判断安卓
+            function isAndroid() {
+                var u = navigator.userAgent;
+
+                if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
+                    //swiper-slide swiper-slide-active
+                    $('.swiper-slide').css({"transform":"scale(0.9)"})
+                }
+            }
         }
     </script>
 {{end}}
