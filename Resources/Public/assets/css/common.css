@@ -6,6 +6,9 @@ body {
 	background: #fff !important;
 	height: 80px;
 }
+.carousel-inner img {
+	width:100%;
+}
 .nav_menu{
 	background: #fff;
 	height: 88px;

@@ -12,7 +12,9 @@ img {
 ul,li,ul li {
     list-style:none
 }
-
+.carousel-inner img {
+    width:100%;
+}
 nav{
     width: 100%;
     padding: 22px 0 !important;

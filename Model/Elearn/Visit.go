@@ -1,9 +1,7 @@
 package Elearn
 
 import (
-	"elearn100/Pkg/setting"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"strings"
 	"time"
@@ -32,53 +30,38 @@ func GetVisit(uid string) (visitE JfsdVisit) {
 }
 
 // elearn100 新增浏览记录
-func AddVisit(c *gin.Context) {
-	reqURI := c.Request.URL.RequestURI()
-	FromUrl := setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
-	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
-	FirstUrl := ""
-	if c.Request.Referer() == "" {
-		FirstUrl = c.Request.Host + reqURI //来源页
-	} else {
-		FirstUrl = c.Request.Referer()
-	}
-
-	if FirstUrl == "" {
-		FirstUrl = FromUrl
-	}
-
+func AddVisit(data map[string]interface{}) {
 	result := elearnDb.Create(&JfsdVisit{
-		Uuid:       uid,
-		FirstUrl:   FirstUrl,
-		Ip:         c.Request.RemoteAddr,
-		FromUrl:    FromUrl,
+		Uuid:       data["uuid"].(string),
+		FirstUrl:   data["FirstUrl"].(string),
+		Ip:         data["Ip"].(string),
+		FromUrl:    data["FromUrl"].(string),
 		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
 	})
 
 	if result.Error != nil {
 		fmt.Printf("elelarn100 浏览记录失败：%s", result.Error)
 	} else {
-		fmt.Print("elelarn100 浏览记录OK", c.Request.Referer())
+		fmt.Print("elelarn100 浏览记录OK", data["visit_history"].(string))
 	}
 }
 
 // elearn100 更新浏览记录
-func UpdateVisit(c *gin.Context) {
+func UpdateVisit(uid, visitHistory string) {
 	m1 := map[string]interface{}{}
-	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 
 	visit := GetVisit(uid)
-	if !strings.Contains(visit.VisitHistory, c.Request.Referer()) {
+	if !strings.Contains(visit.VisitHistory, visitHistory) {
 		if visit.VisitHistory == "" {
-			m1["visit_history"] = c.Request.Referer()
+			m1["visit_history"] = visitHistory
 		} else {
-			m1["visit_history"] = visit.VisitHistory + "<br/>" + c.Request.Referer()
+			m1["visit_history"] = visit.VisitHistory + "<br/>" + visitHistory
 		}
 	} else {
-		m1["visit_history"] = c.Request.Referer()
+		m1["visit_history"] = visitHistory
 	}
 
-	if c.Request.Referer() != "" {
+	if visitHistory != "" {
 		result := elearnDb.Model(&JfsdVisit{}).Where("uuid = ? ", uid).Update(m1)
 		//result := elearnDb.Save(&visit)
 		if result.Error != nil {
