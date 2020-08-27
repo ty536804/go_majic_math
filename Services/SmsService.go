@@ -53,5 +53,5 @@ func SendSmsToClient(area, name, tel string) {
 	SendSms(tel, msg)
 	msg = area + "的" + name + "留言了。联系" + tel
 	SendSms("13811384847", msg)
-	SendSms("13811221394", msg)
+	SendSms("15311685708", msg)
 }
