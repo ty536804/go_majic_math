@@ -77,6 +77,8 @@ func LoadRedis() {
 func ReplaceSiteUrl(url string) string {
 	if !strings.Contains("127.0.0.1", url) {
 		return "http://www.mofashuxue.com/"
+	} else if url == "" {
+		return "http://www.mofashuxue.com/"
 	} else {
 		return url
 	}
