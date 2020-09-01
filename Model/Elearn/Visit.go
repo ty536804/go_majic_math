@@ -29,6 +29,12 @@ func GetVisit(uid string) (visitE JfsdVisit) {
 	return
 }
 
+// 获取elearn100 通过IP 获取浏览记录
+func GetVisitByIp(ip string) (visitE JfsdVisit) {
+	elearnDb.Where("ip = ?", ip).Find(&visitE)
+	return
+}
+
 // elearn100 新增浏览记录
 func AddVisit(data map[string]interface{}) {
 	result := elearnDb.Create(&JfsdVisit{
@@ -47,10 +53,10 @@ func AddVisit(data map[string]interface{}) {
 }
 
 // elearn100 更新浏览记录
-func UpdateVisit(uid, visitHistory string) {
+func UpdateVisit(ip, visitHistory string) {
 	m1 := map[string]interface{}{}
 
-	visit := GetVisit(uid)
+	visit := GetVisitByIp(ip)
 	if !strings.Contains(visit.VisitHistory, visitHistory) {
 		if visit.VisitHistory == "" {
 			m1["visit_history"] = visitHistory
@@ -62,7 +68,7 @@ func UpdateVisit(uid, visitHistory string) {
 	}
 
 	if visitHistory != "" {
-		result := elearnDb.Model(&JfsdVisit{}).Where("uuid = ? ", uid).Update(m1)
+		result := elearnDb.Model(&JfsdVisit{}).Where("ip = ? ", ip).Update(m1)
 		//result := elearnDb.Save(&visit)
 		if result.Error != nil {
 			fmt.Printf("elelarn100 浏览记录更新 faild：%s", result.Error)
