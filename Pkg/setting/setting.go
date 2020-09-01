@@ -79,6 +79,8 @@ func ReplaceSiteUrl(url string) string {
 		return "http://www.mofashuxue.com/"
 	} else if url == "" {
 		return "http://www.mofashuxue.com/"
+	} else if url == "/" {
+		return "http://www.mofashuxue.com/"
 	} else {
 		return url
 	}
