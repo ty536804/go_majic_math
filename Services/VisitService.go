@@ -38,13 +38,13 @@ func AddElearnVisit(data map[string]interface{}) {
 }
 
 // @Summer 浏览记录
-func AddVisit(c *gin.Context) {
+func AddVisit(c *gin.Context, url string) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := c.Request.Host + reqURI //来源页
 	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
 	FirstUrl := ""
 	if c.Request.Referer() == "" {
-		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host) + reqURI //来源页
+		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host, url, reqURI) //来源页
 	} else {
 		FirstUrl = c.Request.Referer()
 	}

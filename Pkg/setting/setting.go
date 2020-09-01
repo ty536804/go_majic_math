@@ -74,13 +74,13 @@ func LoadRedis() {
 	RedisPwd = sec.Key("Password").MustString("")
 }
 
-func ReplaceSiteUrl(url string) string {
-	if !strings.Contains("127.0.0.1", url) {
-		return "http://www.mofashuxue.com/"
-	} else if url == "" {
-		return "http://www.mofashuxue.com/"
-	} else if url == "/" {
-		return "http://www.mofashuxue.com/"
+func ReplaceSiteUrl(url, first, reqURI string) string {
+	if !strings.Contains("127.0.0.1", url) || url == "" || url == "/" {
+		if reqURI == "" {
+			return first
+		} else {
+			return first + reqURI
+		}
 	} else {
 		return url
 	}
