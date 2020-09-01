@@ -25,15 +25,15 @@ func AddMofaShuXueVisit(data map[string]interface{}) {
 var wg sync.WaitGroup
 
 func AddElearnVisit(data map[string]interface{}) {
-	uid := data["uuid"].(string)
-	visit := Elearn.GetVisit(uid)
+	uid := data["Ip"].(string)
+	visit := Elearn.GetVisitByIp(uid)
 
 	defer wg.Done()
 
 	if visit.ID <= 0 {
 		Elearn.AddVisit(data)
 	} else {
-		Elearn.UpdateVisit(data["uuid"].(string), data["visit_history"].(string))
+		Elearn.UpdateVisit(data["Ip"].(string), data["visit_history"].(string))
 	}
 }
 
