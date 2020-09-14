@@ -2,6 +2,8 @@ package Services
 
 import (
 	"bytes"
+	db "elearn100/Database"
+	"elearn100/Model/Article"
 	"elearn100/Pkg/e"
 	"encoding/json"
 	"errors"
@@ -10,8 +12,12 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
+	"sync"
 	"time"
 )
+
+var wt sync.WaitGroup
 
 var (
 	APPID     = "wxc6fc8246185aa2b8"
@@ -62,19 +68,76 @@ func GetToken() (string, error) {
 }
 
 type BatChGetMaterial struct {
-	title      string    `json:"title"`
-	author     string    `json:"author"`
-	content    string    `json:"content"`
-	createTime time.Time `json:"create_time"`
-	updateTime time.Time `json:"update_time"`
-	thumbUrl   string    `json:"thumb_url"`
-	url        string    `json:"url"`
+	Item []struct {
+		MediaId string `json:"media_id"`
+		Content struct {
+			NewsItem []struct {
+				Title              string `json:"title"`
+				Author             string `json:"author"`
+				Digest             string `json:"digest"`
+				Content            string `json:"content"`
+				ContentSourceUrl   string `json:"content_source_url"`
+				ThumbMediaId       string `json:"thumb_media_id"`
+				ShowCoverPic       int    `json:"show_cover_pic"`
+				Url                string `json:"url"`
+				ThumbUrl           string `json:"thumb_url"`
+				NeedOpenComment    int    `json:"need_open_comment"`
+				OnlyFansCanComment int    `json:"only_fans_can_comment"`
+			} `json:"news_item"`
+			CreateTime int64 `json:"create_time"`
+			UpdateTime int64 `json:"update_time"`
+		}
+		UpdateTime int `json:"update_time"`
+	}
+	TotalCount int `json:"total_count"`
+	ItemCount  int `json:"item_count"`
 }
 
-type jMap struct {
-}
-
+// @Summer 微信获取文章
 func GetArticle() {
+	var begin int
+	result, err := ResolveUrl(begin, 70)
+	var article = make(map[string]interface{})
+
+	if err != nil {
+		fmt.Printf("read resp.body failed,err:%v\n", err)
+	} else {
+		stu := &BatChGetMaterial{}
+		res := json.Unmarshal(result, &stu)
+		if res == nil {
+			for _, item := range stu.Item {
+				res := item.Content.NewsItem[0]
+				if res.Title != "" {
+					tit := strings.TrimSpace(res.Title)
+					currentTime := time.Now().Format("2006-01-02 15:04:05")
+					if strings.Contains("练脑时刻", tit) {
+						currentTime = Article.SubTime(item.Content.UpdateTime)
+					}
+					// url尾部字符串
+					imgType := Article.ThumbImgType(res.ThumbUrl)
+					thumbImg := Article.TrimUrl(imgType, res.ThumbUrl)
+					article["title"] = res.Title
+					article["summary"] = res.Digest
+					article["thumb_img"] = thumbImg
+					article["admin"] = res.Author
+					article["com"] = "weChat"
+					article["is_show"] = 1
+					article["content"] = Article.ReplaceContent(res.Content)
+					article["hot"] = 0
+					article["sort"] = 0
+					article["nav_id"] = 8
+					article["created_at"] = currentTime
+					if thumbImg != "" {
+						wt.Add(1)
+						go WeAddArticle(article)
+					}
+				}
+			}
+		}
+	}
+}
+
+func ResolveUrl(offset, count int) ([]byte, error) {
 	isOk, accessToken := e.GetVal("access_token")
 	if !isOk {
 		token, err := GetToken()
@@ -83,12 +146,11 @@ func GetArticle() {
 		}
 		accessToken = token
 	}
-
-	url := "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + accessToken
 	data := make(map[string]interface{})
 	data["type"] = "news"
-	data["offset"] = "0"
-	data["count"] = "20"
+	data["offset"] = offset
+	data["count"] = count
+	url := "https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=" + accessToken
 
 	bytesData, err := json.Marshal(data)
 	if err != nil {
@@ -100,10 +162,33 @@ func GetArticle() {
 	resp, err := http.DefaultClient.Do(rep)
 
 	defer resp.Body.Close()
-	result, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Printf("read resp.body failed,err:%v\n", err)
-	} else {
-		fmt.Println(string(result))
+	return ioutil.ReadAll(resp.Body)
+}
+
+// @Summer 添加文章
+func WeAddArticle(data map[string]interface{}) bool {
+	defer wt.Done()
+
+	currentTime := time.Now().Format("2006-01-02 15:04:05")
+	UpdatedAt := time.Now().Format("2006-01-02 15:04:05")
+	article := db.Db.Create(&Article.Article{
+		Title:     data["title"].(string),
+		Summary:   data["summary"].(string),
+		ThumbImg:  data["thumb_img"].(string),
+		Admin:     data["admin"].(string),
+		Com:       data["com"].(string),
+		IsShow:    data["is_show"].(int),
+		Content:   data["content"].(string),
+		Hot:       data["hot"].(int),
+		Sort:      data["sort"].(int),
+		NavId:     data["nav_id"].(int),
+		CreatedAt: currentTime,
+		UpdatedAt: UpdatedAt,
+	})
+
+	if article.Error != nil {
+		fmt.Print("添加文章失败", article)
+		return false
 	}
+	return true
 }

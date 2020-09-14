@@ -160,3 +160,6 @@ func Down(c *gin.Context) {
 		"title": "APP下载",
 	})
 }
+func GetWeChat(c *gin.Context) {
+	Services.GetArticle()
+}
