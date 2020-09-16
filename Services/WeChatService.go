@@ -94,9 +94,12 @@ type BatChGetMaterial struct {
 }
 
 // @Summer 微信获取文章
-func GetArticle() {
-	var begin int
-	result, err := ResolveUrl(begin, 70)
+func GetArticle(begin, count int) {
+	total := Article.GetArticleTotal()
+	if total >= 1 {
+		return
+	}
+	result, err := ResolveUrl(begin, count)
 	var article = make(map[string]interface{})
 
 	if err != nil {
@@ -191,4 +194,9 @@ func WeAddArticle(data map[string]interface{}) bool {
 		return false
 	}
 	return true
+}
+
+func GetArt() {
+	total := Article.GetArticleTotal()
+	GetArticle(total+1, 1)
 }
