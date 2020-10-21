@@ -15,7 +15,7 @@ $(function () {
                     if (result.data.banner.length > 1) {
                         $.each(result.data.banner, function (k, v) {
                             if (k >0) {
-                                _banner += '<div class="carousel-item" ><img src="/static/upload/' + v.imgurl + '"></div>'
+                                _banner += '<div class="carousel-item" ><a href="'+(v.target_link == '' ? '#' : v.target_link)+'"><img src="/static/upload/' + v.imgurl + '"></a></div>'
                                 _oli += '<li data-target="#myCarousel" data-slide-to="' + k + '" class="active"></li>';
                             }
                         })
