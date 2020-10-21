@@ -24,7 +24,7 @@ $(function () {
                     }
                     $.each(result.data.list, function (k, v) {
                         if (k<4) {
-                            _dl += "<dl><a href='/detail?id="+v.id+"'><dt><img src='/static/upload/" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
+                            _dl += "<dl><a href='/detail?id="+v.id+"'><dt><img src='" + v.thumb_img + "'></dt><dd><h5>" + v.title + "</h5><p>" + v.summary + "</p></dd></a></dl>"
                         }
                     })
 

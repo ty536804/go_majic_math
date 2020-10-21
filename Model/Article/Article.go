@@ -74,7 +74,7 @@ func GetArticles(page int, data interface{}) (articleS []Article) {
 	if page >= 1 {
 		offset = (page - 1) * setting.PageSize
 	}
-	db.Db.Where(data).Offset(offset).Limit(setting.PageSize).Order("id desc").Find(&articleS)
+	db.Db.Where(data).Offset(offset).Limit(setting.PageSize).Order("created_at desc").Find(&articleS)
 	return
 }
 
