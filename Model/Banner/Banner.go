@@ -63,7 +63,7 @@ func EditBanner(id int, data interface{}) bool {
 }
 
 func GetOneBanner(id int) (banner Banner) {
-	db.Db.Where("bposition = ?", id).First(&banner)
+	db.Db.Where("bposition = ?", id).Order("sort desc").First(&banner)
 	return
 }
 
@@ -91,7 +91,7 @@ func GetBanner(id int) (banner Banner) {
 
 // @Summer获取所有banner
 func GetBannerData(bposition int) (banner []Banner) {
-	db.Db.Where("bposition = ?", bposition).Find(&banner)
+	db.Db.Where("bposition = ?", bposition).Order("sort desc").Find(&banner)
 	return
 }
 
