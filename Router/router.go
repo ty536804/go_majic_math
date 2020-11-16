@@ -15,10 +15,21 @@ import (
 	"elearn100/Pkg/e"
 	"elearn100/Services"
 	"github.com/gin-gonic/gin"
+	"html/template"
 	"io"
 	"net/http"
 	"os"
 )
+
+func unescaped(x string) interface{} { return template.HTML(x) }
+
+func subYear(x string) interface{} {
+	return x[0:4]
+}
+
+func subDate(x string) interface{} {
+	return x[5:10]
+}
 
 func InitRouter() *gin.Engine {
 	// 禁用控制台颜色，将日志写入文件时不需要控制台颜色。
@@ -27,7 +38,13 @@ func InitRouter() *gin.Engine {
 	// 记录到文件。
 	f, _ := os.Create("gin.log")
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdin)
+
 	r := gin.New()
+	r.SetFuncMap(template.FuncMap{
+		"unescaped": unescaped,
+		"subYear":   subYear,
+		"subDate":   subDate,
+	})
 	r.Use(gin.Logger(), gin.Recovery())
 
 	dir := e.GetDir()
@@ -46,13 +63,12 @@ func InitRouter() *gin.Engine {
 	r.GET("/news", frontend.News)
 	r.GET("/newList", frontend.NewList)
 	r.GET("/detail", frontend.NewDetail)
-	r.GET("/newDetail", frontend.NewDetailData)
 	r.GET("/join", frontend.Authorize)
 	r.GET("/joinData", frontend.JoinData)
 	r.GET("/omo", frontend.Omo)
 	r.GET("/campus", frontend.Campus) //全国校区
 	r.GET("/down", frontend.Down)
-	r.GET("/weChat", frontend.GetWeChat)
+	r.GET("/weChat1", frontend.GetWeChat)
 	//移动端
 	r.GET("/wap", Wap.Index)
 	r.GET("/sub", Wap.Subject)
