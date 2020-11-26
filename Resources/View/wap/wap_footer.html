@@ -19,7 +19,7 @@
                 <label for="">地区：
                     <input type="text" name="content" class="c-area">
                 </label>
-                <p class="banner_form_btn"><button class="btn">提交</button></p>
+                <p class="banner_form_btn"><button class="btn fbtn">提交</button></p>
             </form>
             <section style="font-size: 12px;transform: scale(0.6);width: 100%;display: inline-block;text-align: center;">
                 投资有风险，加盟需谨慎
@@ -81,6 +81,53 @@
                     return $('img', this).attr('alt');
                 }
             });
+
+            $('.joinBtn').on('click',function () {
+                if ($('#joinTopFrom .c-name').val() == "") {
+                    layer.msg('姓名不能为空');
+                    return false;
+                }
+                if ($('#joinTopFrom .c-tel').val() == "") {
+                    layer.msg('电话不能为空');
+                    return false;
+                }
+                if ($('#joinTopFrom .c-area').val() == "") {
+                    layer.msg('地区不能为空');
+                    return false;
+                }
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "/AddMessage",
+                    data:$('#joinTopFrom').serialize(),
+                    success: function (result) {
+                        if (result.code == 200) {
+                            $('input').val('');
+                            layer.alert("留言成功");
+                            return false
+                        }
+                        layer.alert("留言失败");
+                        return false
+                    }
+                })
+                return false;
+            })
+
+            $('.fbtn').on('click',function () {
+                if ($('#fedbook .c-name').val() == "") {
+                    layer.msg('姓名不能为空');
+                    return false;
+                }
+                if ($('#fedbook .c-tel').val() == "") {
+                    layer.msg('电话不能为空');
+                    return false;
+                }
+                if ($('#fedbook .c-area').val() == "") {
+                    layer.msg('地区不能为空');
+                    return false;
+                }
+            })
         }
     </script>
 {{end}}
