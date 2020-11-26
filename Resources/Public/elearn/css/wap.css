@@ -374,7 +374,7 @@ label {
     display:inline-block;
     margin:0
 }
-.left {
+.leftIcon {
     width:101px;
     height:9px;
     margin-top:13px;
@@ -382,7 +382,7 @@ label {
     display:inline-block;
     float:left
 }
-.right {
+.rightIcon {
     float:right;
     -webkit-transform:rotate(180deg);
     -moz-transform:rotate(180deg);
