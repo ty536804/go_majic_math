@@ -34,6 +34,9 @@
     <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
     <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
     <script>
+        $('#myCarousel').carousel({
+            interval: 2000
+        })
         window.onload = function() {
             var swiper = new Swiper('.swiper-container',{
                 autoplay:3000,
