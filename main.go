@@ -4,25 +4,23 @@ import (
 	//_ "elearn100/Commands"
 	"elearn100/Pkg/setting"
 	"elearn100/Router"
-	"elearn100/Services"
 	"fmt"
 	"github.com/fvbock/endless"
 	"log"
-	"os"
 	"syscall"
 )
 
 func main() {
-	crontab := Services.NewCrontab()
-	// 实现接口的方式添加定时任务
-
-	if err := crontab.AddByFunc("1", "10 * * * *", func() {
-		Services.GetArt()
-	}); err != nil {
-		fmt.Printf("error to add crontab task:%s", err)
-		os.Exit(-1)
-	}
-	crontab.Start()
+	//crontab := Services.NewCrontab()
+	//// 实现接口的方式添加定时任务
+	//
+	//if err := crontab.AddByFunc("1", "10 * * * *", func() {
+	//	Services.GetArt()
+	//}); err != nil {
+	//	fmt.Printf("error to add crontab task:%s", err)
+	//	os.Exit(-1)
+	//}
+	//crontab.Start()
 	endless.DefaultReadTimeOut = setting.ReadTimeout
 	endless.DefaultWriteTimeOut = setting.WriteTimeout
 	endless.DefaultMaxHeaderBytes = 1 << 20
