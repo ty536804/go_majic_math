@@ -7,9 +7,9 @@
         <p class="footer_phone">
             <span><img src="/static/elearn/img/dianhua-3@2x.png"></span>400 175 9669
         </p>
-        <section class="join footer_con_right" id="fedbook">
+        <section class="join footer_con_right">
             <p class="join_tit">填写表单</p>
-            <form method="post" action="http://www.elearn100.com/Index/message.html" name="myform">
+            <form method="post" action="#" name="myform" id="fedbookForm">
                 <label for="">姓名：
                     <input type="text" name="name" class="c-name">
                 </label>
@@ -115,18 +115,35 @@
             })
 
             $('.fbtn').on('click',function () {
-                if ($('#fedbook .c-name').val() == "") {
+                if ($('#fedbookForm .c-name').val() == "") {
                     layer.msg('姓名不能为空');
                     return false;
                 }
-                if ($('#fedbook .c-tel').val() == "") {
+                if ($('#fedbookForm .c-tel').val() == "") {
                     layer.msg('电话不能为空');
                     return false;
                 }
-                if ($('#fedbook .c-area').val() == "") {
+                if ($('#fedbookForm .c-area').val() == "") {
                     layer.msg('地区不能为空');
                     return false;
                 }
+                console.log($('#fedbookForm').serialize(),111)
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "/AddMessage",
+                    data:$('#fedbookForm').serialize(),
+                    success: function (result) {
+                        if (result.code == 200) {
+                            $('input').val('');
+                            layer.alert("留言成功");
+                            return false
+                        }
+                        layer.alert("留言失败");
+                        return false
+                    }
+                })
+                return false;
             })
         }
     </script>
