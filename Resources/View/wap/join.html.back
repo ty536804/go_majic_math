@@ -284,6 +284,43 @@
             </dl>
         </section>
     </section>
+    <!-- 优秀校区 -->
+    <section class="xsbj_head yxxq">
+        <span class="leftIcon"></span>
+        <h3 class="ppjs_tit">优秀校区</h3>
+        <span class="leftIcon rightIcon"></span>
+    </section>
+    <section class="school_ul">
+        <dl>
+            <dt><img src="/static/elearn/img/唐山图片.png"></dt>
+            <dd>
+                <h3>河北唐山校区</h3>
+                <p>
+                    该校区成功发展四家思维馆，累计学员数量达3600人，年盈利600万元，已经形成自身口碑及影响力。由于市场需求增持，发展前景可期，为了让当地更多的孩子受益，该校区已经升级为当地区域授权。
+                </p>
+            </dd>
+        </dl>
+        <dl class="school_ul_mid">
+            <dt>
+                <h3>贵州贵阳校区</h3>
+                <p>
+                    该校区投资人是教育行业销售出身，因幼年受家长熏陶，对教育行业拥有独特的情怀，大学毕业后，一直置身于教育事业。初遇魔数思维，被魔数背景和优质课程体系所吸引，当即签订合作合同。通过用心经营，目前已升级为代理合伙人，拥有学员1500人，真正做到贵阳市垄断数学市场的王者品牌。
+                </p>
+            </dt>
+            <dd>
+                <img src="/static/elearn/img/贵州图片.png">
+            </dd>
+        </dl>
+        <dl>
+            <dt><img src="/static/elearn/img/江苏图片.png"></dt>
+            <dd class="school_ul_bt">
+                <h3>江苏淮安校区</h3>
+                <p>
+                    该投资人是魔数学员的家长，通过观察自己孩子短时间内的快速成长，立即决定投资一家魔数思维馆。仅用两年时间，连续扩张到四家魔数空间，目前该校区学员处于饱和状态，致使校长不敢轻易招生。经过与总部沟通后，总部立即委派金牌运营总监与投资人共同筹备第5家校区。
+                </p>
+            </dd>
+        </dl>
+    </section>
     <!-- 品牌荣誉 -->
     <section class="ppry">
         <section class="xsbj_head yxxq">
