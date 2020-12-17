@@ -3,366 +3,98 @@
     <html>
     <head>
         <meta charset="utf-8">
-        <title>课程体系</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-touch-fullscreen" content="yes">
-        {{template "head"}}
-        <link href="/static/assets/css/subject.css" rel="stylesheet"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        <title>北京易学教育科技有限公司-{{.title}}</title>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/subject.css" rel="stylesheet">
     </head>
     <body>
-    {{template "nav"}}
-    <section class="subject_banner">
-        <img src="/static/assets/img/subject.jpg">
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/subject" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
     </section>
-    <!-- 儿童数理思维发展关键期 -->
-    <section class="key">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">儿童数理思维发展关键期</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-        <h3 class="key_tit">关注孩子数理思维发展关键期，让学习事半功倍。</h3>
-        <section class="level">
-            <dl class="two_year">
-                <dt>2岁半左右</dt>
-                <dd>
-                    幼儿计数能力开始萌芽的关键期
-                </dd>
-            </dl>
-            <dl class="three_year">
-                <dt>3岁半左右</dt>
-                <dd>
-                    幼儿专注力发展的关键期
-                </dd>
-            </dl>
-            <dl class="four_year">
-                <dt>4岁半左右</dt>
-                <dd>
-                    幼儿掌握数概念，进行抽象运算以及综合数学能力开始形成的关键期
-                </dd>
-            </dl>
-            <dl class="five_year mr0">
-                <dt>5岁半左右</dt>
-                <dd>
-                    幼儿抽象逻辑思维开始萌芽的关键期，是幼儿悟性开始萌芽的关键期
-                </dd>
-            </dl>
-        </section>
-    </section>
-    <!-- 五大体系，为孩子潜心设计未来 -->
-    <section class="setup_container pub_style">
-        <section class="setup">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">五大体系，为孩子潜心设计未来</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-            <section class="setup_con">
-                <dl class="thought">
-                    <dt></dt>
-                    <dd>
-                        <h3>
-                            <span>3</span>
-                            层思维脑力开发
-                        </h3>
-                        <p>
-                            能量型 （刺激大脑活跃度）<br/>
-                            信息型（刺激大脑记忆力）<br/>
-                            动力型（刺激大脑思考力）
-                        </p>
-                    </dd>
-                </dl>
-                <dl class="sense">
-                    <dt></dt>
-                    <dd>
-                        <h3>
-                            <span>4</span>
-                            项全闭环多感官刺激
-                        </h3>
-                        <p>
-                            全员参与（一个都不少）<br/>
-                            全过程（学习过程全闭环）<br/>
-                            全天候（家园互动）<br/>
-                            全方位（全领域、多视角、多维度）
-                        </p>
-                    </dd>
-                </dl>
-                <dl class="practice">
-                    <dt></dt>
-                    <dd>
-                        <h3>
-                            <span>5</span>
-                            项领域实践
-                        </h3>
-                        <p>
-                            运动操作<br/>
-                            言语表达<br/>
-                            科学实践<br/>
-                            艺术熏陶<br/>
-                            社会活动
-                        </p>
-                    </dd>
-                </dl>
-                <dl class="test">
-                    <dt></dt>
-                    <dd>
-                        <h3>
-                            <span>6</span>
-                            维度迭代习练
-                        </h3>
-                        <p>
-                            数学关系<br/>
-                            空间方位<br/>
-                            对应关系<br/>
-                            形色分表<br/>
-                            序比较<br/>
-                            逻辑推理
-                        </p>
-                    </dd>
-                </dl>
-                <dl class="elearn">
-                    <dt></dt>
-                    <dd>
-                        <h3>
-                            <span>7</span>
-                            项GDI教学法
-                        </h3>
-                        <p>
-                            主题故事导入法<br/>
-                            思维突破训练法<br/>
-                            重叠逻辑教学法<br/>
-                            多元拓展教学法<br/>
-                            全域思维要素植入法<br/>
-                            纵向六段学习法<br/>
-                            主题沉浸体验教学法
-                        </p>
-                    </dd>
-                </dl>
+    <!-- 轮播 -->
+    {{ template "banner" .}}
+    <!-- 抓住成长关键期 培养孩子每个阶段具备的核心能力 -->
+    {{ template "power_con" .}}
+    <!-- 六大教学体系 促进思维发展 -->
+    <section class="pub chuojin">
+        <h3 class="w12 f36">六大教学体系 促进思维发展</h3>
+        <section class="cjcon_warp">
+            <section class="cjcon">
+                <section class="cjl" style="background: url({{ .data.cjlBk.Imgurl}}) no-repeat right bottom;"></section>
+                <section class="cjc" style="background: url({{ .data.cjcBk.Imgurl}}) no-repeat center center;">
+                    <section class="wr cj_num">
+                        <section class="nr">
+                            <h4>{{.data.subject_ys.Name}}</h4>
+                            <p>
+                                {{.data.subject_ys.Content | unescaped}}
+                            </p>
+                        </section>
+                    </section>
+                    <section class="wr cj_vs">
+                        <section class="nr">
+                            <h4>{{.data.subject_vs.Name}}</h4>
+                            <p>
+                                {{.data.subject_vs.Content | unescaped}}
+                            </p>
+                        </section>
+                    </section>
+                    <section class="wr cj_kj">
+                        <section class="nr">
+                            <h4>{{.data.subject_fw.Name}}</h4>
+                            <p>
+                                {{.data.subject_fw.Content | unescaped}}
+                            </p>
+                        </section>
+                    </section>
+                    <section class="wr cj_fl">
+                        <section class="nr">
+                            <h4>{{.data.subject_fl.Name}}</h4>
+                            <p>
+                                {{.data.subject_fl.Content | unescaped}}
+                            </p>
+                        </section>
+                    </section>
+                    <section class="wr cj_dy">
+                        <section class="nr">
+                            <h4>{{.data.subject_gx.Name}}</h4>
+                            <p>
+                                {{.data.subject_gx.Content | unescaped}}
+                            </p>
+                        </section>
+                    </section>
+                    <section class="wr cj_lj">
+                        <section class="nr">
+                            <h4>{{.data.subject_fx.Name}}</h4>
+                            <p>
+                                {{.data.subject_fx.Content | unescaped}}
+                            </p>
+                        </section>
+                    </section>
+                </section>
+                <section class="cjr" style="background: url({{ .data.cjrBk.Imgurl}}) no-repeat left top;"></section>
             </section>
         </section>
     </section>
-    <!-- 六个维度，激发孩子全脑思维 -->
-    <section class="dimension">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">六个维度，激发孩子全脑思维</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-        <section class="dimension_con">
-            <dl class="correspond">
-                <dt></dt>
-                <dd>
-                    <h3>对应关系</h3>
-                    <p>
-                        形色对应<br/>
-                        路径对应<br/>
-                        数量对应<br/>
-                        代数概念<br/>
-                        位置对应<br/>
-                        集合概念
-                    </p>
-                </dd>
-            </dl>
-            <dl class="space">
-                <dt></dt>
-                <dd>
-                    <h3>空间位置</h3>
-                    <p>
-                        前后对应<br/>
-                        远近关系<br/>
-                        左右关系<br/>
-                        坐标位置<br/>
-                        上下关系<br/>
-                        里外计数
-                    </p>
-                </dd>
-            </dl>
-            <dl class="various">
-                <dt></dt>
-                <dd>
-                    <h3>形色分类</h3>
-                    <p>
-                        形色辨识<br/>
-                        归纳运算<br/>
-                        形色组合<br/>
-                        异同观察<br/>
-                        形色分类<br/>
-                        多维分类
-                    </p>
-                </dd>
-            </dl>
-            <dl class="num">
-                <dt></dt>
-                <dd>
-                    <h3>数量运算</h3>
-                    <p>
-                        唱数训练<br/>
-                        减法运算<br/>
-                        运算训练<br/>
-                        倍数概念<br/>
-                        加法合成<br/>
-                        分配概念
-                    </p>
-                </dd>
-            </dl>
-            <dl class="logic">
-                <dt></dt>
-                <dd>
-                    <h3>逻辑分析</h3>
-                    <p>
-                        大小关系<br/>
-                        逆向思考<br/>
-                        圆形关联<br/>
-                        规律辨识<br/>
-                        正向思考<br/>
-                        容量关系
-                    </p>
-                </dd>
-            </dl>
-            <dl class="lg">
-                <dt></dt>
-                <dd>
-                    <h3>序与比较</h3>
-                    <p>
-                        时间关系<br/>
-                        长短比较<br/>
-                        书序关系<br/>
-                        大小比较<br/>
-                        数量多少<br/>
-                        容量大小
-                    </p>
-                </dd>
-            </dl>
+    <!-- 魔法数学课程体系 为少儿提供高品质的学习方案 -->
+    {{ template "fangan" .}}
+    <!-- 趣味课堂 让孩子重拾数学乐趣 -->
+    <section class="pub happy_warp">
+        <section class="happy_w" style="background:url({{ .data.happy_warp.Imgurl}}) no-repeat center top;">
+            {{ template "happy" .}}
         </section>
     </section>
-    <!-- 魔数思维五步法 -->
-    <!-- 课程体系 -->
-    <section class="curriculum pub_style">
-        <section class="subject">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">课程体系</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-        </section>
-        <section class="curriculum_con">
-            <section class="bet">
-                <li>序与比较</li>
-                <li>形色分类</li>
-                <li>空间方位</li>
-                <li>数量关系</li>
-                <li>对应关系</li>
-                <li>逻辑分析</li>
-            </section>
-            <section class="qm">
-                <li>启蒙阶段 （3-4岁）</li>
-                <li>大小比较、数量多少比较、缺失的数、序数、长短比较</li>
-                <li>认识图形、图形异同辨识、形色组合、属性分类</li>
-                <li>上下认识、上下叠放关系、里外位置、坐标位置</li>
-                <li>10以内数与量的认识、分类计数（10以内）、数的分解合成（5以内）、集合计数</li>
-                <li>路径关系、形色对应、位置对应、组合对应、视觉训练</li>
-                <li>分析判断（是与不是）、规律辨识、事物关系、整体与部分</li>
-            </section>
-            <section class="qm_five">
-                <li>进阶阶段 （5-6岁）</li>
-                <li class="short">数量多少比较（10以内）、高矮比较、轻重比较、序数（10以内）</li>
-                <li>影子辨识、认识立体图形、异同观察、形色组合</li>
-                <li>坐标认知、左右认知、左右旋转、上下左右</li>
-                <li class="fj">数的分解合成（10以内）、相邻数（10以内）、数的认识（20以内）、单双数、统计图表</li>
-                <li class="large">大小对应、集合对应、形色对应、视觉训练</li>
-                <li>模式对应、事物发展顺序、规律变化（旋转）、整体与部分、对称、分析判断</li>
-            </section>
-            <section class="qm_sw">
-                <li>思维阶段 （6-7岁）</li>
-                <li class="hundred">百以内数量比较、体积、面积</li>
-                <li class="graph">图形的分解与组合、立方块组合、巧数图形、立体展开图</li>
-                <li class="turn">左上/左下/右上/右下、空间旋转</li>
-                <li class="ten">10以内减法、按群计数、等量代换、等分/平均分、时间、认识数位、竖式、进退位、凑十法</li>
-                <li class="abs">路径对应、运笔练习</li>
-                <li>组合规律、数独、镜像、多视角观察</li>
-            </section>
-            <section class="bet bet_num">
-                <li>数量关系</li>
-                <li>图形空间</li>
-                <li>生活应用</li>
-                <li>概率与统计</li>
-                <li>逻辑分析</li>
-            </section>
-            <section class="qm_zy">
-                <li>卓越阶段 （7-8岁）</li>
-                <li>数量关系：数阵图、巧填算符、移多补少、趣味乘法/除法、整数拆分、等量代换</li>
-                <li>一笔画、线角初步、方向与位置、神奇的染色问题、巧算周长、看大楼</li>
-                <li>间隔问题、长度单位换算、趣味应用题、解应用题初步、智巧趣题、排队的学问、解应用题</li>
-                <li>生活中的可能性、重叠问题、简单的经济问题、生活中的统筹规划、相遇问题</li>
-                <li>火柴棒游戏、逻辑推理初步、逻辑推理进阶、扫雷游戏、逆推还原、年龄问题初步、数桥、聪明格</li>
-            </section>
-            <section class="qm_fy">
-                <li>飞越阶段 （9-10岁）</li>
-                <li>容斥原理、计算中的去重问题、递推计数、乘法原理进阶、捆绑法与插空法、排列组合、数论相关计数、24点</li>
-                <li>几何图形运用、立体几何综合、几何图形拼接、格点与面积、共角模型、角度计算、割补法巧算面积、生活中的圆柱与圆锥、等积变形</li>
-                <li class="ques">归一问题、奇偶分析与应用、天平与砝码、还原问题、水管问题、变速行程</li>
-                <li class="synchronous">概率同步、时间安排、相遇及追及、往返初步、间隔发车</li>
-                <li>巧辨真伪、横式问题、鸡兔同笼、洛书幻方</li>
-            </section>
-        </section>
-    </section>
-    <!-- 魔数思维五步法 -->
-    <section class="five_steps pub_style">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">魔数思维五步法</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-        <h3 class="curriculum_tit">培养孩子“从多个角度看问题的能力”，建立“强大”的逻辑思维能力</h3>
-        <section class="pic_lthjxtx">
-            <img data-original="/static/assets/img/pic_msswwbfbf.png" src="/static/assets/img/pic_msswwbfbf.png" class="lazy"/>
-        </section>
-    </section>
-    <!-- 版权 -->
-    {{template "index_footer"}}
-    <script>
-        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
-        var browser = navigator.userAgent.toLowerCase();
-        var isMobile = false;
-        for (var i=0; i<mobileAgent.length; i++) {
-            if (browser.indexOf(mobileAgent[i])!=-1){
-                isMobile = true;
-                location.href = '/sub';
-                break;
-            }
-        }
-    </script>
+    {{template "footer" .}}
     </body>
     </html>
 {{end}}

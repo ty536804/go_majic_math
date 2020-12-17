@@ -3,278 +3,179 @@
     <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>北京易学教育科技有限公司</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-touch-fullscreen" content="yes">
-        {{template "head"}}
-        <link href="/static/assets/css/main.css" rel="stylesheet"/>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/main.css" rel="stylesheet">
     </head>
     <body>
-    {{template "nav"}}
-    <!-- banner -->
-    <div id="myCarousel" class="carousel slide banner" data-ride="carousel" data-interval="2000">
-        <!-- 轮播（Carousel）指标 -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        </ol>
-        <!-- 轮播（Carousel）项目 -->
-        <div class="carousel-inner">
-            <div class="carousel-item active" ><a href="/detail?id=20"><img src="/static/upload/{{.banner}}"></a></div>
-        </div>
-    </div>
-    <!-- banner结束 -->
-    <section class="container">
-        <section class="magic row">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">数学思维有什么魔力?</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
+    </section>
+    <!-- 轮播 -->
+    {{ template "banner" .}}
+    <!-- 魔法数学专注于3—12岁少儿数理思维教育 -->
+    <section class="pub zhuanzhu" style="background:#F8F8F8 url({{.data.zZBg.Imgurl}}) no-repeat top center">
+        <h3 class="w12 f36">{{.data.thought.Name}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <h4>{{.data.thought.Summary}}</h4>
+        <section class="zhuanzhuCon">
+            {{.data.thought.Content | unescaped}}
+        </section>
+        <p class="getCon w12">
+            <a class="" href="#myform">免费获取课程资料</a>
+        </p>
+    </section>
+    <!-- 什么是数理思维？ -->
+    <section class="pub siwei">
+        <h3 class="f36 w12">{{.data.why.Name}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <h4 class="w12">{{.data.why.Content}}</h4>
+        <section class="siweiCon w12 pub">
+            {{ range .data.what}}
+            <dl>
+                <dt>
+                    <img class="lazy" src="{{.Imgurl}}"/>
+                </dt>
+                <dd>
+                    <p class="siweiCir">{{.Info}}</p>
+                    <p>{{.Bname}}</p>
+                </dd>
+            </dl>
+            {{end}}
+        </section>
+    </section>
+    <!-- 为什么要学习数理思维？ -->
+    <section class="pub why" style="background:#9783C4 url({{.data.siwei.Imgurl}}) no-repeat top center;">
+        <h3 class="w12 f36">{{.data.siwei.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="why_warp">
+            <dl>
+                <dt class="whyPtit">
+                    <p>{{.data.index_one.Bname}}</p>
+                    <span></span>
+                </dt>
+                <dd class="whyCon">{{.data.index_one.Info | unescaped}}</dd>
+            </dl>
+            <section class="index_circle">
+                <span style="background: url({{.data.index_one.Imgurl}}) no-repeat;" class="red"></span>
+                <span style="background: url({{.data.index_two.Imgurl}}) no-repeat;" class="bl"></span>
+                <span style="background: url({{.data.index_three.Imgurl}}) no-repeat;" class="blue"></span>
             </section>
-            <section class="magic_list col-md-12 col-lg-12">
-                <dl class="col-md-4 col-lg-4 brain">
-                    <dt></dt>
-                    <dd>
-                    </dd>
-                </dl>
-                <dl class="col-md-4 col-lg-4 turn">
-                    <dt></dt>
-                    <dd>
-                    </dd>
-                </dl>
-                <dl class="col-md-4 broca col-lg-4">
-                    <dt></dt>
-                    <dd>
-                    </dd>
-                </dl>
-            </section>
+            <dl>
+                <dt class="whyPtit">
+                    <p>{{.data.index_two.Bname}}</p>
+                    <span></span>
+                </dt>
+                <dd class="whyCon">{{.data.index_two.Info | unescaped}}</dd>
+            </dl>
+        </section>
+        <section class="bwhy w12">
+            <dl>
+                <dt class="whyPtit">
+                    <p>{{.data.index_three.Bname}}</p>
+                    <span></span>
+                </dt>
+                <dd class="whyCon">{{.data.index_three.Info | unescaped}}</dd>
+            </dl>
         </section>
     </section>
     <!-- 张梅玲教授倾力推荐 -->
-    <section class="recommend">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">张梅玲教授倾力推荐</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-        <section class="slogan">
-            <section class="outborder">
-                <dl>
-                    <dt>
-                    </dt>
-                    <dd>
-                    </dd>
-                </dl>
-            </section>
-            <section class="celebrity">
-                <img src="/static/assets/img/pic_zml_2x.png" data-original="/static/assets/img/pic_zml_2x.png" class="lazy">
-            </section>
-        </section>
+    <section class="pub tuijian">
+        <dl>
+            <dt>
+                <p class="people">
+                    <span>{{.data.index_zml.Bname}}</span>
+                </p>
+                <p class="lj_con">{{.data.index_zml.Info | unescaped}}</p>
+            </dt>
+            <dd style="background:url({{.data.index_zml.Imgurl}}) no-repeat top center">
+                <span>{{.data.index_zml.Tag}}</span>
+            </dd>
+        </dl>
     </section>
-    <section class="container w1200">
-        <!-- 选择魔法数学的六个理由 -->
-        <section class="reason row">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">选择魔法数学的六个理由</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-            <section class="six_reason">
-                <dl></dl>
-                <dl class="teaching"></dl>
-                <dl class="mr0 experience"></dl>
-                <dl class="mb0 think"></dl>
-                <dl class="mb0 online_elearn"></dl>
-                <dl class="mr0 mb0 learn"></dl>
-            </section>
+    <!-- 魔法数学 颠覆旧数学认知 -->
+    <section class="pub renzhi">
+        <h3>{{.data.index_df.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
         </section>
-        <!-- 魔法数学与传统数学的区别 -->
-        <section class="difference row">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">魔法数学与传统数学的区别</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-            <section class="difference_con">
-                <ul class="left tradition_ul">
-                </ul>
-                <ul class="right magic_ul">
-
+        <section class="renzhiCon" style="background:#E9E3F5 url({{.data.index_df.Imgurl}}) no-repeat center bottom;">
+            <section class="renzhiM">
+                <ul class="renzhiM">
+                    <li>{{.data.index_vs.Bname}}</li>
+                    <li><img src="{{.data.index_vs.Imgurl}}"></li>
+                    <li>{{.data.index_vs.Info}}</li>
                 </ul>
             </section>
-            <section class="difference_midd">
-                <li class="difference_con_tit mb0">
-                    <img src="/static/assets/img/home_icon_vs_nor@2x.png" />
-                </li>
-                <li>
-                    理念
-                </li>
-                <li>
-                    课程
-                </li>
-                <li>
-                    教法
-                </li>
-                <li>
-                    科技
-                </li>
-                <li class="mb0">
-                    效果
-                </li>
-            </section>
-        </section>
-        <!-- 特色课堂，让孩子流连忘返 -->
-        <section class="different row">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">特色课堂，让孩子流连忘返</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-            <section class="different_ul col-sm-12 col-md-12">
-                <section class="different_ul_top">
-                    <dl>
-                        <dt class="different_con"></dt>
-                        <dd class="different_img realy"></dd>
-                    </dl>
-                    <dl>
-                        <dt class="different_con"></dt>
-                        <dd class="different_img drive"></dd>
-                    </dl>
-                    <dl class="mr0">
-                        <dt class="different_con"></dt>
-                        <dd class="different_img happy"></dd>
-                    </dl>
-                </section>
-                <section class="different_ul_bottom">
-                    <dl>
-                        <dd class="different_img"></dd>
-                        <dt class="different_con"></dt>
-                    </dl>
-                    <dl>
-                        <dd class="different_img ques"></dd>
-                        <dt class="different_con"></dt>
-                    </dl>
-                    <dl class="mr0">
-                        <dd class="different_img creativity"></dd>
-                        <dt class="different_con"></dt>
-                    </dl>
-                </section>
+            <section class="renzhiC">
+                {{.data.index_con.Content | unescaped}}
             </section>
         </section>
     </section>
-    <!-- Hi-Thinking教学法 -->
-    <section class="education">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">Hi-Thinking教学法</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-        <h4>培养孩子“从多个角度看问题”的能力，建立强大的“逻辑思维能力”</h4>
-        <section class="thinking_ul">
-            <dl>
-                <dt></dt>
-                <dd>
-
-                </dd>
-            </dl>
-            <dl class="keyworld">
-                <dt></dt>
-                <dd>
-
-                </dd>
-            </dl>
-            <dl class="surmise mr0">
-                <dt></dt>
-                <dd>
-                </dd>
-            </dl>
-            <dl class="verification">
-                <dt></dt>
-                <dd>
-                </dd>
-            </dl>
-            <dl class="Exercise">
-                <dt></dt>
-                <dd>
-                </dd>
-            </dl>
-            <dl class="expand mr0">
-                <dt></dt>
-                <dd>
-                </dd>
-            </dl>
-        </section>
-    </section>
-    <!-- 最新动态 -->
-    <section class="dynamic">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">最新动态</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
+    <!-- 全新OMO教育模式 形成全场景闭环教学空间 -->
+    {{ template "omo" .}}
+    <!-- 抓住成长关键期 培养孩子每个阶段具备的核心能力 -->
+    {{ template "power_con" .}}
+    <!-- 魔法数学课程体系 为少儿提供高品质的学习方案 -->
+    {{ template "fangan" .}}
+    <!-- 趣味课堂 让孩子重拾数学乐趣 -->
+    {{ template "happy" .}}
+    <!-- 新闻动态 -->
+    <section class="pub news" style="background:#F2F3F5 url({{.data.newBg.Imgurl}}) no-repeat center top;">
+        <h3 class="w12 f36 newTit">{{.data.newBg.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
             </p>
         </section>
-        <section class="six_reason">
-        </section>
-        <p class="more_btn">
-            <a href="/news" class="more">更多内容</a>
+        <div id="certify">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {{range .data.index_news}}
+                    <div class="swiper-slide">
+                        <img class="lazy" src="{{.ThumbImg}}"/>
+                        <section class="certify_con">
+                            <h3>{{.Title}}</h3>
+                            <h4>{{.Summary}}</h4>
+                        </section>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <p class="more w12">
+            <a href="/news">更多资讯</a>
         </p>
     </section>
-    <!-- 版权 -->
-    {{template "index_footer"}}
-    <script type="text/javascript" src="/static/index/index.js"></script>
-    <script>
-        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
-        var browser = navigator.userAgent.toLowerCase();
-        var isMobile = false;
-        for (var i=0; i<mobileAgent.length; i++) {
-            if (browser.indexOf(mobileAgent[i])!=-1){
-                isMobile = true;
-                location.href = '/wap';
-                break;
-            }
-        }
-    </script>
+    {{template "footer" .}}
+    <script src="/static/FrontEnd/js/main.js"></script>
     </body>
     </html>
 {{end}}

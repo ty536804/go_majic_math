@@ -66,10 +66,7 @@ func SaveMenu() {
 
 // 获取缓存中的导航
 func GetMenu() (navs []Nav.Nav) {
-	isOk, menu := e.GetVal("menu")
-	if !isOk {
-		SaveMenu()
-	}
-	json.Unmarshal([]byte(menu), &navs)
-	return
+	var maps = make(map[string]interface{})
+	maps["is_show"] = 1
+	return GetNavs(maps)
 }

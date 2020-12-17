@@ -1,150 +1,101 @@
 {{define "index/down.html"}}
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
-        <meta charset="UTF-8">
-        <title>APP下载</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-touch-fullscreen" content="yes">
-        {{template "head"}}
-        <link href="/static/assets/css/down.css" rel="stylesheet"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>北京易学教育科技有限公司-{{.title}}</title>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/down.css" rel="stylesheet">
     </head>
     <body>
-    <section class="nav_menu pub_style">
-        {{template "nav"}}
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/down" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
     </section>
-    <section class="down_banner">
-        <img src="/static/assets/img/down.jpg" />
-    </section>
+    <!-- 轮播 -->
+    {{ template "banner" .}}
     <!-- 魔数小奇兵APP -->
-    <section class="app pub_style" id="down">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">魔数小奇兵APP</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
+    <section class="pub down">
+        <h3 class="w12">{{ .data.energize.Name}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
             </p>
         </section>
-        <section class="app_con">
-            <section class="app_con_left">
-                <img data-original="/static/assets/img/pic_app_l.png" src="/static/assets/img/pic_app_l.png" class="lazy"/>
-            </section>
-            <section class="app_con_right">
-                <h3><img data-original="/static/assets/img/pic_wenzi.png" src="/static/assets/img/pic_wenzi.png" class="lazy"></h3>
-                <section class="app_con_ercode">
+        <section class="down_con">
+            <section class="down_con_l">
+                <section class="down_con_i">
                     <dl>
-                        <dt><img data-original="/static/assets/img/pic_ewm.png" src="/static/assets/img/pic_ewm.png" class="lazy"/></dt>
-                        <dd>扫码下载APP</dd>
+                        <dt>
+                            <img src="{{.data.energize.ThumbImg }}"/>
+                        </dt>
+                        <dd>
+                            {{ .data.energize.Summary}}<br />
+                            {{ .data.energize.Content}}
+                        </dd>
                     </dl>
-                    <p><img data-original="/static/assets/img/pic_phone.png" src="/static/assets/img/pic_phone.png" class="lazy"/></p>
                 </section>
-                <section class="app_b">
-                    <img  data-original="/static//assets/img/pic_app_u.png" src="/static//assets/img/pic_app_u.png" class="lazy"/>
-                </section>
+            </section>
+            <section class="down_con_r">
+                {{ range .data.flower }}
+                <li>
+                    <img src="{{.Imgurl}}"/>
+                   {{.Bname}}
+                </li>
+                {{end}}
             </section>
         </section>
     </section>
-    <!-- 学玩同步 效果看得见 -->
-    <section class="watch pub_style">
-       <section class="subject">
-           <section class="tit">
-               <p class="direction left">
-                   <span class="line magic_line"></span>
-                   <span class="circle magic_circle"></span>
-               </p>
-               <h3 class="left">学玩同步 效果看得见</h3>
-               <p class="direction left dr">
-                   <span class="line magic_line"></span>
-                   <span class="circle magic_circle"></span>
-               </p>
-           </section>
-       </section>
-
-        <section class="watch_con_subject">
-            <dl class="watch_con">
-            <dt class="donw_img">
-                <img data-original="/static/assets/img/pic_app1.png" src="/static/assets/img/pic_app1.png" class="lazy" />
-            </dt>
-            <h3>智慧挑战系统</h3>
-            <p>玩法丰富，创意无限，将学科数学知识点领域重叠螺旋、循序渐进安排，精心设置160道魔法关卡，鼓励孩子通过闯关夺宝形式潜移默化习得数理知识。</p>
-            </dd>
-        </dl>
+    <!-- 魔数小奇兵 -->
+    <section class="moshu_video pub w12">
+        <section class="pauseV">
+            <span class="pauseVBtn"></span>
+            <video width="100%" height="100%"  class="pause" src="http://img.cdn.brocaedu.com/moshu.mp4">
+                <source src="http://img.cdn.brocaedu.com/moshu.mp4" type="video/mp4">
+                您的浏览器不支持 video 属性。
+            </video>
         </section>
-        </section>
-    <!-- 荣誉激励系统 -->
-    <section class="jl_style pub_style">
-        <dl class="watch_con">
+    </section>
+    <!-- 智慧挑战 -->
+    <section class="tiaozhan pub">
+        {{ range .data.wisdom }}
+        <dl>
             <dt>
-                <h3>荣誉激励系统</h3>
-                <p>通过闯关积累可获得不同的荣誉勋章，记录孩子成长点滴，让孩子建立自信、激发学习兴趣。</p>
+                <img src="{{.Imgurl}}"/>
             </dt>
-            <dd class="donw_img">
-                <img data-original="/static/assets/img/pic_app2.png" src="/static/assets/img/pic_app2.png" class="lazy"/>
-            </dd>
+            <dd> {{.Bname}}</dd>
         </dl>
+        {{end}}
     </section>
-    <!-- 财商管理系统 -->
-    <section class="watch pub_style hd">
-        <dl class="watch_con">
-            <dt class="donw_img">
-                <img data-original="/static/assets/img/pic_app3.png" src="/static/assets/img/pic_app3.png" class="lazy"/>
-            </dt>
-            <h3>财商管理系统</h3>
-            <p>通过在魔法星球上的不断探险，赢得越来越多的魔法币，并换取丰富的道具，有效锻炼孩子的财商和情商。</p>
-            </dd>
-        </dl>
-    </section>
-    <!-- 测评报告系统 -->
-    <section class="jl_style pub_style">
-        <dl class="watch_con">
-            <dt>
-                <h3>测评报告系统</h3>
-                <p>学员家长每月可以收到一份来自魔法世界的报告单，记录孩子在魔法世界的学习过程，孩子的学习效果一目了然。</p>
-            </dt>
-            <dd class="donw_img">
-                <img data-original="/static/assets/img/pic_app4.png" src="/static/assets/img/pic_app4.png" class="lazy" />
-            </dd>
-        </dl>
-    </section>
-    <!-- 好友互动系统 -->
-    <section class="hd pub_style">
-        <dl class="watch_con">
-            <dt class="donw_img">
-                <img data-original="/static/assets/img/pic_app5.png" src="/static/assets/img/pic_app5.png" class="lazy"/>
-            </dt>
-            <dd>
-                <h3>好友互动系统</h3>
-                <p>组队、PK、竞争、互助，在数学的魔法世界里，孩子们可以组成团队协同作战，并换取丰厚的奖品。</p>
-            </dd>
-        </dl>
-    </section>
-    <!-- 下载魔数小奇兵APP，进入魔法世界 -->
-    <section class="down_app pub_style">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">下载魔数小奇兵APP，进入魔法世界</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-        </section>
-        <section class="down_app_con">
-            <p class="app_img">
-                <img data-original="/static/assets/img/icon_app.png" src="/static/assets/img/icon_app.png" class="lazy" />
-                <a href="#down">立即下载</a>
-            </p>
-        </section>
-    </section>
-        <!-- 版权 -->
-    {{template "index_footer"}}
+    {{template "footer" .}}
+    <script type="application/javascript">
+        $(function(){
+            $('video').controls=false;
+            $('video').click(function() {
+                if ($(this).hasClass('pause') ) {
+                    $("video").trigger("play");
+                    $(this).removeClass('pause');
+                    $(this).addClass('play');
+                    $('.pauseVBtn').hide()
+                } else {
+                    $("video").trigger("pause");
+                    $(this).removeClass('play');
+                    $(this).addClass('pause');
+                    $('.pauseVBtn').show()
+                }
+            });
+        })
+    </script>
     </body>
     </html>
 {{end}}

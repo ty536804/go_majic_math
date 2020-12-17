@@ -36,20 +36,17 @@ func UploadFile(c *gin.Context) {
 	filePath := time.Now().Format("20060102130405") + file.Filename[lastIndex:]
 	err = c.SaveUploadedFile(file, fileDir+filePath)
 	if err != nil {
-		fmt.Print("上传失败:", err)
 		e.Error(c, "上传失败", "")
 		return
 	} else {
-		//filePath = QiNiu(filePath)
+		filePath = QiNiu(filePath)
 	}
-
-	//if filePath == "" {
-	//	filePath = "/static/upload/" + time.Now().Format("20060102") + "/" + filePath
-	//} else {
-	//	filePath = "http://img.cdn.brocaedu.com/" + filePath
-	//}
-
-	e.Success(c, "上传成功", time.Now().Format("20060102")+"/"+filePath)
+	if filePath == "" {
+		filePath = "/static/upload/" + time.Now().Format("20060102") + "/" + filePath
+	} else {
+		filePath = "http://img.cdn.brocaedu.com/" + filePath + "?imageslim"
+	}
+	e.Success(c, "上传成功", filePath)
 }
 
 // @Summer 创建目录

@@ -1,105 +1,18 @@
 {{define "menu"}}
-    <div class="left-nav">
-        <div id="side-nav">
-            <ul id="nav">
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="基础设置">&#xe6b8;</i>
-                        <cite>基础设置</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('网站信息','/api/v1/siteInfo')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>网站信息</cite></a>
-                        </li>
-                        <li>
-                            <a onclick="xadmin.add_tab('会员列表','/api/v1/userList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>会员列表</cite></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="留言管理">&#xe723;</i>
-                        <cite>留言管理</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('留言列表','/api/v1/messageList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>留言列表</cite></a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="Banner管理">&#xe723;</i>
-                        <cite>图片管理</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('Banner列表','/api/v1/bannerList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>Banner列表</cite></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="导航管理">&#xe723;</i>
-                        <cite>导航管理</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('导航列表','/api/v1/navList')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>导航列表</cite></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="新闻管理">&#xe723;</i>
-                        <cite>新闻管理</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('新闻列表','/api/v1/article')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>新闻列表</cite></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="单页管理">&#xe723;</i>
-                        <cite>单页管理</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('单页列表','/api/v1/single')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>单页管理</cite></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="iconfont left-nav-li" lay-tips="校区管理">&#xe723;</i>
-                        <cite>校区管理</cite>
-                        <i class="iconfont nav_right">&#xe697;</i></a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a onclick="xadmin.add_tab('校区管理','/api/v1/campus')">
-                                <i class="iconfont">&#xe6a7;</i>
-                                <cite>校区管理</cite></a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <nav>
+        <section class="w12 pub navarea">
+            <section class="logoarea">
+                <section class="logo">
+                    <img src="{{.data.headLogo.Imgurl}}" />
+                </section>
+                <section class="slogan">
+                    <img src="{{.data.headslogan.Imgurl}}" />
+                </section>
+            </section>
+            <section class="telArea">
+                <p class="tel">咨询热线</p>
+                <p class="telNum">{{.data.siteInfo.ClientTel}}</p>
+            </section>
+        </section>
+    </nav>
 {{end}}

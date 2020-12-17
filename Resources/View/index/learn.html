@@ -1,107 +1,58 @@
-{{define "index/ai.html"}}
+{{define "index/learn.html"}}
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
-        <meta charset="UTF-8">
-        <title>AI学习平台</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-touch-fullscreen" content="yes">
-        {{template "head"}}
-        <link href="/static/assets/css/ai.css" rel="stylesheet"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>北京易学教育科技有限公司-{{.title}}</title>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/sys.css" rel="stylesheet">
     </head>
     <body>
-    {{template "nav"}}
-    <section class="ai_banner">
-        <img src="/static/assets/img/ai_banner.jpg" />
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/learn" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
     </section>
-    <!-- 在线测评系统 -->
-    <section class="ai test pub_style">
-        <dl>
-            <dt class="ai_img">
-            </dt>
-            <dd>
-                <span class="circle"></span>
-                <span class="circle_rule circle_img"></span>
-                <h3 class="online_test">在线测评系统
-                    <span></span>
-                </h3>
-                <p class="online_desc">魔数思维以大数据为依托，自主研发了专业、严谨的AI智能测评系统，根据学员所学阶段与内容，每月对其进行定级测评、专题测评、阶段测评，精准掌握孩子学习效果。</p>
-            </dd>
-        </dl>
-    </section>
-    <!-- 录播课系统 -->
-    <section class="record pub_style">
-        <section class="record_warp">
-            <dl>
-                <dt>
-                    <h3 class="record_test">录播课系统
-                        <span class="circle_img"></span>
-                    </h3>
-                    <p class="record_desc">储备海量优质课程，方便孩子随时巩固复习，反复回看，学习更扎实！</p>
-                </dt>
-                <dd class="ai_img"></dd>
-            </dl>
+    <!-- 轮播 -->
+    {{ template "banner" .}}
+    <!-- 全域成长 智慧学习 -->
+    <section class="pub learn w12">
+        <h3 class="w12 f36">{{ .data.learn.Name}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="learn_desc">
+            {{ .data.learn.Content }}
+        </section>
+        <section class="learn_img">
+            <img src="{{ .data.learn.ThumbImg }}" />
         </section>
     </section>
-    <!-- 预复习辅学系统 -->
-    <section class="ai test prep pub_style">
+    <section class="sys_ul">
+        {{ range .data.online }}
         <dl>
-            <dt class="ai_img">
+            <dt>
+                <img class="lazy" src="{{.ThumbImg}}"/>
             </dt>
             <dd>
-                <span class="circle"></span>
-                <span class="circle_rule circle_img"></span>
-                <h3 class="online_test">预复习辅学系统
-                    <span></span>
-                </h3>
-                <p class="online_desc">根据私人课程排期同步课堂内容，智能匹配课程要点及习题，帮助孩子在线预习、复习，学习效果翻倍。</p>
+                <h3>{{.Name}}</h3>
+                {{.Content}}
             </dd>
         </dl>
+        {{end}}
     </section>
-    <!-- 在线思维训练游戏 -->
-    <section class="record sw pub_style">
-        <section class="record_warp">
-            <dl>
-                <dt>
-                    <h3 class="record_test">在线思维训练游戏
-                        <span class="circle_img"></span>
-                    </h3>
-                    <p class="record_desc">根据数学学科六大维度，将知识点重叠螺旋融入益智游戏，打造启蒙级、进阶级、思维级、卓越级思维游戏，智能贴合孩子学习曲线，让孩子在玩的过程中快乐学习。</p>
-                </dt>
-                <dd class="ai_img"></dd>
-            </dl>
-        </section>
-    </section>
-    <!-- AI学练题库 -->
-    <section class="ai test lx pub_style">
-        <dl>
-            <dt class="ai_img">
-            </dt>
-            <dd>
-                <span class="circle"></span>
-                <span class="circle_rule circle_img"></span>
-                <h3 class="online_test">AI学练题库
-                    <span></span>
-                </h3>
-                <p class="online_desc">包含海量数理思维题型，个性化推荐智练习题，同时支持家长与孩子共同DIY题目，自动生成习题，提高学习的参与性、互动性。</p>
-            </dd>
-        </dl>
-    </section>
-    <!-- 版权 -->
-    {{template "index_footer"}}
-    <script>
-        var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
-        var browser = navigator.userAgent.toLowerCase();
-        var isMobile = false;
-        for (var i=0; i<mobileAgent.length; i++) {
-            if (browser.indexOf(mobileAgent[i])!=-1){
-                isMobile = true;
-                location.href = '/le';
-                break;
-            }
-        }
-    </script>
+    {{template "footer" .}}
     </body>
     </html>
 {{end}}

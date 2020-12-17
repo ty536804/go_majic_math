@@ -1,3 +1,54 @@
 {{define "footer"}}
-    </html>
+    <footer>
+        <section class="footer_con pub w12">
+            <section class="footer_l">
+                <p class="footer_l_tel">授权电话：{{.data.siteInfo.ClientTel}}</p>
+                <p class="footer_line"></p>
+                <section class="footer_nav">
+                    {{ range  .data.menu }}
+                        <a href="{{.BaseUrl}}">{{.Name}}</a>
+                    {{end}}
+                </section>
+                <p class="address">地址：{{.data.siteInfo.SiteAddress}}</p>
+                <section class="code_list">
+                    <dl>
+                        <dt>
+                            <img src="{{.data.mfsx.Imgurl}}" class="lazy" />
+                        </dt>
+                        <dd>魔法数学<br />公众号</dd>
+                    </dl>
+                    <section class="code_mid"></section>
+                    <dl>
+                        <dt>
+                            <img src="{{.data.msxqb.Imgurl}}" />
+                        </dt>
+                        <dd>魔数<br />APP下载</dd>
+                    </dl>
+                </section>
+            </section>
+            <section class="footer_r">
+                <section class="banner_form">
+                    <form method="post" action="" name="myform" class="footer_con_right" id="myform">
+                        <input type="hidden" name="com" class="c-com" value="">
+                        <input type="hidden" name="client" value="pc">
+                        <h3 class="join_tit">填写表单</h3>
+                        <section class="form_tit">
+                            <span>姓名：</span>
+                            <input type="text" placeholder="" name="mname" class="footer_name">
+                        </section>
+                        <section class="form_tit">
+                            <span>电话：</span>
+                            <input type="text" placeholder="" name="tel" class="footer_tel">
+                        </section>
+                        <section class="form_tit">
+                            <span>地区：</span>
+                            <input type="text" placeholder="" name="area" class="footer_city">
+                        </section>
+                        <a class="bottom_submit btn">提交</a>
+                    </form>
+                </section>
+            </section>
+        </section>
+    </footer>
+    {{template "tongji"}}
 {{end}}

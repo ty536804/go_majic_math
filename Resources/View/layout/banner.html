@@ -1,0 +1,13 @@
+{{define "banner"}}
+    <!-- 轮播 -->
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            {{ range $k,$v := .data.banner}}
+                <div class="item {{if eq $k 0 }} active {{end}}">
+                    <a href="{{.TargetLink}}"><img src="{{.Imgurl}}" alt="{{.Info}}"></a>
+                </div>
+            {{end}}
+        </div>
+    </div>
+{{end}}

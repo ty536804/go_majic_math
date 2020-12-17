@@ -6,13 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// @Summer 导航
-func Show(c *gin.Context) {
-	c.HTML(e.SUCCESS, "nav/index.html", gin.H{
-		"title": "导航列表",
-	})
-}
-
 // @Summer 获取一条导航API
 func GetNav(c *gin.Context) {
 	data := Services.GetNav(c)

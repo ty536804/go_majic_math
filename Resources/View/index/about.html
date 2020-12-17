@@ -3,183 +3,135 @@
     <html>
     <head>
         <meta charset="utf-8">
-        <title>关于魔数</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-touch-fullscreen" content="yes">
-        {{template "head"}}
-        <link href="/static/assets/css/about.css" rel="stylesheet"/>
-
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <title>北京易学教育科技有限公司-{{.title}}</title>
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/about.css" rel="stylesheet">
     </head>
     <body>
-    {{template "nav"}}
-    <section class="about_banner">
-        <img src="/static/assets/img/about.jpg">
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/about" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
     </section>
-    <section class="container">
-        <section class="row">
-            <!-- 魔数简介 -->
-            <section class="about_magic">
-                <section class="tit">
-                    <p class="direction left">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                    <h3 class="left">魔数简介</h3>
-                    <p class="direction left dr">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                </section>
-                <section class="about_con">
-                </section>
-            </section>
-            <!-- 教学理念 -->
-            <section class="idea">
-                <section class="tit">
-                    <p class="direction left">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                    <h3 class="left">教学理念</h3>
-                    <p class="direction left dr">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                </section>
-                <h3 class="idea_tit">
-                    运用多媒体交互课件结合多维情境式教具，培养孩子的专注力、观察力、逻辑力、转化力、表达力、运算力、提升独立思考及创造性思维能力。
-                </h3>
-                <section class="idea_ul">
-                    <dl>
-                        <dt></dt>
-                        <dd><p class="idea_ul_bg"></p></dd>
-                    </dl>
-                    <dl class="idea_ul_one">
-                        <dt></dt>
-                        <dd><p class="idea_ul_bg"></p></dd>
-                    </dl>
-                    <dl class="idea_ul_two">
-                        <dt></dt>
-                        <dd class="idea_ul_two"><p class="idea_ul_bg"></p></dd>
-                    </dl>
-                    <dl class="idea_ul_three">
-                        <dt></dt>
-                        <dd><p class="idea_ul_bg"></p></dd>
-                    </dl>
-                </section>
-            </section>
-            <!-- 教育愿景 -->
-            <section class="vision">
-                <section class="tit">
-                    <p class="direction left">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                    <h3 class="left">教育愿景</h3>
-                    <p class="direction left dr">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                </section>
-            </section>
-        </section>
-    </section>
-    <!-- 魔数起源 -->
-    <section class="com">
-        <section class="com_con">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">魔数起源</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
+    <!-- 轮播 -->
+    {{ template "banner" .}}
+    <!-- 魔法数学专注于3—12岁少儿数理思维教育 -->
+    <section class="pub about">
+        <h3 class="w12 f36">{{.data.aboutBk.Bname}}</h3>
+        <section class="about_con" style="background:url({{.data.aboutBk.Imgurl}}) no-repeat center bottom">
+            <section class="bline w12">
+                <p>
+                    <span></span>
                 </p>
             </section>
-            <section class="com_desc">
-                <dl class="active Jean">
-                    <dt>
-                        <h3 class="humanity"></h3>
-                        <span class="com_line"></span>
-                        <p class="all">
-                        </p>
-                    </dt>
-                    <dd>
-                        <img src="/static/assets/img/pic_jean.png" data-original="/static/assets/img/pic_jean.png" class="lazy"/>
-                    </dd>
-                </dl>
-                <dl class="Harvard">
-                    <dt>
-                        <h3 class="Harvard_tit">
-                        </h3>
-                    </dt>
-                    <dd>
-                        <img src="/static/assets/img/pic_harvard.png" data-original="/static/assets/img/pic_harvard.png" class="lazy"/>
-                    </dd>
-                </dl>
+            <section class="a_c">
+                <section class="a_c_l">
+                    {{.data.swg.Content | unescaped}}
+                </section>
+                <section class="a_c_r">
+                    <img src="{{.data.swg.ThumbImg}}" />
+                </section>
             </section>
         </section>
     </section>
-    <!-- 发展历程 -->
-    <section class="developing">
-        <section class="tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">发展历程</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
+    <!-- 源于全球儿童心理学家让 皮亚杰与 哈佛大学儿童发展中心的共同杰作 -->
+    <section class="pub zuopin">
+        <h3 class="w12 f36">源于全球儿童心理学家让 皮亚杰与<br />哈佛大学儿童发展中心的共同杰作</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
             </p>
         </section>
-        <section class="developing_con">
-            <section class="developing_ul_left">
-                <li></li>
-                <li></li>
-            </section>
-            <section class="developing_ul_right">
-            </section>
+        <section class="human">
+            {{ range .data.human}}
+            <dl>
+                <dt>
+                    <img src="{{.Imgurl}}" />
+                </dt>
+                <dd>
+                    {{ .Info | unescaped}}
+                </dd>
+            </dl>
+            {{end}}
         </section>
     </section>
-    <!-- 品牌荣誉 -->
+    <!-- 独特的教学方式 培养出能力卓越的孩子 -->
+    <section class="pub child w12">
+        <h3 class="w12 f36">{{.data.child.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="zyCon">
+            {{ .data.child.Info | unescaped}}
+        </section>
+        <section class="zy w12">
+            <img src="{{.data.child.Imgurl}}" />
+        </section>
+    </section>
+    <!-- 数学探索世界,思维改变未来 -->
+    <section class="mid" style="background: url({{.data.midBk.Imgurl}}) no-repeat center center;">
+        <h3 class="w12 f36">{{.data.midSlogan.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="mid_slogan">
+            <img src="{{.data.midSlogan.Imgurl}}" alt=" {{ .data.child.Bname}}" />
+        </section>
+    </section>
+    <!-- 历经磨砺 多项殊荣加持深厚的品牌积淀 -->
     <section class="brand">
-        <section class="brand_con">
-            <section class="tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">品牌荣誉</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
-            <section class="brand_ul">
-                <div id="btn-left" class="arrow-btn dasabled"></div>
-                <div class="slider">
-                    <ul>
-                        <li><img src="/static/assets/img/zs1.jpg"></li>
-                        <li><img src="/static/assets/img/zs1.png"></li>
-                        <li><img src="/static/assets/img/zs10.jpg"></li>
-                        <li><img src="/static/assets/img/zs2.png"></li>
-                        <li><img src="/static/assets/img/zs3.jpg"></li>
-                        <li><img src="/static/assets/img/zs4.jpg"></li>
-                        <li><img src="/static/assets/img/zs5.png"></li>
-                        <li><img src="/static/assets/img/zs6.png"></li>
-                    </ul>
-                </div>
-                <div id="btn-right" class="arrow-btn"></div>
+        <h3 class="w12 f36">{{.data.brandBg.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="brandBg" style="background: url({{.data.brandBg.Imgurl}}) no-repeat center center;">
+            <section class="year">
+                {{ range .data.year}}
+                <dl class="{{.Bname}}">
+                    <dt><img src="{{.Imgurl}}"></dt>
+                    <dd>{{.Info}}</dd>
+                </dl>
+                {{end}}
             </section>
         </section>
     </section>
-    <!-- 版权 -->
-    {{template "index_footer"}}
-    <script type="text/javascript" src="/static/index/about.js"></script>
+    <!-- 品牌荣誉 奋进之路的里程碑 -->
+    <section class="pub rongyu" style="background: url({{.data.brandBk.Imgurl}}) no-repeat center center;">
+        <h3 class="w12 f36">{{.data.brandBk.Bname}}</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="brand_ul">
+            <div id="btn-left" class="arrow-btn dasabled"></div>
+            <div class="slider">
+                <ul>
+                    {{ range .data.brand}}
+                    <li><img src="{{.Imgurl}}"></li>
+                    {{end}}
+                </ul>
+            </div>
+            <div id="btn-right" class="arrow-btn"></div>
+        </section>
+    </section>
+    {{template "footer" .}}
+    <script src="/static/FrontEnd/js/about.js"></script>
     </body>
     </html>
 {{end}}

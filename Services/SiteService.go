@@ -27,13 +27,13 @@ func AddSite(c *gin.Context) (code int, err string) {
 	SiteEmail := com.StrTo(c.PostForm("site_email")).String()
 	SiteAddress := com.StrTo(c.PostForm("site_address")).String()
 	RecordNumber := com.StrTo(c.PostForm("record_number")).String()
+	adminTel := com.StrTo(c.PostForm("admin_tel")).String()
 
 	valid := validation.Validation{}
 	valid.Required(siteTitle, "site_title").Message("网站标题不能为空")
 	valid.Required(SiteDesc, "site_desc").Message("网站描述不能为空")
 	valid.Required(SiteKeyboard, "site_keyboard").Message("关键字不能为空")
 	valid.Required(SiteCopyright, "site_copyright").Message("版权不能为空")
-	//valid.Required(SiteTel,"site_tel").Message("电话不能为空")
 	valid.Required(SiteEmail, "site_email").Message("邮箱不能为空")
 	valid.Required(SiteAddress, "site_address").Message("地址不能为空")
 
@@ -48,15 +48,10 @@ func AddSite(c *gin.Context) (code int, err string) {
 		data["site_desc"] = SiteDesc
 		data["site_keyboard"] = SiteKeyboard
 		data["site_copyright"] = SiteCopyright
-		if SiteTel != "" {
-			data["site_tel"] = SiteTel
-		}
-		if LandLine != "" {
-			data["land_line"] = LandLine
-		}
-		if ClientTel != "" {
-			data["client_tel"] = ClientTel
-		}
+		data["admin_tel"] = adminTel
+		data["site_tel"] = SiteTel
+		data["land_line"] = LandLine
+		data["client_tel"] = ClientTel
 		data["site_email"] = SiteEmail
 		data["site_address"] = SiteAddress
 		data["record_number"] = RecordNumber

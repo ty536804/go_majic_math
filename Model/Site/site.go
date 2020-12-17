@@ -18,6 +18,7 @@ type Site struct {
 	LandLine      string `json:"land_line" gorm:"type:varchar(50);not null;default '';comment:'座机'"`
 	ClientTel     string `json:"client_tel" gorm:"type:varchar(50);not null;default '';comment:'400电话'"`
 	RecordNumber  string `json:"record_number" gorm:"type:varchar(100);not null;default '';comment:'备案号'"`
+	AdminTel      string `json:"admin_tel" gorm:"type:varchar(255);not null;default '';comment:'接收短信的管理员手机号码'"`
 }
 
 func GetSite() (site Site) {
@@ -36,6 +37,7 @@ func AddSite(data map[string]interface{}) bool {
 		SiteEmail:     data["site_email"].(string),
 		SiteAddress:   data["site_address"].(string),
 		RecordNumber:  data["record_number"].(string),
+		AdminTel:      data["admin_tel"].(string),
 	})
 
 	if err.Error != nil {

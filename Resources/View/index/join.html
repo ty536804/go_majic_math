@@ -7,38 +7,60 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-touch-fullscreen" content="yes">
-        {{template "head"}}
-        <link href="/static/assets/css/join.css" rel="stylesheet"/>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/join.css" rel="stylesheet">
     </head>
     <body>
-    {{template "nav"}}
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
-        <!-- 轮播（Carousel）指标 -->
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/join" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
+    </section>
+    <!-- 轮播 -->
+    <div id="myCarousel" class="carousel slide">
         <ol class="carousel-indicators">
+            {{ range $k,$v := .data.banner}}
+                <li data-target="#myCarousel" data-slide-to="{{$k}}" class="{{if eq $k 0 }} active {{end}}"></li>
+            {{end}}
         </ol>
         <!-- 轮播（Carousel）项目 -->
         <div class="carousel-inner">
+            {{ range $k,$v := .data.banner}}
+                <div class="item {{if eq $k 0 }} active {{end}}">
+                    <a href="{{.TargetLink}}"><img src="{{.Imgurl}}" alt="{{.Info}}"></a>
+                </div>
+            {{end}}
         </div>
     </div>
-
-    <section class="banner_form" id="banner_form">
-        <p class="banner_form_logo"></p>
-        <form action="#" name="banner_myform" class="banner_myform">
-            <input type="hidden" name="com" class="com">
-            <label for="">姓名：
-                <input type="text" name="mname" class="c-area">
-            </label>
-            <label for="">电话：
-                <input type="text" name="tel" class="c-tel">
-            </label>
-            <label for="">地区：
-                <input type="text" name="area" class="c-city">
-            </label>
-            <p class="col-md-12 banner_form_btn"><a class="lj_btn btn">立即领取</a></p>
-            <p class="col-md-12 assured">我们承诺您的信息将严格保密请放心填写</p>
-        </form>
+    <section class="banner_form_top_warp">
+        <section class="banner_form banner_form_top" id="banner_form">
+            <p class="banner_form_logo"></p>
+            <form action="#" name="banner_myform" class="banner_myform">
+                <input type="hidden" name="com" class="com">
+                <input type="hidden" name="client" value="pc">
+                <label for="">姓名：
+                    <input type="text" name="mname" class="c-area">
+                </label>
+                <label for="">电话：
+                    <input type="text" name="tel" class="c-tel">
+                </label>
+                <label for="">地区：
+                    <input type="text" name="area" class="c-city">
+                </label>
+                <p class="col-md-12 banner_form_btn"><a class="lj_btn btn">立即领取</a></p>
+                <section class="assured_warp">
+                    <p class="assured">我们承诺您的信息将严格保密请放心填写</p>
+                </section>
+            </form>
+        </section>
     </section>
-    </div>
 
     <!-- banner结束 -->
     <!-- 品牌介绍 -->
@@ -60,16 +82,17 @@
     <!-- 八年沉淀 -->
     <section class="area">
         <section class="area_tit">
-            <img class="lazy" src="/static/assets/img/3_slogan.png" alt="历经八年沉淀,全国200余家校区">
+            <img class="lazy" src="/static/FrontEnd/img/3_slogan.png" alt="历经八年沉淀,全国200余家校区">
         </section>
         <h6>截止目前，魔法数学思维馆已经在全国100多个城市开设了200多家品牌加盟及合作校区，2020年将进入加速发展期</h6>
         <section class="area_con">
+            <img src="/static/upload/20200721/20200721741810.jpg">
         </section>
     </section>
     <!-- 八年沉淀 -->
     <!-- 品牌学术背景 -->
     <section class="brand">
-        <section class="brand_bg"><img class="lazy" src="/static/assets/img/4_pp.png"></section>
+        <section class="brand_bg"><img class="lazy" src="/static/FrontEnd/img/4_pp.png"></section>
         <section class="brand_ul_bg">
             <dl class="col-xs-6 col-md-6">
                 <dt class="thumbnail"><img class="lazy" src="http://img.cdn.mofashuxue.com/pyj.png" class=""></dt>
@@ -90,12 +113,12 @@
             </dl>
 
             <dl class="col-xs-6 col-md-6">
-                <dt class="thumbnail"><img class="lazy" src="/static/img/zml.png" class=""></dt>
+                <dt class="thumbnail"><img class="lazy" src="/static/FrontEnd/img/zml.png" class=""></dt>
                 <dd><p class="brand_bg_desc">张梅玲指导魔法数学研发</p>
                 </dd>
             </dl>
             <dl class="col-xs-6 col-md-6">
-                <dt class="thumbnail"><img class="lazy" src="/static/img/zxl.png" class=""></dt>
+                <dt class="thumbnail"><img class="lazy" src="/static/FrontEnd/img/zxl.png" class=""></dt>
                 <dd><p class="brand_bg_desc">周新林担任"魔法杯"思维大赛评委</p>
                 </dd>
             </dl>
@@ -104,13 +127,13 @@
     <!-- 自主研发 -->
     <section class="rd">
         <h3 class="rd_tit">自主研发多元思维课，教研部科研成果基地</h3>
-        <p class="rd_honor"><img class="lazy" src="/static/assets/img/tg.png"></p>
+        <p class="rd_honor"><img class="lazy" src="/static/FrontEnd/img/tg.png"></p>
         <section class="rd_content">
             <section class="rd_left"></section>
             <section class="rd_list">
                 <dl class="col-md-2">
                     <dt>
-                        <img class="lazy" src="/static/assets/img/5-1icon.png" />
+                        <img class="lazy" src="/static/FrontEnd/img/5-1icon.png" />
                     </dt>
                     <dd>
                         <h4>数学思维课</h4>
@@ -126,7 +149,7 @@
                 </dl>
                 <dl class="col-md-2">
                     <dt>
-                        <img class="lazy" src="/static/assets/img/5-2icon.png" />
+                        <img class="lazy" src="/static/FrontEnd/img/5-2icon.png" />
                     </dt>
                     <dd>
                         <h4>逻辑思维课</h4>
@@ -143,7 +166,7 @@
                 </dl>
                 <dl class="col-md-2">
                     <dt>
-                        <img class="lazy" src="/static/assets/img/5-3icon.png" />
+                        <img class="lazy" src="/static/FrontEnd/img/5-3icon.png" />
                     </dt>
                     <dd>
                         <h4>语言思维课</h4>
@@ -160,7 +183,7 @@
                 </dl>
                 <dl class="col-md-2">
                     <dt>
-                        <img class="lazy" src="/static/assets/img/5-4icon.png" />
+                        <img class="lazy" src="/static/FrontEnd/img/5-4icon.png" />
                     </dt>
                     <dd>
                         <h4>科学思维课</h4>
@@ -177,7 +200,7 @@
                 </dl>
                 <dl class="col-md-2">
                     <dt>
-                        <img class="lazy" src="/static/assets/img/5-5icon.png" />
+                        <img class="lazy" src="/static/FrontEnd/img/5-5icon.png" />
                     </dt>
                     <dd>
                         <h4>生活数学课</h4>
@@ -202,24 +225,26 @@
         <section class="col-md-12">
             <p class="majic_slogan">随时随地想学就学，线上线下紧密结合</p>
         </section>
-        <section class="app_img">></section>
+        <section class="app_img">
+            <img src="/static/upload/20200528/20200528552149.png">
+        </section>
     </section>
     <!-- 全新OMO教育模式 -->
     <section class="new_omo row">
         <h2 class="col-md-12">全新OMO教育模式</h2>
         <p class="new_omo_slogan">
-            <img class="lazy" src="/static/assets/img/online.png" alt="线上线下同步招生教学+分享营销裂变引流获客">
+            <img class="lazy" src="/static/FrontEnd/img/online.png" alt="线上线下同步招生教学+分享营销裂变引流获客">
         </p>
     </section>
     <section class="children"><img src="http://img.cdn.mofashuxue.com/suc.png"></section>
     <section class="learn_process row">
         <ul class="learn_ul">
-            <li class="online"><img class="lazy" src="/static/assets/img/6-1icon.png" ></li>
-            <li class="lj"><img class="lazy" src="/static/assets/img/6-2icon.png" ></li>
-            <li class="yy"><img class="lazy" src="/static/assets/img/6-3icon.png" ></li>
-            <li class="kx"><img class="lazy" src="/static/assets/img/6-4icon.png" ></li>
-            <li class="kx"><img class="lazy" src="/static/assets/img/6-5icon.png" ></li>
-            <li class="sh"><img class="lazy" src="/static/assets/img/6-6icon.png" ></li>
+            <li class="online"><img class="lazy" src="/static/FrontEnd/img/6-1icon.png" ></li>
+            <li class="lj"><img class="lazy" src="/static/FrontEnd/img/6-2icon.png" ></li>
+            <li class="yy"><img class="lazy" src="/static/FrontEnd/img/6-3icon.png" ></li>
+            <li class="kx"><img class="lazy" src="/static/FrontEnd/img/6-4icon.png" ></li>
+            <li class="kx"><img class="lazy" src="/static/FrontEnd/img/6-5icon.png" ></li>
+            <li class="sh"><img class="lazy" src="/static/FrontEnd/img/6-6icon.png" ></li>
         </ul>
         <p class="learn_line"></p>
         <ul class="learn_ul learn_ul_language">
@@ -240,7 +265,7 @@
         <p class="community_btn col-md-12"><a href="#banner_form">立 即 加 盟</a></p>
     </section>
     <section class="offline">
-        <p class="offline_tit"><img class="lazy" src="/static/assets/img/js.png" alt="线下——未来智能教室"></p>
+        <p class="offline_tit"><img class="lazy" src="/static/FrontEnd/img/js.png" alt="线下——未来智能教室"></p>
     </section>
     <!-- 智能 -->
     <section class="offline_list">
@@ -269,17 +294,17 @@
     </section>
     <!-- 线上 -->
     <section class="online_os">
-        <p class="online_tit"><img class="lazy" src="/static/assets/img/9_online.png" alt="智能学练系统"></p>
+        <p class="online_tit"><img class="lazy" src="/static/FrontEnd/img/9_online.png" alt="智能学练系统"></p>
         <ul class="online_ul">
             <li class="online_ai">
-                <img class="lazy" src="/static/assets/img/91.png">
+                <img class="lazy" src="/static/FrontEnd/img/91.png">
                 <span>AI自适应系统</span>
             </li>
-            <li class="mid"></li>
-            <li class="online_ai"><img src="/static/assets/img/92.png">
+            <li class="mid"><img src="/static/upload/20200528/20200528552307.png"></li>
+            <li class="online_ai"><img src="/static/FrontEnd/img/92.png">
                 <span>魔数APP扩展学习阅读</span>
             </li>
-            <li class="online_l"><img class="lazy" src="/static/assets/img/93.png">
+            <li class="online_l"><img class="lazy" src="/static/FrontEnd/img/93.png">
             </li>
         </ul>
         <p class="ai col-md-12">AI在线直播教学一体机</p>
@@ -288,22 +313,22 @@
         </p>
         <section class="ai_ul">
             <dl>
-                <dt><img class="lazy" src="/static/assets/img/9-1icon.png"></dt>
+                <dt><img class="lazy" src="/static/FrontEnd/img/9-1icon.png"></dt>
                 <dd class="dz">社区个性化定制
                     线上教学安排</dd>
             </dl>
             <dl>
-                <dt><img class="lazy" src="/static/assets/img/9-2icon.png"></dt>
+                <dt><img class="lazy" src="/static/FrontEnd/img/9-2icon.png"></dt>
                 <dd class="dz zb">直播DEMO课
                     在线引流招生</dd>
             </dl>
             <dl>
-                <dt><img class="lazy" src="/static/assets/img/9-3icon.png"></dt>
+                <dt><img class="lazy" src="/static/FrontEnd/img/9-3icon.png"></dt>
                 <dd class="dz js">教师端、学生端满足
                     “教”、“学”需求</dd>
             </dl>
             <dl>
-                <dt><img class="lazy" src="/static/assets/img/9-4icon.png"></dt>
+                <dt><img class="lazy" src="/static/FrontEnd/img/9-4icon.png"></dt>
                 <dd class="dz tk">AI题库匹配高质量
                     学练习题</dd>
             </dl>
@@ -311,7 +336,7 @@
     </section>
     <!-- 六大加盟优势 -->
     <section class="new_omo">
-        <h2 class="col-md-12"><img class="lazy" src="/static/assets/img/jmys.png" alt="六大品牌优势"></h2>
+        <h2 class="col-md-12"><img class="lazy" src="/static/FrontEnd/img/jmys.png" alt="六大品牌优势"></h2>
     </section>
     <section class="join_ul_jm">
         <dl>
@@ -360,7 +385,7 @@
     <!-- 六大加盟优势 -->
     <!-- 运营亮点 -->
     <section class="highlights">
-        <h3 class="highlights_tit col-md-12"><img class="lazy" src="/static/assets/img/yyld.png" alt="四大运营亮点"></h3>
+        <h3 class="highlights_tit col-md-12"><img class="lazy" src="/static/FrontEnd/img/yyld.png" alt="四大运营亮点"></h3>
         <section class="highlights_ul">
             <dl>
                 <dt>
@@ -394,29 +419,67 @@
     </section>
     <!-- 品牌荣誉 -->
     <section class="pp_honor">
-        <h5 class="col-md-12"><img class="lazy" src="/static/assets/img/ppry.png" alt="品牌荣誉"></h5>
+        <h5 class="col-md-12"><img class="lazy" src="/static/FrontEnd/img/ppry.png" alt="品牌荣誉"></h5>
     </section>
     <!-- 证书 -->
     <section class="brand_ul">
         <div id="btn-left" class="arrow-btn dasabled"></div>
         <div class="slider">
             <ul>
-                <li><img src="/static/assets/img/zs1.jpg"></li>
-                <li><img src="/static/assets/img/zs1.png"></li>
-                <li><img src="/static/assets/img/zs10.jpg"></li>
-                <li><img src="/static/assets/img/zs2.png"></li>
-                <li><img src="/static/assets/img/zs3.jpg"></li>
-                <li><img src="/static/assets/img/zs4.jpg"></li>
-                <li><img src="/static/assets/img/zs5.png"></li>
-                <li><img src="/static/assets/img/zs6.png"></li>
+                <li><img src="/static/FrontEnd/img/zs1.jpg"></li>
+                <li><img src="/static/FrontEnd/img/zs1.png"></li>
+                <li><img src="/static/FrontEnd/img/zs10.jpg"></li>
+                <li><img src="/static/FrontEnd/img/zs2.png"></li>
+                <li><img src="/static/FrontEnd/img/zs3.jpg"></li>
+                <li><img src="/static/FrontEnd/img/zs4.jpg"></li>
+                <li><img src="/static/FrontEnd/img/zs5.png"></li>
+                <li><img src="/static/FrontEnd/img/zs6.png"></li>
             </ul>
         </div>
         <div id="btn-right" class="arrow-btn"></div>
     </section>
-    {{template "index_footer"}}
-    <script type="text/javascript" src="/static/index/about.js"></script>
-    <script type="text/javascript" src="/static/index/join.js"></script>
-    <script>
+    {{template "footer" .}}
+    <script src="/static/FrontEnd/js/about.js"></script>
+    <script type="application/javascript">
+        $('.lj_btn').on('click',function () {
+            if ($('.banner_form .c-area').val()=="") {
+                layer.tips('姓名不能为空!', '.banner_form .c-area', {
+                    tips: [1, '#3595CC'],
+                    time: 4000
+                });
+                return false;
+            }
+            if ($('.banner_form .c-tel').val()=="") {
+                layer.tips('电话不能为空', '.banner_form .c-tel', {
+                    tips: [1, '#3595CC'],
+                    time: 4000
+                });
+                return false;
+            }
+            if ($('.banner_form .c-city').val()=="") {
+                layer.tips('地区不能为空┖', '.banner_form .c-city', {
+                    tips: [1, '#3595CC'],
+                    time: 4000
+                });
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/AddMessage",
+                data:$('.banner_myform').serialize(),
+                success: function (result) {
+                    if (result.code == 200) {
+                        layer.alert("留言成功");
+                        return false
+                    }
+                    layer.alert("留言失败");
+                    return false
+                }
+            })
+            return false;
+        })
         var mobileAgent = new Array("iphone", "ipod", "ipad", "android", "mobile", "blackberry", "webos", "incognito", "webmate", "bada", "nokia", "lg", "ucweb", "skyfire");
         var browser = navigator.userAgent.toLowerCase();
         var isMobile = false;

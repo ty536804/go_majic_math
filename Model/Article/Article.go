@@ -5,7 +5,6 @@ import (
 	"elearn100/Backend/Controller"
 	db "elearn100/Database"
 	"elearn100/Model/Nav"
-	"elearn100/Pkg/setting"
 	"fmt"
 	"image"
 	"io"
@@ -69,12 +68,12 @@ func EditArticle(id int, data interface{}) bool {
 }
 
 // @Summer 获取所有文章
-func GetArticles(page int, data interface{}) (articleS []Article) {
+func GetArticles(page, pageNum int, data interface{}) (articleS []Article) {
 	offset := 0
 	if page >= 1 {
-		offset = (page - 1) * setting.PageSize
+		offset = (page - 1) * pageNum
 	}
-	db.Db.Select("id,created_at,title,summary,thumb_img").Where(data).Offset(offset).Limit(setting.PageSize).Order("created_at desc").Find(&articleS)
+	db.Db.Select("id,created_at,title,summary,thumb_img").Where(data).Offset(offset).Limit(pageNum).Order("created_at desc").Find(&articleS)
 	return
 }
 
@@ -212,9 +211,11 @@ func ReplaceContent(content string) string {
 	res := reg.FindAllStringSubmatch(content, -1)
 	for _, v := range res {
 		png := ThumbImgType(v[1]) //原有图片地址
-		_newUrl := TrimUrl(png, v[1])
-		if _newUrl != "" || !strings.Contains("mp4", png) {
-			content = ReplaceUrl(content, _newUrl, v[1])
+		if png != "" {
+			_newUrl := TrimUrl(png, v[1])
+			if _newUrl != "" || !strings.Contains("mp4", png) {
+				content = ReplaceUrl(content, _newUrl, v[1])
+			}
 		}
 	}
 	resCon := strings.Replace(content, "data-src", "src", -1)
@@ -255,7 +256,7 @@ func ThumbImg(ImgSrc string) string {
 		png = ".gif"
 	}
 	if strings.HasSuffix(ImgSrc, "mp4") {
-		png = ""
+		png = ".mp4"
 	}
 	return png
 }

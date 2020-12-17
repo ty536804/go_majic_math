@@ -123,3 +123,8 @@ func EditUser(id int64, data interface{}) bool {
 	}
 	return true
 }
+
+func GetLastUserId() (admin SysAdminUser) {
+	db.Db.Select("id").Order("id desc").Limit(1).Find(&admin)
+	return
+}

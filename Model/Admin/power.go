@@ -1,19 +1,31 @@
 package Admin
 
 import (
-	"elearn100/Database"
+	db "elearn100/Database"
 )
 
-//权限
+// @Summer 权限表
 type SysAdminPower struct {
-	Database.Model
+	Id        int    `json:"id" gorm:"primary_key:true;unique;"`
+	PowerName string `json:"power_name" gorm:"comment:'权限名称' " `
+	Level     int    `json:"level" gorm:"not null;default 0;comment:'级别'"`
+	Pid       int    `json:"pid" gorm:"not null;default 0;comment:'父ID' " `
+	Status    int    `json:"status" gorm:"not null;default 1;comment:'状态 1有效 0无效'" `
+	Icon      string `json:"icon" gorm:"varchar(50);not null;default '';comment:'icon 图标'"`
+	Path      string `json:"path" gorm:"varchar(100);not null; default ''; comment:'访问地址'"`
+	Desc      string `json:"desc" gorm:"type:varchar(200); not null; default '';comment:'描述'" `
 
-	Pname    string `json:"pname" gorm:"type:varchar(50); not null; default ''; comment:'权限名称' "`
-	Ptype    int64  `json:"ptype" gorm:"not null;default:'1'; unique; comment:'1 左侧菜单 2顶部菜单' "`
-	Icon     string `json:"icon" gorm:"varchar(50); not null;default ''; comment:'权限ICON样式名称' "`
-	Desc     string `json:"desc" gorm:"varchar(50); not null; default ''; comment:'权限描述' "`
-	Purl     string `json:"purl" gorm:"varchar(100;); not null; default:''; comment:'权限地址' "`
-	ParentId int64  `json:"parent_id" gorm:"not null; default:'0'; comment:'上级地址' "`
-	Pindex   int64  `json:"pindex" gorm:"not null;unique; default:'0'; comment:'显示排序' "`
-	Status   int64  `json:"status" gorm:"not null; default:1; comment:'状态 1 显示 0不显示'" binding:"required"`
+	db.Model
+}
+
+// @Summer 获取权限列表
+func GetParentPower(level int) (power []SysAdminPower) {
+	db.Db.Select("power_name, level, pid, id, status, icon, path").Where("pid = ? and status=1", level).Find(&power)
+	return
+}
+
+// @Summer 获取权限列表
+func GetChildPower(pid int) (power []SysAdminPower) {
+	db.Db.Select("power_name, level, pid, id, status, icon, path").Where("pid = ? and status=1", pid).Find(&power)
+	return
 }

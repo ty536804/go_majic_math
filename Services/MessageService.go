@@ -1,7 +1,6 @@
 package Services
 
 import (
-	"elearn100/Model/Elearn"
 	"elearn100/Model/Message"
 	"elearn100/Pkg/e"
 	"fmt"
@@ -21,7 +20,8 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	mname := com.StrTo(c.PostForm("mname")).String()
 	area := com.StrTo(c.PostForm("area")).String()
 	tel := com.StrTo(c.PostForm("tel")).String()
-	com := com.StrTo(c.PostForm("com")).String()
+	webCom := com.StrTo(c.PostForm("com")).String()
+	webType := com.StrTo(c.PostForm("client")).String()
 
 	valid := validation.Validation{}
 	valid.Required(mname, "mname").Message("姓名不能为空")
@@ -32,12 +32,12 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		data["area"] = area
 		data["tel"] = tel
 		data["content"] = ""
-		data["com"] = com
-		data["client"] = "pc"
+		data["com"] = webCom
+		data["client"] = webType
 		data["ip"] = c.Request.RemoteAddr
 		data["channel"] = 1
-		SendSmsToClient(area, mname, tel)      //发送短信
-		Elearn.AddMessage(c, mname, area, tel) //额learn100
+		//SendSmsToClient(area, mname, tel)      //发送短信
+		//Elearn.AddMessage(c, mname, area, tel) //额learn100
 		if Message.AddMessage(data) {
 			return e.SUCCESS, "提交成功"
 		}

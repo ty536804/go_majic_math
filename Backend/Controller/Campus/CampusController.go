@@ -1,21 +1,25 @@
 package Campus
 
 import (
+	"elearn100/Model/Admin"
+	"elearn100/Model/Campus"
 	"elearn100/Pkg/e"
+	"elearn100/Pkg/setting"
 	"elearn100/Services"
 	"github.com/gin-gonic/gin"
+	"github.com/unknwon/com"
 )
-
-// @Summer 全国校区
-func Index(c *gin.Context) {
-	c.HTML(e.SUCCESS, "campus/index.html", gin.H{
-		"title": "全国校区",
-	})
-}
 
 // @Summer 获取全国校区API
 func GetCampus(c *gin.Context) {
-	e.Success(c, "全国校区", Services.GetCampuses(c))
+	var data = make(map[string]interface{})
+	data["a_level"] = 1
+	data["areas"] = Admin.GetAreas(data)
+	page := com.StrTo(c.Query("page")).MustInt()
+	data["count"] = Campus.CountCampus(make(map[string]interface{}))
+	data["list"] = Campus.GetCampus(page, make(map[string]interface{}))
+	data["size"] = setting.PageSize
+	e.Success(c, "全国校区", data)
 }
 
 // @Summer 获取单个校区API

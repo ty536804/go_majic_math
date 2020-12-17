@@ -1,38 +1,53 @@
 {{define "index/new.html"}}
     <!DOCTYPE html>
-    <html lang="en">
+    <html>
     <head>
-        <meta charset="UTF-8">
-        <title>最近动态</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="apple-touch-fullscreen" content="yes">
-        <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
-        <!--bootstrap start--->
-        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        {{template "head"}}
-        <link href="/static/assets/css/new.css" rel="stylesheet"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>北京易学教育科技有限公司-{{.title}}</title>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/news.css" rel="stylesheet">
     </head>
     <body>
-    <section class="detail_head">
-        {{template "nav"}}
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/news" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
     </section>
-    <section class="new_banner">
-        <img src="/static/assets/img/zxdt_banner.jpg" />
+    <!-- 轮播 -->
+    {{ template "banner" .}}
+    <section class="pub new_ul">
+        {{ range .data.list }}
+        <a href="/detail?id={{.ID}}">
+            <dl>
+                <dt>
+                    <img src="{{.ThumbImg}}" class="lazy" />
+                </dt>
+                <dd>
+                    <h3>{{.Title}}</h3>
+                    <p>{{.Summary}}</p>
+                </dd>
+            </dl>
+{{/*            <span></span>*/}}
+        </a>
+        {{end}}
     </section>
-    <section class="new_ul">
-    </section>
-    <!--分页-->
-    <section style="width: 1200px;margin: 0 auto">
-        <input type="hidden" id="PageCount" value="0">
+    <section class="pub w12">
+        <input type="hidden" id="PageCount" value="{{.data.count}}">
         <div id="example" style="text-align: center"> <ul id="pageLimit"></ul>
         </div>
     </section>
-    <!-- 版权 -->
-    {{template "index_footer"}}
-    <script src="/static/js/bootstrap-paginator.js"></script>
-    <script type="text/javascript" src="/static/index/new.js"></script>
+    {{template "footer" .}}
+    <script src="/static/FrontEnd/js/bootstrap-paginator.js"></script>
+    <script src="/static/FrontEnd/js/news.js"></script>
     </body>
     </html>
 {{end}}

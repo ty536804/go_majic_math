@@ -2,6 +2,7 @@ package Admin
 
 import (
 	"elearn100/Pkg/e"
+	"elearn100/Services"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,4 +17,9 @@ func PowerShow(c *gin.Context) {
 // @summer 添加权限
 func PowerAdd(c *gin.Context) {
 	c.Request.Body = e.GetBody(c)
+}
+
+// @Summer 获取列表
+func GetPowers(c *gin.Context) {
+	e.Success(c, "菜单", Services.GetPower())
 }

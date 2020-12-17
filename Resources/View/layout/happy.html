@@ -1,0 +1,15 @@
+{{define "happy"}}
+    <section class="pub happy">
+        <h3 class="w12 f36">趣味课堂 让孩子重拾数学乐趣</h3>
+        <section class="bline w12">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="happy_ul">
+            {{ range .data.index_happy}}
+                <li {{if .Summary }} class="p120" {{end}}>{{if .ThumbImg }} <img src="{{.ThumbImg}}" class="lazy" /> <span class="xsjt"></span> {{end}} {{.Summary | unescaped}}</li>
+            {{end}}
+        </section>
+    </section>
+{{end}}

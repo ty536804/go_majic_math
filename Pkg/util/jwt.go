@@ -1,12 +1,24 @@
 package util
 
 import (
+	"elearn100/Model/Admin"
 	"elearn100/Pkg/setting"
 	"github.com/dgrijalva/jwt-go"
+	"github.com/gin-gonic/gin"
+	"sort"
+	"strings"
 	"time"
 )
 
-var jwtSecret = []byte(setting.JwrSecret)
+var (
+	pubParam  = []string{"timestamp", "version", "client", "sign"}
+	jwtSecret = []byte(setting.JwrSecret)
+)
+
+const (
+	secre   = "brocaedu"
+	version = "1.0"
+)
 
 type Claims struct {
 	LoginName string `json:"login_name"`
@@ -44,4 +56,35 @@ func ParseToken(token string) (*Claims, error) {
 		}
 	}
 	return nil, err
+}
+
+// @Summer 排序
+func SortParam(c *gin.Context) string {
+	sort.Strings(pubParam)
+	newParam := ""
+	for _, v := range pubParam {
+		_defParam := strings.TrimSpace(c.PostForm(v))
+		if _defParam == "" {
+			continue
+		}
+		newParam += v + strings.TrimSpace(c.PostForm(v))
+	}
+	return newParam
+}
+
+// @Summer 加密
+func GetSignContent(c *gin.Context) string {
+	newParam := SortParam(c) + secre
+	return Admin.Md5Pwd(newParam)
+}
+
+// @Summer 校验公共参数
+func CheckLoginParam(c *gin.Context) (isOk bool) {
+	for _, v := range pubParam {
+		_, isOk := c.GetPostForm(v)
+		if !isOk {
+			return false
+		}
+	}
+	return true
 }

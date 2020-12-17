@@ -19,6 +19,7 @@ func AddCampus(c *gin.Context) (code int, err string) {
 	address := com.StrTo(c.PostForm("address")).String()
 	schoolImg := com.StrTo(c.PostForm("school_img")).String()
 	province := com.StrTo(c.PostForm("province")).MustInt()
+	isShow := com.StrTo(c.PostForm("is_show")).MustInt()
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	provinceName := com.StrTo(c.PostForm("province_name")).String()
 
@@ -42,6 +43,7 @@ func AddCampus(c *gin.Context) (code int, err string) {
 		data["school_img"] = schoolImg
 		data["province"] = province
 		data["province_name"] = provinceName
+		data["is_show"] = isShow
 		if id < 1 {
 			isOk = Campus.AddCampus(data)
 		} else {
@@ -54,6 +56,19 @@ func AddCampus(c *gin.Context) (code int, err string) {
 		return e.ERROR, "操作失败"
 	}
 	return ViewErr(valid)
+}
+
+// 获取北京校区
+func GetLimitCampus() (campuses []Campus.Campus) {
+	data := make(map[string]interface{})
+	data["province"] = "110000"
+	data["is_show"] = 1
+	return Campus.GetCampus(1, data)
+}
+
+// 获取北京校区
+func GetAllCampus() (subUser []Campus.SubUser) {
+	return Campus.GroupCampus()
 }
 
 // @Summer 缓冲区存储校区

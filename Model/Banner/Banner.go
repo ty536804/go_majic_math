@@ -25,7 +25,10 @@ type Banner struct {
 	EndTime    time.Time `json:"end_time" time_format:"2006-01-02 15:04:05" gorm:"default '';comment:'显示结束时间'"`
 	IsShow     int       `json:"is_show" gorm:"default '1';comment:'状态 1显示 2隐藏'"`
 	ImageSize  string    `json:"image_size" gorm:"type:varchar(190);not null;default '';comment:'图片大小 长*高*宽'"`
-	Info       string    `json:"info" gorm:"type:varchar(190);not null;default '';comment:'备注'"`
+	Info       string    `json:"info" gorm:"type:varchar(255);not null;default '';comment:'备注'"`
+	Tag        string    `json:"tag" gorm:"type:varchar(190);not null;default '';comment:'标签'"`
+	Type       int       `json:"type" gorm:"not null;default '1';comment:'1 PC 2 WAP'"`
+	Sort       int       `json:"sort" gorm:"not null;default '0';comment:'排序'"`
 }
 
 // @Summer 添加banner
@@ -41,6 +44,9 @@ func AddBanner(data map[string]interface{}) bool {
 		Info:       data["info"].(string),
 		TargetLink: data["target_link"].(string),
 		IsShow:     data["is_show"].(int),
+		Tag:        data["tag"].(string),
+		Type:       data["type"].(int),
+		Sort:       data["sort"].(int),
 		BeginTime:  startTime,
 		EndTime:    startTime,
 	})
@@ -62,8 +68,8 @@ func EditBanner(id int, data interface{}) bool {
 	return true
 }
 
-func GetOneBanner(id int) (banner Banner) {
-	db.Db.Where("bposition = ?", id).Order("sort desc").First(&banner)
+func GetOneBanner(id, clientType int, tag string) (banner Banner) {
+	db.Db.Where("bposition = ? and type = ? and tag =? ", id, clientType, tag).First(&banner)
 	return
 }
 
@@ -73,7 +79,7 @@ func GetBanners(page int) (banner []Banner) {
 	if page >= 1 {
 		offset = (page - 1) * setting.PageSize
 	}
-	db.Db.Preload("Navs").Offset(offset).Limit(setting.PageSize).Find(&banner)
+	db.Db.Preload("Navs").Offset(offset).Limit(setting.PageSize).Order("id desc").Find(&banner)
 	return
 }
 
@@ -90,14 +96,20 @@ func GetBanner(id int) (banner Banner) {
 }
 
 // @Summer获取所有banner
-func GetBannerData(bposition int) (banner []Banner) {
-	db.Db.Where("bposition = ?", bposition).Order("sort desc").Find(&banner)
+func GetBannerData(posi, clientType int, tag string) (banner []Banner) {
+	db.Db.Where("bposition = ? and type = ? and tag = ? and is_show=1", posi, clientType, tag).Order("sort desc").Find(&banner)
 	return
 }
 
 // @Summer获取所有banner
 func GetData(bposition, posi int) (banner []Banner) {
 	db.Db.Where("bposition = ? and posi= ?", bposition, posi).Order("sort desc").Find(&banner)
+	return
+}
+
+// @Summer获取所有banner
+func GetBannerByTag(poi, clientType int, tag string) (banner []Banner) {
+	db.Db.Where("bposition = ? and type = ? and tag = ?", poi, clientType, tag).Find(&banner)
 	return
 }
 

@@ -21,9 +21,14 @@ func AddBanner(c *gin.Context) (code int, err string) {
 	targetLink := com.StrTo(c.PostForm("target_link")).String()
 	isShow := com.StrTo(c.PostForm("is_show")).MustInt()
 	info := com.StrTo(c.PostForm("info")).String()
+	sort := com.StrTo(c.PostForm("sort")).MustInt()
+	tag := com.StrTo(c.PostForm("tag")).String()
+	webType := com.StrTo(c.PostForm("type")).MustInt()
+
 	if strings.HasPrefix(imgUrl, "/static/upload/") {
 		imgUrl = strings.Replace(imgUrl, "/static/upload/", "", -1)
 	}
+
 	valid := validation.Validation{}
 	valid.Required(bName, "bname").Message("名称不能为空")
 	valid.Required(bPosition, "bposition").Message("展示位置必须选择")
@@ -38,6 +43,10 @@ func AddBanner(c *gin.Context) (code int, err string) {
 		data["bposition"] = bPosition
 		data["imgurl"] = imgUrl
 		data["is_show"] = isShow
+		data["sort"] = sort
+		data["tag"] = tag
+		data["type"] = webType
+
 		isOK := false
 		if id < 1 {
 			isOK = Banner.AddBanner(data)

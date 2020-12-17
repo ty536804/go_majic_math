@@ -15,6 +15,10 @@ import (
 
 //登录验证
 func Login(c *gin.Context) (code int, err string) {
+	isOk, tokVal := e.GetVal("token")
+	if isOk {
+		return e.SUCCESS, tokVal
+	}
 	c.Request.Body = e.GetBody(c)
 	loginName := e.Trim(c.PostForm("uname"))
 	pwd := e.Trim(c.PostForm("pword"))
@@ -25,16 +29,13 @@ func Login(c *gin.Context) (code int, err string) {
 	if !valid.HasErrors() {
 		err, uuid := Admin.GetUserInfo(loginName, pwd)
 		if err != nil {
-			fmt.Println("err")
 			return e.ERROR, err.Error()
 		}
-		token, err := util.GenerateToken(loginName, pwd)
-		if isOk, _ := e.GetVal("token"); !isOk {
-			e.SetCookie(c, uuid, 10800)
-			e.SetVal("token", token)
-			SaveUserInfo(uuid)
-		}
-		return e.SUCCESS, "登录成功"
+		token := util.GetSignContent(c)
+		e.SetCookie(c, uuid, 10800)
+		e.SetVal("loginuid", string(uuid))
+		SaveUserInfo(uuid)
+		return e.SUCCESS, token
 	}
 	return ViewErr(valid)
 }
@@ -263,4 +264,7 @@ func DetailsUser(c *gin.Context) (err error, admins Admin.SysAdminUser) {
 		admins = Admin.Find(int64(uid))
 	}
 	return nil, admins
+}
+func GetLastUser() (id int) {
+	return Admin.GetLastUserId().ID
 }

@@ -1,19 +1,29 @@
 {{define "index/detail.html"}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>北京易学教育科技有限公司</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-touch-fullscreen" content="yes">
-    {{template "head"}}
-    <link href="/static/assets/css/detail.css" rel="stylesheet"/>
-</head>
-<body>
-<section class="detail_head">
-    {{template "nav"}}
-</section>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>北京易学教育科技有限公司-{{.title}}</title>
+        <meta name="description" content="{{.data.siteInfo.SiteDesc}}" />
+        <meta name="Keywords" content="{{.data.siteInfo.SiteKeyboard}}" />
+        <link rel="shortcut icon" href="/static/assets/img/favicon.ico" />
+        {{template "css"}}
+        <link href="/static/FrontEnd/css/detail.css" rel="stylesheet">
+    </head>
+    <body>
+    {{ template "menu" .}}
+    <section class="menu">
+        <ul>
+            {{ range  .data.menu }}
+                {{ $act := "/news" }}
+                <a href="{{.BaseUrl}}" {{ if eq .BaseUrl $act }} class="menu_index" {{end}}>{{.Name}}</a>
+            {{end}}
+        </ul>
+    </section>
+    <!-- 轮播 -->
+    {{ template "banner" .}}
     <section class="detail">
         <h1 class="detail_tit">{{.detail.Title}}</h1>
         <p class="detail_date">{{.time}}</p>
@@ -22,7 +32,7 @@
             {{.detail.Content | unescaped}}
         </section>
     </section>
-{{template "index_footer"}}
-</body>
-</html>
+    {{template "footer" .}}
+    </body>
+    </html>
 {{end}}
