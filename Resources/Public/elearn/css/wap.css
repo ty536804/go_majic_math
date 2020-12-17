@@ -502,6 +502,9 @@ label {
 .zs_list {
     height: 758px;
 }
+.zs_list img{
+    height: 758px;
+}
 .zs_list .zs {
     margin:0 auto
 }
