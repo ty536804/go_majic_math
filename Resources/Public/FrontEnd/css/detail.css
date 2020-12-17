@@ -1,0 +1,53 @@
+.detail_head {
+    background: #fff;
+}
+@font-face {
+    font-family: MicrosoftYaHei-Bold;
+    src: url("../../fonts/Microsoft-YaHei-Bold.ttc");
+}
+@font-face {
+    font-family:MicrosoftYaHei;
+    src: url("../../fonts/Microsoft-YaHei-Regular.ttc");
+}
+@font-face {
+    font-family:MicrosoftYaHeiSemibold;
+    url("../../fonts/Microsoft-YaHei-Semibold.ttc");
+}
+
+body {
+    background: #F0F2F5;
+}
+.detail{
+    width: 1200px;
+    margin:0 auto;
+}
+.detail_tit{
+    width:100%;
+    height:31px;
+    font-size:24px;
+    font-family:MicrosoftYaHei-Bold,MicrosoftYaHei;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    line-height:31px;
+    margin-bottom:10px;
+    margin-top:30px;
+}
+.detail_date{
+    width:100%;
+    height:21px;
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    color:rgba(51,51,51,1);
+    line-height:21px;
+}
+.detail_line{
+    width:100%;
+    text-align:left;
+    height:1px;
+    background:rgba(223,225,229,1);
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.detail_con img{
+    max-width: 1200px;
+}

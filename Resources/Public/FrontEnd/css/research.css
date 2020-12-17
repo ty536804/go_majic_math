@@ -1,0 +1,185 @@
+/* 著名数理专家倾情加盟 倾力打造魔法数学课程 */
+.sub{
+	background: url(../img/samllIcon.png);
+	height: 513px;
+	width: 100%;
+	margin-top: 23px;
+}
+
+.sub h3{
+	text-align: center;
+	height: 37px;
+	line-height: 37px;
+	margin: 100px auto 35px auto;
+}
+.sub .bline{
+	margin-bottom: 452px;
+}
+.sub_con {
+	height: 487px;
+	display: flex;
+	justify-content: center;
+	width: 1198px;
+	margin: -272px auto 119px auto;
+}
+.sub_con li{
+	width: 352px;
+	height: 487px;
+	background: #F1F3F4;
+}
+.sub_con li img{
+	width: 353px;
+	height: 453px;
+	margin-top: 34px;
+}
+.sub_con span{
+	width: 133px;
+	height: 42px;
+	background: linear-gradient(91deg, rgba(241, 243, 244, 0), #b499e4);
+	border-radius: 21px;
+	font-size: 25px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 42px;
+	margin: 270px auto 26px auto;
+	display: inline-block;
+	text-align: center;
+}
+.sub_con p{
+	width: 100%;
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+	line-height: 31px;
+}
+.sub_con li:nth-child(2),.sub_con li:nth-child(4){
+	width: 247px;
+	height: 487px;
+	background: url(../img/humanbg.png) no-repeat top center;
+	background-size: 247px 487px;
+	text-align: center;
+}
+/* 魔法数学教材 让独立思考成为孩子的习惯 */
+.xiguai h3{
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+}
+.xiguai .bline{
+	margin: 36px auto 53px auto;
+}
+.jiao_li{
+	margin-top: 64px;
+}
+.xiguai h4{
+	width: 869px;
+	height: 79px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #727171;
+	line-height: 28px;
+	margin: 0 auto;
+}
+.jiao_li img{
+	width: 20%;
+	max-width: 385px;
+	display: inline-block;
+	float: left;
+}
+/* 多种教具配合教材使用 让学习效果事半功倍 */
+.gbei {
+	width: 1233px;
+	height: 1036px;
+	margin: 99px auto 0;
+}
+.gbei h3{
+	text-align: center;
+	height: 37px;
+	color: #4A4A4A;
+	line-height: 37px;
+}
+.gbei .bline{
+	margin: 35px auto 54px auto;
+}
+.gbei .gbei_desc{
+	width: 813px;
+	height: 49px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #727171;
+	line-height: 27px;
+	margin: 0 auto;
+}
+.sbgb{
+	width: 1233px;
+	height: 804px;
+	margin: 54px auto 0 auto;
+}
+.sbgb img{
+	width: 1233px;
+	height: 804px;
+}
+/* “魔法杯”思维盛典 让思维力的佼佼者脱颖而出 */
+.jiaojiao{
+	width: 100%;
+	height: 994px;
+	background: #F3F3F3;
+	margin-top: 69px;
+	margin-bottom: 113px;
+}
+.jiaojiao h3{
+	height: 36px;
+	line-height: 36px;
+	margin: 91px auto 36px auto;
+}
+.jiaojiao .bline{
+	margin: 0 auto 53px auto;
+}
+.jiaojiao_desc{
+	width: 963px;
+	height: 79px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #727171;
+	line-height: 27px;
+	text-align: center;
+	margin: 0 auto 60px auto;
+}
+.tyec_con{
+	width: 1066px;
+	margin: 0 auto 87px auto;
+	display: flex;
+	justify-content: space-between;
+}
+.tyec_l,.tyec_l dl ,.tyec_l dl dt ,.tyec_l dl dt  img{
+	width: 517px;
+	height: 544px;
+}
+.tyec_con dl dd {
+	width: 100%;
+	height: 48px;
+	background: #000000;
+	opacity: 0.57;
+	margin-top: -48px;
+}
+.tyec_r_t,.tyec_r_t dl ,.tyec_r_t dl dt ,.tyec_r_t dl dt img{
+	width: 517px;
+	height: 274px;
+}
+
+.tyec_r_b{
+	width: 517px;
+	display: flex;
+	height: 242px;
+	justify-content: space-between;
+	margin-top: 26px;
+}
+.tyec_r_b dl ,.tyec_r_b dl dt ,.tyec_r_b dl dt img{
+	width: 249px;
+	height: 242px;
+}

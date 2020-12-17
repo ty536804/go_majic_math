@@ -1,0 +1,506 @@
+/* 抓住成长关键期 培养孩子每个阶段具备的核心能力 */
+.power{
+	margin-top: 74px;
+	height: 948px;
+}
+.power h3{
+	height: 96px;
+	line-height: 52px;
+}
+.powerUl {
+	width: 878px;
+	display: flex;
+	justify-content: space-around;
+	margin: 0 auto 52px auto;
+}
+.powerUl li {
+	width: 208px;
+	height: 74px;
+	background: #A070F9;
+	box-shadow: 0px 4px 26px 3px rgba(187, 153, 250, 0.48);
+	border-radius: 37px;
+	font-size: 36px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 74px;
+	text-align: center;
+}
+.powerUl li:nth-child(2),.powerUl li:nth-child(4) {
+	width: 91px;
+	height: 74px;
+	background: url(../img/powerUl.png) no-repeat center center;
+	background-size: 91px 17px;
+	border-radius: unset;
+	box-shadow: none;
+}
+.power .bline{
+	margin: 43px auto 58px auto;
+}
+.power_con{
+	width: 100%;
+	height: 622px;
+	background: #E6DAFC;
+	display: flex;
+	justify-content: space-around;
+}
+.power_con_m{
+	width: 1201px;
+	height: 457px;
+	border-radius: 50px;
+	margin-top: 81px;
+	background: #fff;
+}
+.xs{
+	background-size: 50px 35px;
+	background: url(../img/xs.png) no-repeat right 236px top;
+	position: absolute;
+	z-index: 1;
+	height: 35px;
+	margin-top: -33px;
+}
+.power_con_l{
+	width: 203px;
+	height: 457px;
+	background: url(../img/powerL.png) no-repeat left bottom 54px;
+	background-size: 203px 169px;
+	margin-top: 81px;
+}
+.power_con_r{
+	width: 145px;
+	height: 457px;
+	background: url(../img/powerR.png) no-repeat right bottom 140px;
+	background-size: 145px 129px;
+	margin-top: 81px;
+}
+.power_con_m h4{
+	text-align: center;
+	height: 36px;
+	color: #A070F9;
+	line-height: 36px;
+	margin: 48px auto 39px auto;
+}
+.power_con_m ul{
+	width: 740px;
+	margin: 0 auto;
+}
+.power_con_m ul li {
+	width: 100%;
+	height: 83px;
+	line-height:83px;
+	background: #F8F4FF;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 13px;
+	font-size: 24px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+}
+.power_con_m ul li span{
+	width: 31px;
+	height: 31px;
+	background: #000;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-block;
+	line-height: 31px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 27px 45px 0  40px;
+}
+/* 六大教学体系 促进思维发展 */
+.chuojin{
+	width: 100%;
+	height: 1030px;
+	background: #A070F9;
+	margin-top: 27px;
+}
+.chuojin h3{
+	margin: 63px auto 32px auto;
+}
+.chuojin .bline{
+	margin: 0 auto 8px auto;
+}
+.chuojin .bline p{
+	border-bottom: 1px solid #fff;
+}
+.chuojin .bline p span{
+	background: #FFFFFF;
+}
+.cjcon_warp{
+	width: 100%;
+	height: 823px;
+	margin-bottom: 77px;
+}
+.cjcon{
+	width: 1167px;
+	display: flex;
+	justify-content: center;
+	height: 823px;
+	position: relative;
+	margin: 0 auto;
+}
+.cjl{
+	width: 375px;
+	height: 696px;
+	position: absolute;
+	z-index: 1;
+	left: -126px;
+	bottom: -90px;
+}
+.cjr{
+	width: 631px;
+	position: absolute;
+	top: -377px;
+	right: -128px;
+	height: 983px;
+	z-index: 1;
+}
+.cjc{
+	width: 894px;
+}
+.chuojin h3{
+	text-align: center;
+	height: 36px;
+	color: #FFFFFF;
+	line-height: 36px;
+}
+/* 魔法数学课程体系 为少儿提供高品质的学习方案 */
+.fangan{
+	margin: 92px auto 0 auto;
+	height: 1161px;
+}
+.fangan h3{
+	height: 36px;
+	line-height: 36px;
+	margin: 0 auto;
+}
+.fangan .bline{
+	margin: 32px auto 77px auto;
+}
+.level{
+	width: 1183px;
+	height: 391px;
+	margin: 0 auto 6px auto;
+}
+.core{
+	width: 1183px;
+	height: 52px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+.core li{
+	width: 156px;
+	height: 52px;
+	background: #EEEEEE;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8567BB;
+	line-height: 52px;
+}
+.core li:first-child{
+	width: 139px;
+	margin-right: 90px;
+}
+.aim{
+	width: 1183px;
+	height: 358px;
+	display: flex;
+	justify-content: space-between;
+	margin: 6px auto 12px auto;
+}
+.aim li{
+	width: 156px;
+	height: 358px;
+	border-radius: 10px;
+	text-align: center;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	font-size: 14px;
+	line-height: 22px;
+}
+.aim li:first-child{
+	width: 139px;
+	background: #EEEEEE;
+	font-size: 18px;
+	font-weight: bold;
+	color: #8567BB;
+	line-height: 358px;
+	margin-right: 90px;
+	padding: unset;
+}
+.aim li:nth-child(2){
+	background: #4CC9F0;
+	padding-top: 28px;
+}
+.aim li:nth-child(3){
+	background:#4461EF;
+	padding-top: 17px;
+}
+.aim li:nth-child(4){
+	background:#3A0BA4;
+	padding-top: 24px;
+}
+.aim li:nth-child(5){
+	background:#7209B7;
+	padding-top: 44px;
+}
+.aim li:nth-child(6){
+	background:#B5189F;
+	padding-top: 36px;
+}
+.aim li:last-child{
+	background:#F72585;
+	padding-top: 90px;
+}
+.week{
+	width: 1183px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto 4px auto;
+}
+.week li:first-child{
+	width: 106px;
+	height: 35px;
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #8567BB;
+	line-height: 18px;
+	text-align: center;
+	margin-right: 50px;
+}
+.week li:nth-child(2){
+	width: 336px;
+	height: 40px;
+	margin-right: 97px;
+}
+.week li:last-child{
+	width: 336px;
+	height: 40px;
+}
+.plan{
+	width: 1183px;
+	height: 144px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+.plan_gh{
+	width: 139px;
+	height: 144px;
+	background: #EEEEEE;
+	border-radius: 10px;
+	line-height: 144px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8567BB;
+	text-align: center;
+}
+.plan_ul_f{
+	width: 1039px;
+	padding: 0;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	display: flex;
+}
+.plan_ul_f li{
+	width: 156px;
+	height: 49px;
+	background: #EEEEEE;
+	border-radius: 10px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #8567BB;
+	line-height: 49px;
+	text-align: center;
+} 
+.plan_ul_f li:first-child{
+	width: 79px;
+	font-size: 16px;
+	line-height: 18px;
+	padding-top: 8px;
+	box-sizing: border-box;
+}
+.plan_ul_l{
+	width: 100%;
+	padding: 0;
+	justify-content: space-between;
+	flex-flow: row wrap;
+	display: flex;
+	margin-top: 7px;
+}
+.plan_ul_l li{
+	width: 476px;
+	height: 88px;
+	background: #EEEEEE;
+	border-radius: 10px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #8567BB;
+	line-height: 24px;
+	text-align: center;
+}
+.plan_ul_l li:first-child{
+	width: 79px;
+	padding-top: 29px;
+	font-size: 16px;
+}
+.plan_ul_l li:nth-child(2){
+	padding-top: 12px;
+	font-size: 18px;
+}
+.plan_ul_l li:last-child{
+	font-size: 14px;
+	padding-top: 8px;
+	line-height: 20px;
+}
+/* 趣味课堂 让孩子重拾数学乐趣 */
+.happy_warp{
+	width: 100%;
+	background: #F2F3F5;
+	margin: 104px auto 92px auto;
+	position: relative;
+	height: 1635px;
+}
+.happy_w{
+	width: 100%;
+	height: 1635px;
+	position: absolute;
+	top: -80px;
+}
+.happy{
+	margin: 206px auto 0 auto;
+}
+.happy h6{
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+}
+.happy .bline{
+	margin: 32px auto 76px auto;
+}
+.happy_ul {
+	width: 1199px;
+	margin: 0 auto 87px auto;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+}
+.happy_ul li{
+	width: 399px;
+	height: 314px;
+	background: #F5FAFD;
+	background-size: 34px 18px;
+	font-size: 24px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #595858;
+	line-height: 36px;
+	text-align: center;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+}
+.happy_ul li .xsjt{
+	background:url("../img/xsjt.png") no-repeat bottom center;
+	background-size: 34px 18px;
+	position: absolute;
+	left: 0;
+	height: 18px;
+	width: 100%;
+	bottom: -1px;
+	z-index: 1;
+}
+.happy_ul li img{
+	cursor: pointer;
+	transition: all 0.6s;
+	width: 399px;
+	height: 314px;
+}
+.happy_ul li img:hover{
+	transform: scale(1.2);
+}
+.p120{
+	padding-top: 120px;
+}
+.wr{
+	width: 258px;
+    height: 258px;
+    background: #fff;
+    border: 13px solid #d7c1fd;
+    border-radius: 50%;
+	position: absolute;
+	z-index: 2;
+}
+.nr{
+	width: 226px;
+	height: 226px;
+	background: #7209B7;
+	border: 7px solid #FFFFFF;
+	border-radius: 50%;
+	margin: 2.5px auto;
+}
+.nr h4{
+	width: 100%;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	font-size: 28px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	margin: 44px auto 25px auto;
+}
+.nr p {
+	text-align: center;
+	height: 79px;
+	width: 100%;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 28px;
+}
+.cj_num{
+	left: 30px;
+	top: -14px;
+}
+.cj_vs{
+	left: -130px;
+	top: 230px;
+}
+.cj_kj{
+	left: 41px;
+	top: 520px;
+}
+.cj_fl{
+	right: 10px;
+	top: -14px;
+}
+.cj_dy{
+	right: -130px;
+	top: 250px;
+}
+.cj_dy .nr,.cj_fl .nr{
+	background: #4CC9F0;
+}
+
+.cj_lj{
+	right: 30px;
+	top: 520px;
+}
+.cj_lj .nr{
+	background: #FFE719;
+}

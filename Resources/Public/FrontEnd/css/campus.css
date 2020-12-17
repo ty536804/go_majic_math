@@ -1,0 +1,85 @@
+.school_map_bg img {
+    width: 100%;
+    height: 100%;
+}
+#chart-panel {
+    position: relative;
+    top: 0;
+    width: 1146px;
+}
+.school_ul{
+	width: 1056px;
+	margin: 0 auto;
+}
+.school_ul dl {
+    width: 100%;
+    height: 311px;
+    border-radius: 5px;
+	display: flex;
+	box-shadow: 0px 5px 23px 0px #d1d1d1
+}
+.school_ul dl dt {
+	margin: 28px 56px 0 28px;
+    width: 350px;
+    height: 250px;
+}
+.school_ul dl dt img {
+    width: 350px;
+    height: 250px;
+}
+.school_ul dl dd {
+    width: 490px;
+    height: 311px;
+    float: left;
+    text-align: left;
+    font-family: MicrosoftYaHei;
+    color: rgba(51,51,51,1);
+    display: inline-block;
+    margin: 30px 0 0 30px;
+}
+.school_ul .phone{
+	background: url(../img/phone.png) no-repeat left center;
+	background-size: 20px 20px;
+	height: 20px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #333333;
+	line-height: 20px;
+	text-indent: 41px;
+	margin-bottom: 17px;
+}
+.school_ul .work{
+	background: url(../img/tick.png) no-repeat left center;
+	background-size: 20px 20px;
+	height: 20px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #333333;
+	line-height: 20px;
+	text-indent: 41px;
+	margin-bottom: 17px;
+}
+.school_ul .address{
+	background: url(../img/address.png) no-repeat left center;
+	background-size:18px 22px;
+	height: 20px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #333333;
+	line-height: 20px;
+	text-indent: 41px;
+}
+.school_ul h3{
+	width: 100%;
+	height: 31px;
+	font-size: 30px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #333333;
+	line-height: 26px;
+	text-align: left;
+	margin: 44px auto 37px auto;
+}

@@ -1,0 +1,129 @@
+.down{
+	width: 100%;
+	height: 617px;
+	background: url(../img/samllIcon.png);
+	overflow-y: hidden;
+}
+.down h3{
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+	color: #8055D0;
+	margin: 64px auto 36px auto;
+}
+.down .bline{
+	margin: 0 auto 100px auto;
+}
+.down_con{
+	width: 960px;
+	margin: 0 auto;
+	display: flex;
+	height: 380px;
+	justify-content: space-between;
+}
+.down_con_l{
+	width: 304px;
+	height: 378px;
+	box-shadow: 0px 0px 23px 0px #E3E3E3;
+	background: #fff;
+	border-top-left-radius: 35px;
+	border-top-right-radius: 35px;
+}
+.down_con_i{
+	border:1px solid #E3E3E3;
+	width: 256px;
+	height: 100%;
+	border-bottom: 0;
+	margin: 70px auto 0 auto;
+}
+.down_con_i dl{
+	width: 162px;
+	margin: 45px auto 0;
+	height: 223px;
+}
+.down_con_i dl dt{
+	margin: 0 auto;
+}
+.down_con_i dl dt,.down_con_i dl dt img{
+	width: 156px;
+	height: 156px;
+}
+.down_con_i dl dd{
+	width:100%;
+	height: 49px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #010101;
+	line-height: 27px;
+	text-align: center;
+	margin-top: 18px;
+}
+.down_con_r{
+	width: 529px;
+	margin-top: 47px;
+}
+.down_con_r li{
+	width: 100%;
+	height: 65px;
+	background: #F0F0F0;
+	border-radius: 33px;
+	font-size: 22px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+	line-height: 65px;
+	margin-bottom: 14px;
+}
+.down_con_r li img{
+	width: 42px;
+	height: 42px;
+	display: inline-block;
+	margin: 0 23px 0 43px;
+}
+/* 魔数小奇兵 */
+.moshu_video{
+	width: 1070px;
+	height: 602px;
+	margin: 82px auto 168px auto;
+}
+.pauseV{
+	width: 100%;
+	height: 602px;
+	position: relative;
+}
+.pauseVBtn{
+	background:url(../img/bf.png) no-repeat top center;
+	background-size: 112px 112px;
+	position: absolute;
+	height: 112px;
+	width: 112px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+/* 智慧挑战 */
+.tiaozhan{
+	width: 1050px;
+	margin: 0 auto 188px auto;
+	justify-content: space-between;
+}
+.tiaozhan dl{
+	width: 117px;
+	height: 174px;
+}
+.tiaozhan dl dt,.tiaozhan dl dt img{
+	width: 117px;
+	height: 117px;
+}
+.tiaozhan dl dd{
+	width: 100%;
+	text-align: center;
+	height: 24px;
+	font-size: 24px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+	line-height: 21px;
+	margin-top: 36px;
+}

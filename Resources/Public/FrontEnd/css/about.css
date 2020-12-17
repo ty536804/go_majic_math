@@ -1,0 +1,344 @@
+/* 魔法数学专注于3—12岁少儿数理思维教育 */
+.about{
+	height: 716px;
+	margin-top: 100px;
+}
+.about h3{
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+}
+.about_con{
+	height: 674px;
+	width: 100%;
+	margin-top: 5px;
+}
+.about_con .bline{
+	margin: 30px auto 159px auto;
+}
+.a_c{
+	width: 1303px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.a_c_l{
+	width: 657px;
+	height: 347px;
+	margin-top: 24px;
+}
+.a_c_l p{
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #727171;
+	line-height: 32px;
+	text-indent: 37px;
+}
+.a_c_r{
+	width: 616px;
+	height: 413px;
+}
+/* 源于全球儿童心理学家让 皮亚杰与 哈佛大学儿童发展中心的共同杰作 */
+.zuopin{
+	width: 100%;
+	height: 804px;
+	background: #F1F1F1;
+}
+.zuopin h3{
+	height: 84px;
+	line-height: 45px;
+	text-align: center;
+	margin: 74px auto 41px auto;
+}
+.human{
+	width: 1124px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.human dl{
+	width: 539px;
+}
+.human dl dt{
+	width: 539px;
+	height: 383px;
+	background: #DDDBDB;
+	border-radius: 30px;
+	text-align: center;
+}
+.human dl dt img{
+	width: 490px;
+	height: 336px;
+	margin-top: 23px;
+}
+.human dl dd{
+	width: 384px;
+	height: 62px;
+	margin: 35px auto 0 auto;
+}
+.human dl dd p{
+	width: 100%;
+	text-align: center;
+	font-size: 14px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #000000;
+	line-height: 22px;
+	text-align: left;
+}
+.human dl:first-child p{
+	
+}
+.human dl:first-child dd p:last-child{
+	text-align: right;
+}
+.zuopin .bline{
+	margin: 0 auto 63px auto;
+}
+/* 独特的教学方式 培养出能力卓越的孩子 */
+.child{
+	height: 613px;
+}
+.child h3{
+	text-align: center;
+	height: 36px;
+	line-height: 36px;
+	margin-top: 58px;
+}
+.child .bline{
+	margin: 43px auto 34px auto;
+}
+.zyCon{
+	width: 894px;
+	margin: 0 auto;
+	text-align: center;
+	height: 49px;
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #9FA0A0;
+	line-height: 27px;
+}
+.zy{
+	height: 194px;
+	text-align: center;
+	margin: 98px auto 0;
+}
+.zy img{
+	width: 1127px;
+	height: 194px;
+}
+/* 数学探索世界,思维改变未来 */
+.mid{
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	height: 739px;
+	margin-top: 115px;
+	width: 100%;
+}
+.mid h3{
+	text-align: center;
+	height: 36px;
+	color: #010101;
+	line-height: 36px;
+	margin-top: 67px;
+}
+.mid .bline{
+	margin: 39px auto 100px auto;
+}
+.mid .bline p span{
+	background-color: #010101;
+}
+.mid_slogan{
+	width: 1206px;
+	height: 290px;
+	margin: 0 auto 204px auto;
+	text-align: left;
+}
+.mid_slogan img{
+	width: 1006px;
+	height: 290px;
+}
+/* 历经磨砺 多项殊荣加持深厚的品牌积淀 */
+.brand{
+	height: 1029px;
+	margin-top: 89px;
+}
+.brand h3{
+	height: 37px;
+	text-align: center;
+	line-height: 37px;
+}
+.brand .bline{
+	margin: 42px auto 61px auto;
+}
+.brandBg{
+	height: 886px;
+	width: 100%;
+}
+.year{
+	max-width:1456px;
+	width: 100%;
+	position: relative;
+	height: 886px;
+}
+.year dl{
+	background: #FFFFFF;
+	box-shadow: 0px 0px 32px 4px rgba(163, 160, 160, 0.19);
+	border-radius: 10px;
+	position: absolute;
+	display: flex;
+	height: 129px;
+}
+.year dd{
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #9BA0A6;
+	line-height: 24px;
+}
+.year2016{
+	width: 619px;
+	top: 129px;
+	left: 59px;
+}
+.year2016 dd{
+	width: 384px;
+	margin-top: 22px;
+}
+.year2018{
+	width: 593px;
+	top: 346px;
+	left: 0;
+}
+.year2018 dd{
+	width: 394px;
+	margin-top: 32px;
+}
+.year2012{
+	width: 628px;
+	right: 46px;
+	top: 32px;
+}
+.year2012 dd{
+	width: 396px;
+	margin-top: 23px;
+}
+.year2012 dt,.year2016 dt{
+	width: 186px;
+	margin: 0 8px 0 15px;
+}
+.year2012 dt img,.year2016 dt img{
+	width: 186px;
+	height: 57px;
+	margin-top: 36px;
+}
+.year2017{
+	width: 599px;
+	right: 0;
+	top: 275px;
+}
+.year2017 dd {
+	width: 384px;
+	margin-top: 30px;
+}
+.year2019{
+	width: 603px;
+	right: 59px;
+	bottom: 246px;
+}
+.year2019 dd {
+	width: 395px;
+	height: 89px;
+	margin-top: 17px;
+}
+.year2020{
+	width: 495px;
+	left: 474px;
+	bottom: 60px;
+}
+.year2020 dt,.year2019 dt,.year2017 dt,.year2018 dt{
+	width: 156px;
+	margin: 0 11px 0 16px;
+}
+.year2020 dt img,.year2019 dt img,.year2017 dt img,.year2018 dt img{
+	width: 156px;
+	height: 57px;
+	display: inline-block;
+	margin-top: 37px;
+}
+.year2020 dd {
+	width: 288px;
+	height: 65px;
+	margin-top: 29px;
+}
+/* 品牌荣誉 奋进之路的里程碑 */
+.rongyu{
+	height: 579px;
+	width: 100%;
+	margin-bottom: 37px;
+}
+.rongyu h3{
+	text-align: center;
+	height: 36px;
+	color: #828282;
+	line-height: 36px;
+	margin: 81px auto 38px;
+}
+.rongyu .bline{
+	margin: 0 auto 89px auto;
+}
+.brand_ul {
+    width: 1332px;
+    margin: 0 auto 127px auto;
+    height: 202px;
+    overflow: hidden;
+}
+#btn-left {
+    float: left;
+    background-position: 0 0;
+}
+.arrow-btn {
+    margin-top: 64px;
+    display: inline;
+    background: url(../img/btn_l.png) no-repeat;
+    width: 65px;
+    height: 65px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.slider {
+    width: 1202px;
+    overflow: hidden;
+    position: relative;
+    height: 202px;
+    float: left;
+}
+.slider ul {
+    position: absolute;
+    left: 0px;
+    height: 202px;
+    list-style: none;
+}
+.slider li {
+    width: 287px;
+    height: 202px;
+	margin-right: 18px;
+    float: left;
+    text-align: center;
+	background: url(../img/border.png) no-repeat top center;
+}
+.slider img {
+    width: 264px;
+	height: 178px;
+    display: inline-block!important;
+	margin-top: 12px;
+}
+#btn-right {
+    float: right;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
