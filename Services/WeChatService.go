@@ -95,10 +95,6 @@ type BatChGetMaterial struct {
 
 // @Summer 微信获取文章
 func GetArticle(begin, count int) {
-	total := Article.GetArticleTotal()
-	if total >= 1 {
-		return
-	}
 	result, err := ResolveUrl(begin, count)
 	var article = make(map[string]interface{})
 
@@ -112,7 +108,7 @@ func GetArticle(begin, count int) {
 				res := item.Content.NewsItem[0]
 				if res.Title != "" {
 					tit := strings.TrimSpace(res.Title)
-					currentTime := time.Now().Format("2006-01-02 15:04:05")
+					currentTime := time.Unix(item.Content.CreateTime, 0).Format("2006-01-02 15:04:05")
 					if strings.Contains("练脑时刻", tit) {
 						currentTime = Article.SubTime(item.Content.UpdateTime)
 					}
@@ -121,7 +117,7 @@ func GetArticle(begin, count int) {
 					thumbImg := Article.TrimUrl(imgType, res.ThumbUrl)
 					article["title"] = res.Title
 					article["summary"] = res.Digest
-					article["thumb_img"] = thumbImg
+					article["thumb_img"] = res.ThumbUrl
 					article["admin"] = res.Author
 					article["com"] = "weChat"
 					article["is_show"] = 1
@@ -136,6 +132,7 @@ func GetArticle(begin, count int) {
 					}
 				}
 			}
+			wt.Wait()
 		}
 	}
 }
@@ -172,7 +169,6 @@ func ResolveUrl(offset, count int) ([]byte, error) {
 func WeAddArticle(data map[string]interface{}) bool {
 	defer wt.Done()
 
-	currentTime := time.Now().Format("2006-01-02 15:04:05")
 	UpdatedAt := time.Now().Format("2006-01-02 15:04:05")
 	article := db.Db.Create(&Article.Article{
 		Title:     data["title"].(string),
@@ -185,7 +181,7 @@ func WeAddArticle(data map[string]interface{}) bool {
 		Hot:       data["hot"].(int),
 		Sort:      data["sort"].(int),
 		NavId:     data["nav_id"].(int),
-		CreatedAt: currentTime,
+		CreatedAt: data["created_at"].(string),
 		UpdatedAt: UpdatedAt,
 	})
 

@@ -267,7 +267,11 @@ func Down(c *gin.Context) {
 }
 
 func GetWeChat(c *gin.Context) {
-	Services.GetArticle(0, 5)
+	start := com.StrTo(c.DefaultQuery("start", "0")).MustInt()
+	end := com.StrTo(c.DefaultQuery("end", "0")).MustInt()
+	if start >= 0 && end > 0 {
+		Services.GetArticle(start, end)
+	}
 }
 
 // 所有页面用到的内容

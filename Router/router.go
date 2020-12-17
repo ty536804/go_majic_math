@@ -71,7 +71,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/omo", frontend.Omo)
 	r.GET("/campus", frontend.Campus) //全国校区
 	r.GET("/down", frontend.Down)
-	r.GET("/weChat1", frontend.GetWeChat)
+	r.GET("/weChat", frontend.GetWeChat)
 	r.GET("/groupCampuses", campus.GroupCampuses) //校区列表API 带缓冲区的
 	r.POST("/campusData", campus.GetCampuses)     //校区列表API 带缓冲区的
 	//移动端
