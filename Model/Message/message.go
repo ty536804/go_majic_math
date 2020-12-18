@@ -33,7 +33,7 @@ func GetMessages(page int) (messages []Message) {
 	if page >= 1 {
 		offset = (page - 1) * setting.PageSize
 	}
-	db.Db.Offset(offset).Limit(setting.PageSize).Find(&messages)
+	db.Db.Offset(offset).Limit(setting.PageSize).Order("id desc").Find(&messages)
 	return
 }
 
