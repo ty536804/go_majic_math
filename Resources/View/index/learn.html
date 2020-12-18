@@ -47,7 +47,7 @@
             </dt>
             <dd>
                 <h3>{{.Name}}</h3>
-                {{.Content}}
+                {{.Content | unescaped}}
             </dd>
         </dl>
         {{end}}
