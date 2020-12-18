@@ -64,7 +64,7 @@ func SendSmsToClient(area, name, tel string) {
 			if (k + 1) == len(telList) {
 				msg = "我们已收到您的留言。我们的招商经理会在24小时内联系您，请您注意接听来自北京的电话，谢谢。"
 			} else {
-				msg = area + "的" + name + "留言了。联系" + tel + "留言来源布罗卡斯"
+				msg = area + "的" + name + "留言了。联系" + tel + "留言来源魔法数学"
 			}
 			wgD.Add(1)
 			fmt.Println(telItem, "电话")
