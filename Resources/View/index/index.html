@@ -26,19 +26,21 @@
     {{ template "banner" .}}
     <!-- 魔法数学专注于3—12岁少儿数理思维教育 -->
     <section class="pub zhuanzhu" style="background:#F8F8F8 url({{.data.zZBg.Imgurl}}) no-repeat top center">
-        <h3 class="w12 f36">{{.data.thought.Name}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
+        <section class="zhuanzhu_con">
+            <h3 class="w12 f36">{{.data.thought.Name}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <h4>{{.data.thought.Summary}}</h4>
+            <section class="zhuanzhuCon">
+                {{.data.thought.Content | unescaped}}
+            </section>
+            <p class="getCon w12">
+                <a class="" href="#myform">免费获取课程资料</a>
             </p>
         </section>
-        <h4>{{.data.thought.Summary}}</h4>
-        <section class="zhuanzhuCon">
-            {{.data.thought.Content | unescaped}}
-        </section>
-        <p class="getCon w12">
-            <a class="" href="#myform">免费获取课程资料</a>
-        </p>
     </section>
     <!-- 什么是数理思维？ -->
     <section class="pub siwei">
