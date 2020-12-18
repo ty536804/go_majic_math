@@ -273,13 +273,14 @@ footer{
 	font-family: Microsoft YaHei;
 	font-weight: 400;
 	color: #FEFEFE;
-	background: url(../img/f_tel.png) no-repeat left center;
-	background-size: 31px 31px;
+	background: url(../img/f_tel.png) no-repeat left top 10px;
+	background-size: 18px 18px;
 	height: 31px;
 	line-height: 31px;
-	text-indent: 48px;
+	text-indent: 31px;
 	margin-top: 38px;
 }
+
 .footer_line{
 	width: 602px;
 	height: 1px;
@@ -344,4 +345,19 @@ footer{
 	background: #1E1E1E;
 	justify-content: center;
 	text-align: center;
+}
+.footer_tel_phone{
+	color: #EA545B;
+	font-size: 28px;
+	font-weight: bold;
+	display: inline-block;
+	float: left;
+	line-height: 37px;
+	text-indent: 0;
+}
+.footer_tel_desc{
+	display: inline-block;
+	float: left;
+	line-height: 40px;
+	text-indent: 27px;
 }
