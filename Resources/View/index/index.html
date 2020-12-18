@@ -160,7 +160,9 @@
                 <div class="swiper-wrapper">
                     {{range .data.index_news}}
                     <div class="swiper-slide">
-                        <img class="lazy" src="{{.ThumbImg}}"/>
+                        <section class="swiper_img">
+                            <img class="lazy" src="{{.ThumbImg}}"/>
+                        </section>
                         <section class="certify_con">
                             <h3>{{.Title}}</h3>
                             <h4>{{.Summary}}</h4>

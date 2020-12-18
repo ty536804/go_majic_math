@@ -3,7 +3,7 @@ certifySwiper = new Swiper('#certify .swiper-container', {
     centeredSlides: true,
     loop: true,
     loopedSlides: 3,
-    autoplay: 3000,
+    autoplay: 300000000,
     prevButton: '.swiper-button-prev',
     nextButton: '.swiper-button-next',
     //paginationClickable :true,

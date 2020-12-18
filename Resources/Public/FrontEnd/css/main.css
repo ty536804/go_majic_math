@@ -1031,20 +1031,28 @@
 }
 #certify {
 	position: relative;
-	width: 954px;
+	width: 915px;
 	margin: 0 auto
 }
 
 #certify  .swiper-slide {
-	width: 340px;
-	height: 287px;
+	width: 276px;
+	height: 269px;
 	background: #fff;
-	margin: 0 14px;
+	margin: 0 11px;
 }
 #certify  .swiper-slide img{
-	display:block;
-	width: 340px;
-	height: 207px;
+	display: block;
+	width: 276px;
+	height: 152px;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+.swiper_img{
+	width: 276px;
+	text-align: center;
 }
 #certify  .swiper-slide .certify_con {
 	height: 80px;
