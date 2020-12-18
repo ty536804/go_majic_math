@@ -19,7 +19,7 @@
 	color: #727171;
 	line-height: 21px;
 	text-align: left;
-	display: inline-block;
+	display: block;
 	margin: 0 auto 48px auto;
 }
 .zhuanzhuCon{
@@ -456,7 +456,7 @@
 	background-size: 242px 98px;
 	margin-top:0;
 	position: absolute;
-	left: 550px;
+	margin-left: 500px;
 	line-height: 98px;
 	font-size: 45px;
 	font-family: Microsoft YaHei;
