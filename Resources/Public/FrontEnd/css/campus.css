@@ -17,7 +17,8 @@
     height: 311px;
     border-radius: 5px;
 	display: flex;
-	box-shadow: 0px 5px 23px 0px #d1d1d1
+	box-shadow: 0px 5px 17px 0px #d1d1d1;
+	margin-bottom: 26px;
 }
 .school_ul dl dt {
 	margin: 28px 56px 0 28px;
