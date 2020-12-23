@@ -255,7 +255,7 @@ func Down(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(9, 1, "banner")
 	//魔数小奇兵APP
 	data["energize"] = Single.GetSingleByOne(9, 1, "魔数小奇兵APP")
 	data["flower"] = Banner.GetBannerData(9, 1, "flower")
