@@ -5,7 +5,11 @@
         <div class="carousel-inner">
             {{ range $k,$v := .data.banner}}
                 <div class="item {{if eq $k 0 }} active {{end}}">
-                    <a href="{{.TargetLink}}"><img src="{{.Imgurl}}" alt="{{.Info}}"></a>
+                    {{ if .TargetLink }}
+                        <a href="{{.TargetLink}}"><img src="{{.Imgurl}}" alt="{{.Info}}"></a>
+                    {{else}}
+                        <img src="{{.Imgurl}}" alt="{{.Info}}"><
+                    {{end}}
                 </div>
             {{end}}
         </div>
