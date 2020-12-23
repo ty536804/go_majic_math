@@ -44,7 +44,7 @@ func UploadFile(c *gin.Context) {
 	if filePath == "" {
 		filePath = "/static/upload/" + time.Now().Format("20060102") + "/" + filePath
 	} else {
-		filePath = "http://img.cdn.brocaedu.com/" + filePath + "?imageslim"
+		filePath = "http://img.cdn.brocaedu.com/" + filePath
 	}
 	e.Success(c, "上传成功", filePath)
 }

@@ -69,7 +69,7 @@ func About(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(2, 1, "banner")
 	data["aboutBk"] = Banner.GetOneBanner(2, 1, "aboutBk")
 	data["swg"] = Single.GetSingleByOne(2, 1, "swg")
 	data["child"] = Banner.GetOneBanner(2, 1, "卓越的孩子")
@@ -93,7 +93,7 @@ func Subject(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(3, 1, "banner")
 	//强化核心竞争力
 	data["indexJzl"] = Banner.GetOneBanner(1, 1, "jzl")
 	data["index_cz"] = Single.GetSingleByOne(1, 1, "成长")
@@ -127,7 +127,7 @@ func Research(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(4, 1, "banner")
 	data["celebrity"] = Single.GetAllSingle(4, 1, "celebrity")
 	//魔法数学教材 让独立思考成为孩子的习惯
 	data["xiguai"] = Single.GetSingleByOne(4, 1, "xiguai")
@@ -152,7 +152,7 @@ func Learn(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(5, 1, "banner")
 	//全域成长 智慧学习
 	data["learn"] = Single.GetSingleByOne(5, 1, "智慧学习")
 	data["online"] = Single.GetAllSingle(5, 1, "onlinesys")
@@ -169,7 +169,7 @@ func Omo(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(6, 1, "banner")
 	//全新OMO教育模式 形成全场景闭环教学空间
 	data["index_omol"] = Banner.GetOneBanner(1, 1, "omo_l")
 	data["index_omor"] = Banner.GetOneBanner(1, 1, "omo_r")
@@ -201,7 +201,7 @@ func News(c *gin.Context) {
 	Services.AddVisit(c, _url)
 	data := make(map[string]interface{})
 	LayoutParam(data)
-	data["banner"] = Banner.GetBannerData(1, 1, "banner")
+	data["banner"] = Banner.GetBannerData(11, 1, "banner")
 	where := make(map[string]interface{})
 	where["is_show"] = 1
 	data["list"] = Article.GetArticles(0, setting.PageSize, where)
