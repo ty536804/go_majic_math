@@ -71,3 +71,13 @@
 .new_ul {
 	
 }
+.pagination>li>a, .pagination>li>span {
+	color: #000;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+	z-index: 3;
+	color: #fff;
+	cursor: default;
+	background-color: #7A57C9;
+	border-color: #7A57C9;
+}
