@@ -39,7 +39,7 @@ func UploadFile(c *gin.Context) {
 		e.Error(c, "上传失败", "")
 		return
 	} else {
-		if file.Filename[lastIndex:] != "mp4" {
+		if file.Filename[lastIndex:] != ".mp4" {
 			filePath = QiNiu(filePath)
 		} else {
 			filePath = ""
