@@ -39,7 +39,9 @@ func UploadFile(c *gin.Context) {
 		e.Error(c, "上传失败", "")
 		return
 	} else {
-		filePath = QiNiu(filePath)
+		if file.Filename[lastIndex:] != "mp4" {
+			filePath = QiNiu(filePath)
+		}
 	}
 	if filePath == "" {
 		filePath = "/static/upload/" + time.Now().Format("20060102") + "/" + filePath
