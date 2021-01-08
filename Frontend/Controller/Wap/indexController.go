@@ -2,8 +2,11 @@ package Wap
 
 import (
 	"elearn100/Pkg/e"
+	"elearn100/Pkg/setting"
 	"elearn100/Services"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/unknwon/com"
 	"time"
 )
 
@@ -55,4 +58,45 @@ func Authorize(c *gin.Context) {
 		"title": "加盟授权",
 		"time":  ver,
 	})
+}
+
+// 视频列表
+func VideoList(c *gin.Context) {
+	page := com.StrTo(c.Query("page")).MustInt()
+	data := make(map[string]interface{})
+	data["is_show"] = 1
+	data["list"] = Services.GetMaterials(page, data)
+	data["count"] = e.GetPageNum(Services.GetTotalMaterials())
+	data["size"] = setting.PageSize
+	c.HTML(e.SUCCESS, "wap/videoList.html", gin.H{
+		"title": "视频列表",
+		"data":  data,
+	})
+}
+
+//视频播放
+func Video(c *gin.Context) {
+	id := com.StrTo(c.Query("id")).MustInt()
+	video := Services.GetMaterial(id)
+	c.HTML(e.SUCCESS, "wap/video.html", gin.H{
+		"title": "视频",
+		"video": video,
+	})
+}
+
+func CheckVideoPwd(c *gin.Context) {
+	id := com.StrTo(c.PostForm("id")).MustInt()
+	videoPwd := com.StrTo(c.PostForm("video_pwd")).String()
+	if id < 1 {
+		e.Error(c, "ID不能为空", "")
+		return
+	}
+	video := Services.GetMaterial(id)
+
+	fmt.Println(id, videoPwd, video.Code)
+	if video.Code != videoPwd {
+		e.Error(c, "视频播放码不正确", "")
+		return
+	}
+	e.Success(c, "视频", video)
 }
