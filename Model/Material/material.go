@@ -4,19 +4,20 @@ import (
 	db "elearn100/Database"
 	"elearn100/Pkg/setting"
 	"fmt"
+	"time"
 )
 
 // 视频
 type Material struct {
-	Id        int    `json:"id" gorm:"primary_key"`
-	Title     string `json:"title" gorm:"type:varchar(100);not null;default '';comment:'标题' "`
-	VideoSrc  string `json:"video_src" gorm:"type:varchar(100);not null;default '';comment:'七牛视频地址' "`
-	LocalSrc  string `json:"local_src" gorm:"type:varchar(200);not null;default '';comment:'本地视频地址' "`
-	IsShow    int    `json:"is_show" gorm:"not null;default 0;comment:'是否展示 0展示 1禁止' "`
-	IsHot     int    `json:"is_hot" gorm:"not null;default 0;comment:'排序 数字越高排序越靠前' "`
-	Code      string `json:"code" gorm:"type:varchar(30);not null;default '';comment:'观看码' "`
-	CreatedAt string `json:"created_at" time_format:"2006-01-02 15:04:05"`
-	UpdatedAt string `json:"updated_at" time_format:"2006-01-02 15:04:05"`
+	Id        int       `json:"id" gorm:"primary_key"`
+	Title     string    `json:"title" gorm:"type:varchar(100);not null;default '';comment:'标题' "`
+	VideoSrc  string    `json:"video_src" gorm:"type:varchar(100);not null;default '';comment:'七牛视频地址' "`
+	LocalSrc  string    `json:"local_src" gorm:"type:varchar(200);not null;default '';comment:'本地视频地址' "`
+	IsShow    int       `json:"is_show" gorm:"not null;default 0;comment:'是否展示 0展示 1禁止' "`
+	IsHot     int       `json:"is_hot" gorm:"not null;default 0;comment:'排序 数字越高排序越靠前' "`
+	Code      string    `json:"code" gorm:"type:varchar(30);not null;default '';comment:'观看码' "`
+	CreatedAt time.Time `json:"created_at" time_format:"2006-01-02 15:04:05"`
+	UpdatedAt time.Time `json:"updated_at" time_format:"2006-01-02 15:04:05"`
 }
 
 // @Summer 添加视频
