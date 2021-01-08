@@ -3,7 +3,6 @@ package jwt
 import (
 	"elearn100/Pkg/e"
 	"elearn100/Pkg/util"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -31,7 +30,6 @@ func JWT() gin.HandlerFunc {
 			return
 		}
 		if util.GetSignContent(c) == c.PostForm("sign") {
-			fmt.Println(util.GetSignContent(c))
 			e.Error(c, "非法签名", "")
 			c.Abort()
 			return

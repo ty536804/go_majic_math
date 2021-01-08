@@ -5,7 +5,6 @@ import (
 	"elearn100/Pkg/e"
 	"elearn100/Pkg/util"
 	"encoding/json"
-	"fmt"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -48,7 +47,7 @@ func AddUser(c *gin.Context) (code int, err string) {
 	loginName := com.StrTo(c.PostForm("login_name")).String()
 	email := com.StrTo(c.PostForm("email")).String()
 	pwd := com.StrTo(c.PostForm("pwd")).String()
-	statues := com.StrTo(c.PostForm("status")).MustInt64()
+	statues := com.StrTo(c.PostForm("statues")).MustInt64()
 	tel := e.Trim(com.StrTo(c.PostForm("tel")).String())
 
 	valid := validation.Validation{}
@@ -57,10 +56,7 @@ func AddUser(c *gin.Context) (code int, err string) {
 	valid.Required(email, "email").Message("邮箱不能为空")
 	valid.Required(tel, "tel").Message("手机号码不能为空")
 	valid.Required(statues, "statues").Message("状态必选")
-
-	if id < 1 {
-		valid.Required(pwd, "pwd").Message("密码不能为空")
-	}
+	valid.Required(pwd, "pwd").Message("密码不能为空")
 
 	data := make(map[string]interface{})
 
@@ -74,10 +70,6 @@ func AddUser(c *gin.Context) (code int, err string) {
 		data["email"] = email
 		if id < 1 {
 			data["pwd"] = Admin.Md5Pwd(pwd)
-		} else {
-			if len(pwd) > 1 {
-				data["pwd"] = Admin.Md5Pwd(pwd)
-			}
 		}
 		data["statues"] = statues
 		data["tel"] = tel
@@ -94,7 +86,6 @@ func AddUser(c *gin.Context) (code int, err string) {
 			if !validTel && !validTel {
 				isOk = Admin.AddUser(data)
 			}
-
 		} else {
 			user := Admin.Find(id)
 			if user.Tel != tel {
@@ -102,6 +93,11 @@ func AddUser(c *gin.Context) (code int, err string) {
 				if validTel {
 					return e.ERROR, "手机号码已存在，填写新的手机号码"
 				}
+			}
+			if user.Pwd == pwd {
+				data["pwd"] = pwd
+			} else {
+				data["pwd"] = Admin.Md5Pwd(pwd)
 			}
 			isOk = Admin.EditUser(id, data)
 		}
@@ -127,7 +123,6 @@ func EditUser(c *gin.Context) (code int, err string) {
 	valid := validation.Validation{}
 	valid.Required(id, "id").Message("操作失败")
 	valid.Min(id, 0, "id").Message("操作失败")
-	fmt.Println("lalla:", id)
 	if act == "user" {
 		valid.Required(email, "email").Message("邮箱不能为空")
 		valid.Required(tel, "tel").Message("手机号码不能为空")
@@ -196,19 +191,16 @@ func GetUser(c *gin.Context) (code int, err string, con interface{}) {
 func GetUserById(c *gin.Context) (con string) {
 	getUUID, uOk := c.Request.Cookie("uuid")
 	if uOk != nil {
-		fmt.Println("没有获取到uuid")
 		return
 	}
 
 	getUid := getUUID.Value
 	if len(getUid) == 0 {
-		fmt.Println("uuid不正确")
 		return
 	}
 
 	uuid, _ := strconv.Atoi(getUid)
 	if isOk, val := e.GetVal("user_" + getUid); isOk {
-		fmt.Sprintf("读取缓存:'%v\n", val)
 		return val
 	}
 	return SaveUserInfo(uuid)
@@ -224,7 +216,6 @@ func ViewErr(valid validation.Validation) (code int, err string) {
 
 //管理员登录存储缓存中
 func SaveUserInfo(uuid int) (con string) {
-	fmt.Println("设置用户缓存")
 	userInfo := Admin.Find(int64(uuid))
 	userResult, _ := json.Marshal(userInfo)
 	con = string(userResult)
@@ -241,14 +232,12 @@ func LogOut(c *gin.Context) bool {
 		if isOK {
 			e.SetCookie(c, uuid, -1)
 		}
-		fmt.Println("shanctoken")
-		e.DelVal("token")
+		e.DelVal(token)
 		if uuid > 0 {
 			e.DelVal("user_" + strconv.Itoa(uuid))
 		}
 		return true
 	}
-	fmt.Println("token:", token)
 	return false
 }
 
