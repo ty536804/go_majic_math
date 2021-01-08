@@ -1,0 +1,61 @@
+.join {
+    margin: 0 auto;
+    width: 90%;
+    background: rgba(232,67,37,1);
+    box-shadow: 0 7px 30px 0 rgba(255,107,80,0.52);
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    height:80%;
+}
+.join_tit {
+    width: 100%;
+    height: 48px;
+    font-size: 40px;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    line-height: 59px;
+    margin-top: 40px;
+    margin-bottom: 19px;
+    display: inline-block;
+}
+.join label {
+    background: #fff;
+    overflow: hidden;
+}
+.join label input {
+    border: 0;
+    width: 60%;
+}
+label {
+    margin: 0 auto 15px auto;
+    width: 394px;
+    height: 60px;
+    background: #fff;
+    border-radius: 24px;
+    text-align: left;
+    text-indent: 38px;
+    line-height: 60px;
+    font-size: 23px;
+}
+.banner_form_btn {
+    text-align: center;
+}
+.line {
+    width: 395px;
+    height: 1px;
+    border: 1px solid rgba(255,255,255,1);
+    opacity: .3;
+    margin: 0 auto 14px auto;
+}
+.assured {
+    text-align: center;
+    margin: 0 auto 21px auto;
+    width: 354px;
+    height: 18px;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,1);
+    line-height: 21px;
+    display: inline-block;
+}
