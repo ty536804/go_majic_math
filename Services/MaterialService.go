@@ -19,6 +19,7 @@ func AddMaterial(c *gin.Context) (code int, err string) {
 	title := com.StrTo(c.PostForm("title")).String()
 	videoSrc := com.StrTo(c.PostForm("video_src")).String()
 	localSrc := com.StrTo(c.PostForm("local_src")).String()
+	searCode := com.StrTo(c.PostForm("code")).String()
 	isShow := com.StrTo(c.PostForm("is_show")).MustInt()
 	isHot := com.StrTo(c.PostForm("is_hot")).MustInt()
 
@@ -37,6 +38,7 @@ func AddMaterial(c *gin.Context) (code int, err string) {
 		data["local_src"] = localSrc
 		data["is_show"] = isShow
 		data["is_hot"] = isHot
+		data["code"] = searCode
 		if id >= 1 {
 			isOk = Material.EditMaterial(id, data)
 		} else {
