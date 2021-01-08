@@ -81,7 +81,6 @@ func InitRouter() *gin.Engine {
 	r.GET("/le", Wap.Learn)
 	r.GET("/om", Wap.Omo)
 	r.GET("/authorize", Wap.Authorize)
-	r.GET("/wapForm", Wap.WetForm)
 	r.POST("/AddMessage", m.AddMessage)
 	r.GET("/video", Wap.VideoList)
 	r.GET("/videoList", Wap.VideoList)
