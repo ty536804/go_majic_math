@@ -6,6 +6,7 @@ import (
 	v3 "elearn100/Backend/Controller/Article"
 	v2 "elearn100/Backend/Controller/Banner"
 	campus "elearn100/Backend/Controller/Campus"
+	material "elearn100/Backend/Controller/Material"
 	m "elearn100/Backend/Controller/Message"
 	nav "elearn100/Backend/Controller/Nav"
 	v4 "elearn100/Backend/Controller/Single"
@@ -80,7 +81,12 @@ func InitRouter() *gin.Engine {
 	r.GET("/le", Wap.Learn)
 	r.GET("/om", Wap.Omo)
 	r.GET("/authorize", Wap.Authorize)
+	r.GET("/wapForm", Wap.WetForm)
 	r.POST("/AddMessage", m.AddMessage)
+	r.GET("/video", Wap.VideoList)
+	r.GET("/videoList", Wap.VideoList)
+	r.GET("/videoDetail", Wap.Video)
+	r.POST("/checkVideo", Wap.CheckVideoPwd)
 	//Backend
 	r.GET("/login", func(c *gin.Context) {
 		c.HTML(e.SUCCESS, "admin/login.html", gin.H{
@@ -129,6 +135,10 @@ func InitRouter() *gin.Engine {
 		apiv1.POST("/campusList", campus.GetCampus)      //校区列表API
 		apiv1.POST("/campusDetail", campus.DetailCampus) //校区详情
 		apiv1.POST("/addCampuses", campus.AddCampuses)   //添加校区
+		//素材管理
+		apiv1.POST("/materialList", material.Index)         //素材管理列表API
+		apiv1.POST("/addMaterial", material.AddMaterial)    //素材管理 添加/编辑 API
+		apiv1.POST("/materialDetail", material.GetMaterial) //素材管理单个API
 	}
 
 	return r

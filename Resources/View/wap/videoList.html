@@ -1,0 +1,47 @@
+{{define "wap/videoList.html"}}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>视频中心</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="keywords" content="北京易学教育,魔法数学">
+        <meta name="description" content="魔法数学">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=750px, user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="black" name="apple-mobile-web-app-status-bar-style">
+        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="Expires" content="-1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link href="/static/wap/css/wap_news.css?v={{.time}}" rel="stylesheet"/>
+        <script src="/static/FrontEnd/js/jquery.min.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <section class="new_ul">
+    {{ range .data.list}}
+        <a href="/videoDetail?id={{.Id}}">
+            <dl>
+                <dt class="DR">
+                    <video src="{{.VideoSrc}}"></video>
+                </dt>
+                <dd class="DL">
+                    {{.Title}}
+                </dd>
+            </dl>
+        </a>
+    {{end}}
+    </section>
+    <input type="hidden" value="{{.data.count}}" id="countNum">
+    <!--分页-->
+    <section style="margin: 0 auto;width: 93%">
+        <input type="hidden" id="PageCount" value="0">
+        <div id="example" style="text-align: left"><ul id="pageLimit"></ul>
+        </div>
+    </section>
+    <script src="/static/FrontEnd/js/bootstrap-paginator.js"></script>
+    <script type="text/javascript" src="/static/wap/js/new.js"></script>
+{{end}}
