@@ -46,6 +46,8 @@ func AddMaterial(c *gin.Context) (code int, err string) {
 		}
 		if isOk {
 			return e.SUCCESS, "操作成功"
+		} else {
+			return e.ERROR, "上传失败"
 		}
 	}
 	return ViewErr(valid)
