@@ -1,12 +1,14 @@
 package Wap
 
 import (
+	"elearn100/Model/WeChat"
 	"elearn100/Pkg/e"
 	"elearn100/Pkg/setting"
 	"elearn100/Services"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -93,10 +95,15 @@ func CheckVideoPwd(c *gin.Context) {
 	}
 	video := Services.GetMaterial(id)
 
-	fmt.Println(id, videoPwd, video.Code)
 	if video.Code != videoPwd {
 		e.Error(c, "视频播放码不正确", "")
 		return
 	}
+	data := make(map[string]interface{})
+	data["url"] = baseUrl + "videoDetail/id?=" + strconv.Itoa(id)
+	uuid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
+	uid, _ := strconv.Atoi(uuid)
+	data["user_id"] = uid
+	WeChat.AddLook(data)
 	e.Success(c, "视频", video)
 }
