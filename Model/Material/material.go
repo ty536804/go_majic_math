@@ -16,6 +16,7 @@ type Material struct {
 	IsShow    int    `json:"is_show" gorm:"not null;default 0;comment:'是否展示 0展示 1禁止' "`
 	IsHot     int    `json:"is_hot" gorm:"not null;default 0;comment:'排序 数字越高排序越靠前' "`
 	Code      string `json:"code" gorm:"type:varchar(30);not null;default '';comment:'观看码' "`
+	ThumbImg  string `json:"thumb_img" gorm:"type:varchar(200);not null;default '';comment:'视频封面图' "`
 	CreatedAt string `json:"created_at" time_format:"2006-01-02 15:04:05"`
 	UpdatedAt string `json:"updated_at" time_format:"2006-01-02 15:04:05"`
 }
