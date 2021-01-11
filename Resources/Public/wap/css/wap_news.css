@@ -41,9 +41,13 @@ body{
 .new_ul a:hover{
     background: #e5fafc;
 }
-.new_ul a video {
+.new_ul a img {
     width:100%;
     border-radius: 10px;
+    height: 100%;
+}
+.new_ul .DR i{
+    float: left;
 }
 .new_ul a:hover{
     background: #DFE9F2;
@@ -54,6 +58,14 @@ body{
     margin: 0 auto !important;
     display: flex;
     justify-content: space-between;
+    position: relative;
+}
+.new_ul .DR i {
+    float: left;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    color: #fff;
 }
 .new_ul .DR{
     width: 65%;

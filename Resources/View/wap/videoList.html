@@ -14,19 +14,22 @@
         <meta http-equiv="Expires" content="-1">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link href="/static/wap/css/wap_news.css?v={{.time}}" rel="stylesheet"/>
+        <link href="/static/wap/css/wap_news.css" rel="stylesheet"/>
+        <link href="/static/fontawesome/css/font-awesome.css" rel="stylesheet"/>
         <script src="/static/FrontEnd/js/jquery.min.js"></script>
         <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </head>
     <body>
     <section class="new_ul">
     {{ range .data.list}}
         <a href="/videoDetail?id={{.Id}}">
             <dl>
-                <dt class="DR">
-                    <video src="{{.VideoSrc}}" poster="{{.ThumbImg}}"></video>
+                <dt class="DR" >
+                    <i class="fa fa-play"></i>
+                    <img src="{{.ThumbImg}}" />
                 </dt>
                 <dd class="DL">
                     {{.Title}}
