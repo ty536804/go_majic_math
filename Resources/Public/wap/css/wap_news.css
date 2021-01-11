@@ -26,20 +26,19 @@ body{
 .new_ul a{
     width: 93%;
     height: 109px;
-    margin: 0  auto 20px auto;
+    margin: 0  auto;
     border-bottom: 1px solid #EFEFEF;
+    text-decoration: none;
 }
 .new_ul a:first-child{
     margin-top: 20px;
 }
 .new_ul a:last-child{
     margin-bottom: 0;
-}
-.new_ul a:last-child{
     border-bottom:none;
 }
 .new_ul a:hover{
-    background: #e5fafc;
+    text-decoration: none;
 }
 .new_ul a img {
     width:100%;
@@ -53,9 +52,9 @@ body{
     background: #DFE9F2;
 }
 .new_ul a dl{
-    height: 109px;
+    height: 90px;
     width: 100%;
-    margin: 0 auto !important;
+    margin: 10px auto;
     display: flex;
     justify-content: space-between;
     position: relative;
