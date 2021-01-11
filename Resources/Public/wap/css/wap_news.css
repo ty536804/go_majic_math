@@ -31,7 +31,7 @@ body{
     text-decoration: none;
 }
 .new_ul a:first-child{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .new_ul a:last-child{
     margin-bottom: 0;
