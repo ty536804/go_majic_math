@@ -59,6 +59,7 @@ body{
     width: 65%;
     border-radius: 10px;
     float: right;
+    overflow: hidden;
 }
 .new_ul .DL{
     float: right;
