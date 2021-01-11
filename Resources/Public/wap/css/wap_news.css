@@ -25,7 +25,7 @@ body{
 }
 .new_ul a{
     width: 93%;
-    height: 130px;
+    height: 109px;
     margin: 0  auto 20px auto;
     border-bottom: 1px solid #EFEFEF;
 }
@@ -68,23 +68,19 @@ body{
     color: #fff;
 }
 .new_ul .DR{
-    width: 65%;
+    width: 160px;
     border-radius: 10px;
     float: right;
     overflow: hidden;
 }
 .new_ul .DL{
     float: right;
-    width: 30%;
+    width: 45%;
     font-size: 16px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
     color: #333333;
-    line-height: 22px;
-    margin-top: 5px !important;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    line-height: 90px;
     overflow: hidden;
 }
 .new_left{
