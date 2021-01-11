@@ -18,14 +18,30 @@
         <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
         <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="/static/wap/css/wap_news.css?v={{.time}}" rel="stylesheet"/>
+        <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+        <link href="/static/wap/css/wap_news.css" rel="stylesheet"/>
     </head>
     <body>
-    <section class="video">
+    <section class="video pub">
         <h1 class="video_tit">{{.video.Title}}</h1>
-        <video width="100%" height="240" controls>
-            <source src="{{.video.VideoSrc}}" type="video/mp4" class="video_src" poster="{{.video.ThumbImg}}">
-        </video>
+        <section class="video_con pub">
+            <video
+                    id="my-video"
+                    class="video-js"
+                    controls
+                    preload="auto"
+                    height="264"
+                    poster="{{.video.ThumbImg}}"
+                    data-setup="{}"
+            >
+                <source src="{{.video.VideoSrc}}" type="video/mp4" />
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </section>
         <section class="video_check">
             <form class="banner_myform">
                 <input type="hidden" value="{{.video.Id}}" name="id" class="id">
@@ -39,6 +55,7 @@
         </section>
     </section>
     <script type="text/javascript" src="/static/FrontEnd/js/layer.js"></script>
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
     <script type="text/javascript">
         $('.id').val(getUrlParam("id"))
         $('.btn').on("click",function () {
