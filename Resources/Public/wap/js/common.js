@@ -32,21 +32,27 @@ $('.home_nav a').each(function () {
 $('.c-com').val(window.location.href);
 
 $('.f_btn').on('click',function () {
-    if ($('.footer_con_right .c-area').val()=="") {
+    var reg =/[^u4e00-u9fa5]/
+    let name = $.trim($('.footer_con_right .c-area').val())
+    if (name=="" || !reg.test(name)) {
         layer.tips('姓名不能为空', '.footer_con_right .c-area', {
             tips: [1, '#3595CC'],
             time: 4000
         });
         return false;
     }
-    if ($('.footer_con_right .c-tel').val()=="") {
+    var pattern = /^1\d{10}$/;
+    let phone = $.trim($('.footer_con_right .c-tel').val())
+    if (phone=="" || !pattern.test(phone)) {
         layer.tips('电话不能为空', '.footer_con_right .c-tel', {
             tips: [1, '#3595CC'],
             time: 4000
         });
         return false;
     }
-    if ($('.footer_con_right .c-city').val()=="") {
+
+    let cityName = $.trim($('.footer_con_right .c-city').val())
+    if (cityName=="" || !reg.test(cityName)) {
         layer.tips('地区不能为空', '.footer_con_right .c-city', {
             tips: [1, '#3595CC'],
             time: 4000
