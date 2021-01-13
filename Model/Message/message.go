@@ -56,3 +56,8 @@ func AddMessage(data map[string]interface{}) bool {
 	}
 	return true
 }
+
+func GetTotalMessage(uid string, ftime, ltime string) (count int) {
+	db.Db.Model(&Message{}).Where("ip = ? AND created_at >= ? AND created_at <= ?", uid, ftime, ltime).Count(&count)
+	return
+}
