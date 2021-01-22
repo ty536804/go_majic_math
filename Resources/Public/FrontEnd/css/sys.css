@@ -91,17 +91,17 @@
 	height: 104px;
 }
 .sys_ul dl:nth-child(4){
-	width: 157px;
+	width: 144px;
 }
 .sys_ul dl:nth-child(4) dt,.sys_ul dl:nth-child(4) dt img{
-	width: 157px;
-	height: 118px;
+	width: 134px;
+	height: 101px;
 }
 
 .sys_ul dl:last-child{
 	width: 176px;
 }
 .sys_ul dl:last-child dt,.sys_ul dl:last-child dt img{
-	width: 134px;
-	height: 101px;
+	width: 96px;
+	height: 107px;
 }
