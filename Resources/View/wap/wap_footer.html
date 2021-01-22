@@ -13,13 +13,13 @@
                 <input type="hidden" name="client" value="wap">
                 <input type="hidden" name="com" class="c-com">
                 <label for="">姓名：
-                    <input type="text" name="name" class="c-name">
+                    <input type="text" name="mname" class="c-name">
                 </label>
                 <label for="">电话：
                     <input type="text" name="tel" class="c-tel">
                 </label>
                 <label for="">地区：
-                    <input type="text" name="content" class="c-area">
+                    <input type="text" name="area" class="c-area">
                 </label>
                 <p class="banner_form_btn"><button class="btn fbtn">提交</button></p>
             </form>
@@ -104,12 +104,7 @@
                     url: "/AddMessage",
                     data:$('#joinTopFrom').serialize(),
                     success: function (result) {
-                        if (result.code == 200) {
-                            $('input').val('');
-                            layer.alert("留言成功");
-                            return false
-                        }
-                        layer.alert("留言失败");
+                        layer.alert(result.msg);
                         return false
                     }
                 })
@@ -136,12 +131,7 @@
                     url: "/AddMessage",
                     data:$('#fedbookForm').serialize(),
                     success: function (result) {
-                        if (result.code == 200) {
-                            $('input').val('');
-                            layer.alert("留言成功");
-                            return false
-                        }
-                        layer.alert("留言失败");
+                        layer.alert(result.msg);
                         return false
                     }
                 })

@@ -470,18 +470,13 @@
                 });
                 return false;
             }
-            console.log(222)
             $.ajax({
                 type: "POST",
                 dataType: "json",
                 url: "/AddMessage",
-                data:$('#banner_myform').serialize(),
+                data:$('.banner_myform').serialize(),
                 success: function (result) {
-                    if (result.code == 200) {
-                        layer.alert("留言成功");
-                        return false
-                    }
-                    layer.alert("留言失败");
+                    layer.alert(result.msg);
                     return false
                 }
             })
