@@ -116,6 +116,7 @@
 	height: 1030px;
 	background: #A070F9;
 	margin-top: 27px;
+	overflow: hidden;
 }
 .chuojin h3{
 	margin: 63px auto 32px auto;

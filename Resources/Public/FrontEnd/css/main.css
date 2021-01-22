@@ -347,12 +347,12 @@
 /* 魔法数学 颠覆旧数学认知 */
 .renzhi {
 	width: 100%;
-	height: 1122px;
+	height: 1017px;
 	margin: 96px auto 0;
 }
 .renzhiCon{
 	width: 100%;
-	height:980px;
+	height:885px;
 	margin: 0 auto;
 }
 .renzhi h3{
@@ -366,17 +366,17 @@
 	line-height: 37px;
 }
 .renzhi .bline{
-	margin: 31px auto 71px auto;
+	margin: 34px auto 70px auto;
 }
 .renzhiM{
-	width: 1200px;
-	height: 176px;
+	width: 1000px;
+	height: 147px;
 	margin: 148px auto 0 auto;
 }
 .renzhiM ul{
 	position: relative;
 	display: flex;
-	height: 176px;
+	height: 147px;
 	width: 100%;
 	justify-content: space-between;
 	padding: 0;
@@ -388,10 +388,10 @@
 	background: #570AAD;
 }
 .renzhiM li{
-	width: 591px;
-	height: 176px;
+	width: 492px;
+	height: 147px;
 	border-radius: 50px;
-	line-height: 176px;
+	line-height: 147px;
 	font-size: 60px;
 	font-family: Microsoft YaHei;
 	font-weight: bold;
@@ -402,8 +402,8 @@
 	width: 240px;
 	height: 154px;
 	position: absolute;
-	left: 493px;
-	top: 17px;
+	left: 393px;
+	top: 2px;
 }
 .renzhiM li:nth-child(2) img{
 	width: 240px;
@@ -411,12 +411,12 @@
 	float: left;
 }
 .renzhiC{
-	width: 1267px;
-	margin: 46px auto 0 auto;
+	width: 1070px;
+	margin: 38px auto 0 auto;
 }
 .renzhiC li {
 	width: 100%;
-	height: 98px;
+	height: 82px;
 	display: flex;
 	text-align: center;
 	margin-bottom: 14px;
@@ -425,16 +425,16 @@
 	justify-content: space-between;
 }
 .renzhiC li span{
-	width: 593px;
-	height: 72px;
+	width: 445px;
+	height: 65px;
 	background: #F8F8F8;
 	border-radius: 39px;
 	display: inline-block;
-	line-height: 72px;
+	line-height: 65px;
 	font-size: 30px;
 	font-family: Microsoft YaHei;
 	font-weight: bold;
-	margin-top: 13px;
+	margin-top: 8.5px;
 }
 .renzhiC li span:first-child{
 	color: #4DCAF1;
@@ -442,29 +442,27 @@
 	border-bottom-right-radius: 0;
 }
 .renzhiC li span:last-child{
-	color: #4DCAF1;
+	color: #8567BB;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
-}
-.renzhiC li span:last-child{
-	color: #8567BB;
+	width: 460px;
 }
 .renzhiC li span:nth-child(2){
 	background: url(../img/renzhiM.png) no-repeat;
 	width: 242px;
-	height: 98px;
-	background-size: 242px 98px;
+	height: 82px;
+	background-size: 242px 82px;
 	margin-top:0;
 	position: absolute;
-	margin-left: 500px;
-	line-height: 98px;
+	margin-left: 400px;
+	line-height: 82px;
 	font-size: 45px;
 	font-family: Microsoft YaHei;
 	font-weight: 400;
 	color: #FFFFFF;
 }
 .renzhiC li:nth-child(4) span:last-child,.renzhiC li:first-child span:last-child{
-	font-size: 24px;
+	font-size: 20px;
 }
 .renzhiC li:hover span:first-child{
 	background: #4CC9F0;

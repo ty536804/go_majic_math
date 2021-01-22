@@ -172,9 +172,7 @@ footer{
     background: linear-gradient(180deg,rgba(227,58,48,1) 0%,rgba(184,53,45,1) 100%);
     box-shadow: 0px 3px 10px 0px rgba(220,66,54,0.29);
     border-radius: 35px;
-    margin: 30px auto 0;
     color: #fff;
-    display: flow-root;
     width:140px !important;
 	line-height: 40px;
 }
@@ -196,20 +194,25 @@ footer{
     box-shadow: 0px 2px 16px 0px #c1a19838 !important;
 }
 .banner_form{
-    width:376px;
-    height:390px;
+    width:352px;
+    height:365px;
     background:#fff;
-    box-shadow:0px 2px 16px 0px #756e6e;
-    border-radius:20px;
+	box-shadow: 0px 3px 16px 2px rgba(163, 160, 160, 0.49);
+    border-radius:10px;
     z-index: 1;
     right: 0;
 }
 .form_tit{
-    width:323px;
+    width:312px;
     height:50px;
     background:rgba(244,245,246,1);
     border-radius:35px;
     margin:0 auto 15px auto;
+}
+.form_tit_w{
+	width:323px;
+	margin: 30px auto 0;
+	text-align: center;
 }
 .form_tit input {
     width: 200px;
