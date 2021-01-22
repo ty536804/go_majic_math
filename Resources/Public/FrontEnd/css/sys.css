@@ -71,21 +71,16 @@
 .sys_ul dl:nth-child(2){
 	width: 175px;
 }
-.sys_ul dl:nth-child(2) dt,.sys_ul dl:nth-child(2) dt img{
-	width: 140px;
-	height: 126px;
+.sys_ul dl:nth-child(2) dt img{
+	width: 119px;
+	height: 108px;
 }
 .sys_ul dl:nth-child(2) dd{
 	margin: 23px auto 0 auto;
 	height: 128px;
 }
-
 .sys_ul dl:nth-child(3){
 	width: 176px;
-}
-.sys_ul dl:nth-child(2) dt img{
-	width: 119px;
-	height: 108px;
 }
 .sys_ul dl:nth-child(3) dt img{
 	width: 124px;
