@@ -76,7 +76,8 @@
 	height: 126px;
 }
 .sys_ul dl:nth-child(2) dd{
-	margin: 50px auto 0 auto;
+	margin: 23px auto 0 auto;
+	height: 128px;
 }
 
 .sys_ul dl:nth-child(3){
