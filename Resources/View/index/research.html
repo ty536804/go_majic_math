@@ -26,11 +26,13 @@
     {{ template "banner" .}}
     <!-- 著名数理专家倾情加盟 倾力打造魔法数学课程 -->
     <section class="pub sub">
-        <h3 class="w12 f36">著名数理专家倾情加盟 倾力打造魔法数学课程</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
+        <section class="sub_tit w12">
+            <h3 class="w12 f36">著名数理专家倾情加盟 倾力打造魔法数学课程</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
         </section>
     </section>
     <section class="sub_con">
@@ -46,17 +48,19 @@
     </section>
     <!-- 魔法数学教材 让独立思考成为孩子的习惯 -->
     <section class="pub xiguai">
-        <h3 class="w12 f36">{{ .data.xiguai.Name}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <h4> {{.data.xiguai.Content | unescaped}}</h4>
-        <section class="jiao_li">
-            {{ range .data.course }}
-                <img src="{{ .Imgurl }}" class="lazy"/>
-            {{end}}
+        <section class="xiguai_con">
+            <h3 class="w12 f36">{{ .data.xiguai.Name}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <h4> {{.data.xiguai.Content | unescaped}}</h4>
+            <section class="jiao_li">
+                {{ range .data.course }}
+                    <img src="{{ .Imgurl }}" class="lazy"/>
+                {{end}}
+            </section>
         </section>
     </section>
     <!-- 多种教具配合教材使用 让学习效果事半功倍 -->
@@ -73,36 +77,38 @@
         </section>
     </section>
     <section class="pub jiaojiao">
-        <h3 class="f36 w12">{{.data.mfbCon.Name}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <p class="jiaojiao_desc">{{.data.mfbCon.Content}}</p>
-        <section class="tyec_con">
-            <section class="tyec_l">
-                <dl>
-                    <dt>
-                        <img  src="{{.data.show.Imgurl}}" class="lazy"/>
-                    </dt>
-                    <dd></dd>
-                </dl>
+        <section class="jiaojiao_con w12">
+            <h3 class="f36 w12">{{.data.mfbCon.Name}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
             </section>
-            <section class="tyec_r">
-                <section class="tyec_r_t">
+            <p class="jiaojiao_desc">{{.data.mfbCon.Content}}</p>
+            <section class="tyec_con">
+                <section class="tyec_l">
                     <dl>
-                        <dt><img src="{{.data.big.Imgurl}}" class="lazy" /></dt>
+                        <dt>
+                            <img  src="{{.data.show.Imgurl}}" class="lazy"/>
+                        </dt>
                         <dd></dd>
                     </dl>
                 </section>
-                <section class="tyec_r_b">
-                    {{ range .data.mfb}}
-                    <dl>
-                        <dt><img src="{{.Imgurl}}" class="lazy" /></dt>
-                        <dd></dd>
-                    </dl>
+                <section class="tyec_r">
+                    <section class="tyec_r_t">
+                        <dl>
+                            <dt><img src="{{.data.big.Imgurl}}" class="lazy" /></dt>
+                            <dd></dd>
+                        </dl>
+                    </section>
+                    <section class="tyec_r_b">
+                        {{ range .data.mfb}}
+                            <dl>
+                                <dt><img src="{{.Imgurl}}" class="lazy" /></dt>
+                                <dd></dd>
+                            </dl>
                         {{end}}
+                    </section>
                 </section>
             </section>
         </section>

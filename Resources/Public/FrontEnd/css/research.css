@@ -5,7 +5,9 @@
 	width: 100%;
 	margin-top: 23px;
 }
-
+.sub_tit{
+	height: 513px;
+}
 .sub h3{
 	text-align: center;
 	height: 37px;
@@ -62,6 +64,11 @@
 	text-align: center;
 }
 /* 魔法数学教材 让独立思考成为孩子的习惯 */
+.xiguai_con{
+	width: 100%;
+	max-width: 1406px;
+	margin: 0 auto;
+}
 .xiguai h3{
 	text-align: center;
 	height: 36px;
@@ -71,6 +78,7 @@
 	margin: 36px auto 53px auto;
 }
 .jiao_li{
+	width: 100%;
 	margin-top: 64px;
 }
 .xiguai h4{
@@ -130,6 +138,9 @@
 	background: #F3F3F3;
 	margin-top: 69px;
 	margin-bottom: 113px;
+}
+.jiaojiao_con{
+	height: 994px;
 }
 .jiaojiao h3{
 	height: 36px;

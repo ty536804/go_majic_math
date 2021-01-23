@@ -43,7 +43,7 @@
         </section>
     </section>
     <!-- 什么是数理思维？ -->
-    <section class="pub siwei">
+    <section class="pub siwei w12">
         <h3 class="f36 w12">{{.data.why.Name}}</h3>
         <section class="bline w12">
             <p>
@@ -64,44 +64,47 @@
             </dl>
             {{end}}
         </section>
+
     </section>
     <!-- 为什么要学习数理思维？ -->
     <section class="pub why" style="background:#9783C4 url({{.data.siwei.Imgurl}}) no-repeat top center;">
-        <h3 class="w12 f36">{{.data.siwei.Bname}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="why_warp">
-            <dl>
-                <dt class="whyPtit">
-                    <p>{{.data.index_one.Bname}}</p>
+        <section class="why_warp_con">
+            <h3 class="w12 f36">{{.data.siwei.Bname}}</h3>
+            <section class="bline w12">
+                <p>
                     <span></span>
-                </dt>
-                <dd class="whyCon">{{.data.index_one.Info | unescaped}}</dd>
-            </dl>
-            <section class="index_circle">
-                <span style="background: url({{.data.index_one.Imgurl}}) no-repeat;" class="red"></span>
-                <span style="background: url({{.data.index_two.Imgurl}}) no-repeat;" class="bl"></span>
-                <span style="background: url({{.data.index_three.Imgurl}}) no-repeat;" class="blue"></span>
+                </p>
             </section>
-            <dl>
-                <dt class="whyPtit">
-                    <p>{{.data.index_two.Bname}}</p>
-                    <span></span>
-                </dt>
-                <dd class="whyCon">{{.data.index_two.Info | unescaped}}</dd>
-            </dl>
-        </section>
-        <section class="bwhy w12">
-            <dl>
-                <dt class="whyPtit">
-                    <p>{{.data.index_three.Bname}}</p>
-                    <span></span>
-                </dt>
-                <dd class="whyCon">{{.data.index_three.Info | unescaped}}</dd>
-            </dl>
+            <section class="why_warp">
+                <dl>
+                    <dt class="whyPtit">
+                        <p>{{.data.index_one.Bname}}</p>
+                        <span></span>
+                    </dt>
+                    <dd class="whyCon">{{.data.index_one.Info | unescaped}}</dd>
+                </dl>
+                <section class="index_circle">
+                    <span style="background: url({{.data.index_one.Imgurl}}) no-repeat;" class="red"></span>
+                    <span style="background: url({{.data.index_two.Imgurl}}) no-repeat;" class="bl"></span>
+                    <span style="background: url({{.data.index_three.Imgurl}}) no-repeat;" class="blue"></span>
+                </section>
+                <dl>
+                    <dt class="whyPtit">
+                        <p>{{.data.index_two.Bname}}</p>
+                        <span></span>
+                    </dt>
+                    <dd class="whyCon">{{.data.index_two.Info | unescaped}}</dd>
+                </dl>
+            </section>
+            <section class="bwhy w12">
+                <dl>
+                    <dt class="whyPtit">
+                        <p>{{.data.index_three.Bname}}</p>
+                        <span></span>
+                    </dt>
+                    <dd class="whyCon">{{.data.index_three.Info | unescaped}}</dd>
+                </dl>
+            </section>
         </section>
     </section>
     <!-- 张梅玲教授倾力推荐 -->
@@ -149,36 +152,38 @@
     {{ template "happy" .}}
     <!-- 新闻动态 -->
     <section class="pub news" style="background:#F2F3F5 url({{.data.newBg.Imgurl}}) no-repeat center top;">
-        <h3 class="w12 f36 newTit">{{.data.newBg.Bname}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
+        <section class="news_warp">
+            <h3 class="w12 f36 newTit">{{.data.newBg.Bname}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <div id="certify">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {{range .data.index_news}}
+                            <div class="swiper-slide">
+                                <a href="/detail?id={{.ID}}">
+                                    <section class="swiper_img">
+                                        <img class="lazy" src="{{.ThumbImg}}"/>
+                                    </section>
+                                    <section class="certify_con">
+                                        <h3>{{.Title}}</h3>
+                                        <h4>{{.Summary}}</h4>
+                                    </section>
+                                </a>
+                            </div>
+                        {{end}}
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <p class="more w12">
+                <a href="/news">更多资讯</a>
             </p>
         </section>
-        <div id="certify">
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    {{range .data.index_news}}
-                    <div class="swiper-slide">
-                        <a href="/detail?id={{.ID}}">
-                            <section class="swiper_img">
-                                <img class="lazy" src="{{.ThumbImg}}"/>
-                            </section>
-                            <section class="certify_con">
-                                <h3>{{.Title}}</h3>
-                                <h4>{{.Summary}}</h4>
-                            </section>
-                        </a>
-                    </div>
-                    {{end}}
-                </div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-        <p class="more w12">
-            <a href="/news">更多资讯</a>
-        </p>
     </section>
     {{template "footer" .}}
     <script src="/static/FrontEnd/js/main.js"></script>

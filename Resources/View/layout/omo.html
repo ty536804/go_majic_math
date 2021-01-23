@@ -1,23 +1,25 @@
 {{define "omo"}}
     <!-- 全新OMO教育模式 形成全场景闭环教学空间 -->
     <section class="pub newOMO">
-        <h3 class="w12">{{.data.index_omol.Bname}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="newOMOCon">
-            <section class="newOMOL" style="background: url({{.data.index_omol.Imgurl}}) no-repeat left top;">
-                {{.data.index_omol.Info | unescaped}}
+        <section class="omo_con">
+            <h3 class="w12">{{.data.index_omol.Bname}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
             </section>
-            <section class="newOMOM">
-                <section class="omoCir"></section>
-                <span class="omoCon">全新OMO<br />教育模式</span>
-            </section>
-            <section class="newOMOR" style="background: url({{.data.index_omor.Imgurl}}) no-repeat left top;">
-                <section class="newOMORCon">
-                    {{.data.index_omor.Info | unescaped}}
+            <section class="newOMOCon">
+                <section class="newOMOL" style="background: url({{.data.index_omol.Imgurl}}) no-repeat left top;">
+                    {{.data.index_omol.Info | unescaped}}
+                </section>
+                <section class="newOMOM">
+                    <section class="omoCir"></section>
+                    <span class="omoCon">全新OMO<br />教育模式</span>
+                </section>
+                <section class="newOMOR" style="background: url({{.data.index_omor.Imgurl}}) no-repeat left top;">
+                    <section class="newOMORCon">
+                        {{.data.index_omor.Info | unescaped}}
+                    </section>
                 </section>
             </section>
         </section>

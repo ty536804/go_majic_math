@@ -28,27 +28,29 @@
     {{ template "omo" .}}
     <!-- OMO推动新一代教育变革 为教育赋能 -->
     <section class="pub change">
-        <h3 class="w12 f36 changeTit">{{ .data.energize.Name }}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="change_desc">
-            {{ .data.energize.Content }}
-        </section>
-        <section class="change_con">
-            {{ range .data.fn }}
-            <dl>
-                <dt>
-                    <img src="{{ .ThumbImg }}" class="lazy" />
-                </dt>
-                <dd>
-                    <h3>{{ .Name }}</h3>
-                    <p>{{ .Content }}</p>
-                </dd>
-            </dl>
-            {{end}}
+        <section class="change_warp w12">
+            <h3 class="w12 f36 changeTit">{{ .data.energize.Name }}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <section class="change_desc">
+                {{ .data.energize.Content }}
+            </section>
+            <section class="change_con">
+                {{ range .data.fn }}
+                    <dl>
+                        <dt>
+                            <img src="{{ .ThumbImg }}" class="lazy" />
+                        </dt>
+                        <dd>
+                            <h3>{{ .Name }}</h3>
+                            <p>{{ .Content }}</p>
+                        </dd>
+                    </dl>
+                {{end}}
+            </section>
         </section>
     </section>
     {{template "footer" .}}

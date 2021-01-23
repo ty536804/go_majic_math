@@ -26,33 +26,35 @@
     {{ template "banner" .}}
     <!-- 魔数小奇兵APP -->
     <section class="pub down">
-        <h3 class="w12">{{ .data.energize.Name}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="down_con">
-            <section class="down_con_l">
-                <section class="down_con_i">
-                    <dl>
-                        <dt>
-                            <img src="{{.data.energize.ThumbImg }}"/>
-                        </dt>
-                        <dd>
-                            {{ .data.energize.Summary}}<br />
-                            {{ .data.energize.Content}}
-                        </dd>
-                    </dl>
-                </section>
+        <section class="down_warp w12">
+            <h3 class="w12">{{ .data.energize.Name}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
             </section>
-            <section class="down_con_r">
-                {{ range .data.flower }}
-                <li>
-                    <img src="{{.Imgurl}}"/>
-                   {{.Bname}}
-                </li>
-                {{end}}
+            <section class="down_con">
+                <section class="down_con_l">
+                    <section class="down_con_i">
+                        <dl>
+                            <dt>
+                                <img src="{{.data.energize.ThumbImg }}"/>
+                            </dt>
+                            <dd>
+                                {{ .data.energize.Summary}}<br />
+                                {{ .data.energize.Content}}
+                            </dd>
+                        </dl>
+                    </section>
+                </section>
+                <section class="down_con_r">
+                    {{ range .data.flower }}
+                        <li>
+                            <img src="{{.Imgurl}}"/>
+                            {{.Bname}}
+                        </li>
+                    {{end}}
+                </section>
             </section>
         </section>
     </section>

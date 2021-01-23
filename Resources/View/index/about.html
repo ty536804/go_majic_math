@@ -45,23 +45,25 @@
     </section>
     <!-- 源于全球儿童心理学家让 皮亚杰与 哈佛大学儿童发展中心的共同杰作 -->
     <section class="pub zuopin">
-        <h3 class="w12 f36">源于全球儿童心理学家让 皮亚杰与<br />哈佛大学儿童发展中心的共同杰作</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="human">
-            {{ range .data.human}}
-            <dl>
-                <dt>
-                    <img src="{{.Imgurl}}" />
-                </dt>
-                <dd>
-                    {{ .Info | unescaped}}
-                </dd>
-            </dl>
-            {{end}}
+        <section class="zuopin_con">
+            <h3 class="w12 f36">源于全球儿童心理学家让 皮亚杰与<br />哈佛大学儿童发展中心的共同杰作</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <section class="human">
+                {{ range .data.human}}
+                    <dl>
+                        <dt>
+                            <img src="{{.Imgurl}}" />
+                        </dt>
+                        <dd>
+                            {{ .Info | unescaped}}
+                        </dd>
+                    </dl>
+                {{end}}
+            </section>
         </section>
     </section>
     <!-- 独特的教学方式 培养出能力卓越的孩子 -->
@@ -81,14 +83,16 @@
     </section>
     <!-- 数学探索世界,思维改变未来 -->
     <section class="mid" style="background: url({{.data.midBk.Imgurl}}) no-repeat center center;">
-        <h3 class="w12 f36">{{.data.midSlogan.Bname}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="mid_slogan">
-            <img src="{{.data.midSlogan.Imgurl}}" alt=" {{ .data.child.Bname}}" />
+        <section class="mid_con">
+            <h3 class="w12 f36">{{.data.midSlogan.Bname}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <section class="mid_slogan">
+                <img src="{{.data.midSlogan.Imgurl}}" alt=" {{ .data.child.Bname}}" />
+            </section>
         </section>
     </section>
     <!-- 历经磨砺 多项殊荣加持深厚的品牌积淀 -->
@@ -112,22 +116,24 @@
     </section>
     <!-- 品牌荣誉 奋进之路的里程碑 -->
     <section class="pub rongyu" style="background: url({{.data.brandBk.Imgurl}}) no-repeat center center;">
-        <h3 class="w12 f36">{{.data.brandBk.Bname}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="brand_ul">
-            <div id="btn-left" class="arrow-btn dasabled"></div>
-            <div class="slider">
-                <ul>
-                    {{ range .data.brand}}
-                    <li><img src="{{.Imgurl}}"></li>
-                    {{end}}
-                </ul>
-            </div>
-            <div id="btn-right" class="arrow-btn"></div>
+        <section class="rongyu_warp">
+            <h3 class="w12 f36">{{.data.brandBk.Bname}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <section class="brand_ul">
+                <div id="btn-left" class="arrow-btn dasabled"></div>
+                <div class="slider">
+                    <ul>
+                        {{ range .data.brand}}
+                            <li><img src="{{.Imgurl}}"></li>
+                        {{end}}
+                    </ul>
+                </div>
+                <div id="btn-right" class="arrow-btn"></div>
+            </section>
         </section>
     </section>
     {{template "footer" .}}

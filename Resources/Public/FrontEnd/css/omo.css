@@ -8,6 +8,11 @@
 	flex-flow: row wrap;
 	position: relative;
 }
+.omo_con{
+	height: 717px;
+	width: 1224px;
+	margin: 0 auto;
+}
 .newOMOL{
 	width: 644px;
 	height: 441px;
@@ -180,6 +185,9 @@
 	height: 1020px;
 	background: #F9FAFB;
 	margin: 95px auto 40px auto;
+}
+.change_warp{
+	width: 1202px;
 }
 .change .changeTit{
 	text-align: center;

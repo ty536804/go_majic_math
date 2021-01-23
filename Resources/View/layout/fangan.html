@@ -1,28 +1,30 @@
 {{ define "fangan"}}
     <!-- 魔法数学课程体系 为少儿提供高品质的学习方案 -->
     <section class="pub fangan">
-        <h3 class="w12 f36">{{.data.index_fanan.Name}}</h3>
-        <section class="bline w12">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section style="background: url({{.data.index_fanan.ThumbImg}}) no-repeat 0 0 ;" class="level"></section>
-        {{.data.index_fanan.Content | unescaped}}
-        <section class="week">
-            <li>
+        <section class="fangan_con">
+            <h3 class="w12 f36">{{.data.index_fanan.Name}}</h3>
+            <section class="bline w12">
+                <p>
+                    <span></span>
+                </p>
+            </section>
+            <section style="background: url({{.data.index_fanan.ThumbImg}}) no-repeat 0 0 ;" class="level"></section>
+            {{.data.index_fanan.Content | unescaped}}
+            <section class="week">
+                <li>
+                    {{ range .data.course }}
+                        {{.Bname}} <br />
+                    {{end}}
+                </li>
                 {{ range .data.course }}
-                    {{.Bname}} <br />
+                    <li><img src="{{.Imgurl}}" alt="{{.Info}}" class="lazy"></li>
                 {{end}}
-            </li>
-            {{ range .data.course }}
-                <li><img src="{{.Imgurl}}" alt="{{.Info}}" class="lazy"></li>
-            {{end}}
-        </section>
-        <section class="plan">
-            <section class="plan_gh">{{.data.planning.Name}}</section>
-            <section class="plan_ul">
-                {{.data.planning.Content | unescaped}}
+            </section>
+            <section class="plan">
+                <section class="plan_gh">{{.data.planning.Name}}</section>
+                <section class="plan_ul">
+                    {{.data.planning.Content | unescaped}}
+                </section>
             </section>
         </section>
     </section>

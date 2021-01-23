@@ -3,6 +3,10 @@
 	margin-top: 74px;
 	height: 948px;
 }
+.power_warp{
+	margin: 0 auto;
+	height: 326px;
+}
 .power h3{
 	height: 96px;
 	line-height: 52px;
@@ -172,6 +176,11 @@
 .fangan{
 	margin: 92px auto 0 auto;
 	height: 1161px;
+}
+.fangan_con{
+	height: 1161px;
+	width: 1200px;
+	margin: 0 auto;
 }
 .fangan h3{
 	height: 36px;
@@ -374,6 +383,11 @@
 	margin: 104px auto 92px auto;
 	position: relative;
 	height: 1635px;
+}
+.happy_con{
+	height: 1418px;
+	width: 1200px;
+	margin: 0 auto;
 }
 .happy_w{
 	width: 100%;
