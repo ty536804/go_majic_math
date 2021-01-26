@@ -1,15 +1,5 @@
 package main
 
-import (
-	//_ "elearn100/Commands"
-	"elearn100/Pkg/setting"
-	"elearn100/Router"
-	"fmt"
-	"github.com/fvbock/endless"
-	"log"
-	"syscall"
-)
-
 func main() {
 	//crontab := Services.NewCrontab()
 	//// 实现接口的方式添加定时任务
@@ -21,17 +11,17 @@ func main() {
 	//	os.Exit(-1)
 	//}
 	//crontab.Start()
-	endless.DefaultReadTimeOut = setting.ReadTimeout
-	endless.DefaultWriteTimeOut = setting.WriteTimeout
-	endless.DefaultMaxHeaderBytes = 1 << 20
-	endPoint := fmt.Sprintf(":%d", setting.HTTPPort)
-	server := endless.NewServer(endPoint, Router.InitRouter())
-	server.BeforeBegin = func(add string) {
-		log.Printf("Actual pid is %d", syscall.Getpid())
-	}
-
-	err := server.ListenAndServe()
-	if err != nil {
-		log.Printf("Server err: %v", err)
-	}
+	//endless.DefaultReadTimeOut = setting.ReadTimeout
+	//endless.DefaultWriteTimeOut = setting.WriteTimeout
+	//endless.DefaultMaxHeaderBytes = 1 << 20
+	//endPoint := fmt.Sprintf(":%d", setting.HTTPPort)
+	//server := endless.NewServer(endPoint, Router.InitRouter())
+	//server.BeforeBegin = func(add string) {
+	//	log.Printf("Actual pid is %d", syscall.Getpid())
+	//}
+	//
+	//err := server.ListenAndServe()
+	//if err != nil {
+	//	log.Printf("Server err: %v", err)
+	//}
 }
