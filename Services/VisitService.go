@@ -1,20 +1,16 @@
 package Services
 
 import (
-	"elearn100/Model/Elearn"
 	"elearn100/Model/Visit"
 	"elearn100/Pkg/setting"
 	"github.com/gin-gonic/gin"
 	"strings"
-	"sync"
 )
 
-func AddMofaShuXueVisit(data map[string]interface{}) {
+// @Title 添加/更新 魔法数学访问记录
+func AddMoFaShuXueVisit(data map[string]interface{}) {
 	uid := data["uuid"].(string)
-	visit := Elearn.GetVisit(uid)
-
-	defer wg.Done()
-
+	visit := Visit.GetVisit(uid)
 	if visit.ID <= 0 { //新增浏览记录
 		Visit.AddVisit(data)
 	} else {
@@ -22,22 +18,7 @@ func AddMofaShuXueVisit(data map[string]interface{}) {
 	}
 }
 
-var wg sync.WaitGroup
-
-func AddElearnVisit(data map[string]interface{}) {
-	uid := data["uuid"].(string)
-	visit := Elearn.GetVisit(uid)
-
-	defer wg.Done()
-
-	if visit.ID <= 0 {
-		Elearn.AddVisit(data)
-	} else {
-		Elearn.UpdateVisit(data["uuid"].(string), data["visit_history"].(string))
-	}
-}
-
-// @Summer 浏览记录
+// @Title 浏览记录
 func AddVisit(c *gin.Context, url string) {
 	reqURI := c.Request.URL.RequestURI()
 	FromUrl := c.Request.Host + reqURI //来源页
@@ -56,8 +37,6 @@ func AddVisit(c *gin.Context, url string) {
 	data["visit_history"] = c.Request.Referer()
 
 	if c.Request.RemoteAddr != "" {
-		wg.Add(2)
-		go AddMofaShuXueVisit(data)
-		go AddElearnVisit(data)
+		AddMoFaShuXueVisit(data)
 	}
 }

@@ -2,6 +2,7 @@ package Admin
 
 import (
 	"elearn100/Model/Admin"
+	"elearn100/MqQueue/Sms/SmsServices"
 	"elearn100/Pkg/e"
 	"elearn100/Pkg/setting"
 	"elearn100/Services"
@@ -75,12 +76,12 @@ func DetailsUser(c *gin.Context) {
 
 // @Summer 编辑短信
 func AddSms(c *gin.Context) {
-	code, msg := Services.AddSms(c)
+	code, msg := SmsServices.AddSms(c)
 	e.SendRes(c, code, msg, "")
 }
 
 // @Summer 获取短信配置信息
 func GetSms(c *gin.Context) {
-	siteRes := Services.GetSms()
+	siteRes := SmsServices.GetSms()
 	e.Success(c, "获取站点信息", siteRes)
 }

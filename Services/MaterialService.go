@@ -61,6 +61,6 @@ func GetMaterials(page int, where map[string]interface{}) []Material.Material {
 	return Material.GetMaterials(page, where)
 }
 
-func GetTotalMaterials() (cont int) {
+func GetTotalMaterials() int {
 	return Material.GetTotalMaterial()
 }
