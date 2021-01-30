@@ -19,23 +19,26 @@ func AddHistory(data map[string]interface{}) {
 	})
 
 	if result.Error != nil {
-		fmt.Printf("浏览记录失败：%s", result.Error)
+		fmt.Printf("add 失败：%s", result.Error)
 	} else {
-		fmt.Print("浏览记录OK")
+		fmt.Print("add OK")
 	}
 }
 
-// @Summer 更新流量记录
+// @Title 更新浏览记录
+// @Param uuid string 用户ID
+// @Param updateCon map[string]interface{} 更新内容
 func EditHistory(uuid string, updateCon map[string]interface{}) {
 	result := db.Db.Model(&History{}).Where("uuid = ?", uuid).Update(updateCon)
 	if result.Error != nil {
-		fmt.Printf("浏览记录更新 faild：%s", result.Error)
+		fmt.Printf("content faild：%s", result.Error)
 	} else {
-		fmt.Print("浏览记录更新success")
+		fmt.Print("content success")
 	}
 }
 
-// @Summer 获取一条记录
+// @Title  获取一条记录
+// @Param  uuid string 用户ID
 func GetHistory(uuid string) (his History) {
 	db.Db.Where("uuid = ?", uuid).Take(&his)
 	return
