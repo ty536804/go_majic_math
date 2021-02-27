@@ -5,6 +5,7 @@ import (
 	"elearn100/Pkg/setting"
 	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // 留言表
@@ -86,7 +87,12 @@ func AddMessage(s string) {
 	}
 }
 
-func GetTotalMessage(uid string, ftime, ltime string) (count int) {
-	db.Db.Model(&Message{}).Where("ip = ? AND created_at >= ? AND created_at <= ?", uid, ftime, ltime).Count(&count)
+// @Desc 统计当前iP，一天之内提交表单的次数
+// @Param ip string IP地址
+func GetTotalMessage(ip string) (count int) {
+	initTime := time.Now().Format("2006-01-02")
+	start := initTime + " 00:00:00"
+	end := initTime + " 23:59:59"
+	db.Db.Model(&Message{}).Where("ip = ? AND created_at >= ? AND created_at <= ?", ip, start, end).Count(&count)
 	return
 }

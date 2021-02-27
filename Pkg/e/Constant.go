@@ -3,14 +3,21 @@ package e
 import (
 	"bytes"
 	"elearn100/Pkg/setting"
-	"fmt"
+	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"io"
 	"io/ioutil"
 	"math"
 	"os"
-	"strconv"
+	"regexp"
 	"strings"
+)
+
+const (
+	REDISKey  = "eLearn:"
+	VALIDTime = "86400*30"
+	MENUKey   = REDISKey + "menu:show" //导航key
+	Token     = REDISKey + "token"
 )
 
 // @Summary 获取绝对路径
@@ -63,23 +70,68 @@ func GetPageNum(count int) float64 {
 	return pageNum
 }
 
-func SendMessage(code int, msg string) map[string]interface{} {
-	data := make(map[string]interface{})
-	data["code"] = code
-	data["msg"] = msg
-	return data
-}
-
-func GetUUID(c *gin.Context) (isOK bool, UUID int) {
-	uuid, err := c.Cookie("uuid")
-	if err != nil {
-		fmt.Println("没有拿到uid")
-		return false, 0
+// @Desc 手机号验证
+func CheckPhone(tel string) bool {
+	reg := regexp.MustCompile(`^1{1}\d{10}$`)
+	if !reg.MatchString(tel) || len(tel) < 11 {
+		return false
 	}
-	uid, _ := strconv.Atoi(uuid)
-	return true, uid
+	return true
 }
 
-func SetCookie(c *gin.Context, uuid, maxAge int) {
-	c.SetCookie("uuid", strconv.Itoa(uuid), maxAge, "/", setting.Domain, false, true)
+// 去除html标签
+func TrimHtml(src string) string {
+	//将HTML标签全转换成小写
+	re, _ := regexp.Compile("\\<[\\S\\s]+?\\>")
+	src = re.ReplaceAllStringFunc(src, strings.ToLower)
+	//去除STYLE
+	re, _ = regexp.Compile("\\<style[\\S\\s]+?\\</style\\>")
+	src = re.ReplaceAllString(src, "")
+	//去除SCRIPT
+	re, _ = regexp.Compile("\\<script[\\S\\s]+?\\</script\\>")
+	src = re.ReplaceAllString(src, "")
+	//去除所有尖括号内的HTML代码，并换成换行符
+	re, _ = regexp.Compile("\\<[\\S\\s]+?\\>")
+	src = re.ReplaceAllString(src, "\n")
+	//去除连续的换行符
+	re, _ = regexp.Compile("\\s{2,}")
+	src = re.ReplaceAllString(src, "\n")
+	return strings.TrimSpace(src)
+}
+
+// @Desc 解析错误原因
+func ViewErr(valid validation.Validation) (code int, err string) {
+	for _, err := range valid.Errors {
+		return ERROR, err.Message
+	}
+	return ReSuccess()
+}
+
+// @Desc 返回正确信息
+func ReSuccess() (code int, err string) {
+	return SUCCESS, "操作成功"
+}
+
+// @Desc 返回错误信息
+func ReError() (int, string) {
+	return SUCCESS, "操作失败"
+}
+
+// @Desc 号码不能为空
+func ValidTel(tel, land, client string) bool {
+	if tel == "" && land == "" && client == "" {
+		return true
+	}
+	return false
+}
+
+func SubUUID(RemoteAddr string) string {
+	return strings.Split(strings.Replace(RemoteAddr, ".", "", -1), ":")[0]
+}
+
+func GetFirstUrl(Referer, host, url, reqURI string) string {
+	if Referer == "" {
+		return setting.ReplaceSiteUrl(host, url, reqURI) //来源页
+	}
+	return Referer
 }

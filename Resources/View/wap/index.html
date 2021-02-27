@@ -5,190 +5,318 @@
         <meta charset="utf-8">
         <title>北京易学教育科技有限公司</title>
         {{template "wap_header"}}
-        <link rel="stylesheet" href="/static/wap/css/index.css" />
-        <link rel="stylesheet" href="/static/wap/css/loop.css">
-        <link rel="stylesheet" type="text/css" href="/static/wap/css/default.css">
-        <link rel="stylesheet" href="/static/wap/css/jquery.hiSlider.min.css">
-        <link rel="stylesheet" href="/static/wap/css/swiper.min.css">
+        <link rel="stylesheet" href="/static/wap/dist/swiper-bundle.min.css">
+        <link href="/static/wap/css/index.css" rel="stylesheet"/>
     </head>
     <body>
-    {{template "wap_nav"}}
-    <section class="index_banner pub_style">
-        <img src="/static/wap/img/banner.jpg" />
+    <section class="pub header_logo">
+        <img src="/static/wap/img/wap_logo.png">
+        <img src="/static/wap/img/wap_OMO.png">
     </section>
-    <section class="tit pub_style">
-        <section class="public_tit">
-            <p class="direction left">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
-            </p>
-            <h3 class="left">数学思维有什么魔力?</h3>
-            <p class="direction left dr">
-                <span class="line magic_line"></span>
-                <span class="circle magic_circle"></span>
+    <!--banner-->
+    {{template "wap/banner"}}
+    <!--魔法数学专注于3—12岁 少儿数理思维教育-->
+    <section class="pub siwei_wap" style="background: url('/static/wap/img/siwBg.png')  no-repeat bottom center">
+        <h3 class="w100 siwei_tit">{{.data.thought.Name}}</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
             </p>
         </section>
-    </section>
-    <!-- 数学思维有什么魔力 -->
-    <section class="magic_manth pub_style">
-        <dl class="brain">
-            <dt></dt>
-            <dd>
-                <h4>全面激发大脑潜能</h4>
-                <p>对思维的广度、深度和创造性方面进行综合训练，促进孩子多元智能发展。</p>
-            </dd>
-        </dl>
-        <dl class="turn">
-            <dt></dt>
-            <dd><h4>培养孩子精英素质</h4><p>开拓思路，提高记忆力、洞察力、分析与解决问题的能力、逻辑思维能力等。</p></dd>
-        </dl>
-        <dl class="broca">
-            <dt></dt>
-            <dd><h4>为未来学习奠定基础</h4><p>养成观察、思考、分析、实践等严谨系统的思维习惯，为其他学科学习打下坚实基础。</p></dd>
-        </dl>
-    </section>
-    <!-- 张梅玲教授倾力推荐 -->
-    <section class="recommend pub_style">
-        <section class="tit">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">张梅玲教授倾力推荐</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
+        <p class="siwei_con">
+            {{.data.thought.Summary}}
+        </p>
+        <section class="zhuanzhuCon">
+            {{.data.thought.Content | unescaped}}
         </section>
-        <section class="outborder">
+        <p class="getCon w100">
+            <a class="" href="#myform">免费获取课程资料</a>
+        </p>
+    </section>
+    <!--什么是数理思维？-->
+    <section class="pub why w100">
+        <h3 class="w100 whyTit">{{.data.why.Name}}</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <p class="why_desc w100">{{.data.why.Content}}</p>
+        <section class="siweiCon pub">
+            {{ range $k,$v := .data.what}}
+                {{ if lt $k 2 }}
+                <dl>
+                    <dt>
+                        <img class="lazy" src="{{.Imgurl}}"/>
+                    </dt>
+                    <dd>
+                        <p class="siweiCir">{{.Info}}</p>
+                        <p>{{.Bname}}</p>
+                    </dd>
+                </dl>
+                {{end}}
+            {{end}}
+        </section>
+        <section class="siweiCon pub">
+            {{ range $k,$v := .data.what }}
+                {{ if eq $k 2}}
+                <dl>
+                    <dt>
+                        <img class="lazy" src="{{.Imgurl}}"/>
+                    </dt>
+                    <dd>
+                        <p class="siweiCir">{{.Info}}</p>
+                        <p>{{.Bname}}</p>
+                    </dd>
+                </dl>
+                {{end}}
+            {{end}}
+        </section>
+        <section class="siweiCon pub">
+            {{ range $k,$v := .data.what }}
+                {{ if gt $k 2}}
+                <dl>
+                    <dt>
+                        <img class="lazy" src="{{.Imgurl}}"/>
+                    </dt>
+                    <dd>
+                        <p class="siweiCir">{{.Info}}</p>
+                        <p>{{.Bname}}</p>
+                    </dd>
+                </dl>
+                {{end}}
+            {{end}}
+        </section>
+    </section>
+    <!--为什么要学习数理思维？-->
+    <section class="pub slsw w100" style="background:#9783C4 url('/static/wap/img/slsw.png')  no-repeat top center">
+        <h3 class="slswTit w100">{{.data.siwei.Bname}}</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="why_warp">
             <dl>
-                <dt>我们根据3~12岁少儿心理发展特点编制的魔法数学系列课程，让孩子全方位立体化地调动“数学细胞” 。以独创的故事互动形式，使得原本枯燥的数理学习变得既生动又有趣。魔法数学是能够让孩子爱上数学的魔法城堡！</dt>
-                <dd>——张梅玲</dd>
+                <dt class="whyPtit">
+                    <p>{{.data.index_one.Bname}}</p>
+                    <span></span>
+                </dt>
+                <dd class="whyCon">{{.data.index_one.Info | unescaped}}</dd>
+            </dl>
+            <section class="index_circle">
+                <img src="/static/wap/img/circle.png">
+            </section>
+            <dl>
+                <dt class="whyPtit">
+                    <p>{{.data.index_two.Bname}}</p>
+                    <span></span>
+                </dt>
+                <dd class="whyCon">{{.data.index_two.Info | unescaped}}</dd>
             </dl>
         </section>
-        <section class="celebrity">
-            <img data-original="/static/wap/img/pic_zml.png" src="/static/wap/img/pic_zml.png" class="lazy"/>
+        <section class="bwhy w100">
+            <dl>
+                <dt class="whyPtit">
+                    <p>{{.data.index_three.Bname}}</p>
+                    <span></span>
+                </dt>
+                <dd class="whyCon">{{.data.index_three.Info | unescaped}}</dd>
+            </dl>
         </section>
     </section>
-    <!-- 选择魔法数学的六个理由 -->
-    <section class="six_reason pub_style">
-        <section class="tit">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
+    <!--张梅玲教授倾力推荐-->
+    <section class="pub tuijian">
+        <dl>
+            <dt>
+                <p class="people">
+                    <span>{{.data.index_zml.Bname}}</span>
                 </p>
-                <h3 class="left">选择魔法数学的六个理由</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
+                <p class="lj_con">{{.data.index_zml.Info | unescaped}}</p>
+            </dt>
+            <dd style="background:url('/static/wap/img/index_zml.png') no-repeat top center">
+                <span>{{.data.index_zml.Tag}}</span>
+            </dd>
+        </dl>
+    </section>
+    <!--魔法数学 颠覆旧数学认知-->
+    <section class="pub renzhi">
+        <h3 class="renzhiTit w100">{{.data.index_df.Bname}}</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="renzhiCon" style="background:#E9E3F5 url(http://img.cdn.brocaedu.com/202012141240337.png?imageslim) no-repeat center bottom;">
+            <section class="renzhiM">
+                <ul>
+                    <li>{{.data.index_vs.Bname}}</li>
+                    <li><img src="{{.data.index_vs.Imgurl}}"></li>
+                    <li>{{.data.index_vs.Info}}</li>
+                </ul>
+            </section>
+            <section class="renzhiC">
+                {{.data.index_con.Content | unescaped}}
             </section>
         </section>
     </section>
-    <section class="slider_contents pub_style">
-        <div id="wrap">
-            <ul class="hiSlider hiSlider3">
-                <li class="hiSlider-item"><img src="/static/wap/img/pic_reason1@2x.png" alt="启发思考，螺旋上升"></li>
-            </ul>
-        </div>
-    </section>
-    <!-- 魔法数学与传统数学的区别 -->
-    <section class="six_reason pub_style">
-        <section class="tit">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">魔法数学与传统数学的区别</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-            </section>
+    <!-- 全新OMO教育模式 形成全场景闭环教学空间-->
+    <section class="pub omo">
+        <h3 class="w100 omoTit">{{.data.index_omol.Bname}}</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
         </section>
-    </section>
-    <section class="difference pub_style">
-        <ul class="left tradition_ul clearfix"><li class="difference_con_tit mb0">传统数学</li><li>学习学科知识</li><li>填鸭式 单项式</li><li>讲解聆听 单向式</li><li>视频</li><li class="mb0">被动依赖 应试学习</li></ul>
-        <ul class="right magic_ul clearfix"><li class="difference_con_tit mb0">魔法数学</li><li>提升逻辑思维能力 培养高效思维模式</li><li>启发引导式 双向式</li><li>主动探索 双向式</li><li>线下互动课件+在线APP+AI智能系统</li><li class="mb0">主动思考 高效学习</li></ul>
-    </section>
-    <!-- 特色课堂，让孩子流连忘返 -->
-    <section class="six_reason pub_style">
-        <section class="tit">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">特色课堂，让孩子流连忘返</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
+        <section class="newOMOCon w100" style="background: url('/static/wap/img/index_omo.png') no-repeat bottom center">
+            <section class="newOMOL">
+                {{.data.index_omol.Info | unescaped}}
             </section>
-        </section>
-    </section>
-    <section class="slider_contents pub_style">
-        <div id="wrap">
-            <ul class="hiSlider hiSlider4">
-                <li class="hiSlider-item"><img src="/static/wap/img/pic_classroom1@2x.png" alt="多故事多场景， 增强逻辑思考能力"></li>
-            </ul>
-        </div>
-    </section>
-    <!-- 魔数简介 -->
-    <section class="six_reason pub_style">
-        <section class="tit">
-            <section class="public_tit">
-                <p class="direction left">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
-                <h3 class="left">魔数简介</h3>
-                <p class="direction left dr">
-                    <span class="line magic_line"></span>
-                    <span class="circle magic_circle"></span>
-                </p>
+            <section class="newOMOM">
+                <section class="omoCir"></section>
+                <span class="omoCon">全新OMO<br>教育模式</span>
             </section>
-        </section>
-    </section>
-    <section class="about_magic pub_style">
-        “魔法数学”是在中科院专家、哈佛精英指导下，依据全球儿童心理学家皮亚杰认知发展理论和哈佛大学脑发展研究成果，历经八年斥资千万，开创性打造的国内首款3-12岁儿童数理思维全体系课程。其通过“智能投屏+交互课件+创意道具+APP学习平台”的形式实现良好的教学效果，并采用“线上线下同步教学+OMO线上学习成果分享”，实现学员高效学习。
-    </section>
-    <!-- 品牌荣誉 -->
-    <section class="ppbj pub_style">
-        <section class="six_reason">
-            <section class="tit">
-                <section class="public_tit">
-                    <p class="direction left">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
-                    <h3 class="left">品牌荣誉</h3>
-                    <p class="direction left dr">
-                        <span class="line magic_line"></span>
-                        <span class="circle magic_circle"></span>
-                    </p>
+            <section class="newOMOR">
+                <section class="newOMORCon">
+                    {{.data.index_omor.Info | unescaped}}
                 </section>
             </section>
         </section>
-        <section class="brand_ul">
-            <section class="pc-banner">
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img  src="/static/assets/img/zs1.jpg" /></div>
-                        <div class="swiper-slide"><img  src="/static/assets/img/zs10.jpg" /></div>
-                        <div class="swiper-slide"><img  src="/static/assets/img/zs1.png"  /></div>
-                        <div class="swiper-slide"><img  src="/static/assets/img/zs1.png"  /></div>
-                    </div>
-                </div>
-            </section>
+    </section>
+    <!--抓住成长关键期 培养孩子每个阶段具备的核心能力-->
+    <section class="pub power">
+        <h3 class="powerTit w100">{{.data.index_cz.Name | unescaped}}</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="powerUl">
+            {{.data.index_cz.Content | unescaped}}
         </section>
     </section>
-    {{template "wap_footer"}}
+    <!--探索精神 & 主动求知态度-->
+    <section class="pub power_con">
+        <section class="power_con_m">
+            <p class="xs w100"></p>
+            <h4 class="w100 power_con_tit">{{.data.indexJzl.Bname | unescaped}}</h4>
+            <ul>
+                {{.data.indexJzl.Info | unescaped}}
+            </ul>
+        </section>
+    </section>
+    <!--魔法数学课程体系 为少儿提供高品质的学习方案--->
+    <section class="pub fanan">
+        <h3 class="fananTit w100">魔法数学课程体系<br />为少儿提供高品质的学习方案</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="fanan_img w100">
+            <img src="/static/wap/img/fanan.png">
+        </section>
+    </section>
+    <!--趣味课堂 让孩子重拾数学乐趣-->
+    <section class="pub w100 haapy">
+        <h3 class="w100 happyTit">趣味课堂 让孩子重拾数学乐趣</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <ul class="happy_ul">
+            <li>
+                <img src="/static/wap/img/ccc.png">
+                <span class="xsjt"></span>
+            </li>
+            <li class="p120">
+                多故事多场景增强<br/>逻辑思考能力
+            </li>
+            <li class="p120">
+                多故事多场景增强<br/>逻辑思考能力
+            </li>
+            <li>
+                <img src="/static/wap/img/ccc.png">
+                <span class="xsjt"></span>
+            </li>
+            <li>
+                <img src="/static/wap/img/ccc.png">
+                <span class="xsjt"></span>
+            </li>
+            <li class="p120">
+                多故事多场景增强<br/>逻辑思考能力
+            </li>
+            <li class="p120">
+                多故事多场景增强<br/>逻辑思考能力
+            </li>
+            <li>
+                <img src="/static/wap/img/ccc.png">
+                <span class="xsjt"></span>
+            </li>
+            <li>
+                <img src="/static/wap/img/ccc.png">
+                <span class="xsjt"></span>
+            </li>
+            <li class="p120">
+                多故事多场景增强<br/>逻辑思考能力
+            </li>
+            <li class="p120">
+                多故事多场景增强<br/>逻辑思考能力
+            </li>
+            <li>
+                <img src="/static/wap/img/ccc.png">
+                <span class="xsjt"></span>
+            </li>
+        </ul>
+    </section>
+    <!--新闻动态-->
+    <section class="pub news" style="background: url('/static/wap/img/newsBg.png') no-repeat top center">
+        <h3 class="newsTit w100">新闻动态</h3>
+        <section class="bline w100">
+            <p>
+                <span></span>
+            </p>
+        </section>
+        <section class="news_ul">
+            <div class="swiper-container new_container">
+                <div class="swiper-wrapper">
+                    {{range .data.index_news}}
+                        <div class="swiper-slide">
+                            <section class="swiper-slide_warp">
+                                <a href="/de?id={{.ID}}">
+                                    <img src="{{.ThumbImg}}">
+                                    <h4 class="w100 newTit">{{.Title}}</h4>
+                                    <p class="w100 newDesc">{{.Summary}}</p>
+                                </a>
+                            </section>
+                        </div>
+                    {{end}}
+                </div>
+            </div>
+        </section>
+        <p class="w100 moreNews"><a href="#">更多资讯</a></p>
+    </section>
+    {{ template "wap/layout.html"}}
     </body>
-    </html>
+    <script src="/static/wap/dist/swiper-bundle.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.banner', {
+            autoplay: true,//可选选项，自动滑动
+        })
 
+        //如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+        new Swiper('.banner')
+        var mySwiper = document.querySelector('.banner').swiper
+        mySwiper.slideNext();
+
+
+        var newContriner = new Swiper('.new_container', {
+            slidesPerView : 3,
+            centeredSlides : true,
+            centeredSlidesBounds: true,
+            spaceBetween : '5%',
+        })
+    </script>
+    </html>
 {{end}}

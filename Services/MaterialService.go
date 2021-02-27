@@ -3,7 +3,6 @@ package Services
 import (
 	"elearn100/Model/Material"
 	"elearn100/Pkg/e"
-	"fmt"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
@@ -12,7 +11,7 @@ import (
 // @Summer 添加/编辑 视频
 func AddMaterial(c *gin.Context) (code int, err string) {
 	if err := c.Bind(&c.Request.Body); err != nil {
-		fmt.Println("上传内容失败")
+		return e.ReError()
 	}
 
 	id := com.StrTo(c.PostForm("id")).MustInt()
@@ -23,34 +22,40 @@ func AddMaterial(c *gin.Context) (code int, err string) {
 	isShow := com.StrTo(c.PostForm("is_show")).MustInt()
 	isHot := com.StrTo(c.PostForm("is_hot")).MustInt()
 
+	data := make(map[string]interface{})
+	if code, msg := validMater(title, videoSrc, localSrc, isShow, isHot); code == e.ERROR {
+		return code, msg
+	}
+	isOk := false
+	data["title"] = title
+	data["video_src"] = videoSrc
+	data["local_src"] = localSrc
+	data["is_show"] = isShow
+	data["is_hot"] = isHot
+	data["code"] = searCode
+	if id >= 1 {
+		isOk = Material.EditMaterial(id, data)
+	} else {
+		isOk = Material.AddMaterial(data)
+	}
+	if isOk {
+		return e.ReSuccess()
+	}
+	return e.ReError()
+}
+
+// @Desc 模型验证
+func validMater(title, videoSrc, localSrc string, isShow, isHot int) (int, string) {
 	valid := validation.Validation{}
 	valid.Required(title, "title").Message("标题不能为空")
 	valid.Required(videoSrc, "video_src").Message("视频地址不能为空")
 	valid.Required(localSrc, "local_src").Message("视频地址不能为空")
 	valid.Required(isShow, "is_show").Message("请选择是否展示")
 	valid.Required(isHot, "is_hot").Message("排序不能为空")
-
-	isOk := false
-	data := make(map[string]interface{})
 	if !valid.HasErrors() {
-		data["title"] = title
-		data["video_src"] = videoSrc
-		data["local_src"] = localSrc
-		data["is_show"] = isShow
-		data["is_hot"] = isHot
-		data["code"] = searCode
-		if id >= 1 {
-			isOk = Material.EditMaterial(id, data)
-		} else {
-			isOk = Material.AddMaterial(data)
-		}
-		if isOk {
-			return e.SUCCESS, "操作成功"
-		} else {
-			return e.ERROR, "上传失败"
-		}
+		return e.ReSuccess()
 	}
-	return ViewErr(valid)
+	return e.ViewErr(valid)
 }
 
 func GetMaterial(id int) Material.Material {

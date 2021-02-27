@@ -1,20 +1,19 @@
 package Services
 
 import (
-	"bytes"
 	"elearn100/Model/Site"
 	"elearn100/Pkg/e"
 	"github.com/astaxie/beego/validation"
+	"github.com/garyburd/redigo/redis"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
-	"io/ioutil"
 )
 
 // @Summer 添加/编辑站点信息
 func AddSite(c *gin.Context) (code int, err string) {
-	buf := make([]byte, 3072)
-	n, _ := c.Request.Body.Read(buf)
-	c.Request.Body = ioutil.NopCloser(bytes.NewReader(buf[:n]))
+	if err := c.Bind(&c.Request.Body); err != nil {
+		return e.ReError()
+	}
 
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	siteTitle := com.StrTo(c.PostForm("site_title")).String()
@@ -29,6 +28,42 @@ func AddSite(c *gin.Context) (code int, err string) {
 	RecordNumber := com.StrTo(c.PostForm("record_number")).String()
 	adminTel := com.StrTo(c.PostForm("admin_tel")).String()
 
+	if code, err := validSite(siteTitle, SiteDesc, SiteKeyboard, SiteCopyright, SiteEmail, SiteAddress); code == e.ERROR {
+		return code, err
+	}
+
+	if err := e.ValidTel(SiteTel, LandLine, ClientTel); err {
+		return e.ERROR, "电话联系方式，必须填写一项"
+	}
+
+	site := Site.Site{
+		SiteTitle:     siteTitle,
+		SiteDesc:      SiteDesc,
+		SiteKeyboard:  SiteKeyboard,
+		SiteCopyright: SiteCopyright,
+		SiteTel:       SiteTel,
+		SiteEmail:     SiteEmail,
+		SiteAddress:   SiteAddress,
+		LandLine:      LandLine,
+		ClientTel:     ClientTel,
+		RecordNumber:  RecordNumber,
+		AdminTel:      adminTel,
+	}
+
+	isOk := false
+	if id < 1 {
+		isOk = Site.AddSite(site)
+	} else {
+		isOk = Site.EditSite(id, site)
+	}
+	if isOk {
+		return e.ReSuccess()
+	}
+	return e.ReError()
+}
+
+// @Desc 数据验证
+func validSite(siteTitle, SiteDesc, SiteKeyboard, SiteCopyright, SiteEmail, SiteAddress string) (int, string) {
 	valid := validation.Validation{}
 	valid.Required(siteTitle, "site_title").Message("网站标题不能为空")
 	valid.Required(SiteDesc, "site_desc").Message("网站描述不能为空")
@@ -36,45 +71,26 @@ func AddSite(c *gin.Context) (code int, err string) {
 	valid.Required(SiteCopyright, "site_copyright").Message("版权不能为空")
 	valid.Required(SiteEmail, "site_email").Message("邮箱不能为空")
 	valid.Required(SiteAddress, "site_address").Message("地址不能为空")
-
-	data := make(map[string]interface{})
-	isOk := false
-
 	if !valid.HasErrors() {
-		if err := validTel(SiteTel, LandLine, ClientTel); err {
-			return e.ERROR, "电话联系方式，必须填写一项"
-		}
-		data["site_title"] = siteTitle
-		data["site_desc"] = SiteDesc
-		data["site_keyboard"] = SiteKeyboard
-		data["site_copyright"] = SiteCopyright
-		data["admin_tel"] = adminTel
-		data["site_tel"] = SiteTel
-		data["land_line"] = LandLine
-		data["client_tel"] = ClientTel
-		data["site_email"] = SiteEmail
-		data["site_address"] = SiteAddress
-		data["record_number"] = RecordNumber
-		if id < 1 {
-			isOk = Site.AddSite(data)
-		} else {
-			isOk = Site.EditSite(id, data)
-		}
-		if isOk {
-			return e.SUCCESS, "操作成功"
-		}
+		return e.ReSuccess()
 	}
-	return ViewErr(valid)
+	return e.ViewErr(valid)
 }
 
-// @Summer 获取站点信息
-func GetSite() (sites Site.Site) {
-	return Site.GetSite()
-}
+// @Desc 获取站点信息
+func GetSite() Site.Site {
+	conn := e.PoolConnect()
+	defer conn.Close()
 
-func validTel(tel, land, client string) bool {
-	if tel == "" && land == "" && client == "" {
-		return true
+	redisKey := e.REDISKey + "site"
+	var site Site.Site
+
+	if exists, _ := redis.Bool(conn.Do("exists", redisKey)); exists {
+		res, _ := redis.Values(conn.Do("hgetall", redisKey))
+		_ = redis.ScanStruct(res, &site)
+	} else {
+		site = Site.GetSite()
+		conn.Do("hmset", redis.Args{redisKey}.AddFlat(site)...)
 	}
-	return false
+	return site
 }

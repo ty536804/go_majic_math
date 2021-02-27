@@ -10,10 +10,48 @@ import (
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
-	"regexp"
 	"strings"
-	"time"
 )
+
+// @Title提交留言
+func AddMessage(c *gin.Context) (code int, msg string) {
+	if err := c.Bind(&c.Request.Body); err != nil {
+		return e.ERROR, "网络请求失败，请稍后再试"
+	}
+
+	tel := com.StrTo(c.PostForm("tel")).String()
+	if isOk := e.CheckPhone(tel); isOk {
+		return e.SUCCESS, "请填写有效的手机号码"
+	}
+
+	ip := c.Request.RemoteAddr
+	if total := Message.GetTotalMessage(ip); total >= 5 {
+		return e.SUCCESS, "提交成功"
+	}
+
+	MName := e.TrimHtml(com.StrTo(c.PostForm("mname")).String())
+	area := e.TrimHtml(com.StrTo(c.PostForm("area")).String())
+	webType := com.StrTo(c.PostForm("client")).String()
+
+	if code, err := validMessage(MName, area, tel); code == e.ERROR {
+		return code, err
+	}
+	SendMessageForMq(MName, area, tel, webType, ip)
+	sendSms(tel, area, MName) //发送短信
+	return e.SUCCESS, "提交成功"
+}
+
+// @Desc 数据校验
+func validMessage(MName, area, tel string) (int, string) {
+	valid := validation.Validation{}
+	valid.Required(MName, "mname").Message("姓名不能为空")
+	valid.Required(area, "area").Message("地区不能为空")
+	valid.Required(tel, "tel").Message("选择是否展示")
+	if !valid.HasErrors() {
+		return e.ReSuccess()
+	}
+	return e.ViewErr(valid)
+}
 
 type Info struct {
 	MName   string
@@ -25,51 +63,24 @@ type Info struct {
 	MsgType int
 }
 
-// @Title提交留言
-func AddMessage(c *gin.Context) (code int, msg string) {
-	if err := c.Bind(&c.Request.Body); err != nil {
-		fmt.Println(err)
-		return e.ERROR, "操作失败"
+// @Desc 表单提交到队列
+func SendMessageForMq(MName, area, tel, webType, ip string) {
+	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
+		ip = ip[0:ipIndex]
 	}
-	tel := com.StrTo(c.PostForm("tel")).String()
-	re := regexp.MustCompile(`^1\d{10}$`)
-
-	fmt.Println(re.MatchString(tel), tel, len(tel))
-	if !re.MatchString(tel) || len(tel) < 11 {
-		return e.SUCCESS, "请填写有效的手机号码"
-	}
-
-	ip := c.Request.RemoteAddr
-	initTime := time.Now().Format("2006-01-02")
-	total := Message.GetTotalMessage(ip, initTime+" 00:00:00", initTime+" 23:59:59")
-	if total >= 5 {
-		return e.SUCCESS, "提交成功"
-	}
-
-	mname := TrimHtml(com.StrTo(c.PostForm("mname")).String())
-	area := TrimHtml(com.StrTo(c.PostForm("area")).String())
-	webType := com.StrTo(c.PostForm("client")).String()
-
-	valid := validation.Validation{}
-	valid.Required(mname, "mname").Message("姓名不能为空")
-	valid.Required(area, "area").Message("地区不能为空")
-	valid.Required(tel, "tel").Message("选择是否展示")
-	if !valid.HasErrors() {
-		uid := strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
-		var word Info
-		word.MName = mname
-		word.Area = area
-		word.Tel = tel
-		word.Client = webType
-		word.Ip = ip
-		word.Uid = uid
-		word.MsgType = 1
-		jsonData, _ := json.Marshal(word)
+	word := new(Info)
+	word.MName = MName
+	word.Area = area
+	word.Tel = tel
+	word.Client = webType
+	word.Ip = ip
+	word.Uid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
+	word.MsgType = 1
+	if jsonData, err := json.Marshal(word); err == nil {
 		Mq.PublishEx("mofashuxue", "fanout", "", string(jsonData))
-		sendSms(tel, area, mname) //发送短信
-		return e.SUCCESS, "提交成功"
+	} else {
+		fmt.Println("json序列化失败")
 	}
-	return ViewErr(valid)
 }
 
 type CodeInfo struct {
@@ -87,35 +98,20 @@ func sendSms(tel, area, name string) {
 	telList = append(telList, tel)
 
 	for k, v := range telList { //发送短信
-		var code CodeInfo
 		msg := ""
 		if (k + 1) == len(telList) {
 			msg = "我们已收到您的留言。我们的招商经理会在24小时内联系您，请您注意接听来自北京的电话，谢谢。"
 		} else {
 			msg = area + "的" + name + "留言了。联系" + tel + "留言来源魔法数学"
 		}
+		code := new(CodeInfo)
 		code.Tel = v
 		code.Msg = msg
-		dataJson, _ := json.Marshal(code)
-		Mq.Publish("", "smsinfo", string(dataJson))
+		dataJson, err := json.Marshal(code)
+		if err == nil {
+			Mq.Publish("", "smsinfo", string(dataJson))
+		} else {
+			fmt.Println("短信队列出错")
+		}
 	}
-}
-
-func TrimHtml(src string) string {
-	//将HTML标签全转换成小写
-	re, _ := regexp.Compile("\\<[\\S\\s]+?\\>")
-	src = re.ReplaceAllStringFunc(src, strings.ToLower)
-	//去除STYLE
-	re, _ = regexp.Compile("\\<style[\\S\\s]+?\\</style\\>")
-	src = re.ReplaceAllString(src, "")
-	//去除SCRIPT
-	re, _ = regexp.Compile("\\<script[\\S\\s]+?\\</script\\>")
-	src = re.ReplaceAllString(src, "")
-	//去除所有尖括号内的HTML代码，并换成换行符
-	re, _ = regexp.Compile("\\<[\\S\\s]+?\\>")
-	src = re.ReplaceAllString(src, "\n")
-	//去除连续的换行符
-	re, _ = regexp.Compile("\\s{2,}")
-	src = re.ReplaceAllString(src, "\n")
-	return strings.TrimSpace(src)
 }

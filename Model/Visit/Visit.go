@@ -3,7 +3,6 @@ package Visit
 import (
 	db "elearn100/Database"
 	"fmt"
-	"time"
 )
 
 type Visit struct {
@@ -23,37 +22,11 @@ func GetVisit(uid string) (visit Visit) {
 
 // @Title 新增浏览记录
 // @Param	data	map[string]interface
-func AddVisit(data map[string]interface{}) {
-	result := db.Db.Create(&Visit{
-		Uuid:       data["uuid"].(string),
-		FirstUrl:   data["FirstUrl"].(string),
-		Ip:         data["Ip"].(string),
-		FromUrl:    data["FromUrl"].(string),
-		CreateTime: time.Now().Format("2006-01-02 15:04:05"),
-	})
-
-	if result.Error != nil {
+func AddVisit(visit Visit, history History) {
+	if result := db.Db.Create(&visit); result.Error != nil {
 		fmt.Printf("首次魔法数学 浏览记录失败：%s", result.Error)
 	} else {
-		AddHistory(data)
+		AddHistory(history)
 		fmt.Print("首次魔法数学 浏览记录OK")
-	}
-}
-
-// @Title 更新数据
-// @Param uid			string	用户ID
-// @Param visitHistory  string	访问记录
-func UpdateVisit(uid, visitHistory string) {
-	m1 := map[string]interface{}{}
-	visit := GetHistory(uid)
-
-	if visit.VisitHistory == "" {
-		m1["visit_history"] = visitHistory
-	} else {
-		m1["visit_history"] = visit.VisitHistory + "<br/>" + visitHistory
-	}
-
-	if visitHistory != "" {
-		EditHistory(uid, m1)
 	}
 }

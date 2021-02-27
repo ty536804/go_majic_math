@@ -24,19 +24,8 @@ type Campus struct {
 }
 
 // @Summer 新增校区
-func AddCampus(data map[string]interface{}) bool {
-	err := db.Db.Create(&Campus{
-		SchoolName:   data["school_name"].(string),
-		SchoolTel:    data["school_tel"].(string),
-		WorkerTime:   data["worker_time"].(string),
-		Address:      data["address"].(string),
-		SchoolImg:    data["school_img"].(string),
-		ProvinceName: data["province_name"].(string),
-		Province:     data["province"].(int),
-		IsShow:       data["is_show"].(int),
-		IsDel:        '0',
-	})
-	if err.Error != nil {
+func AddCampus(campus Campus) bool {
+	if err := db.Db.Create(&campus); err.Error != nil {
 		log.Printf("添加校区失败,%v", err)
 		return false
 	}
@@ -44,10 +33,8 @@ func AddCampus(data map[string]interface{}) bool {
 }
 
 // @Summer 编辑校区
-func EditCampus(id int, data interface{}) bool {
-	edit := db.Db.Model(&Campus{}).Where("id = ?", id).Update(data)
-	if edit.Error != nil {
-
+func EditCampus(id int, campus Campus) bool {
+	if edit := db.Db.Model(&Campus{}).Where("id = ?", id).Updates(campus); edit.Error != nil {
 		fmt.Print("编辑校区错误:", edit)
 		return false
 	}

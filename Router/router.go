@@ -87,11 +87,11 @@ func InitRouter() *gin.Engine {
 	r.GET("/videoDetail", Wap.Video)
 	r.POST("/checkVideo", Wap.CheckVideoPwd)
 	//Backend
-	r.GET("/login", func(c *gin.Context) {
-		c.HTML(e.SUCCESS, "admin/login.html", gin.H{
-			"title": "登录",
-		})
-	})
+	//r.GET("/login", func(c *gin.Context) {
+	//	c.HTML(e.SUCCESS, "admin/login.html", gin.H{
+	//		"title": "登录",
+	//	})
+	//})
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())
 	{
@@ -104,7 +104,7 @@ func InitRouter() *gin.Engine {
 		apiv1.POST("/userData", v1.UserData)       //用户列表API
 		apiv1.POST("/AddUser", v1.AddUser)         //用户列表API
 		apiv1.POST("/GetUser", v1.GetUser)         //查看当用户API
-		apiv1.GET("/logout", v1.LogOut)            //查看当用户API
+		apiv1.POST("/logout", v1.LogOut)           //查看当用户API
 		apiv1.POST("/editUser", v1.UpdateUser)     //获取站点信息API
 		apiv1.POST("/detailsUser", v1.DetailsUser) //查看当用户API
 		//站点信息

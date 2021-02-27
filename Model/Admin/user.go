@@ -23,13 +23,14 @@ type SysAdminUser struct {
 	PositionId   string `json:"position_id" gorm:"comments:'职位 角色'" binding:"required"`
 	CityId       string `json:"city_id" gorm:"type:text;comments:'城市ID'"`
 	Statues      int64  `json:"statues" gorm:"not null;default:'0';comment:'状态 1显示'" binding:"required"`
+	Token        string `json:"token" gorm:"varchar(100);not null;default:'';comment:'token'"`
 	projectId    int64  `json:"project_id" gorm:"not null;default:'0';comment:'归属项目 0系统'"`
 }
 
 // @Summary 通过用户ID判断用户是否存在
-// @param id int64 管理员ID
-func Find(id int64) (admins SysAdminUser) {
-	db.Db.Where("id = ?", id).Find(&admins)
+// @param id int 管理员ID
+func GetAdmin(id int) (admins SysAdminUser) {
+	db.Db.First(&admins, id)
 	return
 }
 
@@ -94,20 +95,8 @@ func ExistsByTel(tel string) bool {
 }
 
 // @Summer 添加用户
-func AddUser(data map[string]interface{}) bool {
-	err := db.Db.Create(&SysAdminUser{
-		LoginName:    data["login_name"].(string),
-		NickName:     data["nick_name"].(string),
-		Email:        data["email"].(string),
-		Tel:          data["tel"].(string),
-		Pwd:          data["pwd"].(string),
-		DepartmentId: 1,
-		PositionId:   "1",
-		Avatar:       "#",
-		CityId:       "10000",
-		Statues:      data["statues"].(int64),
-	})
-	if err.Error != nil {
+func AddUser(user SysAdminUser) bool {
+	if err := db.Db.Create(&user); err.Error != nil {
 		log.Printf("添加用户失败,%v", err)
 		return false
 	}
@@ -115,9 +104,8 @@ func AddUser(data map[string]interface{}) bool {
 }
 
 // @Summer 编辑用户
-func EditUser(id int64, data interface{}) bool {
-	err := db.Db.Model(&SysAdminUser{}).Where("id = ?", id).Update(data)
-	if err.Error != nil {
+func EditUser(id int, user SysAdminUser) bool {
+	if err := db.Db.Model(&SysAdminUser{}).Where("id = ?", id).Updates(user); err.Error != nil {
 		log.Printf("编辑用户失败,%v", err)
 		return false
 	}

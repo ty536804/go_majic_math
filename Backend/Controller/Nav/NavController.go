@@ -20,8 +20,7 @@ func AddNav(c *gin.Context) {
 
 // @Summer 获取多条导航API
 func GetNavs(c *gin.Context) {
-	maps := make(map[string]interface{})
-	data := Services.GetNavs(maps)
+	data := Services.RedisGetNavList()
 	e.SendRes(c, e.SUCCESS, "获取多条导航", data)
 }
 

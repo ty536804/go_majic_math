@@ -2,41 +2,42 @@ package Services
 
 import (
 	"elearn100/Model/Visit"
-	"elearn100/Pkg/setting"
+	"elearn100/Pkg/e"
 	"github.com/gin-gonic/gin"
 	"strings"
+	"time"
 )
 
 // @Title 添加/更新 魔法数学访问记录
-func AddMoFaShuXueVisit(data map[string]interface{}) {
-	uid := data["uuid"].(string)
-	visit := Visit.GetVisit(uid)
-	if visit.ID <= 0 { //新增浏览记录
-		Visit.AddVisit(data)
-	} else {
-		Visit.UpdateVisit(data["uuid"].(string), data["visit_history"].(string))
-	}
-}
-
-// @Title 浏览记录
 func AddVisit(c *gin.Context, url string) {
 	reqURI := c.Request.URL.RequestURI()
-	FromUrl := c.Request.Host + reqURI //来源页
-	uid := strings.Split(strings.Replace(c.Request.RemoteAddr, ".", "", -1), ":")[0]
-	FirstUrl := ""
-	if c.Request.Referer() == "" {
-		FirstUrl = setting.ReplaceSiteUrl(c.Request.Host, url, reqURI) //来源页
-	} else {
-		FirstUrl = c.Request.Referer()
-	}
-	var data = make(map[string]interface{})
-	data["uuid"] = uid
-	data["FirstUrl"] = FirstUrl
-	data["Ip"] = strings.Split(c.Request.RemoteAddr, ":")[0]
-	data["FromUrl"] = FromUrl
-	data["visit_history"] = c.Request.Referer()
+	uid := e.SubUUID(c.Request.RemoteAddr)
+	visitHistory := c.Request.Referer()
+
+	var visit Visit.Visit
+	visit.Uuid = uid
+	visit.FirstUrl = e.GetFirstUrl(c.Request.Referer(), c.Request.Host, url, reqURI)
+	visit.FromUrl = c.Request.Host + reqURI //来源页
+	visit.CreateTime = time.Now().Format("2006-01-02 15:04:05")
+
+	var history Visit.History
+	history.Uuid = uid
+	history.VisitHistory = visitHistory
 
 	if c.Request.RemoteAddr != "" {
-		AddMoFaShuXueVisit(data)
+		visit := Visit.GetVisit(uid)
+		visit.Ip = strings.Split(c.Request.RemoteAddr, ":")[0]
+		if visit.ID <= 0 { //新增浏览记录
+			visit.Ip = strings.Split(c.Request.RemoteAddr, ":")[0]
+			Visit.AddVisit(visit, history)
+		} else { //更新
+			visitInfo := Visit.GetHistory(uid)
+			if visitInfo.VisitHistory == "" {
+				visitInfo.VisitHistory = visitHistory
+			} else {
+				visitInfo.VisitHistory = visitInfo.VisitHistory + "<br/>" + visitHistory
+			}
+			Visit.EditHistory(uid, visitInfo)
+		}
 	}
 }

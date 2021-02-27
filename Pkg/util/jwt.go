@@ -3,6 +3,7 @@ package util
 import (
 	"elearn100/Model/Admin"
 	"elearn100/Pkg/setting"
+	"fmt"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"sort"
@@ -75,6 +76,7 @@ func SortParam(c *gin.Context) string {
 // @Summer 加密
 func GetSignContent(c *gin.Context) string {
 	newParam := SortParam(c) + secre
+	fmt.Println(newParam, "lallala")
 	return Admin.Md5Pwd(newParam)
 }
 

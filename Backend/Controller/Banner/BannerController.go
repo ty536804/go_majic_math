@@ -22,7 +22,7 @@ func GetBanners(c *gin.Context) {
 func GetBanner(c *gin.Context) {
 	id := com.StrTo(c.Query("id")).MustInt()
 	var data = make(map[string]interface{})
-	data["list"] = Services.GetNavs(data)
+	data["list"] = Services.RedisGetNavList()
 	data["detail"] = Banner.GetBanner(id)
 	e.Success(c, "获取banner详情", data)
 }

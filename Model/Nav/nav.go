@@ -13,23 +13,16 @@ type Nav struct {
 }
 
 // @Summer 添加数据
-func AddNav(data map[string]interface{}) bool {
-	info := db.Db.Create(&Nav{
-		Name:    data["name"].(string),
-		BaseUrl: data["base_url"].(string),
-		IsShow:  data["is_show"].(int64),
-	})
-
-	if info.Error != nil {
+func AddNav(nav Nav) bool {
+	if info := db.Db.Create(&nav); info.Error != nil {
 		return false
 	}
 	return true
 }
 
 // @Summer 编辑导航
-func EditNav(id int, data ...interface{}) bool {
-	navInfo := db.Db.Model(Nav{}).Where("id = ?", id).Update(data)
-	if navInfo.Error != nil {
+func EditNav(id int, nav Nav) bool {
+	if navInfo := db.Db.Model(Nav{}).Where("id = ?", id).Updates(nav); navInfo.Error != nil {
 		return false
 	}
 	return true

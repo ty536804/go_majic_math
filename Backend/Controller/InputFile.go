@@ -4,6 +4,7 @@ import (
 	"context"
 	"elearn100/Pkg/e"
 	"fmt"
+	"github.com/garyburd/redigo/redis"
 	"github.com/gin-gonic/gin"
 	"github.com/qiniu/api.v7/v7/auth/qbox"
 	"github.com/qiniu/api.v7/v7/storage"
@@ -102,8 +103,7 @@ func QiNiu(key string) string {
 	// 可选配置
 	putExtra := storage.PutExtra{}
 
-	err := formUploader.PutFile(context.Background(), &ret, upToken, key, localFile, &putExtra)
-	if err != nil {
+	if err := formUploader.PutFile(context.Background(), &ret, upToken, key, localFile, &putExtra); err != nil {
 		fmt.Println("七牛上传失败")
 		return ""
 	}
@@ -112,15 +112,25 @@ func QiNiu(key string) string {
 
 // @Summer 获取上传凭证
 func Ticket() (upToekn string) {
-	putPolicy := storage.PutPolicy{
-		Scope:      bucket,
-		ReturnBody: `{"key":"$(key)","hash":"$(etag)","fsize":$(fsize),"bucket":"$(bucket)","name":"$(x:name)"}`,
+	conn := e.PoolConnect()
+	defer conn.Close()
+
+	token, err := redis.String(conn.Do("get", "token"))
+	if err == nil {
+		return token
+	} else {
+		putPolicy := storage.PutPolicy{
+			Scope:      bucket,
+			ReturnBody: `{"key":"$(key)","hash":"$(etag)","fsize":$(fsize),"bucket":"$(bucket)","name":"$(x:name)"}`,
+		}
+		putPolicy.Expires = 28800
+
+		mac := qbox.NewMac(accessKey, secretKey)
+		token := putPolicy.UploadToken(mac)
+
+		if _, err = conn.Do("set", "token", token); err == nil {
+			conn.Do("expire", "token", 8*time.Hour) // 微信token缓存
+		}
+		return token
 	}
-
-	putPolicy.Expires = 28800
-
-	mac := qbox.NewMac(accessKey, secretKey)
-	token := putPolicy.UploadToken(mac)
-	e.SetQiNiuToken(token)
-	return token
 }

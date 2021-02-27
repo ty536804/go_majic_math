@@ -41,44 +41,7 @@
                 </p>
             </video>
         </section>
-        <section class="video_check">
-            <form class="banner_myform">
-                <input type="hidden" value="{{.video.Id}}" name="id" class="id">
-                <section class="form_tit">
-                    <input type="text" placeholder="请输入观看码" name="video_pwd" class="video_pwd">
-                </section>
-                <section class="subBtn">
-                    <button class="van-button--info btn">提交</button>
-                </section>
-            </form>
-        </section>
     </section>
     <script type="text/javascript" src="/static/FrontEnd/js/layer.js"></script>
     <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
-    <script type="text/javascript">
-        $('.id').val(getUrlParam("id"))
-        $('.btn').on("click",function () {
-            $.ajax({
-                type: "POST",
-                dataType: "json",
-                url: "/checkVideo",
-                data:$('.banner_myform').serialize(),
-                success: function (result) {
-                    if (Number(result.code) == 200) {
-                        $('.video_check').hide()
-                        return
-                    }
-                    layer.alert("观看码不正确");
-                    return false
-                }
-            })
-            return false;
-        })
-        function getUrlParam(name)
-        {
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-            if (r!=null) return unescape(r[2]); return null; //返回参数值
-        }
-    </script>
 {{end}}

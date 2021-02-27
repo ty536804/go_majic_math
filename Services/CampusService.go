@@ -6,9 +6,12 @@ import (
 	"elearn100/Pkg/e"
 	"encoding/json"
 	"github.com/astaxie/beego/validation"
+	"github.com/garyburd/redigo/redis"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
 )
+
+var campusKey = e.REDISKey + "campus:provinceId:"
 
 func AddCampus(c *gin.Context) (code int, err string) {
 	c.Request.Body = e.GetBody(c)
@@ -23,6 +26,40 @@ func AddCampus(c *gin.Context) (code int, err string) {
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	provinceName := com.StrTo(c.PostForm("province_name")).String()
 
+	if code, err := validCampus(schoolName, schoolTel, workerTime, address, schoolImg, provinceName, isShow, province); code == e.ERROR {
+		return code, err
+	}
+
+	campus := Campus.Campus{
+		SchoolName:   schoolName,
+		SchoolTel:    schoolTel,
+		WorkerTime:   workerTime,
+		Address:      address,
+		SchoolImg:    schoolImg,
+		Province:     province,
+		ProvinceName: provinceName,
+		IsShow:       isShow,
+	}
+	isOk := false
+	if id < 1 {
+		isOk = Campus.AddCampus(campus)
+	} else {
+		isOk = Campus.EditCampus(id, campus)
+	}
+	if isOk {
+		conn := e.PoolConnect()
+		defer conn.Close()
+
+		campusKey += string(province)
+		conn.Do("expire", campusKey, -1)
+
+		return e.ReSuccess()
+	}
+	return e.ReError()
+}
+
+// @Desc 数据校验
+func validCampus(schoolName, schoolTel, workerTime, address, schoolImg, provinceName string, isShow, province int) (int, string) {
 	valid := validation.Validation{}
 	valid.Required(schoolName, "school_name").Message("学校名称不能为空")
 	valid.Required(schoolTel, "school_tel").Message("学校联系电话不能为空")
@@ -31,84 +68,51 @@ func AddCampus(c *gin.Context) (code int, err string) {
 	valid.Required(schoolImg, "school_img").Message("学校图片不能为空")
 	valid.Required(province, "province").Message("省不能为空")
 	valid.Required(provinceName, "province_name").Message("省不能为空")
-
-	data := make(map[string]interface{})
-
+	valid.Required(isShow, "is_show").Message("状态必须选择")
 	if !valid.HasErrors() {
-		isOk := false
-		data["school_name"] = schoolName
-		data["school_tel"] = schoolTel
-		data["worker_time"] = workerTime
-		data["address"] = address
-		data["school_img"] = schoolImg
-		data["province"] = province
-		data["province_name"] = provinceName
-		data["is_show"] = isShow
-		if id < 1 {
-			isOk = Campus.AddCampus(data)
-		} else {
-			isOk = Campus.EditCampus(id, data)
-		}
-		if isOk {
-			SaveCampus(province)
-			return e.SUCCESS, "操作成功"
-		}
-		return e.ERROR, "操作失败"
+		return e.ReSuccess()
 	}
-	return ViewErr(valid)
+	return e.ViewErr(valid)
 }
 
-// 获取北京校区
-func GetLimitCampus() (campuses []Campus.Campus) {
-	data := make(map[string]interface{})
-	data["province"] = "110000"
-	data["is_show"] = 1
-	return Campus.GetCampus(1, data)
-}
+// @Desc获取省份下面的校区
+// @Param provinceId int 省ID
+func RedisGetCampus(provinceId int) []Campus.Campus {
+	conn := e.PoolConnect()
+	defer conn.Close()
 
-// 获取北京校区
-func GetAllCampus() (subUser []Campus.SubUser) {
-	return Campus.GroupCampus()
-}
+	campusKey += string(provinceId)
+	var campuses []Campus.Campus
 
-// @Summer 缓冲区存储校区
-func SaveCampus(id int) bool {
-	data := make(map[string]interface{})
-	data["province"] = id
-	data["is_show"] = 1
-	res := Campus.GetCampus(1, data)
-	b, _ := json.Marshal(res)
-	con := string(b)
-	key := "campus" + string(id)
-	isOk := e.SetMenuVal(key, con)
-	return isOk
+	if exists, _ := redis.Bool(conn.Do("exists", campusKey)); exists {
+		values, _ := redis.Values(conn.Do("lrange", campusKey, 0, -1))
+		var campus Campus.Campus
+		for _, v := range values {
+			if err := json.Unmarshal(v.([]byte), &campus); err == nil {
+				campuses = append(campuses, campus)
+			}
+		}
+	} else {
+		data := make(map[string]interface{})
+		data["province"] = provinceId
+		data["is_show"] = 1
+		campuses := Campus.GetCampus(1, data)
+		for _, v := range campuses {
+			if jsonStr, err := json.Marshal(v); err == nil {
+				conn.Do("rpush", campusKey, jsonStr)
+			}
+		}
+		conn.Do("expire", campusKey, e.VALIDTime)
+	}
+	return campuses
 }
 
 // @Summer 获取缓冲区的校区
 func GetCampus(c *gin.Context) (campuses []Campus.Campus) {
 	name := com.StrTo(c.PostForm("province")).String()
 	res := Admin.GetArea(name)
-	isOk, singleList := e.GetVal("campus" + string(res.GaodeId))
-	if !isOk {
-		isOk = SaveCampus(res.GaodeId)
-		if isOk {
-			json.Unmarshal([]byte(singleList), &campuses)
-		}
-	}
-	json.Unmarshal([]byte(singleList), &campuses)
+	RedisGetCampus(res.GaodeId)
 	return
-}
-
-// @Summer 获取校区
-func GetCampuses(c *gin.Context) (data map[string]interface{}) {
-	page := com.StrTo(c.PostForm("page")).MustInt()
-	param := make(map[string]interface{})
-	count := make(map[string]interface{})
-	param["count"] = e.GetPageNum(Campus.CountCampus(count))
-	param["list"] = Campus.GetCampus(page, count)
-	count["a_level"] = 1
-	param["areacode"] = Admin.GetAreas(count)
-	return param
 }
 
 // @Summer 获取校区
@@ -124,15 +128,4 @@ func GroupCampus() (data map[string]interface{}) {
 	param := make(map[string]interface{})
 	param["detail"] = Campus.GroupCampus()
 	return param
-}
-
-func DelCampus(c *gin.Context) (code int, err string) {
-	c.Request.Body = e.GetBody(c)
-	id := com.StrTo(c.PostForm("id")).MustInt()
-
-	isOk := Campus.DelCampus(id)
-	if isOk {
-		return e.SUCCESS, "操作成功"
-	}
-	return e.ERROR, "操作失败"
 }

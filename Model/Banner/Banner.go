@@ -32,25 +32,8 @@ type Banner struct {
 }
 
 // @Summer 添加banner
-func AddBanner(data map[string]interface{}) bool {
-	startTime := time.Now().Add(100 * time.Hour)
-	err := db.Db.Create(&Banner{
-		Province:   "10000",
-		City:       "0",
-		Area:       "0",
-		Bname:      data["bname"].(string),
-		Bposition:  data["bposition"].(int),
-		Imgurl:     data["imgurl"].(string),
-		Info:       data["info"].(string),
-		TargetLink: data["target_link"].(string),
-		IsShow:     data["is_show"].(int),
-		Tag:        data["tag"].(string),
-		Type:       data["type"].(int),
-		Sort:       data["sort"].(int),
-		BeginTime:  startTime,
-		EndTime:    startTime,
-	})
-
+func AddBanner(banner Banner) bool {
+	err := db.Db.Create(&banner)
 	if err.Error != nil {
 		log.Printf("添加banner失败,%v", err)
 		return false
@@ -59,8 +42,8 @@ func AddBanner(data map[string]interface{}) bool {
 }
 
 // @Summer 编辑banner
-func EditBanner(id int, data interface{}) bool {
-	edit := db.Db.Model(&Banner{}).Where("id = ?", id).Update(data)
+func EditBanner(id int, banner Banner) bool {
+	edit := db.Db.Model(&Banner{}).Where("id = ?", id).Updates(banner)
 	if edit.Error != nil {
 		fmt.Print("编辑banner错误:", edit)
 		return false
@@ -68,8 +51,29 @@ func EditBanner(id int, data interface{}) bool {
 	return true
 }
 
-func GetOneBanner(id, clientType int, tag string) (banner Banner) {
-	db.Db.Where("bposition = ? and type = ? and tag =? ", id, clientType, tag).First(&banner)
+type BannerData struct {
+	ID         int    `json:"id"`
+	Province   string `json:"province" gorm:"type:varchar(190);not null;default '0';comment:'省'"`
+	City       string `json:"city" gorm:"type:varchar(190);not null;default '0';comment:'市'"`
+	Area       string `json:"area" gorm:"type:varchar(190);not null;default '0';comment:'区'"`
+	Bname      string `json:"bname" gorm:"type:varchar(190);not null;default '';comment:'名称'"`
+	Bposition  int    `json:"bposition" gorm:"index;comment:'位置'"`
+	Imgurl     string `json:"imgurl" gorm:"type:varchar(190);not null;default '';comment:'图片地址'"`
+	TargetLink string `json:"target_link" gorm:"type:varchar(190);not null;default '';comment:'跳转链接'"`
+	IsShow     int    `json:"is_show" gorm:"default '1';comment:'状态 1显示 2隐藏'"`
+	ImageSize  string `json:"image_size" gorm:"type:varchar(190);not null;default '';comment:'图片大小 长*高*宽'"`
+	Info       string `json:"info" gorm:"type:varchar(255);not null;default '';comment:'备注'"`
+	Tag        string `json:"tag" gorm:"type:varchar(190);not null;default '';comment:'标签'"`
+	Type       int    `json:"type" gorm:"not null;default '1';comment:'1 PC 2 WAP'"`
+	Sort       int    `json:"sort" gorm:"not null;default '0';comment:'排序'"`
+}
+
+// @Desc 获取一张banner图片
+// @Param bPosition int 导航ID
+// @Param clientType int 客户端类型
+// @Param tag string 标签
+func GetOneBanner(bPosition, clientType int, tag string) (banner BannerData) {
+	db.Db.Table("banner").Where("bposition = ? and type = ? and tag =? ", bPosition, clientType, tag).Scan(&banner)
 	return
 }
 
@@ -83,37 +87,30 @@ func GetBanners(page int) (banner []Banner) {
 	return
 }
 
-// @Summer 统计图片总数
+// @Desc 统计图片总数
 func GetBannerTotal() (count int) {
 	db.Db.Model(&Banner{}).Count(&count)
 	return
 }
 
-// @Summer 获取图片列表
+// @Desc 获取图片列表
+// @Param id int id 主键ID
 func GetBanner(id int) (banner Banner) {
 	db.Db.Preload("Navs").Where("id = ?", id).First(&banner)
 	return
 }
 
-// @Summer获取所有banner
+// @Desc 获取所有banner
+// @Param posi int 栏目ID
+// @Param clientType int 客户端类型
+// @Param tag string 标签
 func GetBannerData(posi, clientType int, tag string) (banner []Banner) {
 	db.Db.Where("bposition = ? and type = ? and tag = ? and is_show=1", posi, clientType, tag).Order("sort desc").Find(&banner)
 	return
 }
 
-// @Summer获取所有banner
-func GetData(bposition, posi int) (banner []Banner) {
-	db.Db.Where("bposition = ? and posi= ?", bposition, posi).Order("sort desc").Find(&banner)
-	return
-}
-
-// @Summer获取所有banner
-func GetBannerByTag(poi, clientType int, tag string) (banner []Banner) {
-	db.Db.Where("bposition = ? and type = ? and tag = ?", poi, clientType, tag).Find(&banner)
-	return
-}
-
-// @Summer 删除banner
+// @Desc 删除banner
+// @Param id int 主键ID
 func DelBanner(id int) bool {
 	if id < 1 {
 		return false

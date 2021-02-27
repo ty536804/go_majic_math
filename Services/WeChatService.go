@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/garyburd/redigo/redis"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -50,21 +51,26 @@ func GetToken() (string, error) {
 	if resp != nil && resp.Body != nil {
 		defer resp.Body.Close()
 	}
-	err = json.NewDecoder(resp.Body).Decode(&jMap)
-	if err != nil {
+
+	if err = json.NewDecoder(resp.Body).Decode(&jMap); err != nil {
 		return "", errors.New("request token response json parse err :" + err.Error())
 	}
 
 	if jMap["errcode"] == nil || jMap["errcode"] == 0 {
 		accessToken, _ := jMap["access_token"].(string)
-		e.SetAccessToken(accessToken) //设置缓存
+
+		conn := e.PoolConnect()
+		defer conn.Close()
+
+		if _, err := conn.Do("set", "access_token", accessToken); err == nil {
+			conn.Do("expire", "access_token", 2*time.Hour) //设置缓存
+		}
 		return accessToken, nil
-	} else {
-		errcode := jMap["errcode"].(string)
-		errmsg := jMap["errmsg"].(string)
-		err = errors.New(errcode + ":" + errmsg)
-		return "", err
 	}
+	errcode := jMap["errcode"].(string)
+	errmsg := jMap["errmsg"].(string)
+	err = errors.New(errcode + ":" + errmsg)
+	return "", err
 }
 
 type BatChGetMaterial struct {
@@ -138,8 +144,11 @@ func GetArticle(begin, count int) {
 }
 
 func ResolveUrl(offset, count int) ([]byte, error) {
-	isOk, accessToken := e.GetVal("access_token")
-	if !isOk {
+	conn := e.PoolConnect()
+	defer conn.Close()
+
+	accessToken, isOk := redis.String(conn.Do("get", "access_token"))
+	if isOk == nil {
 		token, err := GetToken()
 		if err != nil {
 			panic(err)

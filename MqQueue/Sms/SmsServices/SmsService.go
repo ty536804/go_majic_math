@@ -1,95 +1,86 @@
 package SmsServices
 
 import (
-	"elearn100/Model/Admin"
-	"elearn100/Pkg/e"
-	"elearn100/Services"
 	"fmt"
-	"github.com/astaxie/beego/validation"
-	"github.com/gin-gonic/gin"
-	"github.com/unknwon/com"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
 )
 
-var (
-	_account  = "" //用户名是登录用户中心->国际短信->产品总览->APIID
-	_password = "" //查看密码请登录用户中心->国际短信->产品总览->APIKEY
-	_url      = ""
-)
+var magicDb *gorm.DB
 
 func init() {
-	smsConfig := Admin.GetSmsConfig()
-	_account = smsConfig.Account
-	_password = smsConfig.Password
-	_url = smsConfig.Url
+	var (
+		err                                  error
+		dbType, dbName, user, password, host string
+	)
+
+	dbType = "mysql"
+	dbName = "mofashuxue"
+	user = "root"
+	password = "123456"
+	host = "127.0.0.1:3306"
+
+	magicDb, err = gorm.Open(dbType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local",
+		user,
+		password,
+		host,
+		dbName))
+	if err != nil {
+		fmt.Println("connected failed:", err)
+	}
+
+	magicDb.SingularTable(true)
+	magicDb.LogMode(true)
+	magicDb.DB().SetMaxIdleConns(20)
+	magicDb.DB().SetMaxOpenConns(100)
+}
+
+type SysSmsConfig struct {
+	ID       int    `gorm:"primary_key" json:"id"`
+	Account  string `json:"account" gorm:"not null; default:''; comment:'APIID" binding:"required"`
+	Password string `json:"password" gorm:"not null;default:''; comment:'APIKEY" binding:"required"`
+	Url      string `json:"url" gorm:"not null;default:''; comment:'url'" binding:"required"`
+}
+
+// @Summer 获取短信配置
+func GetSmsConfig() (smsConfig SysSmsConfig) {
+	magicDb.First(&smsConfig)
+	return
 }
 
 // @Summer 调用第三方
 func SendSms(mobile, msg string) {
 	v := url.Values{}
 
+	smsConfig := GetSmsConfig()
+	_account := smsConfig.Account
+	_password := smsConfig.Password
+	_url := smsConfig.Url
+
 	v.Set("account", _account)
 	v.Set("password", _password)
 	v.Set("mobile", mobile)
 	v.Set("content", msg)
-
+	fmt.Println(msg, mobile, _account, _password)
 	body := ioutil.NopCloser(strings.NewReader(v.Encode())) //把form数据编下码
 	client := &http.Client{}
-	req, _ := http.NewRequest("POST", _url, body)
-
+	req, err := http.NewRequest("POST", _url, body)
+	if err != nil {
+		fmt.Println("post失败:", err)
+	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded; param=value")
 	//fmt.Printf("看下发送的结构 %+v\n", req) //看下发送的结构
 
 	resp, err := client.Do(req) //发送
 	defer resp.Body.Close()     //一定要关闭resp.Body
-	if err != nil {
+	if err == nil {
 		data, _ := ioutil.ReadAll(resp.Body)
 		fmt.Println(string(data))
 	} else {
 		fmt.Println("发送失败:", err)
 	}
-}
-
-// @Title 配置短信
-func AddSms(c *gin.Context) (code int, msg string) {
-	var data = make(map[string]interface{})
-	if err := c.Bind(&c.Request.Body); err != nil {
-		fmt.Println()
-		return e.ERROR, "操作失败"
-	}
-	id := com.StrTo(c.PostForm("id")).MustInt()
-	APIID := com.StrTo(c.PostForm("account")).String()
-	APIKEY := com.StrTo(c.PostForm("password")).String()
-	url := com.StrTo(c.PostForm("url")).String()
-
-	valid := validation.Validation{}
-	valid.Required(APIID, "account").Message("APIID不能为空")
-	valid.Required(APIKEY, "password").Message("APIKEY不能为空")
-	valid.Required(url, "url").Message("url不能为空")
-
-	if !valid.HasErrors() {
-		data["account"] = APIID
-		data["password"] = APIKEY
-		data["url"] = url
-
-		isOk := false
-		if id < 1 {
-			isOk = Admin.AddSms(data)
-		} else {
-			isOk = Admin.EditSms(id, data)
-		}
-		if isOk {
-			return e.SUCCESS, "操作成功"
-		}
-		return e.ERROR, "操作失败"
-	}
-	return Services.ViewErr(valid)
-}
-
-// @Summer 获取短信配置信息
-func GetSms() (admin Admin.SysSmsConfig) {
-	return Admin.GetSmsConfig()
 }

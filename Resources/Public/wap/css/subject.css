@@ -1,523 +1,245 @@
-.item_desc{
-    width: 90%;
+/*抓住成长关键期 培养孩子每个阶段具备的核心能力*/
+.power {
+    margin-top: 68px;
+    height:224px;
+}
+.powerTit{
     text-align: center;
-    font-size:1.8rem;
-    font-weight:400;
-    line-height:47px;
-    margin: 0 auto;
-    color: #666;
+    height: 75px;
+    font-size: 33px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #8055D0;
+    line-height: 40px;
+    margin: 28px auto;
+}
+.powerUl {
+    width: 100%;
     display: flex;
+    justify-content: center;
+    margin: 40px auto 0 auto;
 }
-.pc-banner {
-
+.powerUl li {
+    width: 145px;
+    height: 51px;
+    background: #A070F9;
+    box-shadow: 0px 3px 18px 2px rgba(187, 153, 250, 0.48);
+    border-radius: 26px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 51px;
+}
+.powerUl li:nth-child(2), .powerUl li:nth-child(4) {
+    width: 88px;
+    height: 51px;
+    background: url(../img/powerUl.png) no-repeat center center;
+    background-size: 64px 12px;
+    border-radius: unset;
+    box-shadow: none;
+}
+/*探索精神 & 主动求知态度*/
+.power_con {
+    margin-top: 37px;
     width: 100%;
-    float: left;
+    height: 432px;
+    background: #E6DAFC;
+    text-align: center;
 }
-
-@media screen and (max-width: 668px) {
-    .pc-banner {
-        background-size: auto 100%;
-    }
-}
-
-.swiper-container {
-    width: 100%;
-    margin: 35px 0;
-}
-
-@media screen and (max-width: 668px) {
-    .swiper-container {
-        margin: 20px 0 15px;
-    }
-}
-
-.swiper-slide {
-    -webkit-transition: transform 1.0s;
-    -moz-transition: transform 1.0s;
-    -ms-transition: transform 1.0s;
-    -o-transition: transform 1.0s;
-    -webkit-transform: scale(0.7);
-    transform: scale(0.7);
-}
-
-@media screen and (max-width: 668px) {
-    .swiper-slide {
-        -webkit-transform: scale(0.97);
-        transform: scale(0.97);
-    }
-}
-
-.swiper-slide-active,.swiper-slide-duplicate-active {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
-
-@media screen and (max-width: 668px) {
-    .swiper-slide-active,.swiper-slide-duplicate-active {
-        -webkit-transform: scale(0.97);
-        transform: scale(0.97);
-    }
-}
-
-.none-effect {
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none;
-}
-
-
-.swiper-slide img {
-    width: 100%;
-    border-radius: 14px;
-    display: block;
-}
-
-@media screen and (max-width: 668px) {
-    .swiper-slide img {
-        border-radius: 7px;
-    }
-}
-
-.swiper-pagination {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.swiper-pagination-bullet {
-    background: #00a0e9;
-    margin-left: 4px;
-    margin-right: 4px;
-    width: 17px;
-    height: 17px;
-    opacity: 1;
-    margin-bottom: 4px;
-}
-
-.swiper-pagination-bullet-active {
-    width: 13px;
-    height: 13px;
-    background: #FFF;
-    border: 6px solid #00a0e9;
-    margin-bottom: 0;
-}
-
-@media screen and (max-width: 668px) {
-
-    .swiper-pagination {
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .swiper-pagination-bullet {
-        background: #00a0e9;
-        margin-left: 2px;
-        margin-right: 2px;
-        width: 8px;
-        height: 8px;
-        margin-bottom: 2px;
-    }
-
-    .swiper-pagination-bullet-active {
-        width: 6px;
-        height: 6px;
-        background: #FFF;
-        border: 3px solid #00a0e9;
-        margin-bottom: 0;
-    }
-}
-
-.button {
-    width: 1000px;
-    margin: 0 auto;
-    bottom: 43px;
+.power_con_m {
+    width: 677px;
+    height: 317px;
+    background: #FFFFFF;
+    border-radius: 35px;
+    margin:81px auto 0;
     position: relative;
 }
-
-@media screen and (max-width: 668px) {
-    .button {
-        width: 70%;
-        bottom: 22px;
-    }
+.xs {
+    background-size: 50px 35px;
+    background: url(../img/xs.png) no-repeat left 94px top;
+    position: absolute;
+    z-index: 1;
+    height: 25px;
+    margin-top: -25px;
 }
-
-.button div:hover {
-    background-color: #2f4798;
-}
-
-@media screen and (max-width: 668px) {
-    .button div {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-/*六个维度，激发孩子全脑思维**/
-.excite{
-    width: 91%;
-    margin: 15px auto 0 auto !important;
-}
-.excite dl{
-    margin-bottom: 10px !important;
-    width:100%;
-    height:195px;
-    background:#F9FAFC;
-    border-radius:10px;
-    display: inline-block;
-    box-sizing: border-box;
-}
-.excite dl:last-child{
-    margin-bottom: 0 !important;
-}
-.excite dl dt{
-    float: left;
-    width: 148px;
-    height: 148px;
-    margin: 23px 10px 23px 10px !important;
-    background:url(../img/setup.png);
-}
-.turn dt{
-    background-position: 739px 148px!important;
-}
-.broca dt{
-    background-position: 595px 148px!important;
-}
-.calculation dt{
-    background-position: 447px 148px!important;
-}
-.analysis dt{
-    background-position: 300px 148px!important;
-}
-.between dt{
-    background-position: 152px 148px!important;
-}
-.excite dl dd{
-    float: left;
-    width: 70%;
-    margin: 38px 10px 0 0 !important;
-}
-.excite dl dd h4{
-    width:100%;
-    text-align: left;
-    height:22px;
-    font-size:1.8rem;
-    font-weight:500;
-    color:#333;
-    line-height:22px;
-}
-
-.excite_con_top, .excite_con_bottom {
-    display: flex;
-    flex-flow: row wrap;
-    align-items:center;
-    font-size:1.6rem;
-    font-family:PingFangSC-Regular,PingFang SC;
-    font-weight:400;
-    color:rgba(102,102,102,1);
-    line-height:28px;
-}
-.excite_con_top{
-    margin-top: 1.9rem !important;
-}
-.excite_con_top span,.excite_con_bottom span{
-    display: flex;
-    width: 33%;
-    text-align: left;
-    font-weight:bold;
-    color: #666;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/*课程体系*/
-.setup {
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content:space-between;
-    margin: 0 auto;
-}
-.setup_left{
-    background: rgba(247,193,110,1);
-    border-radius: 10px;
-    display: flex;
-    flex-flow: column;
-    padding: 25px;
-    margin-top: 7rem;
-}
-.setup_right{
-    width: 76%;
-    box-sizing: content-box;
-}
-.setup_right_bottom {
-    width: 100%;
-    background: url("../img/pic_course1.png") no-repeat;
-    height: 100%;
-}
-.setup_left ul{
-    flex-flow: column wrap;
-    background:#F7C16E;
-    border-radius:10px;
-    display: flex;
-}
-.setup_left ul li{
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #fff;
-    line-height: 66px;
+.power_con_tit{
     text-align: center;
+    height: 25px;
+    font-size: 25px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #A070F9;
+    line-height: 21px;
+    margin-top: 50px;
 }
-.setup_right_top {
+.power_con_m ul{
+    margin-top: 26px;
+}
+.power_con_m ul li {
+    width: 80%;
+    height: 58px;
+    line-height: 58px;
+    background: #F8F4FF;
     display: flex;
-    flex-flow: row;
-    justify-content: space-around;
-    align-items: flex-end;
-    margin-bottom: 1rem;
-}
-.setup_right_top li{
-    width: 31%;
-    font-size: 1.6rem;
-    font-family: PingFangSC-Medium,PingFang SC;
-    font-weight: 500;
-    color: rgba(255,255,255,1);
-    line-height: 30px;
-    text-align: center;
-}
-.setup_right_top li:first-child{
-    background: #65C59A;
-    border-radius:10px;
-    padding: 6px 17px;
-}
-.setup_right_top li:last-child{
-    background: #3FB6EC;
-    border-radius:10px;
-    padding: 20px 17px;
-}
-.setup_right_top li.level{
-    background: #68CED0;
-    border-radius:10px;
-    padding: 13px 17px !important;
-}
-.setup_bottom{
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin: 5px auto 0;
-}
-
-.setup_bottom_left {
-    display: flex;
-    flex-flow: column;
-}
-.setup_bottom_left ul li {
-    font-size: 1.6rem;
-    font-weight: 500;
-    line-height: 66px;
-    text-align: center;
-    background: #F9FAFC;
-    border-radius:10px 0px 0px 10px;
-    padding: 10px 25px;
-    margin-bottom: 5px;
-    color: #999;
-}
-.active_setup{
-    background: #65C59A !important;
-    color: #fff !important;
-}
-.qm_active{
-    background: #68CED0 !important;
-    color: #fff !important;
-}
-.setup_bottom_right {
-    width: 76%;
-    font-size: 1.6rem;
-    font-family: PingFangSC-Regular,PingFang SC;
+    margin: 0 auto 9px auto;
+    font-size: 17px;
+    font-family: Microsoft YaHei;
     font-weight: 400;
-    color: #949796;
-    line-height: 45px;
-    background: #F1F9F4;
-    box-sizing: border-box;
-    padding-left: 12px;
+    color: #000000;
 }
-.setup_last {
-    width: 90%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content:space-between;
-    margin: 60px auto 0;
+.power_con_m ul li span:first-child{
+    margin-left: 65px;
 }
-.setup_last .setup_left{
-    padding: 10px;
+.power_con_m ul li span:last-child {
+    width: 22px;
+    height: 22px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    line-height: 22px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: normal;
+    margin: 19px 36px 0 36px;
 }
-
-.setup_last .setup_right_top li:first-child {
-    background: #6094F0;
-    border-radius: 10px;
-    padding: 6px 52px;
+/*魔法数学课程体系 为少儿提供高品质的学习方案*/
+.fanan{
+    height: 1195px;
 }
-.setup_last .setup_right_top li:last-child {
-    background: #7B6FC4;
-    padding: 23px 52px;
+.fananTit{
+    text-align: center;
+    height: 58px;
+    font-size: 25px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #8055D0;
+    line-height: 33px;
+    margin: 58px auto 29px auto;
 }
-.setup_last .setup_right_top li {
-    width: 47%;
+.fanan_img{
+    justify-content: center;
+    text-align: center;
+    margin-top: 35px;
 }
-.setup_last .setup_right_bottom{
-    width: 100%;
-    background: url(../img/pic_course2.png) no-repeat;
-    height: 100%;
+.fanan_img img{
+    height: 1011px;
 }
-.setup_last_r{
-    background: #F0F4FC;
-    color: #888;
-    padding: 14px;
-    box-sizing: border-box;
+/*趣味课堂 让孩子重拾数学乐趣*/
+.haapy{
+    height: 1731px;
+    margin-bottom: 207px;
 }
-.setup_bottom{
-    margin-top: 10px;
+.happyTit{
+    text-align: center;
+    height: 58px;
+    font-size: 25px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #8055D0;
+    line-height: 33px;
+    margin: 56px auto 27px auto;
 }
-.setup_last .setup_left ul li{
-    line-height: 86px;
-}
-/*魔数思维五步法*/
-.five_steps{
-    width: 100%;
-    background: #F9FAFC;
-    margin-top: 60px;
-}
-.five_tit {
-    width: 90%;
+.happy_ul {
+    margin: 40px auto 0 auto;
     display: flex;
     justify-content: center;
-    font-size:1.8rem;
-    font-family:PingFangSC-Regular,PingFang SC;
-    font-weight:400;
-    color:rgba(102,102,102,1);
-    line-height:40px;
-    margin: 0 auto;
+    flex-flow: row wrap;
 }
-.five_desc img{
-    width: 100%;
-}
-/*2020魔法数学教材4.0*/
-.v_level{
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    width: 90%;
-    margin: 20px auto 0;
-}
-.v_level li{
-    width: 30%;
-}
-.v_level li span{
-    width: 80px;
-    height:40px;
-    border-radius:10px 0px 10px 10px;
-    color: #fff;
-    font-size:1.2rem;
-    font-family:PingFangSC-Medium,PingFang SC;
-    font-weight:500;
-    line-height: 40px;
-    text-align: center;
-    display: block;
-}
-.v_level li:first-child span{
-    background: #00B84C;
-}
-.v_level li.mid span{
-    background: #00A2FF;
-}
-.v3{
-    background: #9E24A7;
-    width: 80px;
-    height: 40px;
-    border-radius: 10px 0px 10px 10px;
-    color: #fff;
-    font-size: 1.2rem;
-    font-family: PingFangSC-Medium,PingFang SC;
-    font-weight: 500;
-    line-height: 40px;
+.happy_ul li {
+    width: 327px;
+    height: 258px;
+    background: #F5FAFD;
+    font-size: 25px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #595858;
+    line-height: 37px;
     text-align: center;
     display: inline-block;
-    margin-right: 15px;
+    overflow: hidden;
+    position: relative;
 }
-.v_level li:last-child span{
-    background: #FFAE00;
+.p120 {
+    padding-top: 97px;
 }
-.v_level_img{
-    margin-top: 10px;
-}
-.v_level_img li{
-    width: 30%;
-}
-.v_level_img li img{
+/*六大教学体系 促进思维发展*/
+.sxiBig{
     width: 100%;
+    height: 2112px;
+    background: #A070F9;
+    margin-top: 54px;
 }
-
-.down_con {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    width: 52%;
-    margin: 0 auto;
+.sxiBig .bline{
+    margin-bottom: 103px;
 }
-
-.magic_bg_last{
-    background:#F9FAFC;
-    padding-bottom: 101px;
+.sxiBig  .bline p span{
+    background: #FFFFFF;
 }
-.down_app_img{
-    width: 90%;
-    margin: 0 auto;
+.sxiBig .bline p{
+    border-bottom:1px solid #FFFFFF;
 }
-
-.down_app_img img{
+.sxiBig .sxiBigTit{
     width: 100%;
-    height: 100%;
+    height: 48px;
+    text-align: center;
+    font-size: 48px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 48px;
+    margin: 103px auto 50px auto;
 }
-.down_url{
-    display: flex;
-    flex-flow: column;
-    width: 50%;
-    justify-content: space-around;
-    text-indent: 40px;
-    line-height: 39px;
+.leftBrain{
+    width: 100%;
+    height: 762px;
+    margin-bottom: 115px;
 }
-.down_url a {
-    height: 55px;
-    font-size: 1.2rem;
-    font-family: PingFangSC-Regular,PingFang SC;
+.nr{
+    width: 260px;
+    height: 238px;
+    background: #FFFFFF;
+    box-shadow: 0px 12px 27px 0px rgba(133, 103, 187, 0.64);
+    border-radius: 30px;
+    margin-bottom: 24px;
+    margin-left: 34px;
+}
+.nr h4{
+    width: 100%;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    font-size: 30px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #A070F9;
+    margin: 34px auto 20px auto;
+    display: inline-block;
+}
+.nr p{
+    width: 100%;
+    text-align: center;
+    font-size: 21px;
+    font-family: Microsoft YaHei;
     font-weight: 400;
-    color: #DC4236;
-    text-decoration: navajowhite;
-    border-radius: 15px;
-    border: 1px solid #DC4236;
-    width: 100% !important;
-    line-height: 55px;
-    text-indent: 67px;
+    color: #A070F9;
+    line-height: 41px;
 }
-.down_url a:first-child{
-    width: 36px;
-    background: url("../img/ico_iphone.png") no-repeat 15px 8px;
+.leftBrainCon{
+    height: 762px;
 }
-.down_url a:last-child{
-    width: 36px;
-    background: url("../img/ico_android.png") no-repeat 15px 8px;
+.rightBrain .rightBrainCon{
+    width: 294px;
+    float: right;
 }
-.magic_bg{
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+.rightBrain{
+    height: 786px;
+    width: 100%;
+    margin-bottom: 143px;
 }
-.slider_contents{
-    width: 91%;
-    margin: 0 auto;
-}
-.pc-banner {
-    margin: 25px 0;
-}
-.jxjc{
-    margin-top: 22px;
+.rightBrainCon .nr{
+    margin-left: 0;
+    margin-right:20px;
 }

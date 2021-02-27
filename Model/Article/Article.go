@@ -36,31 +36,17 @@ type Article struct {
 }
 
 // @Summer 添加文章
-func AddArticle(data map[string]interface{}) bool {
-	article := db.Db.Create(&Article{
-		Title:    data["title"].(string),
-		Summary:  data["summary"].(string),
-		ThumbImg: data["thumb_img"].(string),
-		Admin:    data["admin"].(string),
-		Com:      data["com"].(string),
-		IsShow:   data["is_show"].(int),
-		Content:  data["content"].(string),
-		Hot:      data["hot"].(int),
-		Sort:     data["sort"].(int),
-		NavId:    data["nav_id"].(int),
-	})
-
-	if article.Error != nil {
+func AddArticle(article Article) bool {
+	if res := db.Db.Create(&article); res.Error != nil {
 		fmt.Print("添加文章失败", article)
 		return false
 	}
 	return true
 }
 
-// @Summer 编辑文章
-func EditArticle(id int, data interface{}) bool {
-	edit := db.Db.Model(&Article{}).Where("id = ?", id).Update(data)
-	if edit.Error != nil {
+// @Desc 编辑文章
+func EditArticle(id int, article Article) bool {
+	if edit := db.Db.Model(&Article{}).Where("id = ?", id).Updates(article); edit.Error != nil {
 		fmt.Print("编辑文章失败", edit)
 		return false
 	}
@@ -73,7 +59,7 @@ func GetArticles(page, pageNum int, data interface{}) (articleS []Article) {
 	if page >= 1 {
 		offset = (page - 1) * pageNum
 	}
-	db.Db.Select("id,created_at,title,summary,thumb_img").Where(data).Offset(offset).Limit(pageNum).Order("created_at desc").Find(&articleS)
+	db.Db.Where(data).Offset(offset).Limit(pageNum).Order("created_at desc").Find(&articleS)
 	return
 }
 
@@ -201,8 +187,7 @@ func TrimUrl(prefix, url string) string {
 
 // @Summer 替换图片地址
 func ReplaceUrl(content, url, oldUrl string) string {
-	res := strings.Replace(content, oldUrl, url, -1)
-	return res
+	return strings.Replace(content, oldUrl, url, -1)
 }
 
 // @替换文章中的图片地址
@@ -210,8 +195,7 @@ func ReplaceContent(content string) string {
 	reg := regexp.MustCompile(`data-src="(.*?)"`)
 	res := reg.FindAllStringSubmatch(content, -1)
 	for _, v := range res {
-		png := ThumbImgType(v[1]) //原有图片地址
-		if png != "" {
+		if png := ThumbImgType(v[1]); png != "" { //原有图片地址
 			_newUrl := TrimUrl(png, v[1])
 			if _newUrl != "" || !strings.Contains("mp4", png) {
 				content = ReplaceUrl(content, _newUrl, v[1])

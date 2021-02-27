@@ -12,13 +12,8 @@ type History struct {
 }
 
 // @Summer 添加访问记录
-func AddHistory(data map[string]interface{}) {
-	result := db.Db.Create(&History{
-		Uuid:         data["uuid"].(string),
-		VisitHistory: data["visit_history"].(string),
-	})
-
-	if result.Error != nil {
+func AddHistory(history History) {
+	if result := db.Db.Create(&history); result.Error != nil {
 		fmt.Printf("add 失败：%s", result.Error)
 	} else {
 		fmt.Print("add OK")
@@ -28,9 +23,8 @@ func AddHistory(data map[string]interface{}) {
 // @Title 更新浏览记录
 // @Param uuid string 用户ID
 // @Param updateCon map[string]interface{} 更新内容
-func EditHistory(uuid string, updateCon map[string]interface{}) {
-	result := db.Db.Model(&History{}).Where("uuid = ?", uuid).Update(updateCon)
-	if result.Error != nil {
+func EditHistory(uuid string, history History) {
+	if result := db.Db.Model(&History{}).Where("uuid = ?", uuid).Updates(history); result.Error != nil {
 		fmt.Printf("content faild：%s", result.Error)
 	} else {
 		fmt.Print("content success")

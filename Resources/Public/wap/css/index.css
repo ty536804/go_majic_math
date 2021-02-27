@@ -1,361 +1,895 @@
-.index_banner{
+/*魔法数学专注于3—12岁 少儿数理思维教育*/
+.siwei_wap{
 	width: 100%;
+	height: 577px;
 }
-.index_banner img{
+.siwei_con{
+	padding: 0 59px 0 51px;
 	width: 100%;
-	height: 100%;
+	height: 107px;
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #727171;
+	line-height: 28px;
+	margin-top: 62px;
+}
+.zhuanzhuCon{
+	width: 100%;
+	margin: 52px auto 0;
+	height: 94px;
+}
+.zhuanzhuCon dl {
+	height: 94px;
+	width: 33%;
+	float: left;
+	border-right: 1px solid #8567BB;
+}
+.zhuanzhuCon dl dt {
+	width: 100%;
+	text-align: center;
+	height: 27px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+	line-height: 27px;
+	margin-top: 33px;
+}
+.zhuanzhuCon dl dt span {
+	width: 9px;
+	height: 9px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+	line-height: 18px;
+	margin-left: 6px;
+	display: inline-block;
+}
+.zhuanzhuCon dl dd {
+	margin-top: 15px;
+	width: 100%;
+	text-align: center;
+	height: 11px;
+	font-size: 12px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #646464;
+	line-height: 12px;
+}
+.zhuanzhuCon dl:last-child {
+	border-right: none;
+}
+.getCon {
+	text-align: center;
+	margin-top: 28px;
+}
+.getCon a {
+	width: 240px;
+	height: 50px;
+	background: #8055D0;
+	box-shadow: 0px 5px 9px 0px rgb(128 85 208 / 60%);
+	border-radius: 25px;
+	font-size: 20px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 50px;
+	display: inline-block;
+}
+.siwei_tit{
+	margin: 79px auto 28px auto;
+	width: 47%;
+	text-align: center;
+	height: 75px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 40px;
+
+}
+/*什么是数理思维*/
+.why {
+	height: 930px;
+	margin-top: 53px;
+}
+.whyTit{
+	text-align: center;
+	height: 33px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 33px;
+	margin-bottom: 29px;
+}
+.why_desc{
+	text-align: center;
+	height: 18px;
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #727171;
+	line-height: 17px;
+	margin: 30px auto 56px auto;
+}
+.siweiCon{
+	width: 883px;
+	margin: 0 auto 16px auto;
+	height: 238px;
+	justify-content: space-around;
+}
+.siweiCon dl {
+	width: 318px;
+	height: 238px;
+	position: relative;
+}
+.siweiCon dl dt, .siweiCon dl dt img {
+	width: 318px;
+	height: 186px;
+}
+.siweiCon dl dd p.siweiCir {
+	margin-top: 27px;
+	background: url(../img/siwei.png) no-repeat top center;
+	background-size: 102px 51px;
+	font-size: 23px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 52px;
+}
+.siweiCon dl dd p {
+	width: 100%;
+	text-align: center;
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #9FA0A0;
+	line-height: 48px;
+	height: 48px;
+	background: #EFF3F5;
+}
+.siweiCon dl dd {
+	width: 100%;
+	height: 125px;
+	margin-top: -70px;
+	position: absolute;
+}
+/*为什么要学习数理思维*/
+.slsw{
+	margin-top: 56px;
+}
+.slswTit{
+	text-align: center;
+	height: 33px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 33px;
+	margin: 58px auto 35px auto;
+}
+.why_warp {
+	width: 100%;
+	margin: 64px auto 34px auto;
+	display: flex;
+	height: 369px;
+	justify-content: center;
+}
+.why_warp dl {
+	margin-top: 29px;
+	width: 173px;
+	position: absolute;
+	left: 50px;
+}
+.whyPtit {
+	height: 40px;
+}
+.whyPtit p {
+	width: 100%;
+	height: 21px;
+	font-size: 21px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 21px;
+	text-align: left;
+	margin-bottom: 21px;
+}
+.whyPtit span {
+	width: 44px;
+	height: 1px;
+	background: #FFFFFF;
+	display: inline-block;
+	float: left;
+}
+.whyCon {
+	width: 127px;
+	height: 115px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 25px;
+	text-align: left;
+	margin-top: 17px;
+}
+.index_circle,.index_circle img{
+	width: 367px;
+	height: 369px;
+}
+.why_warp dl:last-child .whyPtit span{
+	float: right;
+}
+.why_warp dl:last-child .whyCon{
+	margin-left: 46px;
+}
+.why_warp dl:last-child {
+	right: 50px;
+	left: unset;
+}
+.bwhy{
+	height: 103px;
+	text-align: center;
+	margin-bottom: 37px;
+}
+.bwhy dl {
+	margin: 0 auto;
+	width: 377px;
+	height: 90px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 25px;
+}
+.bwhy .whyPtit p {
+	width: 100%;
+	text-align: center;
+	height: 21px;
+	font-size: 21px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 21px;
+}
+.bwhy .whyPtit span {
+	float: none;
+	margin: 0 auto;
+	display: inherit;
+}
+.bwhy .whyCon{
+	width: 100%;
+	height: 45px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 25px;
+}
+/*张梅玲教授倾力推荐*/
+.tuijian {
+	width: 660px;
+	height: 531px;
+	border-radius: 35px;
+	margin: 0 auto;
+}
+.tuijian dl {
+	width: 100%;
+	height: 315px;
+	margin: 216px auto 0;
+	background: #F8F8F8;
+	border-radius: 20px;
+	display: inherit;
+	box-sizing: content-box;
+}
+.tuijian dl dt {
+	width: 325px;
+}
+.people {
+	width: 325px;
+	height: 67px;
+	text-align: center;
+	margin-top: -92px;
+	background: #4CC9F0;
+	border-radius: 33px;
+	margin-left: 30px;
+}
+.people span {
+	width: 100%;
+	text-align: center;
+	font-size: 28px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 67px;
+}
+.lj_con {
+	width: 325px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+	line-height: 25px;
+	padding: 80px 0 58px 37px;
+}
+.tuijian dl dd {
+	width: 302px;
+	height: 387px;
+	margin-top: -127px;
+	float: right;
+	margin-left: 23px;
+}
+.tuijian dl dd span {
+	width: 115px;
+	height: 44px;
+	background: url(../img/zml_btn.png) no-repeat 0 0;
+	border-radius: 31px;
+	margin-top: 323px;
+	display: inline-block;
+	text-align: center;
+	line-height: 44px;
+	font-size: 30px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #3D2862;
+	float: right;
+	margin-right: 8px;
+}
+/*魔法数学 颠覆旧数学认知*/
+.renzhi{
+	margin: 66px auto 0 auto;
+}
+.renzhiCon {
+	width: 100%;
+	height: 638px;
+	margin: 53px auto 0;
+}
+.renzhiTit{
+	text-align: center;
+	height: 33px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 33px;
+	margin-bottom: 33px;
+}
+.renzhiM li:first-child {
+	background: #4CC9F0;
+}
+.renzhiC li span {
+	width: 267px;
+	height: 54px;
+	background: #F8F8F8;
+	border-radius: 39px;
+	display: inline-block;
+	line-height: 54px;
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	margin-top: 8.5px;
+	color: #4DCAF1;
+}
+.renzhiM {
+	width: 571px;
+	height: 93px;
+	margin: 65px auto 0 auto;
+}
+.renzhiM ul {
+	position: relative;
+	display: flex;
+	height: 93px;
+	width: 100%;
+	justify-content: space-between;
+	padding: 0;
+}
+.renzhiM li:nth-child(2) {
+	width: 141px;
+	height: 92px;
+	position: absolute;
+	left: 224px;
+	top: 4px;
+}
+.renzhiM li:nth-child(2) img {
+	width: 141px;
+	height: 92px;
+	float: left;
+}
+.renzhiM li {
+	width: 279px;
+	height: 93px;
+	border-radius: 35px;
+	line-height: 93px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 33px;
+}
+.renzhiM li:last-child {
+	background: #570AAD;
+}
+.renzhiC {
+	width: 647px;
+	margin: 45px auto 0 auto;
+}
+.renzhiC li {
+	width: 100%;
+	height: 68px;
+	display: flex;
+	text-align: center;
+	margin-bottom: 14px;
+	border-radius: 39px;
+	cursor: pointer;
+	justify-content: space-between;
+}
+.renzhiC li span:first-child {
+	color: #4DCAF1;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.renzhiC li span:nth-child(2) {
+	background: url(../img/renzhiM.png) no-repeat;
+	width: 168px;
+	height: 68px;
+	background-size: 168px 68px;
+	margin-top: 0;
+	position: absolute;
+	margin-left: 235px;
+	line-height: 68px;
+	font-size: 26px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+}
+.renzhiC li span:last-child {
+	color: #8567BB;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	width: 275px;
+}
+.renzhiC li:first-child span:last-child {
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8567BB;
+	line-height: 21px;
+	box-sizing: border-box;
+	padding: 7px 61px;
+}
+.renzhiC li:nth-child(4) span:last-child{
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8567BB;
+	line-height: 21px;
+	padding: 10px 18px 0 45px;
+}
+/*全新OMO教育模式 形成全场景闭环教学空间*/
+.omo{
+
+}
+.omoTit{
+	text-align: center;
+	height: 75px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 42px;
+	margin: 81px auto 34px auto;
+}
+.newOMOCon{
+	margin: 49px auto 0 auto;
+	height: 401px;
+	display: flex;
+	justify-content: space-between;
+	/*flex-flow: row wrap;*/
+	position: relative;
+}
+.newOMOM {
+	width: 326px;
+	height: 326px;
+}
+.omoCir {
+	width: 220px;
+	height: 220px;
+	-webkit-transform: rotate(360deg);
+	animation: rotation 8s linear infinite;
+	-moz-animation: rotation 8s linear infinite;
+	-webkit-animation: rotation 8s linear infinite;
+	-o-animation: rotation 8s linear infinite;
+	background: #fff url(../img/newOMOM.png) no-repeat top 20px center;
+	background-size: 179px 181px;
+	position: absolute;
+	left: 38%;
+	z-index: 1;
+	top: 58px;
+	line-height: 181px;
+	border-radius: 50%;
+}
+.newOMOL dl dt {
+	width: 178px;
+	height: 45px;
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #713300;
+	line-height: 45px;
+	text-align: center;
+	display: inline-table;
+	background: url(../img/l.png) no-repeat right top;
+	background-size: 178px 45px;
+}
+.newOMOL{
+	width: 49%;
+	float: left;
+}
+.newOMOR{
+	width: 49%;
+	float: right;
+}
+.newOMOL dl:first-child {
+	margin-top: 54px;
+}
+.newOMOL dl {
+	margin-left: 45px;
+}
+.newOMOL dl:first-child dd {
+	width: 178px;
+	height: 16px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #713300;
+	line-height: 16px;
+	margin-top: 14px;
+	margin-bottom: 23px;
+}
+.newOMOLF {
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #713300;
+}
+.newOMOL dl:nth-child(2) dd {
+	width: 214px;
+	height: 41px;
+	line-height: 25px;
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.newOMOL dl:last-child dt {
+	width: 241px;
+	background: url(../img/l2.png) no-repeat right top;
+	background-size: 241px 45px;
+}
+.newOMOL dl:last-child dd {
+	width: 256px;
+	height: 41px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #713300;
+	line-height: 25px;
+	margin-top: 16px;
 }
 
-.magic_manth{
-	width: 91%;
-	margin: 15px auto 0 auto !important;
+.newOMORCon dl dt {
+	width: 178px;
+	height: 45px;
+	font-size: 16px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #713300;
+	line-height: 45px;
+	text-align: center;
+	display: inline-table;
+	background: url(../img/r.png) no-repeat right top;
+	background-size: 178px 45px;
 }
-.magic_manth dl{
-	margin-bottom: 10px !important;
-	width:100%;
-	height:164px;
-	background:#F9FAFC;
-	border-radius:10px;
-	display: inline-block;
-	box-sizing: border-box;
-}
-.magic_manth dl:last-child{
-	margin-bottom: 0 !important;
-}
-.magic_manth dl dt{
-	float: left;
-	width: 118px;
-	height: 118px;
-	margin: 23px 10px 23px 10px !important;
-	background:url(../img/brain.png);
-}
-.turn dt{
-	background-position: 236px 118px!important;
-}
-.broca dt{
-	background-position: 118px 118px!important;
-}
-.magic_manth dl dd{
-	float: left;
-	width: 70%;
-	margin: 38px 10px 0 0 !important;
-}
-.magic_manth dl dd h4{
-	width:100%;
-	text-align: left;
-	height:22px;
-	font-size:1.8rem;
-	font-weight:500;
-	color:#333;
-	line-height:22px;
-}
-.magic_manth dl dd p{
-	margin-top: 1rem !important;
-	width: 100%;
-	font-size: 1.5rem;
-	font-family: PingFangSC-Regular,PingFang SC;
+
+.newOMORCon dl:first-child dd {
+	width: 207px;
+	height: 16px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
 	font-weight: 400;
-	color: rgba(102,102,102,1);
-	line-height: 28px;
+	color: #713300;
+	line-height: 16px;
+	margin: 12px auto 27px auto;
 }
-/* 张梅玲教授倾力推荐 */
-.recommend{
-	width:100%;
-	height:480px;
-	background:#FBF8F5;
-	margin-top: 30px !important;
+.newOMORCon dl:nth-child(2) dd {
+	width: 208px;
+	height: 16px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #713300;
+	line-height: 20px;
+	margin: 10px auto 31px auto;
+}
+.newOMORCon dl:nth-child(2) dt {
+	width: 227px;
+	background: url(../img/r2.png) no-repeat right top;
+	background-size: 227px 45px;
+}
+.newOMORCon dl:last-child dd {
+	width: 224px;
+	height: 16px;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #713300;
+	line-height: 16px;
+	margin-top: 11px;
+}
+.newOMOR dl:first-child {
+	margin-top: 54px;
+}
+
+.omoCon {
+	left: 46.5%;
+	width: 95px;
+	position: absolute;
+	z-index: 2;
+	font-size: 20px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #6F361C;
+	text-align: center;
+	top: 150px;
+}
+/*抓住成长关键期 培养孩子每个阶段具备的核心能力*/
+.power {
+	margin-top: 68px;
+	height:224px;
+}
+.powerTit{
+	text-align: center;
+	height: 75px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 40px;
+	margin: 28px auto;
+}
+.powerUl {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 40px auto 0 auto;
+}
+.powerUl li {
+	width: 145px;
+	height: 51px;
+	background: #A070F9;
+	box-shadow: 0px 3px 18px 2px rgba(187, 153, 250, 0.48);
+	border-radius: 26px;
+	text-align: center;
+	font-size: 25px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 51px;
+}
+.powerUl li:nth-child(2), .powerUl li:nth-child(4) {
+	width: 88px;
+	height: 51px;
+	background: url(../img/powerUl.png) no-repeat center center;
+	background-size: 64px 12px;
+	border-radius: unset;
+	box-shadow: none;
+}
+/*探索精神 & 主动求知态度*/
+.power_con {
+	margin-top: 37px;
+	width: 100%;
+	height: 432px;
+	background: #E6DAFC;
+	text-align: center;
+}
+.power_con_m {
+	width: 677px;
+	height: 317px;
+	background: #FFFFFF;
+	border-radius: 35px;
+	margin:81px auto 0;
+	position: relative;
+}
+.xs {
+	background-size: 50px 35px;
+	background: url(../img/xs.png) no-repeat left 94px top;
+	position: absolute;
+	z-index: 1;
+	height: 25px;
+	margin-top: -25px;
+}
+.power_con_tit{
+	text-align: center;
+	height: 25px;
+	font-size: 25px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #A070F9;
+	line-height: 21px;
+	margin-top: 50px;
+}
+.power_con_m ul{
+	margin-top: 26px;
+}
+.power_con_m ul li {
+	width: 80%;
+	height: 58px;
+	line-height: 58px;
+	background: #F8F4FF;
+	display: flex;
+	margin: 0 auto 9px auto;
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #000000;
+}
+.power_con_m ul li span:first-child{
+	margin-left: 65px;
+}
+.power_con_m ul li span:last-child {
+	width: 22px;
+	height: 22px;
+	background: #000;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-block;
+	line-height: 22px;
+	text-align: center;
+	font-size: 11px;
+	font-weight: normal;
+	margin: 19px 36px 0 36px;
+}
+/*魔法数学课程体系 为少儿提供高品质的学习方案*/
+.fanan{
+	height: 1195px;
+}
+.fananTit{
+	text-align: center;
+	height: 58px;
+	font-size: 25px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 33px;
+	margin: 58px auto 29px auto;
+}
+.fanan_img{
+	justify-content: center;
+	text-align: center;
+	margin-top: 35px;
+}
+.fanan_img img{
+	height: 1011px;
+}
+/*趣味课堂 让孩子重拾数学乐趣*/
+.haapy{
+	height: 1731px;
+}
+.happyTit{
+	text-align: center;
+	height: 58px;
+	font-size: 25px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 33px;
+	margin: 56px auto 27px auto;
+}
+.happy_ul {
+	margin: 40px auto 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-flow: row wrap;
+}
+.happy_ul li {
+	width: 327px;
+	height: 258px;
+	background: #F5FAFD;
+	font-size: 25px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #595858;
+	line-height: 37px;
+	text-align: center;
+	display: inline-block;
 	overflow: hidden;
 	position: relative;
 }
-.recommend .public_tit{
-	flex: auto;
+.p120 {
+	padding-top: 97px;
 }
-.recommend h3{
-	height:36px;
-	font-size:2.2rem;
-	font-family:PingFangSC-Semibold,PingFang SC;
-	font-weight:600;
-	color:#333;
-	line-height:36px;
+/*新闻动态*/
+.news{
+	overflow-x: hidden;
+	margin: 83px auto;
+	height: 800px;
 }
-.recommend .magic_line {
-    background: linear-gradient(270deg,rgba(141,110,74,1) 0%,rgba(255,255,255,1) 100%) !important;
+.news_ul{
+	margin-top: 52px;
 }
-.recommend .dr .magic_line {
-    float: left;
-    background: linear-gradient(170deg,rgba(141,110,74,1) 0%,rgba(255,255,255,1) 100%) !important;
-}
-.recommend .magic_line {
-    background: linear-gradient(270deg,rgba(141,110,74,1) 0%,rgba(255,255,255,1) 100%) !important;
-}
-.recommend .circle {
-    background: rgba(141,110,74,1) !important;
-	margin-top: -11%;
-}
-.recommend h3{
-	color: #333 !important;
-}
-.outborder{
-	float: left;
-	width: 59%;
-	height:74%;
-	border-radius:20px;
-	border:2px solid #C2B4A1;
-	position: relative;
-	left: 6%;
-}
-.outborder dl{
-	width: 100%;
-	height:100%;
-	border:2px solid #E0D5CA;
-	border-radius:20px;
-	opacity:0.9;
-	position: absolute;
-	z-index: 2;
-	top: -10px;
-	left: -12px;
-	font-size:24px;
-	color:#987B5B;
-	line-height:36px;
-}
-.outborder dl dt{
-	padding: 22px 11px 0 25px !important;
-	font-size:1.5rem;
-	font-family:MicrosoftYaHei;
-	color:rgba(152,123,91,1);
-	line-height:45px;
-}
-.outborder dl dd{
-	float: right;
-	padding: 5px 26px 0 0 !important;
-}
-.celebrity {
-	bottom: 0;
-	right: 0;
-	width: 34.5%;
-	position: absolute;
-	box-sizing: border-box;
-}
-.celebrity img{
-	width:254px;
-}
-/* 选择魔法数学的六个理由 */
-.six_reason{
-	width: 100%;
-}
-.slider_contents{
-	width: 91%;
-	margin: 0 auto;
-}
-.ppbj{
-	background: #F9FAFC;
-	padding-bottom: 75px !important;
-}
-.ppbj .six_reason {
-    margin: 20px auto;
-}
-
-.tradition_ul{
-	width:50%;
-	background:#F3FAFE;
-}
-.difference li{
-	width: 89%;
-	display: inherit;
-	height: 50px;
-	background: rgba(255,255,255,1);
-	border-radius: 6px;
-	font-size: 1.2rem;
-	font-family: PingFangSC-Regular,PingFang SC;
-	font-weight: 400;
-	color: #35538C;
-	line-height: 50px;
+.newsTit{
 	text-align: center;
-	margin: 0 auto 12px !important;
+	height: 33px;
+	font-size: 33px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	color: #8055D0;
+	line-height: 18px;
+	margin:70px auto 21px auto;
 }
-.difference li:last-child{
-	margin-bottom: 30px !important;
+.new_container .swiper-slide{
+	width: 479px;
+	height: 445px;
 }
-.difference li.difference_con_tit{
-	width: 100%;
+.new_container .swiper-slide_warp{
+	margin-top:86px ;
+	width: 479px;
+	height: 362px;
+	background: linear-gradient(153deg, #EAD8FF, #FDEBF6);
+	border-radius: 21px;
 	text-align: center;
-	height: 48px;
-	font-size: 1.8rem;
-	font-family: PingFangSC-Medium,PingFang SC;
-	font-weight: 500;
-	color: rgba(51,51,51,1) !important;
-	line-height: 40px;
-	background: none;
-	margin: 15px 0 !important;
 }
-.magic_ul li{
-	color: #E99526 !important;
+.new_container .swiper-slide_warp img{
+	margin-top: -86px;
+	width: 377px;
+	height: 296px;
 }
-.magic_ul{
-	float: right;
-	width: 50%;
-	background: #FEFBF5;
-}
-/* 魔数简介 */
-.about_magic{
-	width: 90%;
-	font-size: 1.5rem;
-	font-family: PingFangSC-Regular,PingFang SC;
+.newTit{
+	text-align: center;
+	height: 23px;
+	font-size: 23px;
+	font-family: Microsoft YaHei;
 	font-weight: 400;
-	color: rgba(102,102,102,1);
-	line-height: 60px;
-	margin: 0 auto 30px auto;
-	height: 371px;
+	color: #000000;
+	line-height: 23px;
+	margin: 34px auto 14px auto;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-/* 品牌荣誉 */
-.brand_ul{
-    width: 100%;
-    margin: 0 auto;
-    height: 317px;
-    overflow: hidden;
-	background: #F9FAFC;
-}
-
-.pc-banner {
-
-	width: 100%;
-	float: left;
-}
-
-@media screen and (max-width: 668px) {
-	.pc-banner {
-		background-size: auto 100%;
-	}
-}
-
-.swiper-container {
-	width: 100%;
-	margin: 35px 0;
-}
-
-@media screen and (max-width: 668px) {
-	.swiper-container {
-		margin: 20px 0 15px;
-	}
-}
-
-.swiper-slide {
-	-webkit-transition: transform 1.0s;
-	-moz-transition: transform 1.0s;
-	-ms-transition: transform 1.0s;
-	-o-transition: transform 1.0s;
-	-webkit-transform: scale(0.7);
-	transform: scale(0.7);
-}
-
-@media screen and (max-width: 668px) {
-	.swiper-slide {
-		-webkit-transform: scale(0.97);
-		transform: scale(0.97);
-	}
-}
-
-.swiper-slide-active,.swiper-slide-duplicate-active {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
-@media screen and (max-width: 668px) {
-	.swiper-slide-active,.swiper-slide-duplicate-active {
-		-webkit-transform: scale(0.97);
-		transform: scale(0.97);
-	}
-}
-
-.none-effect {
-	-webkit-transition: none;
-	-moz-transition: none;
-	-ms-transition: none;
-	-o-transition: none;
-}
-
-
-.swiper-slide img {
-	width: 100%;
-	border-radius: 14px;
-	display: block;
-}
-
-@media screen and (max-width: 668px) {
-	.swiper-slide img {
-		border-radius: 7px;
-	}
-}
-
-.swiper-pagination {
-	position: relative;
-	margin-bottom: 30px;
-}
-
-.swiper-pagination-bullet {
-	background: #00a0e9;
-	margin-left: 4px;
-	margin-right: 4px;
-	width: 17px;
+.newDesc{
+	text-align: center;
 	height: 17px;
-	opacity: 1;
-	margin-bottom: 4px;
+	font-size: 17px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #A690BF;
+	line-height: 17px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-
-.swiper-pagination-bullet-active {
-	width: 13px;
-	height: 13px;
-	background: #FFF;
-	border: 6px solid #00a0e9;
-	margin-bottom: 0;
+.moreNews{
+	height: 51px;
+	text-align: center;
+	margin: 30px auto 86px auto;
 }
-
-@media screen and (max-width: 668px) {
-
-	.swiper-pagination {
-		position: relative;
-		margin-bottom: 20px;
-	}
-
-	.swiper-pagination-bullet {
-		background: #00a0e9;
-		margin-left: 2px;
-		margin-right: 2px;
-		width: 8px;
-		height: 8px;
-		margin-bottom: 2px;
-	}
-
-	.swiper-pagination-bullet-active {
-		width: 6px;
-		height: 6px;
-		background: #FFF;
-		border: 3px solid #00a0e9;
-		margin-bottom: 0;
-	}
+.moreNews a{
+	width: 242px;
+	height: 51px;
+	background: #8055D0;
+	box-shadow: 0px 8px 19px 0px rgba(133, 103, 187, 0.64);
+	border-radius: 17px;
+	font-size: 20px;
+	font-family: Microsoft YaHei;
+	font-weight: 400;
+	color: #FFFFFF;
+	line-height: 51px;
+	display: inline-block;
 }
-
-.button {
-	width: 1000px;
-	margin: 0 auto;
-	bottom: 43px;
-	position: relative;
-}
-
-@media screen and (max-width: 668px) {
-	.button {
-		width: 70%;
-		bottom: 22px;
-	}
-}
-
-.button div:hover {
-	background-color: #2f4798;
-}
-
-@media screen and (max-width: 668px) {
-	.button div {
-		width: 28px;
-		height: 28px;
-	}
+.news_ul .swiper-wrapper:first-child{
+	margin-left: -25%;
 }

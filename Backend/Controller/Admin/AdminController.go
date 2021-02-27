@@ -2,13 +2,11 @@ package Admin
 
 import (
 	"elearn100/Model/Admin"
-	"elearn100/MqQueue/Sms/SmsServices"
 	"elearn100/Pkg/e"
 	"elearn100/Pkg/setting"
 	"elearn100/Services"
 	"github.com/gin-gonic/gin"
 	"github.com/unknwon/com"
-	"net/http"
 )
 
 // @Summer 管理员登录
@@ -18,10 +16,11 @@ func Login(c *gin.Context) {
 }
 
 func LogOut(c *gin.Context) {
-	if Services.LogOut(c) {
-		c.Header("Cache-Control", "no-cache,no-store")
-		c.Redirect(http.StatusMovedPermanently, "/admin")
+	Services.LogOut()
+	if Services.LogOut() {
+		e.SendRes(c, e.SUCCESS, "操作成功", "")
 	}
+	e.SendRes(c, e.ERROR, "操作失败", "")
 }
 
 // @Summer 用户列表API
@@ -72,16 +71,4 @@ func DetailsUser(c *gin.Context) {
 		return
 	}
 	e.Success(c, "ok", data)
-}
-
-// @Summer 编辑短信
-func AddSms(c *gin.Context) {
-	code, msg := SmsServices.AddSms(c)
-	e.SendRes(c, code, msg, "")
-}
-
-// @Summer 获取短信配置信息
-func GetSms(c *gin.Context) {
-	siteRes := SmsServices.GetSms()
-	e.Success(c, "获取站点信息", siteRes)
 }

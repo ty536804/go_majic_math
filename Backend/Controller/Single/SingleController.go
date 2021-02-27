@@ -30,7 +30,7 @@ func GetSingle(c *gin.Context) {
 	c.Request.Body = e.GetBody(c)
 	id := com.StrTo(c.PostForm("id")).MustInt()
 	var data = make(map[string]interface{})
-	data["list"] = Services.GetNavs(data)
+	data["list"] = Services.RedisGetNavList()
 	data["detail"] = Single.GetSingle(id)
 	e.Success(c, "单页文章详情", data)
 }

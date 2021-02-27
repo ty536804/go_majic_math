@@ -12,13 +12,13 @@ import (
 
 // @Summer 获取全国校区API
 func GetCampus(c *gin.Context) {
+	page := com.StrTo(c.Query("page")).MustInt()
 	var data = make(map[string]interface{})
+	data["count"] = Campus.CountCampus(data)
+	data["list"] = Campus.GetCampus(page, data)
+	data["size"] = setting.PageSize
 	data["a_level"] = 1
 	data["areas"] = Admin.GetAreas(data)
-	page := com.StrTo(c.Query("page")).MustInt()
-	data["count"] = Campus.CountCampus(make(map[string]interface{}))
-	data["list"] = Campus.GetCampus(page, make(map[string]interface{}))
-	data["size"] = setting.PageSize
 	e.Success(c, "全国校区", data)
 }
 

@@ -16,19 +16,54 @@ var baseUrl = "http://www.mofashuxue.com/"
 
 // @Summer 首页
 func Index(c *gin.Context) {
-	Services.AddVisit(c, baseUrl+"wap")
+	//Services.AddVisit(c, baseUrl+"wap")
+	data := make(map[string]interface{})
+	LayoutParam(data)
+	data["banner"] = Services.RedisGetBannerList(1, 1, "banner", "indexBanner")
+	//魔法数学专注于3—12岁少儿数理思维教育
+	data["thought"] = Services.RedisGetSingleByOne(1, 1, "thought", "indexThought")
+	//什么是数理思维？
+	data["why"] = Services.RedisGetSingleByOne(1, 1, "why", "indexWhy")
+	data["what"] = Services.RedisGetBannerList(1, 1, "why", "indexWhat")
+	//为什么要学习数理思维？
+	data["index_one"] = Services.RedisGetOneBanner(1, 1, "01", "indexOne")
+	data["index_two"] = Services.RedisGetOneBanner(1, 1, "02", "indexTwo")
+	data["index_three"] = Services.RedisGetOneBanner(1, 1, "03", "indexThree")
+	data["siwei"] = Services.RedisGetOneBanner(1, 1, "数理思维", "indexSiWei")
+	//张梅玲
+	data["index_zml"] = Services.RedisGetOneBanner(1, 1, "张梅玲", "indexZml")
+	//魔法数学 颠覆旧数学认知
+	data["index_df"] = Services.RedisGetOneBanner(1, 1, "颠覆BK", "indexDf")
+	data["index_vs"] = Services.RedisGetOneBanner(1, 1, "vs", "indexVs")
+	data["index_con"] = Services.RedisGetSingleByOne(1, 1, "vsCon", "indexVsCon")
+	//全新OMO教育模式 形成全场景闭环教学空间
+	data["index_omol"] = Services.RedisGetOneBanner(1, 1, "omo_l", "indexOmoL")
+	data["index_omor"] = Services.RedisGetOneBanner(1, 1, "omo_r", "indexOmoR")
+	//强化核心竞争力
+	data["indexJzl"] = Services.RedisGetOneBanner(1, 1, "jzl", "indexJzl")
+	data["index_cz"] = Services.RedisGetSingleByOne(1, 1, "成长", "subjectCz")
+	//新闻
+	data["index_news"] = Services.RedisGetArticles(1, 3, "indexNew")
 	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
 		"title": "首页",
+		"data":  data,
 	})
 }
 
 // @Summer课程体系
 func Subject(c *gin.Context) {
-	ver := time.Now().Unix()
-	Services.AddVisit(c, baseUrl+"sub")
+	//Services.AddVisit(c, baseUrl+"sub")
+	data := make(map[string]interface{})
+	//六大教学体系
+	data["subject_ys"] = Services.RedisGetSingleByOne(3, 1, "数量运算", "subjectYS")
+	data["subject_vs"] = Services.RedisGetSingleByOne(3, 1, "序与比较", "subjectVs")
+	data["subject_fw"] = Services.RedisGetSingleByOne(3, 1, "空间方位", "subjectFw")
+	data["subject_fl"] = Services.RedisGetSingleByOne(3, 1, "形色分类", "subjectFl")
+	data["subject_gx"] = Services.RedisGetSingleByOne(3, 1, "对应关系", "subjectGx")
+	data["subject_fx"] = Services.RedisGetSingleByOne(3, 1, "逻辑分析", "subjectFx")
 	c.HTML(e.SUCCESS, "wap/subject.html", gin.H{
 		"title": "课程体系",
-		"time":  ver,
+		"data":  data,
 	})
 }
 
@@ -106,4 +141,19 @@ func CheckVideoPwd(c *gin.Context) {
 	data["user_id"] = uid
 	WeChat.AddLook(data)
 	e.Success(c, "视频", video)
+}
+
+// 所有页面用到的内容
+func LayoutParam(data map[string]interface{}) map[string]interface{} {
+	headslogan := Services.RedisGetOneBanner(1, 1, "headslogan", "wapHeadSlogan")
+	headLogo := Services.RedisGetOneBanner(1, 1, "headLogo", "wapHeadLogo")
+	mfsx := Services.RedisGetOneBanner(1, 1, "mfsx", "mfsx")
+	msxqb := Services.RedisGetOneBanner(1, 1, "msxqb", "msxqb")
+	data["menu"] = Services.GetMenu()
+	data["siteInfo"] = Services.GetSite()
+	data["mfsx"] = mfsx
+	data["msxqb"] = msxqb
+	data["headslogan"] = headslogan
+	data["headLogo"] = headLogo
+	return data
 }

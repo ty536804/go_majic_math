@@ -27,20 +27,8 @@ func GetSite() (site Site) {
 }
 
 // @Summer网站信息添加
-func AddSite(data map[string]interface{}) bool {
-	err := db.Db.Create(&Site{
-		SiteTitle:     data["site_title"].(string),
-		SiteDesc:      data["site_desc"].(string),
-		SiteKeyboard:  data["site_title"].(string),
-		SiteCopyright: data["site_copyright"].(string),
-		SiteTel:       data["site_tel"].(string),
-		SiteEmail:     data["site_email"].(string),
-		SiteAddress:   data["site_address"].(string),
-		RecordNumber:  data["record_number"].(string),
-		AdminTel:      data["admin_tel"].(string),
-	})
-
-	if err.Error != nil {
+func AddSite(site Site) bool {
+	if err := db.Db.Create(&site); err.Error != nil {
 		fmt.Print("基础信息添加失败", err)
 		return false
 	}
@@ -48,9 +36,8 @@ func AddSite(data map[string]interface{}) bool {
 }
 
 // @Summer 编辑网站信息
-func EditSite(id int, data interface{}) bool {
-	err := db.Db.Model(&Site{}).Where("id = ?", id).Update(data)
-	if err.Error != nil {
+func EditSite(id int, site Site) bool {
+	if err := db.Db.Model(&Site{}).Where("id = ?", id).Updates(site); err.Error != nil {
 		fmt.Print("基础信息编辑失败", err)
 		return false
 	}
