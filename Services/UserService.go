@@ -144,7 +144,7 @@ func EditUser(c *gin.Context) (code int, err string) {
 	user := Admin.GetAdmin(id)
 	var userInfo Admin.SysAdminUser
 	if act == "user" {
-		if e.CheckPhone(tel) {
+		if !e.CheckPhone(tel) {
 			return e.ERROR, "手机号码格式不正确"
 		}
 

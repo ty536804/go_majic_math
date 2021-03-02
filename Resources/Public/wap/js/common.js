@@ -1,10 +1,3 @@
-$(function() {
-    $("img.lazy").lazyload({
-        effect : "fadeIn"
-    });
-});
-
-
 $('.home_nav').css({"height":$(document).height()+"px"});
 $('.home_icon').on('click',function () {
     let flag = $(".home_nav").is(":hidden");
@@ -65,12 +58,7 @@ $('.f_btn').on('click',function () {
         url: "/AddMessage",
         data:$('#myform').serialize(),
         success: function (result) {
-            if (result.code == 200) {
-                $('input').val('');
-                layer.alert("留言成功");
-                return false
-            }
-            layer.alert("留言失败");
+            layer.alert(result.msg);
             return false
         }
     })

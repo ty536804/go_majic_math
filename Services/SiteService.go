@@ -78,18 +78,18 @@ func validSite(siteTitle, SiteDesc, SiteKeyboard, SiteCopyright, SiteEmail, Site
 }
 
 // @Desc 获取站点信息
-func GetSite() Site.Site {
+func GetSite() Site.WebSite {
 	conn := e.PoolConnect()
 	defer conn.Close()
 
 	redisKey := e.REDISKey + "site"
-	var site Site.Site
+	var site Site.WebSite
 
 	if exists, _ := redis.Bool(conn.Do("exists", redisKey)); exists {
 		res, _ := redis.Values(conn.Do("hgetall", redisKey))
 		_ = redis.ScanStruct(res, &site)
 	} else {
-		site = Site.GetSite()
+		site = Site.GetWebSite()
 		conn.Do("hmset", redis.Args{redisKey}.AddFlat(site)...)
 	}
 	return site

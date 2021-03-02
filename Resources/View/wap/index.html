@@ -9,14 +9,11 @@
         <link href="/static/wap/css/index.css" rel="stylesheet"/>
     </head>
     <body>
-    <section class="pub header_logo">
-        <img src="/static/wap/img/wap_logo.png">
-        <img src="/static/wap/img/wap_OMO.png">
-    </section>
+    {{template "wap_nav"}}
     <!--banner-->
     {{template "wap/banner"}}
     <!--魔法数学专注于3—12岁 少儿数理思维教育-->
-    <section class="pub siwei_wap" style="background: url('/static/wap/img/siwBg.png')  no-repeat bottom center">
+    <section class="pub siwei_wap" style="background: url({{.data.zZBg.Imgurl}})  no-repeat bottom center">
         <h3 class="w100 siwei_tit">{{.data.thought.Name}}</h3>
         <section class="bline w100">
             <p>
@@ -271,46 +268,35 @@
         </ul>
     </section>
     <!--新闻动态-->
-    <section class="pub news" style="background: url('/static/wap/img/newsBg.png') no-repeat top center">
-        <h3 class="newsTit w100">新闻动态</h3>
-        <section class="bline w100">
-            <p>
-                <span></span>
-            </p>
-        </section>
-        <section class="news_ul">
-            <div class="swiper-container new_container">
-                <div class="swiper-wrapper">
-                    {{range .data.index_news}}
-                        <div class="swiper-slide">
-                            <section class="swiper-slide_warp">
-                                <a href="/de?id={{.ID}}">
-                                    <img src="{{.ThumbImg}}">
-                                    <h4 class="w100 newTit">{{.Title}}</h4>
-                                    <p class="w100 newDesc">{{.Summary}}</p>
-                                </a>
-                            </section>
-                        </div>
-                    {{end}}
-                </div>
-            </div>
-        </section>
-        <p class="w100 moreNews"><a href="#">更多资讯</a></p>
+{{/*    <section class="pub news" style="background: url('/static/wap/img/newsBg.png') no-repeat top center">*/}}
+{{/*        <h3 class="newsTit w100">新闻动态</h3>*/}}
+{{/*        <section class="bline w100">*/}}
+{{/*            <p>*/}}
+{{/*                <span></span>*/}}
+{{/*            </p>*/}}
+{{/*        </section>*/}}
+{{/*        <section class="news_ul">*/}}
+{{/*            <div class="swiper-container new_container">*/}}
+{{/*                <div class="swiper-wrapper">*/}}
+{{/*                    {{range .data.index_news}}*/}}
+{{/*                        <div class="swiper-slide">*/}}
+{{/*                            <section class="swiper-slide_warp">*/}}
+{{/*                                <a href="/de?id={{.ID}}">*/}}
+{{/*                                    <img src="{{.ThumbImg}}">*/}}
+{{/*                                    <h4 class="w100 newTit">{{.Title}}</h4>*/}}
+{{/*                                    <p class="w100 newDesc">{{.Summary}}</p>*/}}
+{{/*                                </a>*/}}
+{{/*                            </section>*/}}
+{{/*                        </div>*/}}
+{{/*                    {{end}}*/}}
+{{/*                </div>*/}}
+{{/*            </div>*/}}
+{{/*        </section>*/}}
+{{/*        <p class="w100 moreNews"><a href="#">更多资讯</a></p>*/}}
     </section>
-    {{ template "wap/layout.html"}}
+    {{ template "wap/layout.html" . }}
     </body>
-    <script src="/static/wap/dist/swiper-bundle.min.js"></script>
     <script>
-        var mySwiper = new Swiper('.banner', {
-            autoplay: true,//可选选项，自动滑动
-        })
-
-        //如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
-        new Swiper('.banner')
-        var mySwiper = document.querySelector('.banner').swiper
-        mySwiper.slideNext();
-
-
         var newContriner = new Swiper('.new_container', {
             slidesPerView : 3,
             centeredSlides : true,

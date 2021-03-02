@@ -20,7 +20,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	}
 
 	tel := com.StrTo(c.PostForm("tel")).String()
-	if isOk := e.CheckPhone(tel); isOk {
+	if isOk := e.CheckPhone(tel); !isOk {
 		return e.SUCCESS, "请填写有效的手机号码"
 	}
 
@@ -77,6 +77,7 @@ func SendMessageForMq(MName, area, tel, webType, ip string) {
 	word.Uid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
 	word.MsgType = 1
 	if jsonData, err := json.Marshal(word); err == nil {
+		fmt.Println("添加留言")
 		Mq.PublishEx("mofashuxue", "fanout", "", string(jsonData))
 	} else {
 		fmt.Println("json序列化失败")

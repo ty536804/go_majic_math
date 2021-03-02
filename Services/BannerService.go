@@ -133,7 +133,6 @@ func RedisGetOneBanner(bPosition, clientType int, tag, redisKey string) Banner.B
 
 	redisKey = e.REDISKey + redisKey
 	var banner Banner.BannerData
-
 	if exists, _ := redis.Bool(conn.Do("exists", redisKey)); exists {
 		res, _ := redis.Values(conn.Do("hgetall", redisKey))
 		redis.ScanStruct(res, &banner)

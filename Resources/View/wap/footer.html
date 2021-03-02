@@ -1,88 +1,57 @@
-{{define "wap_footer"}}
-    <footer>
-        <section class="bottom_form" id="fedbook">
-            <h3 class="form_tit">填写表单</h3>
-            <form  name="myform" id="myform" class="footer_con_right"  action="#">
-                <input type="hidden" name="com" class="c-com">
-                <input type="hidden" name="client" value="wap">
-                <p class="c_form">
-                    <label>姓名：</label>
-                    <input type="text" name="mname" class="c-area">
-                </p>
-                <p class="c_form">
-                    <label>电话：</label>
-                    <input type="text" name="tel" class="c-tel">
-                </p>
-                <p class="c_form">
-                    <label>地区：</label>
-                    <input type="text" name="area" class="c-city">
-                </p>
-                <p class="form_btn">
-                    <a class="f_btn">提交</a>
-                </p>
-            </form>
+{{define "wap/layout.html"}}
+    <section class="pub footer">
+        <section class="bottom_form">
+            <h3 class="w100 bTiti">填写表单</h3>
+            <section>
+                <form name="myform" id="myform" class="footer_con_right" action="#">
+                    <input type="hidden" name="com" class="c-com" value="">
+                    <input type="hidden" name="client" value="wap">
+                    <p class="c_form">
+                        <label>姓名：</label>
+                        <input type="text" name="mname" class="c-area">
+                    </p>
+                    <p class="c_form">
+                        <label>电话：</label>
+                        <input type="text" name="tel" class="c-tel">
+                    </p>
+                    <p class="c_form">
+                        <label>地区：</label>
+                        <input type="text" name="area" class="c-city">
+                    </p>
+                    <p class="form_btn w100">
+                        <a class="f_btn">提交</a>
+                    </p>
+                </form>
+            </section>
         </section>
-        <p class="footer_logo"><img data-original="/static/wap/img/footer_logo.png" class="lazy" src=""></p>
-        <section class="authorized_phone">授<span class="footer_line">权电</span>话</section>
-        <section class="footer_bottom_tel">
-            <p class="footer_tel"><img data-original="/static/wap/img/footer_tel.png" src="" class="lazy">400 175 9669</p>
+        <p class="w100 chengnuo">我们承诺您的信息将严格保密请放心填写</p>
+        <p class="w100 copyrightBng">
+            <img src="/static/wap/img/footer_log.png">
+        </p>
+        <p class="w100 sqphone"><img src="/static/wap/img/sqphone.png"><span>授权电话：{{.data.siteInfo.ClientTel}}</span></p>
+        <p class="w100 address">总部地址：{{.data.siteInfo.SiteAddress}}</p>
+        <section class="copyright w100">网站备案/许可证号：<a href="https://beian.miit.gov.cn">{{.data.siteInfo.RecordNumber}}</a>（投资有风险，加盟需谨慎）</section>
+        <section class="wechart w100">
+            <section class="wechart_ul">
+                <dl>
+                    <dt>
+                        <img src="{{.data.mfsx.Imgurl}}">
+                    </dt>
+                    <dd>魔法数学<br/>公众号</dd>
+                </dl>
+                <section class="code_mid"></section>
+                <dl>
+                    <dt>
+                        <img src="{{.data.msxqb.Imgurl}}">
+                    </dt>
+                    <dd>魔数<br/>APP下载</dd>
+                </dl>
+            </section>
         </section>
-        <section class="copyright">网站备案/许可证号：<a href="https://beian.miit.gov.cn">京ICP备20014303号-1</a>（投资有风险，加盟需谨慎）</section>
-    </footer>
-    <div class="foot-box"><a href="tel:4001759669">免费电话</a><a href="#fedbook" style="background-color: rgb(157, 200, 22)">留言咨询</a></div>
+    </section>
+    <div class="foot-box"><a href="tel:4001759669">免费电话</a><a href="#myform" style="background-color: rgb(157, 200, 22)">留言咨询</a></div>
+    <script src="/static/FrontEnd/js/jquery.min.js"></script>
     <script type="text/javascript" src="/static/FrontEnd/js/layer.js"></script>
-    <script type="text/javascript" src="/static/FrontEnd/js/jquery.lazyload.js"></script>
-    <script type="text/javascript" src="/static/wap/js/common.js"></script>
-    <script type="text/javascript" src="/static/wap/js/swiper.min.js"></script>
-    <script type="text/javascript" src="/static/wap/js/jquery.hiSlider.js"></script>
-    <script>
-        window.onload = function() {
-            var swiper = new Swiper('.swiper-container',{
-                autoplay:3000,
-                speed:1000,
-                autoplayDisableOnInteraction : false,
-                loop:true,
-                centeredSlides : true,
-                slidesPerView:2,
-                pagination : '.swiper-pagination',
-                paginationClickable:true,
-                prevButton:'.swiper-button-prev',
-                nextButton:'.swiper-button-next',
-                onInit:function(swiper){
-                    swiper.slides[2].className="swiper-slide swiper-slide-active";//第一次打开不要动画
-                },
-                breakpoints: {
-                    668: {
-                        slidesPerView: 1,
-                    }
-                }
-            });
-            $('.hiSlider3').hiSlider({
-                isFlexible: true,
-                isSupportTouch: true,
-                titleAttr: function(curIdx){
-                    return $('img', this).attr('alt');
-                }
-            });
-
-            $('.hiSlider4').hiSlider({
-                isFlexible: true,
-                isSupportTouch: true,
-                titleAttr: function(curIdx){
-                    return $('img', this).attr('alt');
-                }
-            });
-
-            isAndroid();
-            // 判断安卓
-            function isAndroid() {
-                var u = navigator.userAgent;
-
-                if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
-                    //swiper-slide swiper-slide-active
-                    $('.swiper-slide').css({"transform":"scale(0.9)"})
-                }
-            }
-        }
-    </script>
-{{end}}
+    <script src="/static/wap/dist/swiper-bundle.min.js"></script>
+    <script src="/static/wap/js/common.js"></script>
+{{ end }}

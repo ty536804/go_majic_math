@@ -893,3 +893,6 @@
 .news_ul .swiper-wrapper:first-child{
 	margin-left: -25%;
 }
+.footer{
+	margin-top: 120px;
+}

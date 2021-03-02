@@ -16,7 +16,7 @@ var baseUrl = "http://www.mofashuxue.com/"
 
 // @Summer 首页
 func Index(c *gin.Context) {
-	//Services.AddVisit(c, baseUrl+"wap")
+	Services.AddVisit(c, baseUrl+"wap")
 	data := make(map[string]interface{})
 	LayoutParam(data)
 	data["banner"] = Services.RedisGetBannerList(1, 1, "banner", "indexBanner")
@@ -40,8 +40,9 @@ func Index(c *gin.Context) {
 	data["index_omol"] = Services.RedisGetOneBanner(1, 1, "omo_l", "indexOmoL")
 	data["index_omor"] = Services.RedisGetOneBanner(1, 1, "omo_r", "indexOmoR")
 	//强化核心竞争力
-	data["indexJzl"] = Services.RedisGetOneBanner(1, 1, "jzl", "indexJzl")
+	data["indexJzl"] = Services.RedisGetOneBanner(1, 1, "jzl", "wapIndexJzl")
 	data["index_cz"] = Services.RedisGetSingleByOne(1, 1, "成长", "subjectCz")
+	data["zZBg"] = Services.RedisGetOneBanner(1, 1, "zZBg", "indexZZBg")
 	//新闻
 	data["index_news"] = Services.RedisGetArticles(1, 3, "indexNew")
 	c.HTML(e.SUCCESS, "wap/index.html", gin.H{
@@ -145,8 +146,8 @@ func CheckVideoPwd(c *gin.Context) {
 
 // 所有页面用到的内容
 func LayoutParam(data map[string]interface{}) map[string]interface{} {
-	headslogan := Services.RedisGetOneBanner(1, 1, "headslogan", "wapHeadSlogan")
-	headLogo := Services.RedisGetOneBanner(1, 1, "headLogo", "wapHeadLogo")
+	headslogan := Services.RedisGetOneBanner(1, 1, "headslogan", "headSlogan")
+	headLogo := Services.RedisGetOneBanner(1, 1, "headLogo", "headLogo")
 	mfsx := Services.RedisGetOneBanner(1, 1, "mfsx", "mfsx")
 	msxqb := Services.RedisGetOneBanner(1, 1, "msxqb", "msxqb")
 	data["menu"] = Services.GetMenu()
