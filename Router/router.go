@@ -87,11 +87,11 @@ func InitRouter() *gin.Engine {
 	r.GET("/videoDetail", Wap.Video)
 	r.POST("/checkVideo", Wap.CheckVideoPwd)
 	//Backend
-	//r.GET("/login", func(c *gin.Context) {
-	//	c.HTML(e.SUCCESS, "admin/login.html", gin.H{
-	//		"title": "登录",
-	//	})
-	//})
+	r.GET("/login", func(c *gin.Context) {
+		c.HTML(e.SUCCESS, "admin/login.html", gin.H{
+			"title": "登录",
+		})
+	})
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.JWT())
 	{
