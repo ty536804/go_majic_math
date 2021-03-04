@@ -3,7 +3,6 @@ package jwt
 import (
 	"elearn100/Pkg/e"
 	"elearn100/Pkg/util"
-	"github.com/garyburd/redigo/redis"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -34,8 +33,15 @@ func JWT() gin.HandlerFunc {
 		conn := e.PoolConnect()
 		defer conn.Close()
 
-		tokenStr, _ := redis.String(conn.Do("get", e.Token))
-		if tokenStr != "" && tokenStr != c.PostForm("sign") || tokenStr == "" && c.PostForm("sign") != "" {
+		//tokenStr, _ := redis.String(conn.Do("get", e.Token))
+		//if tokenStr != "" && tokenStr != c.PostForm("sign") || tokenStr == "" && c.PostForm("sign") != "" {
+		//	e.Error(c, "非法签名", "")
+		//	c.Abort()
+		//	return
+		//}
+
+		token := util.GetSignContent(c)
+		if token == c.PostForm("sign") {
 			e.Error(c, "非法签名", "")
 			c.Abort()
 			return
