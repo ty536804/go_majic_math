@@ -33,11 +33,12 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	area := e.TrimHtml(com.StrTo(c.PostForm("area")).String())
 	webType := com.StrTo(c.PostForm("client")).String()
 	msgType := com.StrTo(c.PostForm("msg_type")).MustInt()
+	webCom := com.StrTo(c.PostForm("com")).String()
 	if code, err := validMessage(MName, area, tel); code == e.ERROR {
 		return code, err
 	}
 
-	SendMessageForMq(MName, area, tel, webType, ip, msgType)
+	SendMessageForMq(MName, area, tel, webType, ip, webCom, msgType)
 	sendSms(tel, area, MName) //发送短信
 	return e.SUCCESS, "提交成功"
 }
@@ -61,11 +62,12 @@ type Info struct {
 	Client  string
 	Ip      string
 	Uid     string
+	Com     string
 	MsgType int
 }
 
 // @Desc 表单提交到队列
-func SendMessageForMq(MName, area, tel, webType, ip string, msgType int) {
+func SendMessageForMq(MName, area, tel, webType, ip, webCom string, msgType int) {
 	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
 		ip = ip[0:ipIndex]
 	}
@@ -75,6 +77,7 @@ func SendMessageForMq(MName, area, tel, webType, ip string, msgType int) {
 	word.Tel = tel
 	word.Client = webType
 	word.Ip = ip
+	word.Com = webCom
 	word.Uid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
 	word.MsgType = msgType
 	if jsonData, err := json.Marshal(word); err == nil {

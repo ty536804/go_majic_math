@@ -46,6 +46,7 @@ type Info struct {
 	Ip      string
 	Uid     string
 	MsgType int
+	Com     string
 }
 
 type Message struct {
@@ -59,6 +60,7 @@ type Message struct {
 	Ip        string    `json:"ip" gorm:"type:varchar(50);not null; default ''; comment:'ip地址' "`
 	VisitUuid string    `json:"visit_uuid" gorm:"type:varchar(32);not null; default ''; comment:'用户ID' "`
 	MsgType   int       `json:"msg_type" gorm:"type:not null; default '0'; comment:'1 魔法数学 2布卢卡斯' "`
+	Com       string    `json:"com" gorm:"type:varchar(190);not null; default ''; comment:'留言来源页' "`
 }
 
 func main() {
@@ -78,6 +80,7 @@ func AddMessage(s string) {
 			Ip:        msg.Ip,
 			VisitUuid: msg.Uid,
 			MsgType:   msg.MsgType,
+			Com:       msg.Com,
 		})
 		if result.Error != nil {
 			fmt.Print("添加留言失败", result)
