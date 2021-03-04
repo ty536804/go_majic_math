@@ -30,8 +30,8 @@ func JWT() gin.HandlerFunc {
 			return
 		}
 
-		conn := e.PoolConnect()
-		defer conn.Close()
+		//conn := e.PoolConnect()
+		//defer conn.Close()
 
 		//tokenStr, _ := redis.String(conn.Do("get", e.Token))
 		//if tokenStr != "" && tokenStr != c.PostForm("sign") || tokenStr == "" && c.PostForm("sign") != "" {
