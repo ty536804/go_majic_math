@@ -32,11 +32,12 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 	MName := e.TrimHtml(com.StrTo(c.PostForm("mname")).String())
 	area := e.TrimHtml(com.StrTo(c.PostForm("area")).String())
 	webType := com.StrTo(c.PostForm("client")).String()
-
+	msgType := com.StrTo(c.PostForm("msg_type")).MustInt()
 	if code, err := validMessage(MName, area, tel); code == e.ERROR {
 		return code, err
 	}
-	SendMessageForMq(MName, area, tel, webType, ip)
+
+	SendMessageForMq(MName, area, tel, webType, ip, msgType)
 	sendSms(tel, area, MName) //发送短信
 	return e.SUCCESS, "提交成功"
 }
@@ -64,7 +65,7 @@ type Info struct {
 }
 
 // @Desc 表单提交到队列
-func SendMessageForMq(MName, area, tel, webType, ip string) {
+func SendMessageForMq(MName, area, tel, webType, ip string, msgType int) {
 	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
 		ip = ip[0:ipIndex]
 	}
@@ -75,7 +76,7 @@ func SendMessageForMq(MName, area, tel, webType, ip string) {
 	word.Client = webType
 	word.Ip = ip
 	word.Uid = strings.Split(strings.Replace(ip, ".", "", -1), ":")[0]
-	word.MsgType = 1
+	word.MsgType = msgType
 	if jsonData, err := json.Marshal(word); err == nil {
 		fmt.Println("添加留言")
 		Mq.PublishEx("mofashuxue", "fanout", "", string(jsonData))
