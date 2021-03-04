@@ -25,9 +25,9 @@ func AddVisit(c *gin.Context, url string) {
 	history.VisitHistory = visitHistory
 
 	if c.Request.RemoteAddr != "" {
-		visit := Visit.GetVisit(uid)
+		visits := Visit.GetVisit(uid)
 		visit.Ip = strings.Split(c.Request.RemoteAddr, ":")[0]
-		if visit.ID <= 0 { //新增浏览记录
+		if visits.ID <= 0 { //新增浏览记录
 			visit.Ip = strings.Split(c.Request.RemoteAddr, ":")[0]
 			Visit.AddVisit(visit, history)
 		} else { //更新
