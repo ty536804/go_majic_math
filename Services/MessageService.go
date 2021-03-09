@@ -24,7 +24,7 @@ func AddMessage(c *gin.Context) (code int, msg string) {
 		return e.SUCCESS, "请填写有效的手机号码"
 	}
 
-	ip := c.Request.RemoteAddr
+	ip := e.GetIpAddress(c.Request.RemoteAddr)
 	if total := Message.GetTotalMessage(ip); total >= 5 {
 		return e.SUCCESS, "提交成功"
 	}
@@ -68,9 +68,6 @@ type Info struct {
 
 // @Desc 表单提交到队列
 func SendMessageForMq(MName, area, tel, webType, ip, webCom string, msgType int) {
-	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
-		ip = ip[0:ipIndex]
-	}
 	word := new(Info)
 	word.MName = MName
 	word.Area = area

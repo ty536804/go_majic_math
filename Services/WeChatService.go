@@ -178,7 +178,6 @@ func ResolveUrl(offset, count int) ([]byte, error) {
 func WeAddArticle(data map[string]interface{}) bool {
 	defer wt.Done()
 
-	UpdatedAt := time.Now().Format("2006-01-02 15:04:05")
 	article := db.Db.Create(&Article.Article{
 		Title:     data["title"].(string),
 		Summary:   data["summary"].(string),
@@ -191,7 +190,7 @@ func WeAddArticle(data map[string]interface{}) bool {
 		Sort:      data["sort"].(int),
 		NavId:     data["nav_id"].(int),
 		CreatedAt: data["created_at"].(string),
-		UpdatedAt: UpdatedAt,
+		UpdatedAt: e.GetCurrentTime(),
 	})
 
 	if article.Error != nil {

@@ -2,9 +2,9 @@ package Material
 
 import (
 	db "elearn100/Database"
+	"elearn100/Pkg/e"
 	"elearn100/Pkg/setting"
 	"fmt"
-	"time"
 )
 
 // 视频
@@ -23,7 +23,7 @@ type Material struct {
 
 // @Summer 添加视频
 func AddMaterial(data map[string]interface{}) bool {
-	CreatedAt := time.Now().Format("2006-01-02 15:04:05")
+	CreatedAt := e.GetCurrentTime()
 	res := db.Db.Create(&Material{
 		Title:     data["title"].(string),
 		VideoSrc:  data["video_src"].(string),

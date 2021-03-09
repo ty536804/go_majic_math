@@ -3,6 +3,7 @@ package e
 import (
 	"bytes"
 	"elearn100/Pkg/setting"
+	"fmt"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 	"io"
@@ -11,6 +12,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+	"time"
 )
 
 const (
@@ -134,4 +136,31 @@ func GetFirstUrl(Referer, host, url, reqURI string) string {
 		return setting.ReplaceSiteUrl(host, url, reqURI) //来源页
 	}
 	return Referer
+}
+
+// @Desc 去除IP地址后面的端口号
+func GetIpAddress(ip string) string {
+	if ipIndex := strings.LastIndex(ip, ":"); ipIndex != -1 {
+		return ip[0:ipIndex]
+	}
+	return ip
+}
+
+// @Desc 创建日志目录
+func CreateLogDir() string {
+	dir := GetDir()
+	dir = dir + "/Log/" + time.Now().Format("20060102") + "/"
+	_, err := os.Stat(dir)
+	if err != nil {
+		err := os.Mkdir(dir, os.ModePerm)
+		if err != nil {
+			fmt.Printf("目录创建失败:%s \n", err)
+		}
+		return dir
+	}
+	return dir
+}
+
+func GetCurrentTime() string {
+	return time.Now().Format("2006-01-02 15:04:05")
 }

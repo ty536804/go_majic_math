@@ -2,8 +2,8 @@ package WeChat
 
 import (
 	db "elearn100/Database"
+	"elearn100/Pkg/e"
 	"fmt"
-	"time"
 )
 
 type LookHistory struct {
@@ -16,7 +16,7 @@ type LookHistory struct {
 
 // @Summer 添加观看记录
 func AddLook(data map[string]interface{}) bool {
-	CreatedAt := time.Now().Format("2006-01-02 15:04:05")
+	CreatedAt := e.GetCurrentTime()
 	res := db.Db.Create(&LookHistory{
 		Url:       data["url"].(string),
 		UserId:    data["user_id"].(int),
