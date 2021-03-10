@@ -1,3 +1,4 @@
+$('.c-com').val(window.location.href);
 $('.home_nav').css({"height":$(document).height()+"px"});
 $('.home_icon').on('click',function () {
     let flag = $(".home_nav").is(":hidden");
